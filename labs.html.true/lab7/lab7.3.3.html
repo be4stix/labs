@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<div>
+	<p>text text text</p>
+	<p id = 'elem'>text text text</p>
+	<p>text text text</p>
+	<p>text text text</p>
+	<p>text text text</p>
+</div>	
+<script type="text/javascript">
+	let par = document.getElementById('elem');
+	let next = par.nextElementSibling;
+	let next2 = next.nextElementSibling;
+	next2.innerHTML+='!';
+</script>
+</body>
+</html>

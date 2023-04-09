@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="laba9.1.css">
+</head>
+<body>
+    <div id="circle"></div>
+    <div class="css" onClick="animation({}, this);"></div> 
+    <script>
+        function animation(args, elem) { 
+        var val = {
+            radius: 150, 
+            speed:40
+        }
+        var f = 0;
+        var s = 2 * Math.PI / 180; 
+        setInterval(function() { 
+            f += s;
+            elem.style.top = 210 - val.radius * Math.cos(f) + 'px';
+            elem.style.left = 210 + val.radius * Math.sin(f)  + 'px';
+        }, val.speed)
+    }
+    </script> 
+
+    <style type="text/css">
+        .css {
+    position: absolute;
+    background: orange;
+    width:30px;
+    height:30px;
+    left: 100px;
+    top: 90px;
+    border:solid orange;
+    border-radius: 50%;
+    animation: change-background 2s ease infinite alternate;
+}
+
+#circle {
+    position: absolute; 
+    left: 150px; 
+    top: 145px;  
+    width: 150px; 
+    height: 150px;
+    border:solid orange;
+    border-radius: 50%;
+    
+}
+
+@keyframes change-background {
+    from {
+        background: orange;
+    }
+    to {
+        background: red;
+    }
+  }
+    </style>
+</body>
+</html>

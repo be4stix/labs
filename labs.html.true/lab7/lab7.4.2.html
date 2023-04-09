@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+<div>text text
+	<div>
+		<p id='elem'>text text</p> 
+		<p>text text</p>
+		<p>text text</p>
+	</div>	
+	<p>text text</p>
+</div>
+</body>
+<script type="text/javascript">
+	let elem = document.getElementById('elem');
+	let parent = elem.parentElement;
+	let parent2 = parent.parentElement;
+	parent2.style.color='red';
+</script>
+</html>

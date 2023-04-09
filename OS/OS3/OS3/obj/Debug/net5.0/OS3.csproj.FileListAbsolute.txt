@@ -1,0 +1,16 @@
+C:\Users\Сергей\Desktop\OS\OS3\OS3\bin\Debug\net5.0\OS3.exe
+C:\Users\Сергей\Desktop\OS\OS3\OS3\bin\Debug\net5.0\OS3.deps.json
+C:\Users\Сергей\Desktop\OS\OS3\OS3\bin\Debug\net5.0\OS3.runtimeconfig.json
+C:\Users\Сергей\Desktop\OS\OS3\OS3\bin\Debug\net5.0\OS3.runtimeconfig.dev.json
+C:\Users\Сергей\Desktop\OS\OS3\OS3\bin\Debug\net5.0\OS3.dll
+C:\Users\Сергей\Desktop\OS\OS3\OS3\bin\Debug\net5.0\ref\OS3.dll
+C:\Users\Сергей\Desktop\OS\OS3\OS3\bin\Debug\net5.0\OS3.pdb
+C:\Users\Сергей\Desktop\OS\OS3\OS3\obj\Debug\net5.0\OS3.csproj.AssemblyReference.cache
+C:\Users\Сергей\Desktop\OS\OS3\OS3\obj\Debug\net5.0\OS3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Сергей\Desktop\OS\OS3\OS3\obj\Debug\net5.0\OS3.AssemblyInfoInputs.cache
+C:\Users\Сергей\Desktop\OS\OS3\OS3\obj\Debug\net5.0\OS3.AssemblyInfo.cs
+C:\Users\Сергей\Desktop\OS\OS3\OS3\obj\Debug\net5.0\OS3.csproj.CoreCompileInputs.cache
+C:\Users\Сергей\Desktop\OS\OS3\OS3\obj\Debug\net5.0\OS3.dll
+C:\Users\Сергей\Desktop\OS\OS3\OS3\obj\Debug\net5.0\ref\OS3.dll
+C:\Users\Сергей\Desktop\OS\OS3\OS3\obj\Debug\net5.0\OS3.pdb
+C:\Users\Сергей\Desktop\OS\OS3\OS3\obj\Debug\net5.0\OS3.genruntimeconfig.cache

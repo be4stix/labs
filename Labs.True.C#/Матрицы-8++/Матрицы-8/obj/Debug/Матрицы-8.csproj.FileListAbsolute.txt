@@ -1,0 +1,14 @@
+C:\Users\Сергей\Desktop\Labs.True.C#\Матрицы-8\Матрицы-8\bin\Debug\Матрицы-8.exe.config
+C:\Users\Сергей\Desktop\Labs.True.C#\Матрицы-8\Матрицы-8\bin\Debug\Матрицы-8.exe
+C:\Users\Сергей\Desktop\Labs.True.C#\Матрицы-8\Матрицы-8\bin\Debug\Матрицы-8.pdb
+C:\Users\Сергей\Desktop\Labs.True.C#\Матрицы-8\Матрицы-8\obj\Debug\Матрицы-8.csproj.AssemblyReference.cache
+C:\Users\Сергей\Desktop\Labs.True.C#\Матрицы-8\Матрицы-8\obj\Debug\Матрицы-8.csproj.CoreCompileInputs.cache
+C:\Users\Сергей\Desktop\Labs.True.C#\Матрицы-8\Матрицы-8\obj\Debug\Матрицы-8.exe
+C:\Users\Сергей\Desktop\Labs.True.C#\Матрицы-8\Матрицы-8\obj\Debug\Матрицы-8.pdb
+C:\Users\Сергей\Desktop\Labs.True.C#\Матрицы-8+\Матрицы-8\bin\Debug\Матрицы-8.exe.config
+C:\Users\Сергей\Desktop\Labs.True.C#\Матрицы-8+\Матрицы-8\bin\Debug\Матрицы-8.exe
+C:\Users\Сергей\Desktop\Labs.True.C#\Матрицы-8+\Матрицы-8\bin\Debug\Матрицы-8.pdb
+C:\Users\Сергей\Desktop\Labs.True.C#\Матрицы-8+\Матрицы-8\obj\Debug\Матрицы-8.csproj.AssemblyReference.cache
+C:\Users\Сергей\Desktop\Labs.True.C#\Матрицы-8+\Матрицы-8\obj\Debug\Матрицы-8.csproj.CoreCompileInputs.cache
+C:\Users\Сергей\Desktop\Labs.True.C#\Матрицы-8+\Матрицы-8\obj\Debug\Матрицы-8.exe
+C:\Users\Сергей\Desktop\Labs.True.C#\Матрицы-8+\Матрицы-8\obj\Debug\Матрицы-8.pdb

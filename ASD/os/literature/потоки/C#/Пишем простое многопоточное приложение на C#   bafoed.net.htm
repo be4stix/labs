@@ -1,0 +1,762 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0028)http://bafoed.net/post/7624/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU"><!--<![endif]--><head profile="http://gmpg.org/xfn/11"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+<meta name="google-site-verification" content="MNkc1OXHp43qhc9qbij9XVJQ8DIoYdzkBmQp4tWkAAU">
+	<link rel="pingback" href="http://bafoed.net/xmlrpc.php">
+<link rel="icon" href="http://bafoed.net/favicon.ico" type="image/x-icon"> 
+<link rel="shortcut icon" href="http://bafoed.net/favicon.ico" type="image/x-icon"> 
+
+	<title>Пишем простое многопоточное приложение на C# | bafoed.net</title>
+<link rel="alternate" type="application/rss+xml" title="bafoed.net » Лента" href="http://bafoed.net/feed/">
+<link rel="alternate" type="application/rss+xml" title="bafoed.net » Лента комментариев" href="http://bafoed.net/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="bafoed.net » Лента комментариев к «Пишем простое многопоточное приложение на C#»" href="http://bafoed.net/post/7624/feed/">
+<link rel="stylesheet" id="suffusion-theme-css" href="./Пишем простое многопоточное приложение на C#   bafoed.net_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="suffusion-theme-skin-1-css" href="./Пишем простое многопоточное приложение на C#   bafoed.net_files/skin.css" type="text/css" media="all">
+<!--[if !IE]>--><link rel="stylesheet" id="suffusion-rounded-css" href="./Пишем простое многопоточное приложение на C#   bafoed.net_files/rounded-corners.css" type="text/css" media="all">
+<!--<![endif]-->
+<!--[if gt IE 8]><link rel='stylesheet' id='suffusion-rounded-css'  href='http://bafoed.net/wp-content/themes/suffusion/rounded-corners.css?ver=4.0.4' type='text/css' media='all' />
+<![endif]-->
+<!--[if lt IE 8]><link rel='stylesheet' id='suffusion-ie-css'  href='http://bafoed.net/wp-content/themes/suffusion/ie-fix.css?ver=4.0.4' type='text/css' media='all' />
+<![endif]-->
+<link rel="stylesheet" id="suffusion-generated-css" href="./Пишем простое многопоточное приложение на C#   bafoed.net_files/saved_resource" type="text/css" media="all">
+<link rel="stylesheet" id="external-links-css" href="./Пишем простое многопоточное приложение на C#   bafoed.net_files/sem-external-links.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-syntax-css-css" href="./Пишем простое многопоточное приложение на C#   bafoed.net_files/wp-syntax.css" type="text/css" media="all">
+<script type="text/javascript" async="" src="./Пишем простое многопоточное приложение на C#   bafoed.net_files/ga.js"></script><script type="text/javascript" src="./Пишем простое многопоточное приложение на C#   bafoed.net_files/l10n.js"></script>
+<script type="text/javascript" src="./Пишем простое многопоточное приложение на C#   bafoed.net_files/comment-reply.js"></script>
+<script type="text/javascript" src="./Пишем простое многопоточное приложение на C#   bafoed.net_files/jquery.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var Suffusion_JS = {
+	wrapper_width_type_page_template_1l_sidebar_php: "fixed",
+	wrapper_max_width_page_template_1l_sidebar_php: "1200",
+	wrapper_min_width_page_template_1l_sidebar_php: "600",
+	wrapper_orig_width_page_template_1l_sidebar_php: "75",
+	wrapper_width_type_page_template_1r_sidebar_php: "fluid",
+	wrapper_max_width_page_template_1r_sidebar_php: "1300",
+	wrapper_min_width_page_template_1r_sidebar_php: "600",
+	wrapper_orig_width_page_template_1r_sidebar_php: "100",
+	wrapper_width_type_page_template_1l1r_sidebar_php: "fixed",
+	wrapper_max_width_page_template_1l1r_sidebar_php: "1200",
+	wrapper_min_width_page_template_1l1r_sidebar_php: "600",
+	wrapper_orig_width_page_template_1l1r_sidebar_php: "75",
+	wrapper_width_type_page_template_2l_sidebars_php: "fixed",
+	wrapper_max_width_page_template_2l_sidebars_php: "1200",
+	wrapper_min_width_page_template_2l_sidebars_php: "600",
+	wrapper_orig_width_page_template_2l_sidebars_php: "75",
+	wrapper_width_type_page_template_2r_sidebars_php: "fixed",
+	wrapper_max_width_page_template_2r_sidebars_php: "1200",
+	wrapper_min_width_page_template_2r_sidebars_php: "600",
+	wrapper_orig_width_page_template_2r_sidebars_php: "75",
+	wrapper_width_type: "fluid",
+	wrapper_max_width: "1200",
+	wrapper_min_width: "600",
+	wrapper_orig_width: "100",
+	wrapper_width_type_page_template_no_sidebars_php: "fluid",
+	wrapper_max_width_page_template_no_sidebars_php: "1200",
+	wrapper_min_width_page_template_no_sidebars_php: "600",
+	wrapper_orig_width_page_template_no_sidebars_php: "100",
+	suf_featured_interval: "4000",
+	suf_featured_transition_speed: "1000",
+	suf_featured_fx: "fade",
+	suf_featured_pause: "Пауза",
+	suf_featured_resume: "Сводка",
+	suf_featured_sync: "0",
+	suf_featured_pager_style: "numbers",
+	suf_nav_delay: "500",
+	suf_nav_effect: "fade",
+	suf_navt_delay: "500",
+	suf_navt_effect: "fade",
+	suf_jq_masonry_enabled: "disabled",
+	suf_fix_aspect_ratio: "preserve",
+	suf_show_drop_caps: ""
+};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Пишем простое многопоточное приложение на C#   bafoed.net_files/suffusion.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://bafoed.net/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://bafoed.net/wp-includes/wlwmanifest.xml"> 
+<link rel="index" title="bafoed.net" href="http://bafoed.net/">
+<link rel="start" title="Блог – попытка #2" href="http://bafoed.net/post/4/">
+<link rel="prev" title="Список свежих прокси от 1.08.2012 16:41" href="http://bafoed.net/post/7633/">
+<link rel="next" title="Список свежих прокси от 1.08.2012 16:50" href="http://bafoed.net/post/7635/">
+<link rel="shortlink" href="http://bafoed.net/?p=7624">
+
+<!-- All in One SEO Pack 1.6.15 by Michael Torbert of Semper Fi Web Design[981,1090] -->
+<meta name="keywords" content="c#,threading,многопоточность">
+<link rel="canonical" href="./Пишем простое многопоточное приложение на C#   bafoed.net_files/Пишем простое многопоточное приложение на C#   bafoed.net.htm">
+<!-- /all in one seo pack -->
+		<script type="text/javascript">
+
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-17850810-4']);
+		  _gaq.push(['_trackPageview']);
+
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+
+		</script>
+	<script src="./Пишем простое многопоточное приложение на C#   bafoed.net_files/openapi.js" type="text/javascript" charset="windows-1251"></script>
+		<script type="text/javascript">
+		  VK.init({apiId: 2697957, onlyWidgets: true});
+		</script><meta name="robots" content="index, follow">
+<!-- Start Additional Feeds -->
+<!-- End Additional Feeds -->
+<script type="text/javascript" src="./Пишем простое многопоточное приложение на C#   bafoed.net_files/openapi(1).js"></script>
+<script type="text/javascript">
+  VK.init({
+    apiId: 2697957,
+    onlyWidgets: true
+  });
+</script>
+
+<!-- location header -->
+</head>
+
+<body class="single single-post postid-7624 single-format-standard light-theme-gray-2">
+    				<div id="wrapper" class="fix">
+					<div id="header-container" class="fix">
+					<div id="header" class="fix">
+			<h2 class="blogtitle left"><a href="http://bafoed.net/">bafoed.net</a></h2>
+		<div class="description right">Очередной блог</div>
+    </div><!-- /header -->
+ 	<div id="nav" class="tab fix">
+		<div class="col-control left">
+	<!-- right-header-widgets -->
+	<div id="right-header-widgets" class="warea">
+	
+<form method="get" class="searchform " action="http://bafoed.net/">
+	<input type="text" name="s" class="searchfield" value="Поиск" onfocus="if (this.value == &#39;Поиск&#39;) {this.value = &#39;&#39;;}" onblur="if (this.value == &#39;&#39;) {this.value = &#39;Поиск&#39;;}">
+	<input type="submit" class="searchsubmit" value="" name="searchsubmit">
+</form>
+	</div>
+	<!-- /right-header-widgets -->
+		</div><!-- /col-control -->
+	</div><!-- /nav -->
+			</div><!-- //#header-container -->
+			<div id="container" class="fix">
+				    <div id="main-col">
+		  	<div id="content">
+	<div class="post-7624 post type-post status-publish format-standard hentry category-16 tag-c tag-threading tag-58 category-16-id full-content" id="post-7624">
+<div class="title-container fix">
+	<div class="title">
+		<h1 class="posttitle"><a href="./Пишем простое многопоточное приложение на C#   bafoed.net_files/Пишем простое многопоточное приложение на C#   bafoed.net.htm" class="entry-title" rel="bookmark" title="Пишем простое многопоточное приложение на C#">Пишем простое многопоточное приложение на C#</a></h1>
+		<div class="postdata fix">
+					<span class="category"><span class="icon">&nbsp;</span><a href="http://bafoed.net/post/category/%d0%ba%d0%be%d0%b4%d0%b8%d0%bd%d0%b3/" title="Просмотреть все записи в рубрике «кодинг»" rel="category tag">кодинг</a></span>
+							<span class="comments"><span class="icon">&nbsp;</span><a href="http://bafoed.net/post/7624/#respond">Добавить комментарий</a></span>
+					</div><!-- /.postdata -->
+		</div><!-- /.title -->
+		<div class="date"><span class="month">Авг</span> <span class="day">01</span><span class="year">2012</span></div>
+	</div><!-- /.title-container -->
+	<span class="post-format-icon">&nbsp;</span><span class="updated" title="2012-08-01T16:47:28+04:00"></span>		<div class="entry-container fix">
+			<div class="entry fix">
+<p class="first-para">Привет.<br>
+Перед прочтением, сразу хочу предупредить, что не являюсь профессиональным C#-программистом. Я не знаю насколько код, который я пишу, правильный, возможно эти вещи надо делать по-другому.<br>
+В этой статье я просто покажу способ, которым пользуюсь сам. Если бы такая статья была тогда, когда я только начинал играть с потоками, то, скорее всего, я бы освоил их несколько быстрее.</p>
+<p><span id="more-7624"></span><br>
+Итак, так как мы пишем абстрактное приложение, то никакого полезного функционала оно делать не будет.<br>
+Давайте просто разметим, что хотелось бы видеть в любом многопоточном приложении.</p>
+<ul>
+<li>Выставление количества запускаемых потоков.</li>
+<li>Возможность не только запуска, но и остановки потоков.</li>
+<li>Лог файл, в который потоки будут писать выполняемые действия.</li>
+<li>Контролы, которые будут говорить о кол-ве выполненных / невыполненных заданий.</li>
+<li>Контрол, который будет показывать кол-во работающих потоков.</li>
+<li>Прогрессбар выполнения общей работы.</li>
+</ul>
+<p>Давайте накидаем это всё необходимое на форму. У меня получилось вот так:<br>
+<a href="./Пишем простое многопоточное приложение на C#   bafoed.net_files/2012-08-01_160623.png" class="external" rel="nofollow" target="_blank"><img class="alignnone" src="./Пишем простое многопоточное приложение на C#   bafoed.net_files/2012-08-01_160623.png" alt="" width="330"></a></p>
+<p>Теперь перейдем к написанию кода. В первую очередь надо сказать о том, что потоки не имеют доступа к GUI, т.е. вы не сможете в потоке написать что-то вроде richTextBox1.Text = «str»;</p>
+<p>Мой вариант решения этой проблемы такой: создаем отдельный <strong>static</strong> (!) класс, который будет получать текущую форму и делать с ней манипуляции.&nbsp; Каждое необходимое изменение GUI я описал в отдельных функциях, причем изменение происходит через Invoke. Подробнее об Invoke можно легко почитать в <a href="http://msdn.microsoft.com/ru-ru/library/0b1bf3y3.aspx" target="_blank" class="external external_icon" rel="nofollow">MSDN</a>.<br>
+Мой класс, который я назвал GUIController, выглядит так:</p>
+
+<div class="wp_syntax"><table><tbody><tr><td class="line_numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+</pre></td><td class="code"><pre class="csharp" style="font-family:monospace;"><span style="color: #0600FF; font-weight: bold;">using</span> <span style="color: #008080;">System</span><span style="color: #008000;">;</span>
+<span style="color: #0600FF; font-weight: bold;">using</span> <span style="color: #008080;">System.Collections.Generic</span><span style="color: #008000;">;</span>
+<span style="color: #0600FF; font-weight: bold;">using</span> <span style="color: #008080;">System.Linq</span><span style="color: #008000;">;</span>
+<span style="color: #0600FF; font-weight: bold;">using</span> <span style="color: #008080;">System.Text</span><span style="color: #008000;">;</span>
+<span style="color: #0600FF; font-weight: bold;">using</span> <span style="color: #008080;">System.Windows.Forms</span><span style="color: #008000;">;</span>
+&nbsp;
+<span style="color: #0600FF; font-weight: bold;">namespace</span> ThreadingTest
+<span style="color: #008000;">{</span>
+    <span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #0600FF; font-weight: bold;">static</span> <span style="color: #6666cc; font-weight: bold;">class</span> GUIController
+    <span style="color: #008000;">{</span>
+        <span style="color: #0600FF; font-weight: bold;">private</span> <span style="color: #0600FF; font-weight: bold;">static</span> Form1 _instance<span style="color: #008000;">;</span>
+&nbsp;
+        <span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #0600FF; font-weight: bold;">static</span> <span style="color: #6666cc; font-weight: bold;">void</span> setForm<span style="color: #008000;">(</span>Form1 f<span style="color: #008000;">)</span>
+        <span style="color: #008000;">{</span>
+            _instance <span style="color: #008000;">=</span> f<span style="color: #008000;">;</span>
+        <span style="color: #008000;">}</span>
+&nbsp;
+        <span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #0600FF; font-weight: bold;">static</span> <span style="color: #6666cc; font-weight: bold;">void</span> updateProgressBar<span style="color: #008000;">(</span><span style="color: #6666cc; font-weight: bold;">int</span> incValue<span style="color: #008000;">)</span>
+        <span style="color: #008000;">{</span>
+            ProgressBar PB <span style="color: #008000;">=</span> <span style="color: #008000;">(</span>ProgressBar<span style="color: #008000;">)</span>_instance<span style="color: #008000;">.</span><span style="color: #0000FF;">Controls</span><span style="color: #008000;">[</span><span style="color: #666666;">"progressBar1"</span><span style="color: #008000;">]</span><span style="color: #008000;">;</span>
+            PB<span style="color: #008000;">.</span><span style="color: #0000FF;">BeginInvoke</span><span style="color: #008000;">(</span><span style="color: #008000;">new</span> MethodInvoker<span style="color: #008000;">(</span><span style="color: #008000;">(</span><span style="color: #008000;">)</span> <span style="color: #008000;">=&gt;</span> PB<span style="color: #008000;">.</span><span style="color: #0000FF;">Increment</span><span style="color: #008000;">(</span>incValue<span style="color: #008000;">)</span><span style="color: #008000;">)</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span>
+        <span style="color: #008000;">}</span>
+&nbsp;
+        <span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #0600FF; font-weight: bold;">static</span> <span style="color: #6666cc; font-weight: bold;">void</span> updateSuccessLabel<span style="color: #008000;">(</span><span style="color: #6666cc; font-weight: bold;">int</span> successCount<span style="color: #008000;">)</span>
+        <span style="color: #008000;">{</span>
+            Label L <span style="color: #008000;">=</span> <span style="color: #008000;">(</span>Label<span style="color: #008000;">)</span>_instance<span style="color: #008000;">.</span><span style="color: #0000FF;">Controls</span><span style="color: #008000;">[</span><span style="color: #666666;">"successLabel"</span><span style="color: #008000;">]</span><span style="color: #008000;">;</span>            
+            L<span style="color: #008000;">.</span><span style="color: #0000FF;">BeginInvoke</span><span style="color: #008000;">(</span><span style="color: #008000;">new</span> MethodInvoker<span style="color: #008000;">(</span><span style="color: #008000;">(</span><span style="color: #008000;">)</span> <span style="color: #008000;">=&gt;</span> L<span style="color: #008000;">.</span><span style="color: #0000FF;">Text</span> <span style="color: #008000;">=</span> successCount<span style="color: #008000;">.</span><span style="color: #0000FF;">ToString</span><span style="color: #008000;">(</span><span style="color: #008000;">)</span><span style="color: #008000;">)</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span>
+        <span style="color: #008000;">}</span>
+&nbsp;
+        <span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #0600FF; font-weight: bold;">static</span> <span style="color: #6666cc; font-weight: bold;">void</span> updateAliveThreadsLabel<span style="color: #008000;">(</span><span style="color: #6666cc; font-weight: bold;">int</span> aliveThreadsCount<span style="color: #008000;">)</span>
+        <span style="color: #008000;">{</span>
+            Label L <span style="color: #008000;">=</span> <span style="color: #008000;">(</span>Label<span style="color: #008000;">)</span>_instance<span style="color: #008000;">.</span><span style="color: #0000FF;">Controls</span><span style="color: #008000;">[</span><span style="color: #666666;">"aliveThreadsLabel"</span><span style="color: #008000;">]</span><span style="color: #008000;">;</span>
+            L<span style="color: #008000;">.</span><span style="color: #0000FF;">BeginInvoke</span><span style="color: #008000;">(</span><span style="color: #008000;">new</span> MethodInvoker<span style="color: #008000;">(</span><span style="color: #008000;">(</span><span style="color: #008000;">)</span> <span style="color: #008000;">=&gt;</span> L<span style="color: #008000;">.</span><span style="color: #0000FF;">Text</span> <span style="color: #008000;">=</span> aliveThreadsCount<span style="color: #008000;">.</span><span style="color: #0000FF;">ToString</span><span style="color: #008000;">(</span><span style="color: #008000;">)</span><span style="color: #008000;">)</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span>
+        <span style="color: #008000;">}</span>
+&nbsp;
+        <span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #0600FF; font-weight: bold;">static</span> <span style="color: #6666cc; font-weight: bold;">void</span> updateFailsLabel<span style="color: #008000;">(</span><span style="color: #6666cc; font-weight: bold;">int</span> failCount<span style="color: #008000;">)</span>
+        <span style="color: #008000;">{</span>
+            Label L <span style="color: #008000;">=</span> <span style="color: #008000;">(</span>Label<span style="color: #008000;">)</span>_instance<span style="color: #008000;">.</span><span style="color: #0000FF;">Controls</span><span style="color: #008000;">[</span><span style="color: #666666;">"failLabel"</span><span style="color: #008000;">]</span><span style="color: #008000;">;</span>
+            L<span style="color: #008000;">.</span><span style="color: #0000FF;">BeginInvoke</span><span style="color: #008000;">(</span><span style="color: #008000;">new</span> MethodInvoker<span style="color: #008000;">(</span><span style="color: #008000;">(</span><span style="color: #008000;">)</span> <span style="color: #008000;">=&gt;</span> L<span style="color: #008000;">.</span><span style="color: #0000FF;">Text</span> <span style="color: #008000;">=</span> failCount<span style="color: #008000;">.</span><span style="color: #0000FF;">ToString</span><span style="color: #008000;">(</span><span style="color: #008000;">)</span><span style="color: #008000;">)</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span>
+        <span style="color: #008000;">}</span>
+&nbsp;
+        <span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #0600FF; font-weight: bold;">static</span> <span style="color: #6666cc; font-weight: bold;">void</span> appendLog<span style="color: #008000;">(</span><span style="color: #6666cc; font-weight: bold;">string</span> threadId, <span style="color: #6666cc; font-weight: bold;">string</span> text<span style="color: #008000;">)</span>
+        <span style="color: #008000;">{</span>
+            RichTextBox RTB <span style="color: #008000;">=</span> <span style="color: #008000;">(</span>RichTextBox<span style="color: #008000;">)</span>_instance<span style="color: #008000;">.</span><span style="color: #0000FF;">Controls</span><span style="color: #008000;">[</span><span style="color: #666666;">"richTextBox1"</span><span style="color: #008000;">]</span><span style="color: #008000;">;</span>
+            RTB<span style="color: #008000;">.</span><span style="color: #0000FF;">BeginInvoke</span><span style="color: #008000;">(</span><span style="color: #008000;">new</span> MethodInvoker<span style="color: #008000;">(</span><span style="color: #008000;">(</span><span style="color: #008000;">)</span> <span style="color: #008000;">=&gt;</span> RTB<span style="color: #008000;">.</span><span style="color: #0000FF;">AppendText</span><span style="color: #008000;">(</span><span style="color: #6666cc; font-weight: bold;">string</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Format</span><span style="color: #008000;">(</span><span style="color: #666666;">"Thread #{0}: {1}"</span> <span style="color: #008000;">+</span> Environment<span style="color: #008000;">.</span><span style="color: #0000FF;">NewLine</span>, threadId, text<span style="color: #008000;">)</span><span style="color: #008000;">)</span><span style="color: #008000;">)</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span>
+        <span style="color: #008000;">}</span>
+&nbsp;
+        <span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #0600FF; font-weight: bold;">static</span> <span style="color: #6666cc; font-weight: bold;">void</span> startButtonEnabled<span style="color: #008000;">(</span><span style="color: #6666cc; font-weight: bold;">bool</span> enabled<span style="color: #008000;">)</span>
+        <span style="color: #008000;">{</span>
+            Button B <span style="color: #008000;">=</span> <span style="color: #008000;">(</span>Button<span style="color: #008000;">)</span>_instance<span style="color: #008000;">.</span><span style="color: #0000FF;">Controls</span><span style="color: #008000;">[</span><span style="color: #666666;">"button1"</span><span style="color: #008000;">]</span><span style="color: #008000;">;</span>
+            B<span style="color: #008000;">.</span><span style="color: #0000FF;">BeginInvoke</span><span style="color: #008000;">(</span><span style="color: #008000;">new</span> MethodInvoker<span style="color: #008000;">(</span><span style="color: #008000;">(</span><span style="color: #008000;">)</span> <span style="color: #008000;">=&gt;</span> B<span style="color: #008000;">.</span><span style="color: #0000FF;">Enabled</span> <span style="color: #008000;">=</span> enabled<span style="color: #008000;">)</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span>
+        <span style="color: #008000;">}</span>
+&nbsp;
+        <span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #0600FF; font-weight: bold;">static</span> <span style="color: #6666cc; font-weight: bold;">void</span> stopButtonEnabled<span style="color: #008000;">(</span><span style="color: #6666cc; font-weight: bold;">bool</span> enabled<span style="color: #008000;">)</span>
+        <span style="color: #008000;">{</span>
+            Button B <span style="color: #008000;">=</span> <span style="color: #008000;">(</span>Button<span style="color: #008000;">)</span>_instance<span style="color: #008000;">.</span><span style="color: #0000FF;">Controls</span><span style="color: #008000;">[</span><span style="color: #666666;">"button2"</span><span style="color: #008000;">]</span><span style="color: #008000;">;</span>
+            B<span style="color: #008000;">.</span><span style="color: #0000FF;">BeginInvoke</span><span style="color: #008000;">(</span><span style="color: #008000;">new</span> MethodInvoker<span style="color: #008000;">(</span><span style="color: #008000;">(</span><span style="color: #008000;">)</span> <span style="color: #008000;">=&gt;</span> B<span style="color: #008000;">.</span><span style="color: #0000FF;">Enabled</span> <span style="color: #008000;">=</span> enabled<span style="color: #008000;">)</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span>
+        <span style="color: #008000;">}</span>
+&nbsp;
+    <span style="color: #008000;">}</span>
+<span style="color: #008000;">}</span></pre></td></tr></tbody></table></div>
+
+<p>Перед использованием, необходимо загрузить форму, которая будет использоваться для изменения. Для этого у меня объявлена переменная _instance, а также функция setForm, которая запишет нашу форму туда. Так что помимо добавления класса, необходимо добавить код, который будет записывать текущую форму в GUIController. Это сделать очень легко:</p>
+
+<div class="wp_syntax"><table><tbody><tr><td class="line_numbers"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre class="csharp" style="font-family:monospace;">        <span style="color: #0600FF; font-weight: bold;">public</span> Form1<span style="color: #008000;">(</span><span style="color: #008000;">)</span>
+        <span style="color: #008000;">{</span>
+            InitializeComponent<span style="color: #008000;">(</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span>
+            GUIController<span style="color: #008000;">.</span><span style="color: #0000FF;">setForm</span><span style="color: #008000;">(</span><span style="color: #0600FF; font-weight: bold;">this</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span>
+        <span style="color: #008000;">}</span></pre></td></tr></tbody></table></div>
+
+<p>Теперь давайте создадим класс, где будет код, который будет выполняться в потоках. Я назвал его ThreadJob. Наша программа будет генерировать число от 3 до 20, а затем ничего не делать сгенерированное кол-во секунд. Так как у нас есть индикаторы успешности выполнения абстрактной работы, то надо придумать то, что будет этим показателем. Например у меня работа считается успешной, когда сгенерированное число от 0 до 2 — это 0 <img src="./Пишем простое многопоточное приложение на C#   bafoed.net_files/icon_smile.gif" alt=":)" class="wp-smiley"> .</p>
+<p>Еще кое-что: нам необходимо будет сделать Event выхода из потока, чтобы основной после выхода потока обновлял все счетчики.<br>
+Для этого нам надо будет создать Event, который я назвал ThreadCompleted.</p>
+<p>Для того, чтобы сообщить значение успешности работы главному потоку, я сделал класс ThreadArgs (который наследуется от EventArgs).<br>
+Т.е. примерный ход работы такой:</p>
+<p>1. В основном коде есть функция, которая создает потоки + функция, которая обрабатывает Event выхода из потока.<br>
+2. При создании потока говорим ему, что именно эта функция будет обрабатывать наш эвент.<br>
+3. Поток выполняет работу, затем кидает Event ThreadCompleted, а в ThreadArgs отдает данные об успешности выполнения задания.<br>
+4. Функция в основном коде на основе ThreadArgs обновляет счетчики успешности (а заодно и все остальные).</p>
+<p>В потоке я также пишу в лог все необходимые данные.<br>
+Полный код класса ThreadJob и ThreadArgs:</p>
+
+<div class="wp_syntax"><table><tbody><tr><td class="line_numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+</pre></td><td class="code"><pre class="csharp" style="font-family:monospace;"><span style="color: #0600FF; font-weight: bold;">using</span> <span style="color: #008080;">System</span><span style="color: #008000;">;</span>
+<span style="color: #0600FF; font-weight: bold;">using</span> <span style="color: #008080;">System.Collections.Generic</span><span style="color: #008000;">;</span>
+<span style="color: #0600FF; font-weight: bold;">using</span> <span style="color: #008080;">System.Linq</span><span style="color: #008000;">;</span>
+<span style="color: #0600FF; font-weight: bold;">using</span> <span style="color: #008080;">System.Text</span><span style="color: #008000;">;</span>
+<span style="color: #0600FF; font-weight: bold;">using</span> <span style="color: #008080;">System.Threading</span><span style="color: #008000;">;</span>
+&nbsp;
+<span style="color: #0600FF; font-weight: bold;">namespace</span> ThreadingTest
+<span style="color: #008000;">{</span>
+    <span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #6666cc; font-weight: bold;">class</span> ThreadArgs <span style="color: #008000;">:</span> EventArgs
+    <span style="color: #008000;">{</span>
+        <span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #6666cc; font-weight: bold;">bool</span> isSuccess<span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// это пойдет в основной поток, который будет обрабатывать</span>
+        <span style="color: #0600FF; font-weight: bold;">public</span> ThreadArgs<span style="color: #008000;">(</span><span style="color: #6666cc; font-weight: bold;">bool</span> success<span style="color: #008000;">)</span>
+        <span style="color: #008000;">{</span>
+            isSuccess <span style="color: #008000;">=</span> success<span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// для удобства я вынес этот единственный параметр в конструктор</span>
+        <span style="color: #008000;">}</span>
+    <span style="color: #008000;">}</span>
+&nbsp;
+    <span style="color: #6666cc; font-weight: bold;">class</span> ThreadJob
+    <span style="color: #008000;">{</span>
+        <span style="color: #0600FF; font-weight: bold;">private</span> <span style="color: #0600FF; font-weight: bold;">static</span> Random random <span style="color: #008000;">=</span> <span style="color: #008000;">new</span> Random<span style="color: #008000;">(</span><span style="color: #008000;">(</span><span style="color: #6666cc; font-weight: bold;">int</span><span style="color: #008000;">)</span>DateTime<span style="color: #008000;">.</span><span style="color: #0000FF;">Now</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Ticks</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// инициализируем генератор </span>
+        <span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #0600FF; font-weight: bold;">event</span> EventHandler ThreadCompleted<span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// создаем новый эвент, который будет выполняться по завершению работы</span>
+        <span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #6666cc; font-weight: bold;">void</span> Job<span style="color: #008000;">(</span><span style="color: #008000;">)</span> <span style="color: #008080; font-style: italic;">// функция работы</span>
+        <span style="color: #008000;">{</span>
+            GUIController<span style="color: #008000;">.</span><span style="color: #0000FF;">appendLog</span><span style="color: #008000;">(</span>Thread<span style="color: #008000;">.</span><span style="color: #0000FF;">CurrentThread</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Name</span>, <span style="color: #666666;">"Started!"</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// пишем в лог с помощью GUIController</span>
+&nbsp;
+            <span style="color: #6666cc; font-weight: bold;">int</span> s <span style="color: #008000;">=</span> random<span style="color: #008000;">.</span><span style="color: #0000FF;">Next</span><span style="color: #008000;">(</span><span style="color: #FF0000;">3</span>, <span style="color: #FF0000;">20</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// генерируем рандом число</span>
+            GUIController<span style="color: #008000;">.</span><span style="color: #0000FF;">appendLog</span><span style="color: #008000;">(</span>Thread<span style="color: #008000;">.</span><span style="color: #0000FF;">CurrentThread</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Name</span>, <span style="color: #666666;">"Sleep "</span> <span style="color: #008000;">+</span> s <span style="color: #008000;">+</span> <span style="color: #666666;">" seconds."</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span>
+            Thread<span style="color: #008000;">.</span><span style="color: #0000FF;">Sleep</span><span style="color: #008000;">(</span>s <span style="color: #008000;">*</span> <span style="color: #FF0000;">1000</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// спим, умножение на 1000 -- потому что в секундах, а нам надо в миллисекундах</span>
+&nbsp;
+&nbsp;
+            GUIController<span style="color: #008000;">.</span><span style="color: #0000FF;">appendLog</span><span style="color: #008000;">(</span>Thread<span style="color: #008000;">.</span><span style="color: #0000FF;">CurrentThread</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Name</span>, <span style="color: #666666;">"Done, exiting"</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span>
+&nbsp;
+&nbsp;
+            <span style="color: #0600FF; font-weight: bold;">if</span> <span style="color: #008000;">(</span>ThreadCompleted <span style="color: #008000;">!=</span> <span style="color: #0600FF; font-weight: bold;">null</span><span style="color: #008000;">)</span>
+            <span style="color: #008000;">{</span>
+                ThreadCompleted<span style="color: #008000;">(</span>Thread<span style="color: #008000;">.</span><span style="color: #0000FF;">CurrentThread</span>, <span style="color: #008000;">new</span> ThreadArgs<span style="color: #008000;">(</span> <span style="color: #008000;">(</span>random<span style="color: #008000;">.</span><span style="color: #0000FF;">Next</span><span style="color: #008000;">(</span><span style="color: #FF0000;">0</span>, <span style="color: #FF0000;">2</span><span style="color: #008000;">)</span> <span style="color: #008000;">==</span> <span style="color: #FF0000;">0</span><span style="color: #008000;">)</span> <span style="color: #008000;">)</span><span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// кидаем Event о том, что мы закончили + ставим переменную isSuccess</span>
+            <span style="color: #008000;">}</span>
+        <span style="color: #008000;">}</span>
+    <span style="color: #008000;">}</span>
+<span style="color: #008000;">}</span></pre></td></tr></tbody></table></div>
+
+<p>Также у меня есть переменная типа List<thread> в которую при добавлении — потоки записываются, а при выходе — удаляются. Это позволяет контроллировать любой из потоков (нам же это нужно для кол-ва активных + остановки).</thread></p>
+<p>Комментированный код всего основного кода:</p>
+
+<div class="wp_syntax"><table><tbody><tr><td class="line_numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+</pre></td><td class="code"><pre class="csharp" style="font-family:monospace;"><span style="color: #0600FF; font-weight: bold;">using</span> <span style="color: #008080;">System</span><span style="color: #008000;">;</span>
+<span style="color: #0600FF; font-weight: bold;">using</span> <span style="color: #008080;">System.Collections.Generic</span><span style="color: #008000;">;</span>
+<span style="color: #0600FF; font-weight: bold;">using</span> <span style="color: #008080;">System.ComponentModel</span><span style="color: #008000;">;</span>
+<span style="color: #0600FF; font-weight: bold;">using</span> <span style="color: #008080;">System.Data</span><span style="color: #008000;">;</span>
+<span style="color: #0600FF; font-weight: bold;">using</span> <span style="color: #008080;">System.Drawing</span><span style="color: #008000;">;</span>
+<span style="color: #0600FF; font-weight: bold;">using</span> <span style="color: #008080;">System.Linq</span><span style="color: #008000;">;</span>
+<span style="color: #0600FF; font-weight: bold;">using</span> <span style="color: #008080;">System.Text</span><span style="color: #008000;">;</span>
+<span style="color: #0600FF; font-weight: bold;">using</span> <span style="color: #008080;">System.Threading</span><span style="color: #008000;">;</span>
+<span style="color: #0600FF; font-weight: bold;">using</span> <span style="color: #008080;">System.Windows.Forms</span><span style="color: #008000;">;</span>
+&nbsp;
+<span style="color: #0600FF; font-weight: bold;">namespace</span> ThreadingTest
+<span style="color: #008000;">{</span>
+    <span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #0600FF; font-weight: bold;">partial</span> <span style="color: #6666cc; font-weight: bold;">class</span> Form1 <span style="color: #008000;">:</span> Form
+    <span style="color: #008000;">{</span>
+        List<span style="color: #008000;">&lt;</span>Thread<span style="color: #008000;">&gt;</span> threads <span style="color: #008000;">=</span> <span style="color: #008000;">new</span> List<span style="color: #008000;">&lt;</span>Thread<span style="color: #008000;">&gt;</span><span style="color: #008000;">(</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// список всех потоков</span>
+        <span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #6666cc; font-weight: bold;">int</span> successJobs <span style="color: #008000;">=</span> <span style="color: #FF0000;">0</span><span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// счетчик успешных работ</span>
+        <span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #6666cc; font-weight: bold;">int</span> failJobs <span style="color: #008000;">=</span> <span style="color: #FF0000;">0</span><span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// соответственно неуспешных</span>
+        <span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #6666cc; font-weight: bold;">object</span> lockobj <span style="color: #008000;">=</span> <span style="color: #008000;">new</span> <span style="color: #6666cc; font-weight: bold;">object</span><span style="color: #008000;">(</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// будем использовать этот объект в lock -- на случай, что несколько потоков закончат одновременно.</span>
+&nbsp;
+        <span style="color: #0600FF; font-weight: bold;">public</span> Form1<span style="color: #008000;">(</span><span style="color: #008000;">)</span>
+        <span style="color: #008000;">{</span>
+            InitializeComponent<span style="color: #008000;">(</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span>
+            GUIController<span style="color: #008000;">.</span><span style="color: #0000FF;">setForm</span><span style="color: #008000;">(</span><span style="color: #0600FF; font-weight: bold;">this</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// устанавливаем эту форму как контроллируемую для GUI</span>
+        <span style="color: #008000;">}</span>
+&nbsp;
+&nbsp;
+        <span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #6666cc; font-weight: bold;">void</span> ThreadCompleted<span style="color: #008000;">(</span><span style="color: #6666cc; font-weight: bold;">object</span> sender, EventArgs e<span style="color: #008000;">)</span>  <span style="color: #008080; font-style: italic;">// функция обрабатывающая Event выхода из потока</span>
+        <span style="color: #008000;">{</span>
+            <span style="color: #0600FF; font-weight: bold;">lock</span> <span style="color: #008000;">(</span>lockobj<span style="color: #008000;">)</span>
+            <span style="color: #008000;">{</span>
+                ThreadArgs TA <span style="color: #008000;">=</span> <span style="color: #008000;">(</span>ThreadArgs<span style="color: #008000;">)</span>e<span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// приведем EventArgs к ThreadArgs, по-другому никак</span>
+                threads<span style="color: #008000;">.</span><span style="color: #0600FF; font-weight: bold;">Remove</span><span style="color: #008000;">(</span><span style="color: #008000;">(</span>Thread<span style="color: #008000;">)</span>sender<span style="color: #008000;">)</span><span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// удаляем поток из списка работающих</span>
+&nbsp;
+                <span style="color: #0600FF; font-weight: bold;">if</span> <span style="color: #008000;">(</span>TA<span style="color: #008000;">.</span><span style="color: #0000FF;">isSuccess</span><span style="color: #008000;">)</span> <span style="color: #008080; font-style: italic;">// работа выполнена успешно </span>
+                <span style="color: #008000;">{</span>
+                    successJobs<span style="color: #008000;">++;</span> <span style="color: #008080; font-style: italic;">// увеличиваем счетчик</span>
+                    GUIController<span style="color: #008000;">.</span><span style="color: #0000FF;">updateSuccessLabel</span><span style="color: #008000;">(</span>successJobs<span style="color: #008000;">)</span><span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// модифицируем GUI</span>
+&nbsp;
+                <span style="color: #008000;">}</span>
+                <span style="color: #0600FF; font-weight: bold;">else</span> <span style="color: #008080; font-style: italic;">// неуспешно</span>
+                <span style="color: #008000;">{</span>
+                    failJobs<span style="color: #008000;">++;</span>
+                    GUIController<span style="color: #008000;">.</span><span style="color: #0000FF;">updateFailsLabel</span><span style="color: #008000;">(</span>failJobs<span style="color: #008000;">)</span><span style="color: #008000;">;</span>
+                <span style="color: #008000;">}</span>
+&nbsp;
+                GUIController<span style="color: #008000;">.</span><span style="color: #0000FF;">updateProgressBar</span><span style="color: #008000;">(</span><span style="color: #FF0000;">1</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// добавляем в прогрессбар</span>
+                GUIController<span style="color: #008000;">.</span><span style="color: #0000FF;">updateAliveThreadsLabel</span><span style="color: #008000;">(</span>threads<span style="color: #008000;">.</span><span style="color: #0000FF;">Count</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// меняем кол-во запущенных потоков</span>
+&nbsp;
+                <span style="color: #0600FF; font-weight: bold;">if</span> <span style="color: #008000;">(</span>threads<span style="color: #008000;">.</span><span style="color: #0000FF;">Count</span> <span style="color: #008000;">==</span> <span style="color: #FF0000;">0</span><span style="color: #008000;">)</span> <span style="color: #008080; font-style: italic;">// если это был последний поток</span>
+                <span style="color: #008000;">{</span>
+                    GUIController<span style="color: #008000;">.</span><span style="color: #0000FF;">appendLog</span><span style="color: #008000;">(</span><span style="color: #666666;">"MAIN"</span>, <span style="color: #666666;">"ALL JOB COMPLETED"</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// пишем в лог, что работа завершена</span>
+                    GUIController<span style="color: #008000;">.</span><span style="color: #0000FF;">startButtonEnabled</span><span style="color: #008000;">(</span><span style="color: #0600FF; font-weight: bold;">true</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// включаем кнопку старт</span>
+                    GUIController<span style="color: #008000;">.</span><span style="color: #0000FF;">stopButtonEnabled</span><span style="color: #008000;">(</span><span style="color: #0600FF; font-weight: bold;">false</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// отключаем кнопку стоп</span>
+                <span style="color: #008000;">}</span>
+            <span style="color: #008000;">}</span>
+        <span style="color: #008000;">}</span>
+&nbsp;
+        <span style="color: #0600FF; font-weight: bold;">private</span> <span style="color: #6666cc; font-weight: bold;">void</span> button1_Click<span style="color: #008000;">(</span><span style="color: #6666cc; font-weight: bold;">object</span> sender, EventArgs e<span style="color: #008000;">)</span> <span style="color: #008080; font-style: italic;">// запуск потоков</span>
+        <span style="color: #008000;">{</span>
+            <span style="color: #6666cc; font-weight: bold;">int</span> thrCount <span style="color: #008000;">=</span> Convert<span style="color: #008000;">.</span><span style="color: #0000FF;">ToInt32</span><span style="color: #008000;">(</span>numericUpDown1<span style="color: #008000;">.</span><span style="color: #0600FF; font-weight: bold;">Value</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// получаем кол-во запускамых потоков</span>
+&nbsp;
+            progressBar1<span style="color: #008000;">.</span><span style="color: #0600FF; font-weight: bold;">Value</span> <span style="color: #008000;">=</span> <span style="color: #FF0000;">0</span><span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// скинем значения</span>
+            progressBar1<span style="color: #008000;">.</span><span style="color: #0000FF;">Maximum</span> <span style="color: #008000;">=</span> thrCount<span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// максимум прогрессбара равен кол-ву потоков</span>
+&nbsp;
+            GUIController<span style="color: #008000;">.</span><span style="color: #0000FF;">appendLog</span><span style="color: #008000;">(</span><span style="color: #666666;">"MAIN"</span>, <span style="color: #666666;">"RUNNING "</span> <span style="color: #008000;">+</span> thrCount <span style="color: #008000;">+</span> <span style="color: #666666;">" THREADS"</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// пишем в лог, что запускаем n потоков</span>
+            <span style="color: #0600FF; font-weight: bold;">for</span> <span style="color: #008000;">(</span><span style="color: #6666cc; font-weight: bold;">int</span> i <span style="color: #008000;">=</span> <span style="color: #FF0000;">0</span><span style="color: #008000;">;</span> i <span style="color: #008000;">&lt;</span> thrCount<span style="color: #008000;">;</span> i<span style="color: #008000;">++</span><span style="color: #008000;">)</span>
+            <span style="color: #008000;">{</span>
+                ThreadJob TJ <span style="color: #008000;">=</span> <span style="color: #008000;">new</span> ThreadJob<span style="color: #008000;">(</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// инициализируем класс с работой</span>
+                TJ<span style="color: #008000;">.</span><span style="color: #0000FF;">ThreadCompleted</span> <span style="color: #008000;">+=</span> ThreadCompleted<span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// важно! ставим обработчик на Event о выходе</span>
+&nbsp;
+                Thread thr <span style="color: #008000;">=</span> <span style="color: #008000;">new</span> Thread<span style="color: #008000;">(</span>TJ<span style="color: #008000;">.</span><span style="color: #0000FF;">Job</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// создаем новый поток, который будет выполнять функцию из класса с работой</span>
+                thr<span style="color: #008000;">.</span><span style="color: #0000FF;">Name</span> <span style="color: #008000;">=</span> <span style="color: #008000;">(</span>i <span style="color: #008000;">+</span> <span style="color: #FF0000;">1</span><span style="color: #008000;">)</span><span style="color: #008000;">.</span><span style="color: #0000FF;">ToString</span><span style="color: #008000;">(</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// за имя потока я обычно ставлю его номер </span>
+                thr<span style="color: #008000;">.</span><span style="color: #0000FF;">Start</span><span style="color: #008000;">(</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// стартуем поток</span>
+&nbsp;
+                threads<span style="color: #008000;">.</span><span style="color: #0600FF; font-weight: bold;">Add</span><span style="color: #008000;">(</span>thr<span style="color: #008000;">)</span><span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// добавляем его в список запущенных</span>
+&nbsp;
+            <span style="color: #008000;">}</span>
+&nbsp;
+            GUIController<span style="color: #008000;">.</span><span style="color: #0000FF;">startButtonEnabled</span><span style="color: #008000;">(</span><span style="color: #0600FF; font-weight: bold;">false</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// все запущены, вырубаем кнопку старта</span>
+            GUIController<span style="color: #008000;">.</span><span style="color: #0000FF;">stopButtonEnabled</span><span style="color: #008000;">(</span><span style="color: #0600FF; font-weight: bold;">true</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// врубаем кнопку стоп</span>
+            GUIController<span style="color: #008000;">.</span><span style="color: #0000FF;">updateAliveThreadsLabel</span><span style="color: #008000;">(</span>thrCount<span style="color: #008000;">)</span><span style="color: #008000;">;</span>
+&nbsp;
+        <span style="color: #008000;">}</span>
+&nbsp;
+        <span style="color: #0600FF; font-weight: bold;">private</span> <span style="color: #6666cc; font-weight: bold;">void</span> button2_Click<span style="color: #008000;">(</span><span style="color: #6666cc; font-weight: bold;">object</span> sender, EventArgs e<span style="color: #008000;">)</span> <span style="color: #008080; font-style: italic;">// остановка потоков</span>
+        <span style="color: #008000;">{</span>
+            <span style="color: #0600FF; font-weight: bold;">for</span> <span style="color: #008000;">(</span><span style="color: #6666cc; font-weight: bold;">int</span> i <span style="color: #008000;">=</span> <span style="color: #FF0000;">0</span><span style="color: #008000;">;</span> i <span style="color: #008000;">&lt;</span> threads<span style="color: #008000;">.</span><span style="color: #0000FF;">Count</span><span style="color: #008000;">;</span> i<span style="color: #008000;">++</span><span style="color: #008000;">)</span> <span style="color: #008080; font-style: italic;">// каждый из запущенных потоков</span>
+            <span style="color: #008000;">{</span>
+                Thread thrd <span style="color: #008000;">=</span> threads<span style="color: #008000;">[</span>i<span style="color: #008000;">]</span><span style="color: #008000;">;</span>
+                thrd<span style="color: #008000;">.</span><span style="color: #0000FF;">Abort</span><span style="color: #008000;">(</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// остановить </span>
+                threads<span style="color: #008000;">.</span><span style="color: #0600FF; font-weight: bold;">Remove</span><span style="color: #008000;">(</span>thrd<span style="color: #008000;">)</span><span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// убрать из списка запущенных</span>
+            <span style="color: #008000;">}</span>
+&nbsp;
+            GUIController<span style="color: #008000;">.</span><span style="color: #0000FF;">updateAliveThreadsLabel</span><span style="color: #008000;">(</span>threads<span style="color: #008000;">.</span><span style="color: #0000FF;">Count</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// обновляем кол-во запущенных</span>
+            GUIController<span style="color: #008000;">.</span><span style="color: #0000FF;">startButtonEnabled</span><span style="color: #008000;">(</span><span style="color: #0600FF; font-weight: bold;">true</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span> <span style="color: #008080; font-style: italic;">// кнопки</span>
+            GUIController<span style="color: #008000;">.</span><span style="color: #0000FF;">stopButtonEnabled</span><span style="color: #008000;">(</span><span style="color: #0600FF; font-weight: bold;">false</span><span style="color: #008000;">)</span><span style="color: #008000;">;</span>
+&nbsp;
+        <span style="color: #008000;">}</span>
+&nbsp;
+&nbsp;
+    <span style="color: #008000;">}</span>
+<span style="color: #008000;">}</span></pre></td></tr></tbody></table></div>
+
+<p>Скачать проект: <a href="http://yadi.sk/d/gsqpMmJk1J1z" class="external external_icon" rel="nofollow" target="_blank">ThreadingTest.rar (60 кб)</a><br>
+Если у вас остались какие-то вопросы, то отвечу на них в комментариях.</p>
+<div id="vk_like7624" style="display: inline; margin: 5px 0px; height: 23px; width: 496px; background-image: none; position: relative; clear: both; background-position: initial initial; background-repeat: initial initial;" class="vklike"><iframe name="fXD4dd23" frameborder="0" src="./Пишем простое многопоточное приложение на C#   bafoed.net_files/widget_like.htm" width="496" height="23" scrolling="no" id="vkwidget1" style="overflow: hidden; height: 23px; width: 496px; z-index: 150;"></iframe></div>
+			<script type="text/javascript">
+				/* <![CDATA[ */
+				VK.Widgets.Like("vk_like7624", { width: "496", height: "22", pageTitle: 'Пишем простое многопоточное приложение на C#', pageUrl: 'http://bafoed.net/post/7624/', page_id: 7624, pageDescription: "Очередной блог" });
+				/* ]]&gt; */
+			</script>
+			<div id="vk_subscribe7624" style="height: 22px; width: 100%; background-image: none; background-position: initial initial; background-repeat: initial initial;"><iframe name="fXDd2ca1" frameborder="0" src="./Пишем простое многопоточное приложение на C#   bafoed.net_files/widget_subscribe.htm" width="100%" height="22" scrolling="no" id="vkwidget2" style="overflow: hidden;"></iframe></div>
+			<script type="text/javascript">
+				VK.Widgets.Subscribe("vk_subscribe7624", {mode: 1}, 243204);
+			</script><p>No related posts.</p>			</div><!--/entry -->
+		</div><!-- .entry-container -->
+<div class="post-footer postdata fix">
+<span class="author"><span class="icon">&nbsp;</span>Опубликовано <span class="vcard"><a href="http://bafoed.net/post/author/bafoed/" class="url fn" rel="author">bafoed</a></span> в 16:47</span>		<span class="tags"><span class="icon">&nbsp;</span>С меткой:<a href="http://bafoed.net/post/tag/c/" rel="tag">c#</a>, <a href="http://bafoed.net/post/tag/threading/" rel="tag">threading</a>, <a href="http://bafoed.net/post/tag/%d0%bc%d0%bd%d0%be%d0%b3%d0%be%d0%bf%d0%be%d1%82%d0%be%d1%87%d0%bd%d0%be%d1%81%d1%82%d1%8c/" rel="tag">многопоточность</a><br></span>
+	</div><!-- .post-footer -->
+<div id="comments">
+
+
+<div id="vk_comments" style="height: 800px; width: 596px; background-image: none; background-position: initial initial; background-repeat: initial initial;"><iframe name="fXD9ac65" frameborder="0" src="./Пишем простое многопоточное приложение на C#   bafoed.net_files/widget_comments.htm" width="596" height="133" scrolling="no" id="vkwidget3" style="overflow: hidden; height: 800px;"></iframe></div>
+<script type="text/javascript">
+VK.Widgets.Comments("vk_comments", {limit: 10, width: "596", attach: "*"});
+</script>
+</div>	</div><!--/post -->
+<div class="post-nav">
+<table>
+<tbody><tr>
+	<td class="previous"><span class="icon">&nbsp;</span> <a href="http://bafoed.net/post/5132/" rel="prev">FAQ по FvCheat 2.x</a></td>
+	<td class="next"><span class="icon">&nbsp;</span> <a href="http://bafoed.net/post/10121/" rel="next">Взлом простых iFrame приложений на примере iГений</a></td>
+</tr>
+</tbody></table>
+</div>
+      </div><!-- content -->
+    </div><!-- main col -->
+<div id="sidebar-shell-1" class="sidebar-shell sidebar-shell-right">
+<div class="dbx-group right boxed warea" id="sidebar">
+		<!--widget start --><div id="recent-posts-3" class="dbx-box suf-widget widget_recent_entries"><h3 class="dbx-handle scheme">Свежие записи</h3><div class="dbx-content">				<ul>
+				<li><a href="http://bafoed.net/post/17829/" title="OS X на обычном PC – проект OSX86">OS X на обычном PC – проект OSX86</a></li>
+				<li><a href="http://bafoed.net/post/15518/" title="Обзор Apple iPhone 5: мнение пользователя">Обзор Apple iPhone 5: мнение пользователя</a></li>
+				<li><a href="http://bafoed.net/post/13472/" title="Kohana: Правила и стили написания кода (PHP)">Kohana: Правила и стили написания кода (PHP)</a></li>
+				<li><a href="http://bafoed.net/post/12648/" title="«Взлом» Клавогонок или первый опыт кодинга под OS X">«Взлом» Клавогонок или первый опыт кодинга под OS X</a></li>
+				<li><a href="http://bafoed.net/post/12540/" title="Простой скрипт для выкачивания картинок на рабочий стол">Простой скрипт для выкачивания картинок на рабочий стол</a></li>
+				</ul>
+		</div></div><!--widget end --><!--widget start --><div id="categories-3" class="dbx-box suf-widget widget_categories"><h3 class="dbx-handle scheme">Категории</h3><div class="dbx-content">		<ul>
+	<li class="cat-item cat-item-15"><a href="http://bafoed.net/post/category/%d0%b2%d0%ba%d0%be%d0%bd%d1%82%d0%b0%d0%ba%d1%82%d0%b5/">вконтакте</a>
+</li>
+	<li class="cat-item cat-item-16"><a href="http://bafoed.net/post/category/%d0%ba%d0%be%d0%b4%d0%b8%d0%bd%d0%b3/">кодинг</a>
+</li>
+	<li class="cat-item cat-item-41"><a href="http://bafoed.net/post/category/proxy/">прокси</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="http://bafoed.net/post/category/uncategorized/">разное</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="http://bafoed.net/post/category/%d1%80%d0%b5%d0%b2%d0%b5%d1%80%d1%81%d0%b8%d0%bd%d0%b3/">реверсинг</a>
+</li>
+		</ul>
+</div></div><!--widget end --><!--widget start --><div id="archives-3" class="dbx-box suf-widget widget_archive"><h3 class="dbx-handle scheme">Архивы</h3><div class="dbx-content">		<ul>
+			<li><a href="http://bafoed.net/post/date/2013/03/" title="Март 2013">Март 2013</a>&nbsp;(429)</li>
+	<li><a href="http://bafoed.net/post/date/2013/02/" title="Февраль 2013">Февраль 2013</a>&nbsp;(1345)</li>
+	<li><a href="http://bafoed.net/post/date/2013/01/" title="Январь 2013">Январь 2013</a>&nbsp;(1487)</li>
+	<li><a href="http://bafoed.net/post/date/2012/12/" title="Декабрь 2012">Декабрь 2012</a>&nbsp;(1486)</li>
+	<li><a href="http://bafoed.net/post/date/2012/11/" title="Ноябрь 2012">Ноябрь 2012</a>&nbsp;(1417)</li>
+	<li><a href="http://bafoed.net/post/date/2012/10/" title="Октябрь 2012">Октябрь 2012</a>&nbsp;(1490)</li>
+	<li><a href="http://bafoed.net/post/date/2012/09/" title="Сентябрь 2012">Сентябрь 2012</a>&nbsp;(1423)</li>
+	<li><a href="http://bafoed.net/post/date/2012/08/" title="Август 2012">Август 2012</a>&nbsp;(1494)</li>
+	<li><a href="http://bafoed.net/post/date/2012/07/" title="Июль 2012">Июль 2012</a>&nbsp;(1397)</li>
+	<li><a href="http://bafoed.net/post/date/2012/06/" title="Июнь 2012">Июнь 2012</a>&nbsp;(1400)</li>
+	<li><a href="http://bafoed.net/post/date/2012/05/" title="Май 2012">Май 2012</a>&nbsp;(1472)</li>
+	<li><a href="http://bafoed.net/post/date/2012/04/" title="Апрель 2012">Апрель 2012</a>&nbsp;(1406)</li>
+	<li><a href="http://bafoed.net/post/date/2012/03/" title="Март 2012">Март 2012</a>&nbsp;(1402)</li>
+	<li><a href="http://bafoed.net/post/date/2012/02/" title="Февраль 2012">Февраль 2012</a>&nbsp;(274)</li>
+	<li><a href="http://bafoed.net/post/date/2012/01/" title="Январь 2012">Январь 2012</a>&nbsp;(7)</li>
+	<li><a href="http://bafoed.net/post/date/2011/12/" title="Декабрь 2011">Декабрь 2011</a>&nbsp;(6)</li>
+	<li><a href="http://bafoed.net/post/date/2011/11/" title="Ноябрь 2011">Ноябрь 2011</a>&nbsp;(2)</li>
+		</ul>
+</div></div><!--widget end --><!--widget start --><div id="tag_cloud-3" class="dbx-box suf-widget widget_tag_cloud"><h3 class="dbx-handle scheme">Теги</h3><div class="dbx-content"><div class="tagcloud"><a href="http://bafoed.net/post/tag/net/" class="tag-link-33" title="2 записи" style="font-size: 10.863636363636pt;">.net</a>
+<a href="http://bafoed.net/post/tag/builder/" class="tag-link-45" title="1 запись" style="font-size: 8pt;">builder</a>
+<a href="http://bafoed.net/post/tag/c/" class="tag-link-28" title="5 записей" style="font-size: 15.636363636364pt;">c#</a>
+<a href="http://bafoed.net/post/tag/css/" class="tag-link-22" title="3 записи" style="font-size: 12.772727272727pt;">css</a>
+<a href="http://bafoed.net/post/tag/denwer/" class="tag-link-21" title="1 запись" style="font-size: 8pt;">denwer</a>
+<a href="http://bafoed.net/post/tag/dropbox/" class="tag-link-23" title="1 запись" style="font-size: 8pt;">dropbox</a>
+<a href="http://bafoed.net/post/tag/fuelphp/" class="tag-link-37" title="1 запись" style="font-size: 8pt;">fuelphp</a>
+<a href="http://bafoed.net/post/tag/fvcheat/" class="tag-link-56" title="2 записи" style="font-size: 10.863636363636pt;">fvcheat</a>
+<a href="http://bafoed.net/post/tag/ip/" class="tag-link-25" title="1 запись" style="font-size: 8pt;">ip</a>
+<a href="http://bafoed.net/post/tag/javascript/" class="tag-link-17" title="6 записей" style="font-size: 16.75pt;">javascript</a>
+<a href="http://bafoed.net/post/tag/jquery/" class="tag-link-55" title="2 записи" style="font-size: 10.863636363636pt;">jquery</a>
+<a href="http://bafoed.net/post/tag/json/" class="tag-link-29" title="1 запись" style="font-size: 8pt;">json</a>
+<a href="http://bafoed.net/post/tag/linux/" class="tag-link-20" title="2 записи" style="font-size: 10.863636363636pt;">linux</a>
+<a href="http://bafoed.net/post/tag/os-x/" class="tag-link-72" title="2 записи" style="font-size: 10.863636363636pt;">os x</a>
+<a href="http://bafoed.net/post/tag/php/" class="tag-link-18" title="14 записей" style="font-size: 22pt;">php</a>
+<a href="http://bafoed.net/post/tag/proxy-2/" class="tag-link-43" title="1 запись" style="font-size: 8pt;">proxy</a>
+<a href="http://bafoed.net/post/tag/redbean/" class="tag-link-36" title="1 запись" style="font-size: 8pt;">redbean</a>
+<a href="http://bafoed.net/post/tag/regex/" class="tag-link-40" title="1 запись" style="font-size: 8pt;">regex</a>
+<a href="http://bafoed.net/post/tag/regexp/" class="tag-link-39" title="1 запись" style="font-size: 8pt;">regexp</a>
+<a href="http://bafoed.net/post/tag/ubuntu/" class="tag-link-19" title="1 запись" style="font-size: 8pt;">ubuntu</a>
+<a href="http://bafoed.net/post/tag/userstyle/" class="tag-link-34" title="1 запись" style="font-size: 8pt;">userstyle</a>
+<a href="http://bafoed.net/post/tag/vkobmen/" class="tag-link-38" title="2 записи" style="font-size: 10.863636363636pt;">vkobmen</a>
+<a href="http://bafoed.net/post/tag/winapi/" class="tag-link-46" title="1 запись" style="font-size: 8pt;">winapi</a>
+<a href="http://bafoed.net/post/tag/windows/" class="tag-link-30" title="2 записи" style="font-size: 10.863636363636pt;">windows</a>
+<a href="http://bafoed.net/post/tag/xml/" class="tag-link-27" title="1 запись" style="font-size: 8pt;">xml</a>
+<a href="http://bafoed.net/post/tag/%d0%b1%d0%b8%d0%bb%d0%b4%d0%b5%d1%80/" class="tag-link-44" title="1 запись" style="font-size: 8pt;">билдер</a>
+<a href="http://bafoed.net/post/tag/%d0%b1%d0%bb%d0%be%d0%b3/" class="tag-link-4" title="1 запись" style="font-size: 8pt;">блог</a>
+<a href="http://bafoed.net/post/tag/%d0%b2%d0%b7%d0%bb%d0%be%d0%bc/" class="tag-link-9" title="3 записи" style="font-size: 12.772727272727pt;">взлом</a>
+<a href="http://bafoed.net/post/tag/%d0%b2%d0%ba%d0%be%d0%bd%d1%82%d0%b0%d0%ba%d1%82%d0%b5/" class="tag-link-15" title="10 записей" style="font-size: 19.772727272727pt;">вконтакте</a>
+<a href="http://bafoed.net/post/tag/%d0%b3%d0%be%d0%b2%d0%bd%d0%be%d0%ba%d0%be%d0%b4/" class="tag-link-35" title="1 запись" style="font-size: 8pt;">говнокод</a>
+<a href="http://bafoed.net/post/tag/%d0%b8%d0%bd%d1%82%d0%b5%d1%80%d0%bd%d0%b5%d1%82/" class="tag-link-14" title="2 записи" style="font-size: 10.863636363636pt;">интернет</a>
+<a href="http://bafoed.net/post/tag/%d0%ba%d0%b0%d0%b7%d0%b8%d0%bd%d0%be/" class="tag-link-48" title="2 записи" style="font-size: 10.863636363636pt;">казино</a>
+<a href="http://bafoed.net/post/tag/%d0%ba%d0%be%d0%b4%d0%b8%d0%bd%d0%b3/" class="tag-link-16" title="1 запись" style="font-size: 8pt;">кодинг</a>
+<a href="http://bafoed.net/post/tag/%d0%ba%d1%80%d1%8f%d0%ba/" class="tag-link-10" title="2 записи" style="font-size: 10.863636363636pt;">кряк</a>
+<a href="http://bafoed.net/post/tag/%d0%bb%d0%b8%d1%86%d0%b5%d0%bd%d0%b7%d0%b8%d1%80%d0%be%d0%b2%d0%b0%d0%bd%d0%b8%d0%b5/" class="tag-link-31" title="1 запись" style="font-size: 8pt;">лицензирование</a>
+<a href="http://bafoed.net/post/tag/%d0%bd%d1%83-%d0%b7%d0%b0%d1%87%d0%b5%d0%bc-%d1%8f-%d1%81%d0%b4%d0%b5%d0%bb%d0%b0%d0%bb-%d1%8d%d1%82%d0%be-%d0%be%d0%bf%d1%8f%d1%82%d1%8c/" class="tag-link-6" title="1 запись" style="font-size: 8pt;">ну зачем я сделал это опять?</a>
+<a href="http://bafoed.net/post/tag/%d0%be%d0%b1%d1%83%d1%87%d0%b5%d0%bd%d0%b8%d0%b5/" class="tag-link-12" title="1 запись" style="font-size: 8pt;">обучение</a>
+<a href="http://bafoed.net/post/tag/%d0%be%d1%82%d0%ba%d1%80%d1%8b%d1%82%d0%b8%d0%b5/" class="tag-link-5" title="1 запись" style="font-size: 8pt;">открытие</a>
+<a href="http://bafoed.net/post/tag/%d0%bf%d1%80%d0%be%d0%ba%d1%81%d0%b8/" class="tag-link-42" title="1 запись" style="font-size: 8pt;">прокси</a>
+<a href="http://bafoed.net/post/tag/%d1%80%d0%b5%d0%b2%d0%b5%d1%80%d1%81/" class="tag-link-8" title="2 записи" style="font-size: 10.863636363636pt;">реверс</a>
+<a href="http://bafoed.net/post/tag/%d1%80%d0%b5%d0%b2%d0%b5%d1%80%d1%81%d0%b8%d0%bd%d0%b3/" class="tag-link-7" title="2 записи" style="font-size: 10.863636363636pt;">реверсинг</a>
+<a href="http://bafoed.net/post/tag/%d1%81%d0%b0%d0%bf%d0%b5%d1%80/" class="tag-link-50" title="2 записи" style="font-size: 10.863636363636pt;">сапер</a>
+<a href="http://bafoed.net/post/tag/%d1%81%d0%be%d0%be%d0%b1%d1%89%d0%b5%d0%bd%d0%b8%d1%8f/" class="tag-link-24" title="1 запись" style="font-size: 8pt;">сообщения</a>
+<a href="http://bafoed.net/post/tag/%d1%83%d1%87%d0%b5%d0%b1%d0%b0/" class="tag-link-13" title="1 запись" style="font-size: 8pt;">учеба</a>
+<a href="http://bafoed.net/post/tag/%d1%8f-%d1%82%d0%b5%d0%b1%d1%8f-%d0%b2%d1%8b%d1%87%d0%b8%d1%81%d0%bb%d1%8e/" class="tag-link-26" title="1 запись" style="font-size: 8pt;">я тебя вычислю</a></div>
+</div></div><!--widget end --><!--widget start --><div id="search-2" class="dbx-box suf-widget search"><h3 class="dbx-handle scheme">Поиск</h3><div class="dbx-content">
+<form method="get" class="searchform " action="http://bafoed.net/">
+	<input type="text" name="s" class="searchfield" value="Поиск" onfocus="if (this.value == &#39;Поиск&#39;) {this.value = &#39;&#39;;}" onblur="if (this.value == &#39;&#39;) {this.value = &#39;Поиск&#39;;}">
+	<input type="submit" class="searchsubmit" value="" name="searchsubmit">
+</form>
+</div></div><!--widget end --></div><!--/sidebar -->
+</div>
+	</div><!-- /container -->
+
+	<div id="cred">
+		<table>
+			<tbody><tr>
+				<td class="cred-left">© 2012 <a href="http://bafoed.net/">bafoed.net</a></td>
+				<td class="cred-center"></td>
+				<td class="cred-right"><a href="http://www.aquoid.com/news/themes/suffusion/" class="external external_icon" rel="nofollow" target="_blank">Suffusion theme by Sayontan Sinha</a></td>
+			</tr>
+		</tbody></table>
+	</div>
+<!-- 49 queries, 19MB in 5,394 seconds. -->
+</div><!--/wrapper -->
+<!-- location footer -->
+<!-- Generated in 5,394 seconds. Made 49 queries to database and 0 cached queries. Memory used - 19.44MB -->
+<!-- Cached by DB Cache Reloaded Fix -->
+<!-- Wapstat Counter --><script type="text/javascript"><!--
+document.write('<a href="http://wapstat.info/in/776"><img src="http://wapstat.info/images/776?r=' + document.referrer + '" alt="wapstat.info"/></a>');
+//--></script><a href="http://wapstat.info/in/776"><img src="./Пишем простое многопоточное приложение на C#   bafoed.net_files/776" alt="wapstat.info"></a>
+<noscript>&lt;a  href="http://wapstat.info/in/776" class="external" rel="nofollow" target="_blank"&gt;&lt;img src="http://wapstat.info/images/776" alt="wapstat.info"/&gt;&lt;/a&gt;</noscript>
+<!-- /WapStat -->
+
+
+</body></html>

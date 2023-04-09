@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+ 	<fieldset >	
+ 		<div id = 'stroka'></div> <button id = "C" onclick="document.getElementById('stroka').innerHTML ='' ">С</button><button  id='F' onclick="Clear()"><=</button>
+ 		<button id = "num9" onclick = "dob('9')">9</button><button id = "num8" onclick = "dob('8')">8</button><button id = "num7" onclick = "dob('7')">7</button><button id = "del" onclick = "dob('/')">%</button><br>
+ 		<button id = "num6" onclick = "dob('6')">6</button><button id = "num5" onclick = "dob('5')">5</button><button id = "num4"onclick = "dob('4')">4</button><button id = "ymn" onclick = "dob('*')">*</button><br>
+ 		<button id = "num3" onclick = "dob('3')">3</button><button id = "num2" onclick = "dob('2')">2</button><button id = "num1" onclick = "dob('1')">1</button><button id = "min" onclick = "dob('-')">-</button><br>
+ 		<button id = "num0" onclick = "dob('0')">0</button><button id = "point" onclick = "dob('.')">.</button><button id = "result" onclick="result()">=</button><button id="sum" onclick = "dob('+')">+</button>
+
+
+ 	</fieldset>
+	<style type="text/css">
+ 		button {
+ 			width: 45px;
+ 			height: 45px;
+ 		}
+ 		fieldset {
+ 			width: 200px;
+ 			height: 260px;
+ 			text-align: center;
+ 			position: absolute;
+ 			justify-content: center;
+ 			align-items: center;
+ 		}	
+ 
+ 		#stroka {
+ 			width: 180px;
+ 			height: 45px;
+ 			background-color: skyblue	;
+ 			margin-left: 	10px;
+ 			font-size: 	20px;
+ 		}
+ 		#C,#F {
+ 			width: 	90px;
+ 			height: 45px;
+ 		}
+ 		#result {
+ 			background-color: orange	;
+ 		}
+
+
+	</style>
+
+
+	<script type="text/javascript">
+		 
+
+		function dob(arg) {
+			document.getElementById('stroka').innerHTML += arg;
+		}
+
+
+		function result() {
+			document.getElementById('stroka').innerHTML = eval(document.getElementById("stroka").innerHTML);
+		}
+ 
+		 function Clear()
+		 {
+		 	var stroka = document.getElementById('stroka').innerHTML;
+		 	document.getElementById('stroka').innerHTML = stroka.substring(0, stroka.length-1);
+		 }
+
+ 
+	</script>
+</body>
+</html>

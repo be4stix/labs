@@ -1,0 +1,1032 @@
+
+<!-- saved from url=(0048)http://school29.smoladmin.ru/arbuzov/glava1.html -->
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns="http://www.w3.org/TR/REC-html40"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<meta name="Design" content="SOSH29">
+<meta name="Microsoft Border" content="none">
+<title>Глава 1. Представление графа</title>
+
+<link rel="File-List" href="http://school29.smoladmin.ru/arbuzov/glava1.files/filelist.xml">
+<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid black;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	}
+-->
+</style>
+<!--[if !mso]>
+<style>
+v\:*         { behavior: url(#default#VML) }
+o\:*         { behavior: url(#default#VML) }
+.shape       { behavior: url(#default#VML) }
+</style>
+<![endif]--><!--[if gte mso 9]>
+<xml><o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]-->
+</head>
+
+<body bgcolor="#FFFFFF" link="#006B9F" vlink="#464677">
+<script language="JavaScript">
+</script>
+<div align="right">
+
+<table border="0" cellpadding="0" width="100%" cellspacing="0">
+  <tbody><tr>
+    <td bgcolor="#FFFFFF" colspan="11"><small></small><p align="center"><small><font face="Courier">МОУ СОШ № 29 с углубленным изучением отдельных предметов г. Смоленска</font></small></p></td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFFF" colspan="11"><hr noshade="" color="#0161B8">
+    </td>
+  </tr>
+  <tr>
+    <td width="8" bgcolor="#0161B8"><small><font face="Courier">&nbsp; </font></small></td>
+    <td width="8" bgcolor="#0283F7"><small><font face="Courier">&nbsp; </font></small></td>
+    <td width="8" bgcolor="#2496FD"><small><font face="Courier">&nbsp; </font></small></td>
+    <td width="8" bgcolor="#57AEFD"><small><font face="Courier">&nbsp; </font></small></td>
+    <td width="4" bgcolor="#81C2FE"><small><font face="Courier">&nbsp; </font></small></td>
+    <td width="134" bgcolor="#A4DFF9"><small><font face="Courier"><a href="http://school29.smoladmin.ru/arbuzov/index.html"><img src="./Глава 1. Представление графа_files/school.jpg" alt="МОУ СОШ №29" width="132" height="101" border="0" align="left"></a></font></small></td>
+    <td width="100%" height="100">
+	<p align="center">
+	<img src="./Глава 1. Представление графа_files/left.gif" border="0" align="left" width="99" height="100"><img border="0" src="./Глава 1. Представление графа_files/zagolovok_new.gif" width="718" height="100" align="center"></p></td>
+    <td width="50%" bgcolor="#ffffff"><font face="Arial"><img src="./Глава 1. Представление графа_files/right.gif" border="0" align="" width="94" height="100"> </font></td>
+    <td width="25%" bgcolor="#0283F7"><font face="Arial">&nbsp; </font></td>
+    <td width="25%" bgcolor="#0161B8"><font face="Arial">&nbsp; </font></td>
+    <td width="100%"><p align="center">
+	&nbsp;</p></td>
+  </tr>
+   <tr>
+    <td colspan="11"><hr noshade="" color="#0161B8">
+    </td>
+  </tr>
+</tbody></table>
+</div><div align="right">
+
+<table border="0" cellpadding="0" cellspacing="4">
+  <tbody><tr>
+    <td align="center" valign="top" width="170" rowspan="4" bgcolor="#FFFFFF">
+    <table border="0" width="100%" cellpadding="5" cellspacing="0" height="100%" bgcolor="#F7FDFF">
+      <tbody><tr>
+        <td width="100%" valign="top">
+		<p align="right"><span lang="ru">
+		<font face="Arial" style="font-size: smaller"><i><b>Как правило, наибольшего 
+		успеха добивается тот, кто располагает лучшей информацией.</b></i><br></font>
+		<font face="Arial" size="1"><i>Б. Диразли</i></font></span></p></td>
+      </tr>
+      <tr>
+  	<td align="center" valign="middle">
+	<hr noshade="" color="#0161B8">
+	<a href="http://school29.smoladmin.ru/arbuzov/vvedenie.html"><img border="0" src="./Глава 1. Представление графа_files/vvedenie.gif" width="150" height="20" align="middle"></a></td>
+	</tr>
+	<tr>
+  	<td align="center" valign="middle">
+	<hr noshade="" color="#0161B8">
+	<a href="http://school29.smoladmin.ru/arbuzov/glava1.html#"><img border="0" src="./Глава 1. Представление графа_files/glava.gif" width="150" height="20" align="middle"></a></td>
+	</tr>
+<tr>
+  	<td align="center" valign="middle">
+	<hr noshade="" color="#0161B8">
+	<a href="http://school29.smoladmin.ru/arbuzov/glava2.html"><img border="0" src="./Глава 1. Представление графа_files/glava2.gif" width="150" height="20" align="middle"></a></td>
+	</tr>
+<tr>
+  	<td align="center" valign="middle">
+	<hr noshade="" color="#0161B8">
+	<a href="http://school29.smoladmin.ru/arbuzov/glava3.html"><img border="0" src="./Глава 1. Представление графа_files/glava3.gif" width="150" height="20" align="middle"></a></td>
+	</tr>
+<tr>
+  	<td align="center" valign="middle">
+	<hr noshade="" color="#0161B8">
+	<a href="http://school29.smoladmin.ru/arbuzov/glava4.html"><img border="0" src="./Глава 1. Представление графа_files/glava4.gif" width="150" height="20" align="middle"></a></td>
+	</tr>
+	<tr>
+  	<td align="center" valign="middle">
+	<hr noshade="" color="#0161B8">
+	<a href="http://school29.smoladmin.ru/arbuzov/istochniki.html"><img border="0" src="./Глава 1. Представление графа_files/istochniki.gif"></a></td>
+	</tr>
+<tr>
+  	<td align="center" valign="middle">
+	<hr noshade="" color="#0161B8">
+	<a href="http://school29.smoladmin.ru/arbuzov/prilozenie.html"><img border="0" src="./Глава 1. Представление графа_files/prilozenie.gif" width="150" height="20" align="middle"></a></td>
+	</tr>
+<tr>
+  	<td align="center" valign="middle">
+	<hr noshade="" color="#0161B8">
+	<img border="0" src="./Глава 1. Представление графа_files/fon.gif" width="150" height="206" align="middle"></td>
+	</tr>
+
+</tbody></table>
+	  
+    </td>
+	
+    <td width="3" bgcolor="#0161B8" rowspan="4"><font face="Arial">&nbsp; </font></td>
+    </tr>
+   <tr>
+   	<td>
+   		<table width="50%" align="center">
+   			<tbody><tr>
+   				<td bgcolor="#0161B8" width="1"></td>
+   				<td width="30%" align="center"><font face="Arial" size="2"><a href="http://school29.smoladmin.ru/arbuzov/glava1.html#Матрица смежности">
+				матрица смежности</a></font></td>
+   				<td bgcolor="#0161B8" width="1"></td>
+				<td width="33%" align="center"><font face="Arial" size="2"><a href="http://school29.smoladmin.ru/arbuzov/glava1.html#Список дуг">cписок дуг</a></font></td>
+				<td bgcolor="#0161B8" width="1"></td>
+				<td width="36%" align="center"><font face="Arial" size="2"><a href="http://school29.smoladmin.ru/arbuzov/glava1.html#Списки смежных вершин">cписки смежных вершин</a></font></td>
+				<td bgcolor="#0161B8" width="1"></td>
+				
+   			</tr>
+   		</tbody></table>
+   	</td>
+   </tr>
+   <tr>
+   	<td>
+   			<h2 align="left"><font face="Arial" color="#0161Ba">Глава 1. Представление графа</font></h2></td>
+   </tr>
+   <tr>
+    <td align="left" valign="top" height="520">
+    <small><font face="Arial">&nbsp;&nbsp;&nbsp;	
+	<span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	Итак, разобравшись, что такое граф, приступим к «обучению» компьютера работы 
+	с ним. От того, как хранить граф в той или иной задаче очень много 
+	зависит... После того, как придумано полное решение, но, написав его, 
+	получаешь только половину баллов, задумываешься, а правильно ли храниться 
+	граф?<br>&nbsp;&nbsp;&nbsp;	Проблема правильного хранения графа в памяти компьютера действительно 
+	актуальна в сегодняшние дни. Давайте &nbsp;выясним, какие существуют методы 
+	хранения графа в памяти компьютера.</span></font></small><p class="MsoNormal" align="center" style="text-align:center;text-indent:21.3pt">
+	<span style="font-size: 16.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	<a name="Матрица смежности">Матрица смежности</a></span></p>
+	<p class="MsoNormal" style="text-align:justify;text-indent:21.3pt">
+	<span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	Один из самых распространённых способов хранения графа - матрица смежности. 
+	Она представляет собой &nbsp;двумерный массив. Если в клетке i, j (</span><span lang="EN-US" style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">i</span><span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif"> 
+	– строка, </span>
+	<span lang="EN-US" style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	j</span><span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif"> 
+	- столбец) установлено значение пусто (как правило, это очень большая 
+	величина или величина, которой заведомо не может равняться вес ребра), то 
+	дуги, начинающейся в вершине i и кончающейся в вершине j, нет. Иначе дуга 
+	есть. Если она есть, то в соответствующую ячейку записывают ее вес. Если 
+	граф не взвешенный, то вес дуги считается равным единице. Составим матрицу 
+	смежности для нашего графа: </span></p>
+	<p class="MsoNormal" style="text-indent:21.3pt"><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="Рисунок_x0020_1" o:spid="_x0000_s1025" type="#_x0000_t75"
+ style='position:absolute;margin-left:-5.25pt;margin-top:0;width:215.25pt;
+ height:168.75pt;z-index:1;visibility:visible;mso-wrap-style:square;
+ mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+ mso-wrap-distance-bottom:0;mso-position-horizontal-relative:margin;
+ mso-position-vertical:absolute;mso-position-vertical-relative:margin'>
+ <v:imagedata src="glava1.files/image001.png" o:title="sample1big"/>
+</v:shape><![endif]--><!--[if !vml]--><span style="mso-ignore:vglayout;position:
+absolute;z-index:1;left:-7px;top:0px;width:287px;height:225px"><img width="287" height="225" src="./Глава 1. Представление графа_files/image002.gif" v:shapes="Рисунок_x0020_1"></span><!--[endif]--></p>
+	<p class="MsoNormal" style="text-indent: 21.3pt">&nbsp;</p>
+	<table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: medium none" id="table1" width="306" align="center">
+		<tbody><tr>
+			<td valign="top" style="width: 30px; border: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			&nbsp; </span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: 1.0pt solid black; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<b>
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			1 </span></b></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: 1.0pt solid black; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<b>
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			2 </span></b></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: 1.0pt solid black; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<b>
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			3 </span></b></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: 1.0pt solid black; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<b>
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			4 </span></b></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: 1.0pt solid black; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<b>
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			5 </span></b></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: 1.0pt solid black; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<b>
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			6 </span></b></p></td>
+		</tr>
+		<tr>
+			<td valign="top" style="width: 30px; border-left: 1.0pt solid black; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<b>
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			1</span></b></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			0 </span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			1 </span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			0 </span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			0 </span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			0 </span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			0 </span></p></td>
+		</tr>
+		<tr>
+			<td valign="top" style="width: 30px; border-left: 1.0pt solid black; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<b>
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			2</span></b><span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			</span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			0 </span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			0 </span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			2 </span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			0 </span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			0 </span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			0 </span></p></td>
+		</tr>
+		<tr>
+			<td valign="top" style="width: 30px; border-left: 1.0pt solid black; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<b>
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			3</span></b><span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			</span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			0 </span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			0 </span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			0 </span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			3 </span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			0 </span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			0 </span></p></td>
+		</tr>
+		<tr>
+			<td valign="top" style="width: 30px; border-left: 1.0pt solid black; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<b>
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			4</span></b><span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			</span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			0 </span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			4 </span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			0 </span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			0 </span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			0 </span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			0 </span></p></td>
+		</tr>
+		<tr>
+			<td valign="top" style="width: 30px; border-left: 1.0pt solid black; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<b>
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			5</span></b><span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			</span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			3 </span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			7 </span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			0 </span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			0 </span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			0 </span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			0 </span></p></td>
+		</tr>
+		<tr>
+			<td valign="top" style="width: 30px; border-left: 1.0pt solid black; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<b>
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			6</span></b><span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			</span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			0 </span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			0 </span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			0 </span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			0 </span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			0 </span></p></td>
+			<td valign="top" style="width: 30px; border-left: medium none; border-right: 1.0pt solid black; border-top: medium none; border-bottom: 1.0pt solid black; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+			<p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal" align="center">
+			<span style="font-size: 12.0pt; font-family: &#39;Times New Roman&#39;,serif">
+			0 </span></p></td>
+		</tr>
+	</tbody></table>
+	<p class="MsoNormal">
+	<span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	&nbsp;Если нам дан неориентированный граф, то ребро можно заменить двумя дугами, 
+	т.е. если у нас есть ребро (1,3), то мы можем заменить его на дуги (1,3) и 
+	(3,1) - так мы сможем пройти в любом направлении в любое время. </span></p>
+	<p class="MsoNormal" style="text-align:justify;text-indent:21.3pt">
+	<span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	Как вы уже заметили, в матрице смежности нам часто нужно хранить большое 
+	количество нулей. Например, в нашей матрице "нужных" значений только 6, а 
+	остальные 30 - нули, не представляющие для нас почти никакой нужной 
+	информации. </span></p>
+	<p class="MsoNormal" style="text-align:justify;text-indent:21.3pt">
+	<span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	Для представления графа матрицей смежности нужно V<sup>2</sup> (где V - 
+	количество вершин) ячеек. Если граф почти полный, т.е. Е сопоставимо V<sup>2</sup>&nbsp; 
+	(где Е - количество дуг), этот способ хранения графа наиболее выгоден, т.к. 
+	его очень просто реализовывать и память будет заполнена "нужными" 
+	значениями. </span></p>
+	<p class="MsoNormal">
+	<span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Но если это условие не выполняется, например, вершин до 10000 и 
+	ребер до 1000, то нам понадобиться&nbsp; &#8776;2 * 100000000 / 1024<sup>2</sup> Мбайт 
+	памяти (по 2 байта на ячейку), что примерно равно 190 Мбайт, памяти. А на 
+	олимпиадах, как правило, ограничении на ее использование составляет 64 
+	Мбайт. Значит, этот метод не годиться.</span></p>
+	<p class="MsoNormal" style="text-align:justify;text-indent:21.3pt">
+	<span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	Кроме большого количества требуемой памяти и медленной работы на разреженных 
+	графах (графах, у которых </span>
+	<span lang="EN-US" style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	E</span><span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif"> 
+	&lt;&lt; V<sup>2</sup>) у матрицы смежности есть ещё один важный недостаток. 
+	Иногда в задачах нужно выводить не номера вершин, а номера дуг (рёбер) на 
+	вводе. Хранить эти номера матрица смежности «не умеет». Нужно реализовывать 
+	восстановление номера дуги (ребра) как-то иначе, а это совсем неудобно.
+	</span></p>
+	<p class="MsoNormal">
+	<span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	&nbsp;Приведем расчеты временной сложности хранения графа матрицей смежности:</span></p>
+	<p class="MsoNormal"><b>
+	<span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	Операция 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	Временная сложность </span></b></p>
+	<p class="MsoNormal">
+	<span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	Проверка смежности вершин x и y 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; О(1) </span></p>
+	<p class="MsoNormal">
+	<span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	Перечисление всех вершин смежных с x &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; О(V) </span></p>
+	<p class="MsoNormal">
+	<span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	Определение веса ребра (x, y) 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; О(1)
+	</span></p>
+	<p class="MsoNormal">
+	<span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	Перечисление всех ребер (x, y) 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; О(V<sup>2</sup>)</span></p>
+	<p class="MsoNormal">
+	<span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	&nbsp;</span></p>
+	<p class="MsoNormal" align="center" style="text-align:center">
+	<span style="font-size: 16.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	<a name="#Список дуг">Список дуг</a></span></p>
+	<p class="MsoNormal" style="text-align:justify;text-indent:21.3pt">
+	<span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	Следующий тип хранения графа в памяти компьютера - список дуг. Чаще всего 
+	это двумерный массив размером 3*E, в первой строке которого хранится 
+	информация, из какой вершины начинается дуга, во второй - в какой кончается, 
+	а в третьей строке - вес дуги. Опять же разберёмся на примере (все тот же 
+	граф): </span></p>
+	<p class="MsoNormal">
+	<span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6</b></span></p>
+	<p class="MsoNormal"><b>
+	<span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	1</span></b><span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif"> 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5</span></p>
+	<p class="MsoNormal"><b>
+	<span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	2</span></b><span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif"> 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2&nbsp; </span>
+	</p>
+	<p class="MsoNormal"><b>
+	<span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	3</span></b><span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif"> 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7&nbsp; </span>
+	</p>
+	<p class="MsoNormal" style="text-indent:21.3pt">
+	<span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	Мы чётко видим, что почти вся таблица заполнена "нужными" значениями, а не 
+	нулями. Это уже хорошо, значит, память экономится. </span></p>
+	<p class="MsoNormal">
+	<span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	Приведем расчеты временной сложности хранения графа списком дуг:</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt"><b>
+	<span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	Операция 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	Временная сложность </span></b></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt">
+	<span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	Проверка смежности вершин x и y 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; О(E) </span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt">
+	<span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	Перечисление всех вершин смежных с x &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; О(E) </span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt">
+	<span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	Определение веса ребра (x, y) 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; О(E) </span>
+	</p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt">
+	<span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	Перечисление всех ребер (x, y) 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; О(E) </span>
+	</p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt">
+	<span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	Поиск i-ой дуги 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	О(1) </span></p>
+	<p class="MsoNormal" style="text-align:justify;text-indent:35.4pt">
+	<span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	&nbsp;</span></p>
+	<p class="MsoNormal" style="text-align:justify;text-indent:35.4pt">
+	<span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	Как видно, этот способ, в отличие от матрицы смежности, хранит информацию о 
+	номере дуги. Также ясно, что этот способ нам выгоден, если чаще всего нам 
+	нужно будет узнать что-то (вес, вершины начала или конца) о i-ой дуге. 
+	Однако, такие задачи в практическом программировании встречаются довольно 
+	редко. </span></p>
+	<p class="MsoNormal" style="text-align:justify;text-indent:35.4pt">
+	<span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	Если в предыдущих представлениях одно ребро мы заменяли двумя дугами, то 
+	список дуг может хранить или дуги или рёбра (в зависимости от реализации). 
+	Это довольно удобно и может требовать в 2 раза меньше памяти.</span></p>
+	<p class="MsoNormal" align="center" style="text-align:center;text-indent:35.4pt">
+	<span style="font-size: 16.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	<a name="#Списки смежных вершин">Списки смежных вершин</a></span></p>
+	<p class="MsoNormal" style="text-align:justify;text-indent:35.4pt">
+	<span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	Данный метод хранения графа наиболее часто используется при решении задач с 
+	большими ограничениями по памяти и по времени (например, 2 сек и 64 Мбайт 
+	памяти на ограничения </span>
+	<span lang="EN-US" style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	V</span><span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">&lt; 
+	10000, </span>
+	<span lang="EN-US" style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	E</span><span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif"> 
+	&lt; 1000 – случай разреженного графа). Его суть заключается в том, чтобы для 
+	каждой вершины Т хранить номера вершин, в которые можно попасть из Т, и вес 
+	соответствующих ребер (дуг). Для этого необходимо реализовать такую 
+	структуру данных, как список. В языках высокого уровня, таких, как С++ и
+	</span>
+	<span lang="EN-US" style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	Java</span><span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">, 
+	они уже реализованы. Далее нужно реализовать структуру данных (</span><span lang="EN-US" style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">struct</span><span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif"> 
+	в </span>
+	<span lang="EN-US" style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	C</span><span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">++ 
+	и </span>
+	<span lang="EN-US" style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	record</span><span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif"> 
+	в </span>
+	<span lang="EN-US" style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	Pascal</span><span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">) 
+	– запись с полями «вершина» и «вес». После этого заводим массив списков с
+	</span>
+	<span lang="EN-US" style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	V</span><span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif"> 
+	ячейками (количество вершин) и к каждой ячейке «привязываем» список 
+	созданного нами типа (структуры). </span></p>
+	<p class="MsoNormal" style="text-align:justify;text-indent:35.4pt; margin-top:0; margin-bottom:0">
+	<span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	Приведем листинг на языке С++:</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:0;text-align:
+justify;text-indent:35.4pt;margin-top:0">
+	<span lang="EN-US" style="font-size: 10.0pt; font-family: Courier New">….</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:0;text-align:
+justify;text-indent:35.4pt;margin-top:0">
+	<span lang="EN-US" style="font-size: 10.0pt; font-family: Courier New">
+	#include &lt;list&gt;</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:0;text-align:
+justify;text-indent:35.4pt;margin-top:0">
+	<span lang="EN-US" style="font-size: 10.0pt; font-family: Courier New">
+	….</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:0;text-align:
+justify;text-indent:35.4pt;margin-top:0">
+	<span lang="EN-US" style="font-size: 10.0pt; font-family: Courier New">….</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:0;text-align:
+justify;text-indent:35.45pt;margin-top:0">
+	<span lang="EN-US" style="font-size: 10.0pt; font-family: Courier New">
+	struct ToLength</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:0;text-align:
+justify;text-indent:35.45pt;margin-top:0">
+	<span lang="EN-US" style="font-size: 10.0pt; font-family: Courier New">{</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:0;text-align:
+justify;text-indent:35.45pt;margin-top:0">
+	<span lang="EN-US" style="font-size: 10.0pt; font-family: Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	int to;&nbsp;&nbsp;&nbsp;&nbsp; //</span><span style="font-size: 10.0pt; font-family: Courier New">номер 
+	вершины</span></p>
+	<p class="MsoNormal" style="margin-top:0;margin-right:0cm;margin-bottom:0cm;
+margin-left:35.35pt;margin-bottom:0;text-align:justify;text-indent:35.45pt;
+">
+	<span lang="EN-US" style="font-size: 10.0pt; font-family: Courier New">int 
+	length</span><span style="font-size: 10.0pt; font-family: Courier New">;//вес 
+	ребра</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:0;text-align:
+justify;text-indent:35.45pt;margin-top:0">
+	<span style="font-size: 10.0pt; font-family: Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	<span lang="EN-US" style="font-size: 10.0pt; font-family: Courier New">
+	ToLength</span><span style="font-size: 10.0pt; font-family: Courier New">() 
+	//пример первичной инициализации (зависит от постановки задачи)</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:0;text-align:
+justify;text-indent:35.45pt;margin-top:0">
+	<span style="font-size: 10.0pt; font-family: Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:0;text-align:
+justify;text-indent:35.45pt;margin-top:0">
+	<span style="font-size: 10.0pt; font-family: Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	<span lang="EN-US" style="font-size: 10.0pt; font-family: Courier New">to</span><span style="font-size: 10.0pt; font-family: Courier New"> 
+	= -1;</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:0;text-align:
+justify;text-indent:35.45pt;margin-top:0">
+	<span style="font-size: 10.0pt; font-family: Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	<span lang="EN-US" style="font-size: 10.0pt; font-family: Courier New">
+	length</span><span style="font-size: 10.0pt; font-family: Courier New"> = 0;</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:0;text-align:
+justify;text-indent:35.45pt;margin-top:0">
+	<span style="font-size: 10.0pt; font-family: Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:0;text-align:
+justify;text-indent:35.45pt;margin-top:0">
+	<span style="font-size: 10.0pt; font-family: Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	<span lang="EN-US" style="font-size: 10.0pt; font-family: Courier New">
+	ToLength</span><span style="font-size: 10.0pt; font-family: Courier New">(</span><span lang="EN-US" style="font-size: 10.0pt; font-family: Courier New">int 
+	t</span><span style="font-size: 10.0pt; font-family: Courier New">, </span>
+	<span lang="EN-US" style="font-size: 10.0pt; font-family: Courier New">int l</span><span style="font-size: 10.0pt; font-family: Courier New">)&nbsp; 
+	// инициализация входными числами</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:0;text-align:
+justify;text-indent:35.45pt;margin-top:0">
+	<span style="font-size: 10.0pt; font-family: Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:0;text-align:
+justify;text-indent:35.45pt;margin-top:0">
+	<span style="font-size: 10.0pt; font-family: Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	<span lang="EN-US" style="font-size: 10.0pt; font-family: Courier New">to = 
+	t;</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:0;text-align:
+justify;text-indent:35.45pt;margin-top:0">
+	<span lang="EN-US" style="font-size: 10.0pt; font-family: Courier New">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; length = l;</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:0;text-align:
+justify;text-indent:35.45pt;margin-top:0">
+	<span lang="EN-US" style="font-size: 10.0pt; font-family: Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	}</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:0;text-align:
+justify;text-indent:35.45pt;margin-top:0">
+	<span lang="EN-US" style="font-size: 10.0pt; font-family: Courier New">};</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:0;text-align:
+justify;text-indent:35.45pt;margin-top:0">
+	<span lang="EN-US" style="font-size: 10.0pt; font-family: Courier New">int 
+	main()</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:0;text-align:
+justify;text-indent:35.45pt;margin-top:0">
+	<span lang="EN-US" style="font-size: 10.0pt; font-family: Courier New">{</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:0;text-align:
+justify;text-indent:35.45pt;margin-top:0">
+	<span lang="EN-US" style="font-size: 10.0pt; font-family: Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	…</span></p>
+	<p class="MsoNormal" style="margin-top:0;margin-right:0cm;margin-bottom:0cm;
+margin-left:35.35pt;margin-bottom:0;text-align:justify;text-indent:35.45pt;
+">
+	<span lang="EN-US" style="font-size: 10.0pt; font-family: Courier New">list&lt;ToLength&gt; 
+	mass[v];</span></p>
+	<p class="MsoNormal" style="margin-top:0;margin-right:0cm;margin-bottom:0cm;
+margin-left:35.35pt;margin-bottom:0;text-align:justify;text-indent:35.45pt;
+">
+	<span lang="EN-US" style="font-size: 10.0pt; font-family: Courier New">…</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:0;text-align:
+justify;text-indent:35.45pt;margin-top:0">
+	<span lang="EN-US" style="font-size: 10.0pt; font-family: Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	return 0;</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:0;text-align:
+justify;text-indent:35.45pt;margin-top:0">
+	<span style="font-size: 10.0pt; font-family: Courier New">}</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify;text-indent:35.45pt;line-height:112%">
+	<span style="font-size:12.0pt;
+line-height:112%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">
+	После этого каждый элемент </span>
+	<span lang="EN-US" style="font-size: 12.0pt; line-height: 112%; font-family: &#39;Times New Roman&#39;,serif">
+	mass</span><span style="font-size:12.0pt;line-height:112%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">[</span><span lang="EN-US" style="font-size: 12.0pt; line-height: 112%; font-family: &#39;Times New Roman&#39;,serif">i</span><span style="font-size:12.0pt;line-height:
+112%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">] является 
+	списком типа </span>
+	<span lang="EN-US" style="font-size: 12.0pt; line-height: 112%; font-family: &#39;Times New Roman&#39;,serif">
+	ToLongth</span><span lang="EN-US" style="font-size:12.0pt;
+line-height:112%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">
+	</span>
+	<span style="font-size:12.0pt;line-height:112%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">
+	динамической длины (в зависимости от кол-ва ребер, исходящих из данной 
+	вершины). </span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify;text-indent:35.45pt;line-height:112%">
+	<span style="font-size:12.0pt;
+line-height:112%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Эта 
+	схема поможет воспринять метод:</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify;text-indent:35.45pt;line-height:112%">
+	<span lang="EN-US" style="font-size: 12.0pt; line-height: 112%; font-family: &#39;Times New Roman&#39;,serif">
+	mass</span><span style="font-size:12.0pt;line-height:
+112%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">[0] : . . . . . 
+	. . . . . .</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify;text-indent:35.45pt;line-height:112%">
+	<span lang="EN-US" style="font-size: 12.0pt; line-height: 112%; font-family: &#39;Times New Roman&#39;,serif">
+	mass</span><span style="font-size:12.0pt;line-height:
+112%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">[1] : . . . . . 
+	. . . . . . . . . . .</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify;text-indent:35.45pt;line-height:112%">
+	<span style="font-size:12.0pt;
+line-height:112%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">…..</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify;text-indent:35.45pt;line-height:112%">
+	<span lang="EN-US" style="font-size: 12.0pt; line-height: 112%; font-family: &#39;Times New Roman&#39;,serif">
+	mass</span><span style="font-size:12.0pt;line-height:
+112%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">[</span><span lang="EN-US" style="font-size: 12.0pt; line-height: 112%; font-family: &#39;Times New Roman&#39;,serif">v</span><span style="font-size:12.0pt;line-height:
+112%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">] : . . . . .</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify;text-indent:35.45pt;line-height:112%">
+	<span style="font-size:12.0pt;
+line-height:112%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">где 
+	«….» – это длина списка, количество вершин, исходящих из </span>
+	<span lang="EN-US" style="font-size: 12.0pt; line-height: 112%; font-family: &#39;Times New Roman&#39;,serif">
+	i</span><span style="font-size:12.0pt;line-height:
+112%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">-ой вершины 
+	графа.</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify;text-indent:35.45pt;line-height:112%">
+	<span style="font-size:12.0pt;
+line-height:112%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify;text-indent:35.45pt;line-height:112%">
+	<span style="font-size:12.0pt;
+line-height:112%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Для 
+	данного примера массив списков будет выглядеть так (в скобках указаны 
+	элементы структуры):</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify;line-height:112%">
+	<span style="font-size:12.0pt;line-height:112%;
+font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Номер ячейки&nbsp; : 
+	элементы списка.</span></p>
+	<p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:35.35pt;margin-bottom:.0001pt;text-align:justify;text-indent:35.45pt;
+line-height:112%">
+	<span style="font-size:12.0pt;line-height:112%;font-family:
+&quot;Times New Roman&quot;,&quot;serif&quot;">1 : (2, 1), (5, 3)</span></p>
+	<p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:35.35pt;margin-bottom:.0001pt;text-align:justify;text-indent:35.45pt;
+line-height:112%">
+	<span style="font-size:12.0pt;line-height:112%;font-family:
+&quot;Times New Roman&quot;,&quot;serif&quot;">2 : (3, 2)</span></p>
+	<p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:35.35pt;margin-bottom:.0001pt;text-align:justify;text-indent:35.45pt;
+line-height:112%">
+	<span style="font-size:12.0pt;line-height:112%;font-family:
+&quot;Times New Roman&quot;,&quot;serif&quot;">3 : (4, 3)</span></p>
+	<p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:35.35pt;margin-bottom:.0001pt;text-align:justify;text-indent:35.45pt;
+line-height:112%">
+	<span style="font-size:12.0pt;line-height:112%;font-family:
+&quot;Times New Roman&quot;,&quot;serif&quot;">4 : (2, 4)</span></p>
+	<p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:35.35pt;margin-bottom:.0001pt;text-align:justify;text-indent:35.45pt;
+line-height:112%">
+	<span style="font-size:12.0pt;line-height:112%;font-family:
+&quot;Times New Roman&quot;,&quot;serif&quot;">5 : (1, 3), (2, 7)</span></p>
+	<p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:35.35pt;margin-bottom:.0001pt;text-align:justify;text-indent:35.45pt;
+line-height:112%">
+	<span style="font-size:12.0pt;line-height:112%;font-family:
+&quot;Times New Roman&quot;,&quot;serif&quot;">6 : </span></p>
+	<p class="MsoNormal" style="text-indent:35.4pt">
+	<span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	Приведем расчеты временной сложности хранения графа списками смежных вершин:</span></p>
+	<p class="MsoNormal" style="text-indent:35.4pt"><b>
+	<span style="font-size: 12.0pt; line-height: 115%; font-family: &#39;Times New Roman&#39;,serif">
+	Операция 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	Временная сложность </span></b></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify;text-indent:35.45pt;line-height:112%">
+	<span style="font-size:12.0pt;
+line-height:112%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify;text-indent:35.45pt;line-height:112%">
+	<span style="font-size:12.0pt;
+line-height:112%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">
+	Проверка смежности вершин x и y 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; О(E) </span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify;text-indent:35.45pt;line-height:112%">
+	<span style="font-size:12.0pt;
+line-height:112%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">
+	Перечисление всех вершин смежных с x 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; О(E) </span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify;text-indent:35.45pt;line-height:112%">
+	<span style="font-size:12.0pt;
+line-height:112%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">
+	Определение веса ребра (x, y) 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; О(E) </span>
+	</p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify;text-indent:35.45pt;line-height:112%">
+	<span style="font-size:12.0pt;
+line-height:112%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">
+	Перечисление всех ребер (x, y) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; О(E) </span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify;text-indent:35.45pt;line-height:112%">
+	<span style="font-size:12.0pt;
+line-height:112%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">
+	Поиск i-ой дуги &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; О(1)</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify;text-indent:21.3pt;line-height:112%">
+	<span style="font-size:12.0pt;
+line-height:112%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">
+	Времена у всех операций, вроде бы, такие же, как и у списка рёбер. Однако, 
+	большинство из них реально намного меньше. Например, проверка смежности 
+	вершин x и y и перечисление всех вершин смежных с x в списке рёбер 
+	гарантированно будет выполнятся О(Е) операций, т.к. нам обязательно нужно 
+	пробежать весь список, а в списке смежности мы бежим только по вершинам, 
+	смежным с х. </span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify;text-indent:21.3pt;line-height:112%">
+	<span style="font-size:12.0pt;
+line-height:112%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">
+	Кроме того, мы экономим колоссальное количество памяти. Подсчитаем примерный 
+	объем для максимального ограничения: 2 * (10000 * 1000) / 1024<sup>2</sup>
+	</span>
+	<span style="font-size: 12.0pt; line-height: 112%; font-family: &#39;Times New Roman&#39;,serif">
+	&#8776; 19 Мбайт.</span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify;text-indent:21.3pt;line-height:112%">
+	<span style="font-size: 12.0pt; line-height: 112%; font-family: &#39;Times New Roman&#39;,serif">
+	Как видно, это в 10 раз меньше, чем при хранении матрицей смежности, при 
+	одинаковых ограничениях. Стоит ещё раз отметить, что, если граф 
+	неразреженный, то особой разницы хранения графа нет. Главное, чтобы способ 
+	был удобен для выполнения поставленной задачи. </span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify;text-indent:21.3pt;line-height:112%">
+	<span style="font-size: 12.0pt; line-height: 112%; font-family: &#39;Times New Roman&#39;,serif">
+	&nbsp;Итак, мы рассмотрели лишь некоторые методы представления графа в памяти 
+	компьютера. Существует ещё много способов представления графа в памяти, как 
+	статических, так и динамических. Однако не стоит распыляться на все сразу, 
+	так как они мало чем могут помочь на олимпиаде по информатике. Все методы, 
+	рассмотренные выше, хороши для решения школьных олимпиадных задач, не 
+	требуют долгой и сложной реализации, поэтому нужно иметь их на вооружении. 
+	Можно сделать выводы, что наиболее оптимальной структурой является массив 
+	списков, так как он экономит память и не тратит драгоценное время. Но чтобы 
+	им смело пользоваться, надо много потренироваться в его реализации. В главе 
+	«Разборы задач» многие решения хранят графы в виде списков смежных вершин. 
+	Однако в теоретической чести мы будем разбирать алгоритмы на примерах 
+	реализации графа в виде&nbsp; матрицы смежности. Это позволяет проще понимать 
+	суть логики алгоритма. </span></p>
+	<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify;text-indent:21.3pt;line-height:112%">
+	&nbsp;</p>
+
+	<b>
+
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody><tr>
+    <td width="100%"><hr noshade="" color="#0161B8">
+    </td>
+  </tr>
+  <tr>
+    <td width="100%"><p align="center"><font face="Arial"><small>| <a href="http://school29.smoladmin.ru/arbuzov/vvedenie.html">Введение</a>
+    | <a href="./Глава 1. Представление графа_files/Глава 1. Представление графа.htm">Представление графов</a> | <a href="http://school29.smoladmin.ru/arbuzov/glava2.html">Обходы и поиск пути в невзвешенном графе</a>
+    | <a href="http://school29.smoladmin.ru/arbuzov/glava3.html">Поиск кратчайшего пути во взвешенном графе</a> |</small><br>
+    <small>| <a href="http://school29.smoladmin.ru/arbuzov/glava4.html">Разбор задач</a> | <a href="http://school29.smoladmin.ru/arbuzov/istochniki.html">Источник информации</a>
+    | <a href="http://school29.smoladmin.ru/arbuzov/prilozenie.html">Время работы программы</a> |</small></font></p></td>
+  </tr>
+  <tr>
+    <td width="100%"><hr noshade="" color="#0161B8">
+    </td>
+  </tr>
+</tbody></table>
+<div align="center"><center>
+
+<table border="0" cellpadding="2" cellspacing="0">
+  <tbody><tr>
+    <td></td>
+  </tr>
+  <tr>
+    <td><small><font face="Arial">© <a href="mailto:smolcoder@bk.ru">Иван Арбузов,</a>
+    2010</font></small></td>
+  </tr>
+</tbody></table>
+</center></div>
+
+<p align="center">&nbsp;</p>
+<script language="JavaScript"></script>
+<script language="JavaScript"></script>
+<script language="JavaScript"></script>
+<script language="JavaScript"></script>
+<script language="JavaScript"></script>
+<script language="JavaScript"></script>
+<script language="JavaScript"></script>
+<script language="JavaScript"></script>
+<script language="JavaScript"></script>
+<script language="JavaScript"></script>
+<script language="JavaScript"></script>
+<script language="JavaScript"></script>
+
+<div align="center"><div align="center">
+<br><br>
+<!-- CNStats begin -->
+<script type="text/javascript">
+cnsd=document;cnst=escape(cnsd.title);
+cnst=cnst.replace(/\+/g,'%2B');cnsa=navigator.appName;
+cnsn=(cnsa.substring(0,2)=='Mi')?0:1;cnss=screen;cnspx=(cnsn==0)?cnss.colorDepth:cnss.pixelDepth;
+document.write('<img src="http://smoladmin.ru/cnstats/cnt-gif1x1.php?e='+cnss.width+'.'+cnss.height+'&amp;d='+cnspx+'&amp;r='+escape(cnsd.referrer)+'&amp;p='+escape(cnsd.location)+'&amp;t='+cnst+'" width="1" height="1" border="0">');
+</script><img src="./Глава 1. Представление графа_files/cnt-gif1x1.php" width="1" height="1" border="0"><noscript>&lt;img src="http://smoladmin.ru/cnstats/cnt-gif1x1.php?468&amp;amp;c=0" width="1" height="1" border="0" alt=""&gt;</noscript>
+<!-- CNStats end -->
+<img src="./Глава 1. Представление графа_files/cnt-show.php" width="88" height="31" border="0" alt="">
+<!-- CNStats end -->
+
+<!--begin of Rambler's Top100 code -->
+<a href="http://top100.rambler.ru/top100/">
+<img src="./Глава 1. Представление графа_files/top100.cnt" alt="" width="0" height="0" border="0"></a>
+<!--end of Top100 code-->
+<!--begin of Top100 logo-->
+<a href="http://top100.rambler.ru/top100/">
+<img src="./Глава 1. Представление графа_files/banner-88x31-rambler-brown2.gif" alt="Rambler&#39;s Top100" width="88" height="31" border="0"></a>
+<!--end of Top100 logo -->
+
+<!-- SpyLOG f:0311 -->
+<script language="javascript"><!--
+Mu="u114.21.spylog.com";Md=document;Mnv=navigator;Mp=0;
+Md.cookie="b=b";Mc=0;if(Md.cookie)Mc=1;Mrn=Math.random();
+Mn=(Mnv.appName.substring(0,2)=="Mi")?0:1;Mt=(new Date()).getTimezoneOffset();
+Mz="p="+Mp+"&rn="+Mrn+"&c="+Mc+"&t="+Mt;
+if(self!=top){Mfr=1;}else{Mfr=0;}Msl="1.0";
+//--></script><script language="javascript1.1"><!--
+Mpl="";Msl="1.1";Mj = (Mnv.javaEnabled()?"Y":"N");Mz+='&j='+Mj;
+//--></script><script language="javascript1.2"><!-- 
+Msl="1.2";Ms=screen;Mpx=(Mn==0)?Ms.colorDepth:Ms.pixelDepth;
+Mz+="&wh="+Ms.width+'x'+Ms.height+"&px="+Mpx;
+//--></script><script language="javascript1.3"><!--
+Msl="1.3";//--></script><script language="javascript"><!--
+My="";My+="<a href='http://"+Mu+"/cnt?cid=11421&f=3&p="+Mp+"&rn="+Mrn+"' target='_blank'>";
+My+="<img src='http://"+Mu+"/cnt?cid=11421&"+Mz+"&sl="+Msl+"&r="+escape(Md.referrer)+"&fr="+Mfr+"&pg="+escape(window.location.href);
+My+="' border=0 width=88 height=31 alt='SpyLOG'>";
+My+="</a>";Md.write(My);//--></script><a href="http://u114.21.spylog.com/cnt?cid=11421&f=3&p=0&rn=0.9583300985395908" target="_blank"><img src="./Глава 1. Представление графа_files/cnt" border="0" width="88" height="31" alt="SpyLOG"></a><noscript>
+&lt;a href="http://u114.21.spylog.com/cnt?cid=11421&amp;f=3&amp;p=0" target="_blank"&gt;
+&lt;img src="http://u114.21.spylog.com/cnt?cid=11421&amp;p=0" alt='SpyLOG' border='0' width=88 height=31 &gt;
+&lt;/a&gt;</noscript>
+<!-- SpyLOG -->
+
+<!-- HotLog -->
+<script language="javascript">
+hotlog_js="1.0";
+hotlog_r=""+Math.random()+"&s=33432&im=115&r="+escape(document.referrer)+"&pg="+
+escape(window.location.href);
+document.cookie="hotlog=1; path=/"; hotlog_r+="&c="+(document.cookie?"Y":"N");
+</script><script language="javascript1.1">
+hotlog_js="1.1";hotlog_r+="&j="+(navigator.javaEnabled()?"Y":"N")</script>
+<script language="javascript1.2">
+hotlog_js="1.2";
+hotlog_r+="&wh="+screen.width+'x'+screen.height+"&px="+
+(((navigator.appName.substring(0,3)=="Mic"))?
+screen.colorDepth:screen.pixelDepth)</script>
+<script language="javascript1.3">hotlog_js="1.3"</script>
+<script language="javascript">hotlog_r+="&js="+hotlog_js;
+document.write("<a href='http://click.hotlog.ru/?33432' target='_top'><img "+
+" src='http://hit3.hotlog.ru/cgi-bin/hotlog/count?"+
+hotlog_r+"&' border=0 width=88 height=31 alt=HotLog></a>")</script><a href="http://click.hotlog.ru/?33432" target="_top"><img src="./Глава 1. Представление графа_files/count" border="0" width="88" height="31" alt="HotLog"></a>
+<noscript>&lt;a href=http://click.hotlog.ru/?33432 target=_top&gt;&lt;img
+src="http://hit3.hotlog.ru/cgi-bin/hotlog/count?s=33432&amp;im=115" border=0 
+width="88" height="31" alt="HotLog"&gt;&lt;/a&gt;</noscript>
+<!-- /HotLog -->
+
+<!--LiveInternet counter--><script language="JavaScript"><!--
+document.write('<a href="http://www.liveinternet.ru/click" '+
+'target=liveinternet><img src="http://counter.yadro.ru/hit?t15.17;r'+
+escape(document.referrer)+((typeof(screen)=='undefined')?'':
+';s'+screen.width+'*'+screen.height+'*'+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+';'+Math.random()+
+'" alt="liveinternet.ru: показано число просмотров за 24 часа, посетителей за 24 часа и за сегодн\я" '+
+'border=0 width=88 height=31></a>')//--></script><a href="http://www.liveinternet.ru/click" target="liveinternet"><img src="./Глава 1. Представление графа_files/hit" alt="liveinternet.ru: показано число просмотров за 24 часа, посетителей за 24 часа и за сегодня" border="0" width="88" height="31"></a>
+<!--/LiveInternet-->
+
+<!--Rating@Mail.ru COUNTEr--><a target="_top" href="http://top.mail.ru/jump?from=52433"><img src="./Глава 1. Представление графа_files/counter" border="0" height="31" width="88" alt="Рейтинг@Mail.ru"></a><!--/COUNTER-->
+</div>
+</div>
+</b></td></tr></tbody></table></div></body></html>

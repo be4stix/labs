@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+<p>text text text</p>
+<p>text text text</p>
+<p>text text text</p>
+<p>text text text</p>
+<p>text text text</p>
+<p>text text text</p>
+<button id = "button">Нажмите</button>
+<script type="text/javascript">
+	let button = document.getElementById("button");
+	let p =document.getElementsByTagName('p');
+	button.addEventListener('click',function () {
+		for (let i = 0 ; i < p.length ; i++)
+		{
+			 p[i].textContent  += i+1;
+		}
+	})
+
+
+</script>
+</body>
+</html>

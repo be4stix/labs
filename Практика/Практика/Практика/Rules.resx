@@ -1,0 +1,121 @@
+﻿<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>Количество колод: 2
+Количество карт в колоде: 52
+Цель пасьянса: Необходимо собрать все карты на базовых стопка на королях в восходящих 
+последовательностях в масть, а на тузе в нисходящей последовательности в масть.
+Правила игры: Две полных колоды
+      Из двух колод  выбирают восемь королей и одного червонного туза, располагая их в следующем порядке:
+                                     ┌───┐ ┌───┐ ┌───┐
+                                     │      │ │      │ │      │
+                                     │      │ │      │ │      │
+                                     │  K  │ │  T  │ │  K  │ 
+                                     │      │ │      │ │      │
+                                     └───┘ └───┘ └───┘
+  ┌───┐ ┌───┐ ┌───┐   ┌───┐ ┌───┐ ┌───┐   ┌───┐ ┌───┐ ┌───┐
+  │      │ │      │ │      │   │      │ │      │ │      │   │      │ │      │ │      │
+  │      │ │      │ │      │   │   |  │ │      │ │   |  │   │      │ │      │ │      │
+  │  1  │ │  2  │ │  3  │   │  K  │ │ K  │ │  K  │   │  4  │ │  5  │ │  6  │
+  │      │ │      │ │      │   │      │ │      │ │      │   │      │ │      │ │      │
+  └───┘ └───┘ └───┘   └───┘ └───┘ └───┘   └───┘ └───┘ └───┘
+                                     ┌───┐ ┌───┐ ┌───┐
+                                     │      │ │      │ │      │
+                                     │  -  │  │     │ │   -  │
+                                     │  K │  │ K  │ │  K  │
+                                     │      │ │      │ │      │
+                                     └───┘ └───┘ └───┘
+
+      после такой  раскладки  ее  дополняют  снятыми  из колоды любыми шестью картами, которые  
+выкладывают во втором  ряду по три  слева  и справа от королей. Эти шесть  карт  образуют 
+ т. н. "диван". Червонный король, лежащий посредине,принимает титул султана. На протяжении всей
+ раскладки  пасьянса   он   остается   непокрытый.  Далее,  необходимо посмотреть, не найдутся  ли  
+среди карт, составляющих "диван", такие, которые  своим  "достоинством"   и   мастью  могли  бы  
+быть  уложены непосредственно на королей  или червонного туза. Если они имеются, их выкладывают. 
+В этом  пасьянсе  карты одного семейства укладываются на червонного туза по  восходящей,  а на 
+ семь  королей - по  нисходящей линии. Напр., на червонного туза - двойка червей, на бубнового короля
+ -  бубновый туз  и  т. д. На образовавшиеся  в  "диване" пустые  места помещают карты из колоды.
+      Из тех карт, которые  сняты  из колоды и оказались неподходящими для образования необходимых 
+кучек королей и туза, образуется "талон". Когда в "талоне" окажутся все карты, не используемые  в раскладке, 
+то короли "талона"  тасуют и раскладку  "дивана" делают во второй раз и, возможно, в третий раз. Если после этого 
+разложить все карты опять не удается, значит пасьянс не вышел. Пасьянс выходит, когда в "диване" и "талоне" не
+  остается ни одной  карты, а дамы образуют гарем султана, оканчивая пакеты королей и червонного туза:
+                      ┌───┐ ┌───┐ ┌───┐
+                      │      │ │      │ │      │
+                      │      │ │      │ │      │
+                      │  D │ │ D  │  │ D  │
+                      │      │ │      │ │      │
+                      └───┘ └───┘ └───┘
+                      ┌───┐ ┌───┐ ┌───┐
+                      │      │ │      │ │      │
+                      │      │ │      │ │      │
+                      │ D  │ │ K   │ │ D  │
+                      │      │ │      │ │      │
+                      └───┘ └───┘ └───┘
+                      ┌───┐ ┌───┐ ┌───┐
+                      │      │ │      │ │      │
+                      │      │ │      │ │      │
+                      │ D  │ │ D   │ │ D  │
+                      │      │ │      │ │      │
+                      └───┘ └───┘ └───┘
+
+</value>
+  </data>
+</root>

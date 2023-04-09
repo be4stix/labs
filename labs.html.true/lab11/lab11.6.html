@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>part8</title>
+</head>
+<body>
+	<ul>
+		<li><a id="main">Главная</a></li>
+		<li><a id="news">Новости</a></li>
+		<li><a id="contacts">Контакты</a></li>
+		<li><a id="company">О компании</a></li>
+		<div id='str'></div>
+	</ul>
+	<p id="text1" style="display: block;">text1text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1text1 text1 text1 text1 text1
+	text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 v v text1 text1 text1 text1 text1 text1 text1 text1 text1 vv text1 text1 text1
+	text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 v vvtext1text1 text1 text1
+	text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 v vvtext1text1 text1 text1
+	text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 v vvtext1text1 text1 text1
+	</p>
+	<p id="text2" style="display: none;">
+		text2 text2 text2 text2 text2text2 text2 text2 text2 text2 text2 text2 text2  vtext2 text2 text2 text2 text2 text2v text2
+		text2 text2 text2 text2 text2text2 text2 text2 text2 text2 text2 text2 text2  vtext2 text2 text2 text2 text2 text2v text2
+		text2 text2 text2 text2 text2text2 text2 text2 text2 text2 text2 text2 text2  vtext2 text2 text2 text2 text2 text2v text2
+		text2 text2 text2 text2 text2text2 text2 text2 text2 text2 text2 text2 text2  vtext2 text2 text2 text2 text2 text2v text2
+		text2 text2 text2 text2 text2text2 text2 text2 text2 text2 text2 text2 text2  vtext2 text2 text2 text2 text2 text2v text2
+	</p>
+	<p id="text3" style="display: none;">
+		text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3
+		text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3
+		text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3
+		text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3
+		text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3
+		text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3
+		text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3
+		text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3	text3 text3
+	</p>
+	<p id="text4" style="display: none;">
+		text4text4text4 text4 text4 text4 text4 text4 text4 text4text4text4text4text4text4text4text4text4text4
+		text4text4text4 text4 text4 text4 text4 text4 text4 text4text4text4text4text4text4text4text4text4text4
+		text4text4text4 text4 text4 text4 text4 text4 text4 text4text4text4text4text4text4text4text4text4text4
+		text4text4text4 text4 text4 text4 text4 text4 text4 text4text4text4text4text4text4text4text4text4text4
+		text4text4text4 text4 text4 text4 text4 text4 text4 text4text4text4text4text4text4text4text4text4text4
+
+	</p>
+</body>
+<style type="text/css">
+	ul {
+		background-color: yellow;
+	}
+	li {
+		display: inline-block;
+		color: white;
+	}
+	li:hover {
+		background-color: chocolate;
+	}
+	a {
+		text-decoration: none;
+	}
+
+</style>
+<script type="text/javascript">
+	let main= document.getElementById("main")
+	let news = document.getElementById("news")
+	let contacts = document.getElementById("contacts")
+	let company = document.getElementById("company")
+
+	let text1 = document.getElementById("text1")
+	let text2 = document.getElementById("text2")
+	let text3 = document.getElementById("text3")
+	let text4 = document.getElementById("text4")
+
+	main.addEventListener('click',function () {
+		text1.style.display = 'block'
+		text2.style.display = 'none'
+		text3.style.display = 'none'
+		text4.style.display = 'none'
+
+		main.style.background = 'orange'
+		news.style.background = 'yellow'
+		contacts.style.background = 'yellow'
+		company.style.background = 'yellow'
+
+
+	})
+		news.addEventListener('click',function () {
+		text1.style.display = 'none'
+		text2.style.display = 'block'
+		text3.style.display = 'none'
+		text4.style.display = 'none'
+
+		main.style.background = 'yellow	'
+		news.style.background = 'orange'
+		contacts.style.background = 'yellow'
+		company.style.background = 'yellow'
+
+	})
+			contacts.addEventListener('click',function () {
+		text1.style.display = 'none'
+		text2.style.display = 'none'
+		text3.style.display = 'block'
+		text4.style.display = 'none'
+
+		main.style.background = 'yellow	'
+		news.style.background = 'yellow'
+		contacts.style.background = 'orange'
+		company.style.background = 'yellow'
+
+
+	})
+				company.addEventListener('click',function () {
+		text1.style.display = 'none'
+		text2.style.display = 'none'
+		text3.style.display = 'none'
+		text4.style.display = 'block'
+
+		main.style.background = 'yellow	'
+		news.style.background = 'yellow'
+		contacts.style.background = 'yellow'
+		company.style.background = 'orange'
+
+
+	})
+ 
+</script>
+</html>

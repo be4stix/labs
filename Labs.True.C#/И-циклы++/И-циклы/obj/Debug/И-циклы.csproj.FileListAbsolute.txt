@@ -1,0 +1,7 @@
+C:\Users\Сергей\Desktop\Labs.True.C#\И-циклы\И-циклы\bin\Debug\И-циклы.exe.config
+C:\Users\Сергей\Desktop\Labs.True.C#\И-циклы\И-циклы\bin\Debug\И-циклы.exe
+C:\Users\Сергей\Desktop\Labs.True.C#\И-циклы\И-циклы\bin\Debug\И-циклы.pdb
+C:\Users\Сергей\Desktop\Labs.True.C#\И-циклы\И-циклы\obj\Debug\И-циклы.csproj.AssemblyReference.cache
+C:\Users\Сергей\Desktop\Labs.True.C#\И-циклы\И-циклы\obj\Debug\И-циклы.csproj.CoreCompileInputs.cache
+C:\Users\Сергей\Desktop\Labs.True.C#\И-циклы\И-циклы\obj\Debug\И-циклы.exe
+C:\Users\Сергей\Desktop\Labs.True.C#\И-циклы\И-циклы\obj\Debug\И-циклы.pdb

@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>lab6.9.4</title>
+</head>
+<body>
+    <div id="wrapper">
+		<p id="str">
+			10
+		</p>
+		<p id="stop"></p>
+		<input type="submit" value="Запуск"  onclick="go()" id="go">
+	</div>
+		<script>
+         function go(){
+			window.timerId = window.setInterval(timer, 1000);
+		}
+		function stop(){
+			window.clearInterval(window.timerId);
+		}
+		function timer(){
+			var str = document.getElementById('str');
+			var number = parseInt(str.innerHTML)-1;
+			str.innerHTML = number;
+			if(number == 0) {
+				stop();
+				var timetStop = document.getElementById('stop');
+			}
+		}
+        </script>	
+</body>
+</html>

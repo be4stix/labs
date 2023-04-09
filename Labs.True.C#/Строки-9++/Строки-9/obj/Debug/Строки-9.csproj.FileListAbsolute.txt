@@ -1,0 +1,14 @@
+C:\Users\Сергей\Desktop\Labs.True.C#\Строки-9\Строки-9\bin\Debug\Строки-9.exe.config
+C:\Users\Сергей\Desktop\Labs.True.C#\Строки-9\Строки-9\bin\Debug\Строки-9.exe
+C:\Users\Сергей\Desktop\Labs.True.C#\Строки-9\Строки-9\bin\Debug\Строки-9.pdb
+C:\Users\Сергей\Desktop\Labs.True.C#\Строки-9\Строки-9\obj\Debug\Строки-9.csproj.AssemblyReference.cache
+C:\Users\Сергей\Desktop\Labs.True.C#\Строки-9\Строки-9\obj\Debug\Строки-9.csproj.CoreCompileInputs.cache
+C:\Users\Сергей\Desktop\Labs.True.C#\Строки-9\Строки-9\obj\Debug\Строки-9.exe
+C:\Users\Сергей\Desktop\Labs.True.C#\Строки-9\Строки-9\obj\Debug\Строки-9.pdb
+C:\Users\Сергей\Desktop\Labs.True.C#\Строки-9+\Строки-9\bin\Debug\Строки-9.exe.config
+C:\Users\Сергей\Desktop\Labs.True.C#\Строки-9+\Строки-9\bin\Debug\Строки-9.exe
+C:\Users\Сергей\Desktop\Labs.True.C#\Строки-9+\Строки-9\bin\Debug\Строки-9.pdb
+C:\Users\Сергей\Desktop\Labs.True.C#\Строки-9+\Строки-9\obj\Debug\Строки-9.csproj.AssemblyReference.cache
+C:\Users\Сергей\Desktop\Labs.True.C#\Строки-9+\Строки-9\obj\Debug\Строки-9.csproj.CoreCompileInputs.cache
+C:\Users\Сергей\Desktop\Labs.True.C#\Строки-9+\Строки-9\obj\Debug\Строки-9.exe
+C:\Users\Сергей\Desktop\Labs.True.C#\Строки-9+\Строки-9\obj\Debug\Строки-9.pdb

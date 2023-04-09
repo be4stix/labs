@@ -1,0 +1,750 @@
+
+<!-- saved from url=(0051)http://ossite.ru/index.php?dir=os/dos/&file=comands -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <title>[_OsSite_]  Синтаксис BAT-файлов и командная строка в MS-DOS.</title>
+<meta name="author" content="#Venit, Email: logica@tut.by">
+<meta name="keywords" content="bat, shell, ms-dos, операционная, система, windows, unix, linux, mac os, DOS, FreeDOS, dos,  MS DOS, Windows, операционные системы">
+<meta name="description" content="OpSys.hut1.ru - Всё об операционных системах. Синтаксис BAT-файлов и командная строка в MS-DOS.">
+
+<meta name="copyright" content="© 2005 #Venit">
+<meta name="robots" content="index,all">
+<meta name="revisit-after" content="15 days">
+<link href="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/def.css" rel="stylesheet" type="text/css">
+<script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/document_iterator.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/find_proxy.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/get_html_text.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/global_constants.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/name_injection_builder.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/number_injection_builder.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/menu_injection_builder.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/string_finder.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/change_sink.js"></script><meta name="document_iterator.js"><meta name="find_proxy.js"><meta name="global_constants.js"><meta name="get_html_text.js"><meta name="name_injection_builder.js"><meta name="number_injection_builder.js"><meta name="string_finder.js"><meta name="change_sink.js"><meta name="menu_injection_builder.js"><style id="wrc-middle-css" type="text/css">.wrc_whole_window{	display: none;	position: fixed; 	z-index: 2147483647;	background-color: rgba(40, 40, 40, 0.9);	word-spacing: normal !important;	margin: 0px !important;	padding: 0px !important;	border: 0px !important;	left: 0px;	top: 0px;	width: 100%;	height: 100%;	line-height: normal !important;	letter-spacing: normal !important;	overflow: hidden;}.wrc_bar_window{	display: none;	position: fixed; 	z-index: 2147483647;	background-color: rgba(60, 60, 60, 1.0);	word-spacing: normal !important;	font-family: Segoe UI, Arial Unicode MS, Arial, Sans-Serif;	margin: 0px !important;	padding: 0px !important;	border: 0px !important;	left: 0px;	top: 0px;	width: 100%;	height: 40px;	line-height: normal !important;	letter-spacing: normal !important;	color: white !important;	font-size: 13px !important;}.wrc_middle {	display: table-cell;	vertical-align: middle;	width: 100%;}.wrc_middle_main {	font-family: Segoe UI, Arial Unicode MS, Arial, Sans-Serif;	font-size: 14px;	width: 600px;	height: auto;    background: url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/background-body.jpg) repeat-x left top;	background-color: rgb(39, 53, 62);	position: relative;	margin-left: auto;	margin-right: auto;	text-align: left;}.wrc_middle_tq_main {	font-family: Segoe UI, Arial Unicode MS, Arial, Sans-Serif;	font-size: 16px;	width: 615px;	height: 460px;    background: url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/background-sitecorrect.png) no-repeat;	background-color: white;	color: black !important;	position: relative;	margin-left: auto;	margin-right: auto;	text-align: center;}.wrc_middle_logo {    background: url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/logo.jpg) no-repeat left bottom;    width: 140px;    height: 42px;    color: orange;    display: table-cell;    text-align: right;    vertical-align: middle;}.wrc_icon_warning {	margin: 20px 10px 20px 15px;	float: left;	background-color: transparent;}.wrc_middle_title {    color: #b6bec7;	height: auto;    margin: 0px auto;	font-size: 2.2em;	white-space: nowrap;	text-align: center;}.wrc_middle_hline {    height: 2px;	width: 100%;    display: block;}.wrc_middle_description {	text-align: center;	margin: 15px;	font-size: 1.4em;	padding: 20px;	height: auto;	color: white;	min-height: 3.5em;}.wrc_middle_actions_main_div {	margin-bottom: 15px;	text-align: center;}.wrc_middle_actions_blue_button div {	display: inline-block;	width: auto;	cursor: Pointer;	margin: 3px 10px 3px 10px;	color: white;	font-size: 1.2em;	font-weight: bold;}.wrc_middle_actions_blue_button {	-moz-appearance: none;	border-radius: 7px;	-moz-border-radius: 7px/7px;	border-radius: 7px/7px;	background-color: rgb(0, 173, 223) !important;	display: inline-block;	width: auto;	cursor: Pointer;	border: 2px solid #00dddd;	padding: 0px 20px 0px 20px;}.wrc_middle_actions_blue_button:hover {	background-color: rgb(0, 159, 212) !important;}.wrc_middle_actions_blue_button:active {	background-color: rgb(0, 146, 200) !important;	border: 2px solid #00aaaa;}.wrc_middle_actions_grey_button div {	display: inline-block;	width: auto;	cursor: Pointer;	margin: 3px 10px 3px 10px;	color: white !important;	font-size: 15px;	font-weight: bold;}.wrc_middle_actions_grey_button {	-moz-appearance: none;	border-radius: 7px;	-moz-border-radius: 7px/7px;	border-radius: 7px/7px;	background-color: rgb(100, 100, 100) !important;	display: inline-block;	width: auto;	cursor: Pointer;	border: 2px solid #aaaaaa;	text-decoration: none;	padding: 0px 20px 0px 20px;}.wrc_middle_actions_grey_button:hover {	background-color: rgb(120, 120, 120) !important;}.wrc_middle_actions_grey_button:active {	background-color: rgb(130, 130, 130) !important;	border: 2px solid #00aaaa;}.wrc_middle_action_low {	font-size: 0.9em;	white-space: nowrap;	cursor: Pointer;	color: grey !important;	margin: 10px 10px 0px 10px;	text-decoration: none;}.wrc_middle_action_low:hover {	color: #aa4400 !important;}.wrc_middle_actions_rest_div {	padding-top: 5px;	white-space: nowrap;	text-align: center;}.wrc_middle_action {	white-space: nowrap;	cursor: Pointer;	color: red !important;	font-size: 1.2em;	margin: 10px 10px 0px 10px;	text-decoration: none;}.wrc_middle_action:hover {	color: #aa4400 !important;}</style><script id="wrc-script-middle_window" type="text/javascript" language="JavaScript">var g_inputsCnt = 0;var g_InputThis = new Array(null, null, null, null);var g_alerted = false;/* we test the input if it includes 4 digits   (input is a part of 4 inputs for filling the credit-card number)*/function is4DigitsCardNumber(val){	var regExp = new RegExp('[0-9]{4}');	return (val.length == 4 && val.search(regExp) == 0);}/* testing the whole credit-card number 19 digits devided by three '-' symbols or   exactly 16 digits without any dividers*/function isCreditCardNumber(val){	if(val.length == 19)	{		var regExp = new RegExp('[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}');		return (val.search(regExp) == 0);	}	else if(val.length == 16)	{		var regExp = new RegExp('[0-9]{4}[0-9]{4}[0-9]{4}[0-9]{4}');		return (val.search(regExp) == 0);	}	return false;}function CheckInputOnCreditNumber(self){	if(g_alerted)		return false;	var value = self.value;	if(self.type == 'text')	{		if(is4DigitsCardNumber(value))		{			var cont = true;			for(i = 0; i < g_inputsCnt; i++)				if(g_InputThis[i] == self)					cont = false;			if(cont && g_inputsCnt < 4)			{				g_InputThis[g_inputsCnt] = self;				g_inputsCnt++;			}		}		g_alerted = (g_inputsCnt == 4);		if(g_alerted)			g_inputsCnt = 0;		else			g_alerted = isCreditCardNumber(value);	}	return g_alerted;}function CheckInputOnPassword(self){	if(g_alerted)		return false;	var value = self.value;	if(self.type == 'password')	{		g_alerted = (value.length > 0);	}	return g_alerted;}function onInputBlur(self, bRatingOk, bFishingSite){	var bCreditNumber = CheckInputOnCreditNumber(self);	var bPassword = CheckInputOnPassword(self);	if((!bRatingOk || bFishingSite == 1) && (bCreditNumber || bPassword) )	{		var warnDiv = document.getElementById("wrcinputdiv");		if(warnDiv)		{			/* show the warning div in the middle of the screen */			warnDiv.style.left = "0px";			warnDiv.style.top = "0px";			warnDiv.style.width = "100%";			warnDiv.style.height = "100%";			document.getElementById("wrc_warn_fs").style.display = 'none';			document.getElementById("wrc_warn_cn").style.display = 'none';			if(bFishingSite)				document.getElementById("wrc_warn_fs").style.display = 'block';			else				document.getElementById("wrc_warn_cn").style.display = 'block';			warnDiv.style.display = 'table';		}	}}</script><style id="wrc-css" type="text/css">.wrcx {display:none} .r .wrcx, .osl .wrcx, .bc .wrcx, .fc .wrcx, #rhsline ol .wrcx {display:inline; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/grey0-16.png") right no-repeat}
+.wrc0 {display:none} .r .wrc0, .osl .wrc0, .bc .wrc0, .fc .wrc0, #rhsline ol .wrc0 {display:inline; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/grey0-16.png") right no-repeat}
+.wrc11 {display:none} .r .wrc11, .osl .wrc11, .bc .wrc11, .fc .wrc11, #rhsline ol .wrc11 {display:inline; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/green1-16.png") right no-repeat}
+.wrc12 {display:none} .r .wrc12, .osl .wrc12, .bc .wrc12, .fc .wrc12, #rhsline ol .wrc12 {display:inline; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/green2-16.png") right no-repeat}
+.wrc13 {display:none} .r .wrc13, .osl .wrc13, .bc .wrc13, .fc .wrc13, #rhsline ol .wrc13 {display:inline; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/green3-16.png") right no-repeat}
+.wrc21 {display:none} .r .wrc21, .osl .wrc21, .bc .wrc21, .fc .wrc21, #rhsline ol .wrc21 {display:inline; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/yellow1-16.png") right no-repeat}
+.wrc22 {display:none} .r .wrc22, .osl .wrc22, .bc .wrc22, .fc .wrc22, #rhsline ol .wrc22 {display:inline; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/yellow2-16.png") right no-repeat}
+.wrc23 {display:none} .r .wrc23, .osl .wrc23, .bc .wrc23, .fc .wrc23, #rhsline ol .wrc23 {display:inline; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/yellow3-16.png") right no-repeat}
+.wrc31 {display:none} .r .wrc31, .osl .wrc31, .bc .wrc31, .fc .wrc31, #rhsline ol .wrc31 {display:inline; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/red1-16.png") right no-repeat}
+.wrc32 {display:none} .r .wrc32, .osl .wrc32, .bc .wrc32, .fc .wrc32, #rhsline ol .wrc32 {display:inline; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/red2-16.png") right no-repeat}
+.wrc33 {display:none} .r .wrc33, .osl .wrc33, .bc .wrc33, .fc .wrc33, #rhsline ol .wrc33 {display:inline; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/red3-16.png") right no-repeat}
+.wrc_icon{margin:0;padding:0;padding-left:15px !important; margin-left: 5px; width:16px !important; height:16px !important;line-height:16px !important;}
+#wrchoverdiv{padding-bottom:20px;-webkit-border-radius: 4px; -webkit-box-shadow: 2px 2px 1px rgba(0,0,0,0.2); position:absolute; width:180px; background:transparent url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/background-body.jpg) top left repeat-x; display:none; font-family: Segoe UI, Arial Unicode MS, Arial, Sans-Serif; font-size: 14px; z-index:9999999;}
+#wrchoverdiv{cursor:default;}
+#wrchoverdiv #wrccontainer{width:180px;}
+#wrchoverdiv #wrcheader{width:140px; height:42px; background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/logo.jpg) bottom left no-repeat; text-align:right; line-height:42px; color:orange; margin:0 auto;}
+#wrchoverdiv .wrchorizontal{width:180px; height:2px; background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/horizontal-line.jpg) bottom left no-repeat;}
+#wrchoverdiv #wrccurrentvote{height:25px; line-height:25px; color:#FFF; text-align:center; text-transform:uppercase;}
+#wrchoverdiv #wrcrating{margin:5px auto; width:69px; height:55px; background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/grey-0.png) bottom left no-repeat;}
+#wrchoverdiv #wrcrating.wrcbx{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/grey-0.png);}
+#wrchoverdiv #wrcrating.wrcb0{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/grey-0.png);}
+#wrchoverdiv #wrcrating.wrcb11{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/green-1.png);}
+#wrchoverdiv #wrcrating.wrcb12{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/green-2.png);}
+#wrchoverdiv #wrcrating.wrcb13{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/green-3.png);}
+#wrchoverdiv #wrcrating.wrcb21{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/yellow-1.png);}
+#wrchoverdiv #wrcrating.wrcb22{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/yellow-2.png);}
+#wrchoverdiv #wrcrating.wrcb23{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/yellow-3.png);}
+#wrchoverdiv #wrcrating.wrcb31{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/red-1.png);}
+#wrchoverdiv #wrcrating.wrcb32{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/red-2.png);}
+#wrchoverdiv #wrcrating.wrcb33{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/red-3.png);}
+#wrchoverdiv #wrcratingtext{margin:3px 5px; color:#FFF; text-align:center; padding:0; font-size:12px;}
+#wrchoverdiv #wrcweighttext{margin:3px 5px; color:#FFF; text-align:center; padding:0; font-size:12px;}
+#wrchoverdiv #wrcflags{width:150px; height:70px; margin:0 auto;}
+#wrchoverdiv .wrcicon{width:30px; height:30px; float:left;}
+#wrchoverdiv #wrcicon_shopping{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/shopping-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_shopping.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/shopping-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_social{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/social-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_social.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/social-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_news{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/news-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_news.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/news-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_it{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/it-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_it.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/it-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_corporate{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/corporate-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_corporate.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/corporate-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_pornography{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/pornography-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_pornography.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/pornography-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_violence{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/violence-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_violence.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/violence-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_gambling{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/gambling-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_gambling.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/gambling-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_drugs{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/drugs-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_drugs.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/drugs-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_illegal{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/illegal-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_illegal.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/illegal-small-selected.png) top left no-repeat;}
+</style></head>
+<body text="006699">
+<script language="JavaScript">
+<!--
+if (window != top) top.location.href = location.href;
+// -->
+</script>
+<a name="top"></a>
+<table border="0" align="center" width="980" cellspacing="2" cellpadding="0">
+ <tbody><tr>
+        <td colspan="2">
+<table border="0" cellspacing="0" cellpadding="0" width="968">
+	<tbody><tr class="colored">
+		<td>
+			<img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left-top.gif" height="9" width="16" alt="">
+		</td>
+		<td width="100%" colspan="3">
+		</td>
+		<td>
+			<img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right-top.gif" width="16" height="9" alt="">
+		</td>
+	</tr>
+
+
+
+	<tr>
+		<td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif">
+		</td>
+		<td>
+			<a href="http://www.ossite.ru/" title="Главная страница"><div class="tuner" align="center">OS Site.ru</div><br><br></a>
+		</td>
+		<td colspan="2">
+			<div class="allabout" align="center">Всё об операционных системах.</div>
+		</td>
+		<td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif">
+		</td>
+	</tr>
+</tbody></table>        </td>
+ </tr>
+ 
+<tr>
+<td colspan="2"><a href="http://osjournal.ru/"><img style="margin-top: -2;" border="0" src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/osjournal.png"></a></td>
+</tr> 
+ 
+ <tr>
+   <td valign="top" width="160" bgcolor="white">
+<table width="175" border="0" cellspacing="0" cellpadding="0">
+<tbody><tr><td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/spacer.gif" width="0" height="4" alt=""></td></tr>
+<tr><td>
+
+
+
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody><tr class="colored">
+<td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left-top.gif" height="9" width="16" alt=""></td>
+<td></td>
+<td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right-top.gif" width="16" height="9" alt=""></td>
+</tr>
+
+<tr>
+<td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td>
+<td align="center">
+<b>Операционные системы</b>
+</td>
+<td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td>
+</tr>
+
+<tr><td colspan="3"><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/golos.gif" width="100%" height="5"></td></tr>
+<tr><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td><td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/view.gif" width="10" height="10" alt=""><a class="menu" title="Обзор операционной системы  Mac OS X" href="http://ossite.ru/index.php?dir=os/mac/&file=mac_os_x" onfocus="this.blur()">Mac OS</a><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/spacer.gif" width="1" height="17" alt=""></td><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td></tr>
+<tr><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td><td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/view.gif" width="10" height="10" alt=""><a class="menu" title="Обзор операционной системы Novell Netware" href="http://ossite.ru/index.php?dir=os/netware/&file=netware" onfocus="this.blur()">NetWare</a></td><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td></tr>
+<tr><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td><td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/view.gif" width="10" height="10" alt=""><a class="menu" title="Обзор операционной системы IBM OS/2" href="http://ossite.ru/index.php?dir=os/os2/&file=os-2" onfocus="this.blur()">OS/2</a></td><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td></tr>
+<tr><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td><td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/view.gif" width="10" height="10" alt=""><a class="menu" title="Обзор операционной системы MicroSoft Windows" href="http://ossite.ru/index.php?dir=os/windows/&file=windows" onfocus="this.blur()">Windows</a></td><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td></tr>
+<tr><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td><td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/spacer.gif" width="1" height="5" alt=""></td><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td></tr>
+<tr><td colspan="3"><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/golos.gif" width="100%" height="5"></td></tr>
+<tr><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td><td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/view.gif" width="10" height="10" alt=""><a class="menu" title="Обзор операционной системы BSD/386" href="http://ossite.ru/index.php?dir=os/bsd386/&file=bsd386" onfocus="this.blur()">BSD/386</a><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/spacer.gif" width="1" height="17" alt=""></td><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td></tr>
+<tr><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td><td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/view.gif" width="10" height="10" alt=""><a class="menu" title="Обзор операционной системы FreeBSD" href="http://ossite.ru/index.php?dir=os/freebsd/&file=freebsd" onfocus="this.blur()">FreeBSD</a></td><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td></tr>
+<tr><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td><td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/view.gif" width="10" height="10" alt=""><a class="menu" title="Обзор операционной системы Linux" href="http://ossite.ru/index.php?dir=os/linux/&file=linux" onfocus="this.blur()">Linux</a></td><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td></tr>
+<tr><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td><td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/view.gif" width="10" height="10" alt=""><a class="menu" title="Обзор операционной системы QNX" href="http://ossite.ru/index.php?dir=os/qnx/&file=qnx" onfocus="this.blur()">QNX</a></td><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td></tr>
+<tr><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td><td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/view.gif" width="10" height="10" alt=""><a class="menu" title="Обзор операционной системы Sun Solaris" href="http://ossite.ru/index.php?dir=os/solaris/&file=solaris" onfocus="this.blur()">Solaris</a></td><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td></tr>
+<tr><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td><td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/view.gif" width="10" height="10" alt=""><a class="menu" title="Обзор операционной системы Unix" href="http://ossite.ru/index.php?dir=os/unix/&file=unix" onfocus="this.blur()">Unix</a></td><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td></tr>
+<tr><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td><td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/spacer.gif" width="1" height="5" alt=""></td><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td></tr>
+<tr><td colspan="3"><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/golos.gif" width="100%" height="5"></td></tr>
+<tr><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td><td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/view.gif" width="10" height="10" alt=""><a class="menu" title="Обзор операционной системы BeOS" href="http://ossite.ru/index.php?dir=os/beos/&file=beos" onfocus="this.blur()">BeOS</a><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/spacer.gif" width="1" height="17" alt=""></td><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td></tr>
+<tr><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td><td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/view.gif" width="10" height="10" alt=""><a class="menu" title="Обзор операционной системы Miraculix" href="http://ossite.ru/index.php?dir=os/miraculix/&file=miraculix" onfocus="this.blur()">Miraculix OS</a></td><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td></tr>
+<tr><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td><td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/view.gif" width="10" height="10" alt=""><a class="menu" title="Обзор операционной системы Morphos" href="http://ossite.ru/index.php?dir=os/morphos/&file=morphos" onfocus="this.blur()">MorphOS</a></td><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td></tr>
+<tr><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td><td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/view.gif" width="10" height="10" alt=""><a class="menu" title="Обзор операционной системы ReactOS" href="http://ossite.ru/index.php?dir=os/reactos/&file=reactos" onfocus="this.blur()">ReactOS</a></td><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td></tr>
+<tr><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td><td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/view.gif" width="10" height="10" alt=""><a class="menu" title="Обзор операционной системы SkyOS" href="http://ossite.ru/index.php?dir=os/skyos/&file=skyos" onfocus="this.blur()">SkyOS</a></td><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td></tr>
+<tr><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td><td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/view.gif" width="10" height="10" alt=""><a class="menu" title="Обзор операционной системы Syllable" href="http://ossite.ru/index.php?dir=os/syllable/&file=syllable" onfocus="this.blur()">Syllable</a></td><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td></tr>
+<tr><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td><td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/spacer.gif" width="1" height="5" alt=""></td><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td></tr>
+<tr><td colspan="3"><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/golos.gif" width="100%" height="5"></td></tr>
+
+<tr><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td><td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/view.gif" width="10" height="10" alt=""><a class="menu" title="Обзор операционной системы MS-DOS" href="http://ossite.ru/index.php?dir=os/dos/&file=dos" onfocus="this.blur()">MS-DOS</a><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/spacer.gif" width="1" height="17" alt=""></td><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td></tr>
+<tr><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td><td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/view.gif" width="10" height="10" alt=""><a class="menu" title="Обзор операционной системы FreeDOS" href="http://ossite.ru/index.php?dir=os/dos/&file=freedos" onfocus="this.blur()">FreeDOS</a></td><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td></tr>
+<tr><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td><td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/view.gif" width="10" height="10" alt=""><a class="menu" title="Обзор операционной системы OpenDOS" href="http://ossite.ru/index.php?dir=os/dos/&file=opendos" onfocus="this.blur()">OpenDOS</a></td><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td></tr>
+<tr><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td><td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/view.gif" width="10" height="10" alt=""><a class="menu" title="Обзор операционной системы Novell DOS" href="http://ossite.ru/index.php?dir=os/dos/&file=opendos" onfocus="this.blur()">Novell DOS</a></td><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td></tr>
+<tr><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td><td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/view.gif" width="10" height="10" alt=""><a class="menu" title="Обзор операционной системы DR-DOS" href="http://ossite.ru/index.php?dir=os/dos/&file=opendos" onfocus="this.blur()">DR-DOS</a></td><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td></tr>
+
+
+<tr><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td><td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/view.gif" width="10" height="10" alt=""><a class="menu" title="Обзор операционной системы IBM PC DOS 7.0 rev.1 / IBM PC DOS 2000" href="http://ossite.ru/index.php?dir=os/dos/&file=pcdos" onfocus="this.blur()">IBM PC DOS</a></td><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td></tr>
+<tr><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td><td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/view.gif" width="10" height="10" alt=""><a class="menu" title="Обзор операционной системы RDOS" href="http://ossite.ru/index.php?dir=os/dos/&file=rdos" onfocus="this.blur()">RDOS</a></td><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td></tr>
+<tr><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td><td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/spacer.gif" width="1" height="5" alt=""></td><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td></tr>
+<tr><td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left-bot.gif" height="9" width="16" alt=""></td><td class="colored"></td><td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right-bot.gif" height="9" width="16" alt=""></td></tr>
+</tbody></table>
+</td></tr>
+
+
+
+
+<tr><td>
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody><tr><td colspan="3"><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/spacer.gif" width="1" height="10" alt=""></td></tr>
+<tr class="colored">
+<td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left-top.gif" height="9" width="16" alt=""></td>
+<td width="100%"></td>
+<td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right-top.gif" width="16" height="9" alt=""></td>
+</tr>
+<tr>
+<td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td>
+<td align="center">
+<b>Меню</b>
+</td>
+<td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td>
+</tr>
+<tr><td colspan="3"><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/golos.gif" width="100%" height="5"></td></tr>
+
+<tr><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td><td><p class="menu">&nbsp;# <a class="menu" title="Карта сайта - список материалов с кратким описанием" href="http://ossite.ru/index.php?file=map">Карта сайта</a><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/spacer.gif" width="1" height="17" alt=""></p></td><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td></tr>
+<tr><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td><td><p class="menu">?? <a class="menu" title="Информация о проекте и его авторах" href="http://ossite.ru/index.php?file=about">О проекте</a></p></td><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td></tr>
+<tr><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td><td><p class="menu">&nbsp;<img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/view.gif" width="10" height="10" alt="">&nbsp;<a class="menu" title="Ссылки на ресурсы по операционным системам" href="http://ossite.ru/index.php?dir=os/&file=link" onfocus="this.blur()">Ссылки</a></p></td><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td></tr>
+
+<tr><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td><td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/spacer.gif" width="1" height="10" alt=""></td><td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td></tr>
+<tr><td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left-bot.gif" height="9" width="16"></td><td class="colored"></td><td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right-bot.gif" height="9" width="16"></td></tr>
+</tbody></table>
+</td></tr>
+
+</tbody></table>
+
+</td>
+
+   <td valign="top" bgcolor="white">
+<table width="80%" align="center" border="0">
+<tbody><tr><td align="center"><br>
+<h2><center>Синтаксис BAT-файлов и командная строка в</center></h2> <h1>MS-DOS</h1><br>
+<br><br>
+
+<p class="text"><b>BAT-файлы (файлы с расширением .bat, от английского batch - "пакетные") - это обычные 
+текстовые файлы с набором инструкций командному процессору command.com для автоматического 
+выполнения всех содержащихся в таком файле команд.</b>
+<br>
+С помощью пакетных файлов возможно создание довольно мощных средств для облегчения 
+выполнения трудоемких операций, например, копирования, создания больших архивов, 
+проверки каких-либо внешних условий и условная обработка данных. Особенно широкий 
+простор здесь открывается для тех, кто знает хотя бы один язык программирования - 
+используя и свои программы, можно создавать прямо-таки гигантские программные комплексы. 
+<br>
+При описании команд использовались принятые в DOS обозначения: 
+</p>
+<ul>
+<li><b>&lt;параметр&gt;</b> - обязательный параметр. 
+</li><li><b>[параметр]</b> - необязательный параметер. 
+</li><li><b>|</b> - оператор "или".
+</li></ul>
+<p class="text">Все команды и операторы языка являются регистронезависимыми, то есть, 
+команды <b>echo off</b>, <b>ECHO OFF</b> и <b>EcHo oFf</b> являются абсолютно идентичными. 
+</p>
+<img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left-line.gif" width="3" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/golos.gif" width="95%" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right-line.gif" width="3" height="6" alt="">
+<br><br><br><br>
+
+
+<h3>Перенаправление потоков ввода/вывода.</h3>
+
+
+<p class="text">Перенаправление потоков в операционной системе позволяет, например, 
+вывести результат работы программы не на экран, а в файл или на принтер,
+а также использовать результаты работы одной программы в другой.<br>
+Для перенаправления потоков используются специальные символы командной строки:</p>
+<ul>
+<li><b> &gt; </b> - Переназначает вывод.
+</li><li><b> &lt; </b> - Переназначает ввод.
+</li><li><b> &gt;&gt; </b> - Добавляет переназначенный вывод к существующим данным.
+</li><li><b>|</b> - Конвейер – вывод первой команды непосредственно на ввод другой.
+</li></ul>
+
+<p class="text"><br>Приведем пример. Команда<br> 
+<b>DIR&gt;abc.txt</b><br> 
+выведет результаты не на экран, а в файл abc.txt, предварительно создав или перезаписав его. 
+В дальнейшем можно использовать его для более удобной обработки полученной информации 
+(например, если список слишком большой).<br> 
+<b>DIR&gt;&gt;abc.txt</b><br> 
+данная команда также запишет результат не на экран, а в файл abc.txt, 
+но она не удалит его содержимое, а добавляет результат в конец файла. 
+Если файл не существует, он будет создан.<br>
+<b>DIR | MORE</b><br> 
+Это пример использования результатов выполнения команды (piping) DIR фильтром MORE, 
+который делает паузу после каждого экрана листинга. Еще один полезный пример:<br>
+<b>ECHO Y | DEL *.*</b><br>
+Сама команда DEL *.* должна удалить все файлы в каталоге. 
+Однако, она предусмотрительно запрашивает подтверждение на подобное действие. 
+Для того, чтобы автоматически (например, из пакетного файла) удалять все файлы, 
+мы используем передачу результатов выполнения команды ECHO Y, которая должна вывести 
+символ Y, в команду DEL *.*, которой требуется один символ: Y или N. 
+Похожее действие выполнит команда<br>
+<b>program.exe &lt;file.in</b><br>
+передаст программе program.exe данные из файла file.in таким образом, как будто 
+они были введены с клавиатуры. Однако, нужно быть осторожным с таким способом передачи, 
+так как программа может в какой-нибудь момент времени запросить совсем другой ввод. 
+Также перенаправить вывод можно и в порт, например, в COM1, COM2, LPT и т.д.<br>
+Для перенаправления самой консоли используется файл ввода-вывода con. Например, чтобы
+набрать какой-нибудь текстовый файл, наберите:<br>
+<b>copy con file.txt</b><br>
+и далее построчно набирайте текст файла. В конце нажмите <ctrl-z>.
+Файл готов. А если набрать<br>
+<b>copy file.txt con</b><br>
+на экран выведется содержимое нашего файла.<br>
+Для уничтожения вывода программы используется файл ввода-вывода NULL (аналогично 
+устройству /dev/null в Unix).</ctrl-z></p>
+<img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left-line.gif" width="3" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/golos.gif" width="95%" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right-line.gif" width="3" height="6" alt="">
+<br><br><br><br>
+
+
+<h3>Основные команды и операторы пакетных файлов.</h3>
+
+
+
+<p class="text"><br>
+<b>REM [текст]</b><br> 
+Команда REM служит для ввода комментариев. Любой текст, расположенный в строке после нее, 
+будет считаться комментарием и не выполняется. 
+Это бывает полезно при отладке программы или временном "выключении" некоторых строк файла. 
+<br>
+<b>REM Эта строка не будет выполняться командным процессором.</b>
+<br><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left-line.gif" width="3" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/golos.gif" width="95%" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right-line.gif" width="3" height="6" alt="">
+<br><br>
+
+<b>ECHO [ON | OFF | Текст]</b><br> 
+Команда ECHO используется для управления эхо-режимом, то есть режимом отображения на 
+экране служебной информации. ECHO OFF запрещает этот вывод, а ECHO ON - разрешает. 
+ECHO &lt;Текст&gt; используется для вывода текста на устройство (на экран, COM или LPT-порты). 
+То есть, команда<br>
+<b>ECHO Привет!</b><br>
+выведет на экран "Привет!". А команда<br>
+<b>ECHO ATDP 21435 &gt; COM2</b><br>
+пошлет на устройство на порте COM2 (например, на модем) команду ATDP 21435, то есть, 
+набор номера 21435.
+<br><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left-line.gif" width="3" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/golos.gif" width="95%" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right-line.gif" width="3" height="6" alt="">
+<br><br>
+
+<b>@&lt;команда&gt;</b><br> 
+Оператор @. позволяет не выводить следующую за ним команду на экран. 
+Это аналог оператора ECHO OFF только для одной строки. 
+Часто используется следующим образом в начале многих пакетных файлов:<br>
+<b>@ECHO OFF</b><br> 
+Это позволяет не выводить и саму запрещающую строку ECHO OFF при выполнении пакетных файлов. 
+<br><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left-line.gif" width="3" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/golos.gif" width="95%" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right-line.gif" width="3" height="6" alt="">
+<br><br>
+
+<b>GOTO &lt;метка&gt;</b><br> 
+Оператор GOTO осуществляет безусловный переход на метку внутри этого же файла. 
+Метка обозначается следующим образом:<br> 
+<b>:label</b><br>
+то есть, со знаком двоеточия в начале. Для перехода к такой метке будет служить команда<br>
+<b>GOTO label</b><br>
+в любом месте BAT-файла. 
+<br><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left-line.gif" width="3" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/golos.gif" width="95%" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right-line.gif" width="3" height="6" alt="">
+<br><br>
+
+<b>%&lt;цифра 0-9&gt;</b><br>
+Как и в любом языке, в языке пакетных файлов возможно использование переменных. 
+Всего может быть 10 одновременно существующих независимых переменных.
+Для написания сложных программ это довольно мало, хотя для обычной работы часто хватает и 3-4. 
+Значение переменной равно значению соответствующего параметра из командной строки. 
+Переменная %0 будет содержать имя .bat-файла и, если вы указали, путь к нему. 
+То есть, если вы запустили файл abc.bat со следующими параметрами:<br>
+<b>abc.bat a bc def</b><br>
+то переменная %0 будет содержать значение abc.bat, %1 будет содержать значение a, 
+%2 будет содержать bc, а %3 - def. 
+Это свойство широко используется для создания универсальных пакетных файлов при работе 
+с повторяющимися операциями. 
+<br><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left-line.gif" width="3" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/golos.gif" width="95%" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right-line.gif" width="3" height="6" alt="">
+<br><br>
+
+<b>SHIFT</b><br>
+Команда SHIFT позволяет использовать число параметров командной строки далее 10. 
+Однако, при этом теряются соответственно более ранние параметры. Иными словами, 
+команда SHIFT сдвигает все значения переменных на один влево. 
+То есть, переменная %0 будет содержать значение, содержавшееся до этого в 
+переменной %1, а переменная %1 - значение переменной %2 до сдвига. 
+Однако, данная операция является необратимой, то есть, невозможно сдвинуть переменные обратно. 
+<br><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left-line.gif" width="3" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/golos.gif" width="95%" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right-line.gif" width="3" height="6" alt="">
+<br><br>
+
+<b>CALL &lt;имя bat-файла&gt;</b><br>
+Команда CALL позволяет вызвать один пакетный файл из другого, не прекращая выполнения 
+предыдущего. Пример:<br>
+<b>CALL ABC.BAT</b><br>
+То есть, при выполнении команды CALL выполнение текущего пакетного файла прекратится 
+и управление будет передано пакетному файлу с именем ABC.BAT. 
+При использовании команды CALL ABC.BAT, после завершения работы файла 
+ABC.BAT управление будет возвращено на следующую после команды вызова строку. 
+<br><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left-line.gif" width="3" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/golos.gif" width="95%" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right-line.gif" width="3" height="6" alt="">
+<br><br>
+
+<b>IF &lt;условие&gt; &lt;следствие&gt;</b><br>
+Оператор IF проверяет истинность какого-либо &lt;условия&gt; и в зависимости от этого 
+выполняет или не выполняет команду &lt;следствие&gt;. Возможны следующие условные конструкции:<br>
+<b>IF EXIST ABC.BAT GOTO work</b><br>
+если существует файл ABC.BAT, то перейти на метку work.<br> 
+<b>IF NOT EXIST ABC.BAT GOTO exit</b><br>
+если не существует файл ABC.BAT, то перейти на метку exit.<br>
+<b>IF %1==ASDF GOTO asdflabel</b><br>
+если переменная %1 равна ASDF, то - переход на метку asdflabel.<br> 
+<b>IF ERRORLEVEL 1 GOTO err1</b><br>
+если ошибка (возвращаемое значение) выполнения предыдущей команды равно 1, то перейти 
+на метку err1. 
+<br><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left-line.gif" width="3" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/golos.gif" width="95%" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right-line.gif" width="3" height="6" alt="">
+<br><br>
+
+<b>PAUSE</b><br> 
+Команда PAUSE приостанавливает выполнение пакетного файла и выдает на экран приглашение 
+нажать на любую клавишу для продолжения работы. Бывает полезна для того, чтобы дать 
+возможность пользователю прочитать многостраничный текст без использования фильтра MORE. 
+<br><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left-line.gif" width="3" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/golos.gif" width="95%" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right-line.gif" width="3" height="6" alt="">
+<br><br>
+
+<b>FOR %&lt;параметр&gt; IN (<var1 [var2]="" [var3]="" ...="">) DO &lt;команда&gt;</var1></b><br>
+С помощью оператора FOR возможно выполнение одной и той же команды несколько раз 
+для различных параметров. Рассмотрим следующий пример для большей ясности:<br>
+<b>FOR %%P IN (file1 file2 file3) DO DEL %%P</b><br>
+Знак процента используется в операторе FOR удвоенным для обозначения пустой переменной 
+в пакетном файле. Если оператор FOR используется из командной строки, 
+знак процента должен быть одинарным.<br> 
+В результате выполнения будут удалены файлы file1, file2 и file3. Можно записать и с 
+использованием маски файлов:<br>
+<b>FOR %%P IN (file?) DO DEL %%P</b><br>
+В результате будут удалены все файлы, подпадающие под данную маску. 
+Если в последовательности VAR нет символов маски файла, эта последовательность 
+может обозначать любые текстовые строки. Иначе - это должны быть имена файлов на диске. 
+В строке цикла FOR нельзя использовать переадресацию и перенаправление потоков. 
+<br><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left-line.gif" width="3" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/golos.gif" width="95%" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right-line.gif" width="3" height="6" alt="">
+<br><br>
+
+<b>SET &lt;Имяпеременной&gt;=&lt;Значениепеременной&gt;</b><br> 
+Оператор SET представляет собой расширение возможностей работы с параметрами в 
+операционной системе. Он задает переменную, значение которой подставляется 
+вместо ее имени при любом использовании этого имени между знаками процента. 
+Так, если задано (переменная, которую требуют многие игры, использующие звуковую 
+карту компьютера): <br>
+<b>SET BLASTER=A220 I5 D1 P330</b><br>
+то при использовании в пакетном файле следующей конструкции:<br>
+<b>ECHO %BLASTER%</b><br>
+на экран будет выведено "A220 I5 D1 P330". Переменные, определенные с помощью оператора 
+SET называются переменными окружения среды (environment) и являются видимыми после 
+выполнения до перезапуска DOS (если не изменять ее вручную в памяти). 
+То есть, ее можно использовать из одного пакетного файла или программы после задания в другом. 
+Наиболее известной является переменная PATH, представляющая собой набор 
+путей для быстрого поиска файлов. Она задается в файле autoexec.bat. 
+<br><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left-line.gif" width="3" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/golos.gif" width="95%" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right-line.gif" width="3" height="6" alt="">
+<br><br>
+
+<b>PROMPT [текст][спецификатор]</b><br> 
+Команда PROMPT хоть и не является командой пакетного файла, так как является командой 
+операционной системы в целом, однако, заслуживает упоминания, ибо 
+почти всегда присутствует в файле autoexec.bat.<br>
+Данная команда управляет видом приглашения командной строки. 
+Обычно оно выглядит примерно следующим образом:<br>
+<b>C:\DOS&gt;</b><br> 
+Этому соответствует спецификатор команды PROMPT, равный $P$G То есть, Диск:\Путь&gt;. 
+Это задается использованием знака доллара "$" и символа, означающего определенную 
+последовательность.<br>
+Предусмотрены следующие варианты: 
+</p>
+<ul>
+<li><b>$</b> - символ "знак доллара". 
+</li><li><b>_</b> - перевод строки.
+</li><li><b>B</b> - символ "|".
+</li><li><b>D</b> - текущая дата.
+</li><li><b>E</b> - символ #27 (Esc).
+</li><li><b>G</b> - символ "больше".
+</li><li><b>H</b> - "backspace"-символ.
+</li><li><b>L</b> - символ "меньше".
+</li><li><b>N</b> - текущий диск.
+</li><li><b>P</b> - текущий каталог на текущем диске.
+</li><li><b>Q</b> - символ "равно".
+</li><li><b>T</b> - текущее время.
+</li><li><b>V</b> - номер версии DOS.
+</li></ul>
+<p class="text">
+Используя сочетания этих символов можно изменить вид приглашения DOS по своему вкусу. 
+Не забывайте ставить перед каждым из этих символьв знак доллара.<br>
+Если использовать какой-либо текст в строке команды PROMPT, он также будет выведен 
+в соответствующие позиции. 
+</p>
+<img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left-line.gif" width="3" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/golos.gif" width="95%" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right-line.gif" width="3" height="6" alt="">
+<br><br><br><br>
+
+
+
+<h3>Фильтры в командных файлах.</h3>
+<p class="text">
+Вы можете перенаправлять потоки, используя фильтры. <br>
+Фильтры пропускают только часть получаемой информации, соответствующей запросу. 
+В DOS самые используемые фильтры - это FIND, MORE и SORT. 
+<br><br>
+
+
+
+<b>FIND [/V] [/C] [/N] [/I] "строка" [[диск:][путь]имя_файла[ ...]]</b><br>
+Поиск текстовой строки в одном или нескольких файлах.<br>
+Параметры:</p>
+<ul>
+<li><b>/V</b> - Вывод всех строк, НЕ содержащих заданную строку. 
+</li><li><b>/C</b> - Вывод только общего числа строк, содержащих заданную строку. 
+</li><li><b>/N</b> - Снабжение отображаемых строк номерами. 
+</li><li><b>/I</b> - Поиск без учета регистра символов. 
+</li><li><b>"строка"</b> - Искомая текстовая строка. 
+</li><li><b>[диск:][путь]имя_файла</b> - Файл либо файлы, в которых производится поиск. 
+</li></ul>
+<p class="text">
+Если путь не задан, FIND производит поиск в тексте, введенном с клавиатуры, 
+либо переданном по конвейеру другой командой. Пример: <br>
+<b>DIR A: | FIND /V "компьютер"</b><br>
+Выведет имена всех файлов, не содержащих слово "компьютер".<br> 
+Вы можете использовать параметр /V вместе с /C ИЛИ /N, но /N не будет работать с /C. 
+<br><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left-line.gif" width="3" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/golos.gif" width="95%" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right-line.gif" width="3" height="6" alt="">
+<br><br>
+
+
+<b>MORE [диск:][путь]имя_файла MORE &lt; [диск:][путь]имя_файла имя_команды | MORE [диск:][путь][имя_файла]</b><br>
+Последовательный вывод данных по частям размером в один экран. 
+Параметры: </p>
+<ul>
+<li><b>[диск:][путь]имя_файла</b> - Задает файлы, отображаемые по фрагментам.<br>
+</li><li><b>имя_команды</b> - Команда, вывод которой отображается на экране.<br>
+</li></ul>
+<p class="text"><br>Пример: <br>
+<b>DIR | MORE</b><br>
+Выведет список файлов постранично.<br>
+Для выхода из режима просмотра используйте сочетание клавиш <ctrl-break>, 
+а для просмотра - любую клавишу.
+<br><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left-line.gif" width="3" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/golos.gif" width="95%" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right-line.gif" width="3" height="6" alt="">
+<br><br>
+
+
+<b>SORT [/R] [/+n] [[диск1:][путь1]имя_файла1] [&gt; [диск2:][путь2]имя_файла2] [команда |] SORT [/R] [/+n] [&gt; [диск2:][путь2]имя_файла2]</b><br>
+Сортировка ввода с выводом результатов в файл, на экран или другое устройство.<br>
+Параметры:</ctrl-break></p>
+<ul>
+<li><b>/R</b> - Изменение порядка сортировки на обратный, от Z к A и затем от 9 до 0.<br> 
+</li><li><b>/+n</b> - Сортировка файла по символам в столбце n.<br> 
+</li><li><b>[диск1:][путь1]имя_файла1</b> - Сортируемые файлы/<br>
+</li><li><b>[диск2:][путь2]имя_файла2</b> - Файл, в который направляется сортированный ввод.<br>
+</li><li><b>команда</b> - Команда, вывод которой следует отсортировать.<br>
+</li></ul> 
+<p class="text"><br>Пример:<br>
+<b>SORT /R &lt; BOOK1 &gt; REV</b><br> 
+Сортирует файл BOOK1 в обратном порядке и записывает результат в файл REV.<br>
+Буквы нижнего регистра соответствуют буквам верхнего (a=A, z=Z). 
+</p>
+<img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left-line.gif" width="3" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/golos.gif" width="95%" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right-line.gif" width="3" height="6" alt="">
+<br><br><br><br>
+
+
+
+
+<h3>Использование возвращаемых значений.</h3>
+<p class="text">
+Любая программа при завершении своей работы возвращает операционной системе код своего 
+завершения. Принято при успешном завершении возвращать ноль, иначе - код ошибки. 
+Иногда, или, вернее, часто, программа "сознательно" возвращает ненулевое значение 
+для того, чтобы в пакетном файле можно было "узнать" некоторые подробности ее работы. 
+Например, программа возвращает код нажатой клавиши, а .bat-файл по нему выполняет 
+различные действия. <br>
+Каким же образом пакетный файл может узнать код завершения выполненной программы? 
+Для этого предусмотрено ключевая переменная ERRORLEVEL.<br>
+Пример пакетного файла с errorlevel'ами:<br>
+<b>@ECHO OFF<br>
+REM Запускаем программу prg1.exe<br>
+PRG1.EXE<br>
+REM Анализ кода завершения<br>
+IF ERRORLEVEL 2 GOTO FILENOTFOUND<br>
+IF ERRORLEVEL 1 GOTO WRITEERROR<br>
+IF ERRORLEVEL 0 GOTO EXITOK<br>
+GOTO ONEXIT<br>
+:FILENOTFOUND<br>
+ECHO Ошибка! Файл не найден!<br>
+GOTO ONEXIT<br>
+:WRITEERROR<br>
+ECHO Ошибка записи!<br>
+GOTO ONEXIT<br>
+:EXITOK<br>
+ECHO Программа завершена благополучно.<br>
+GOTO ONEXIT<br>
+:ONEXIT</b><br>
+Обратите внимание - анализ кода завершения начинается не с нуля, а с максимально 
+возможного значения. Дело в том, что подобная проверка означает: 
+"если errorlevel больше или равен значению, то...".
+То есть, если мы будем проверять, начиная с нуля, любое значение будет истинным 
+на первой же строке, что неверно. <br>
+Это самая распространенная ошибка в подобного рода программах.
+</p>
+<img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left-line.gif" width="3" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/golos.gif" width="95%" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right-line.gif" width="3" height="6" alt="">
+<br><br><br><br>
+
+
+
+
+
+<h3>Основные команды разных версий DOS.</h3>
+<p class="text"><br>
+<b>append(.exe)</b> - Указание порядка поиска файлов данных в каталогах и вывод на экран 
+установленных путей поиска.<br>
+<b>assign(.com)</b> - Переназначение диска.<br>
+<b>attrib(.exe)</b> - Изменение или вывод состояния флагов атрибутов файла.<br>
+<b>backup(.com/.exe[5.0])</b> - Создание резервных копий.<br>
+<b>break</b> - Управление прерыванием программы.<br>
+<b>chcp</b> - Смена кодовой страницы.<br>
+<b>cd (chdir)</b> - Смена текущего каталога.<br>
+<b>chkdsk(.com/.exe[5.0])</b> - Проверка диска и вывод информации о его состоянии.<br>
+<b>cls</b> - Очистка экрана.<br>
+<b>command(.com)</b> - Активизация второго командного процессора.<br>
+<b>comp(.com/.exe[5.0])</b> - Сравнение содержимого двух файлов или комплектов файлов.<br>
+<b>copy</b> - Копирование файлов в другой каталог.<br>
+<b>ctty</b> - Смена консоли.<br>
+<b>date</b> - Изменение или отображение текущей даты.<br>
+<b>del</b> - Удаление файлов.<br>
+<b>dir</b> - Вывод на экран листинга каталога.<br>
+<b>diskcomp(.com)</b> - Сравнение содержимого двух дискет.<br>
+<b>diskcopy(.com)</b> - Копирование содержимого с одной дискеты на другую.<br>
+<b>diskcomp</b> - Сравнение содержимого двух дискет.<br>
+<b>doskey(.com)</b> - Расширение возможностей командной строки.<br>
+<b>erase</b> - Удаление файлов.<br>
+<b>exe2bin(.com/.exe[5.0])</b> - Преобразование файлов .exe в файлы .bin или .com.<br>
+<b>exit</b> - Выход из вторичного командного процессора.<br>
+<b>expand [5.0]</b> - Развёртывание файлов DOS в процессе установки системы.<br>
+<b>fastopen(.exe)</b> - Ускоренное открытие файлов.<br>
+<b>fc [4.0,5.0]</b> - Сравнение содержимого двух файлов или комплектов файлов.<br>
+<b>fdisk(.com[3.0]/.exe)</b> - Разбиение жесткого диска на разделы.<br>
+<b>find(.exe)</b> - Поиск заданной символьной фразы.<br>
+<b>format(.com)</b> - Форматирование диска.<br>
+<b>graftabl(.com)</b> - Загрузка в память таблицы дополнительного набора символов для вывода 
+на экран через цветной графический адаптер.<br>
+<b>graphics(.com)</b> - Обеспечение вывода на принтер содержимого экрана в графическом режиме.<br>
+<b>join(.exe)</b> - Объединение каталогов.<br>
+<b>keyb(.com)</b> - Изменение символов и назначения клавиш клавиатуры.<br>
+<b>label(.com/.exe[5.0]</b> - Создание, замена и удаление метки тома.<br>
+<b>loadhigh / lh [5.0]</b> - Загрузка расширений DOS в блоки старшей памяти.<br>
+<b>mem(.exe [4.0,5.0])</b> - Вывод информации о распределении памяти между программами.<br>
+<b>mirror(.com[5.0])</b> - Сохранение информации об удалённыхфайлах и разделах диска.<br>
+<b>mkdir / md</b> - Создание каталога.<br>
+<b>mode(.com)</b> - Изменение режимов работы периферийных устройств.<br>
+<b>more(.com)</b> - Вывод информации поэкранно.<br>
+<b>nlsfunc(.exe)</b> - Поддержка национальных форматов.<br>
+<b>path</b> - Вывод или установка путей поиска исполнимых файлов.<br>
+<b>print(.com/.exe[5.0])</b> - Печать текста в фоновом режиме.<br>
+<b>promt</b> - Изменение приглашения командной строки.<br>
+<b>recover(.com/.exe[5.0])</b> - Восстановление восстановимой информации с повреждённого диска.<br>
+<b>ren (rename)</b> - Переименование файлов или каталогов.<br>
+<b>replace(.exe)</b> - Замена одних файлов другими.<br>
+<b>restore(.com/.exe[5.0])</b> - Восстановление файлов с резервных копий.<br>
+<b>rd (rmdir)</b> - Удаление каталогов.<br>
+<b>select(.com) [3.x]</b> - Выбор национальных форматов.<br>
+<b>select(.com) [4.0]</b> - Установка DOS.<br>
+<b>set</b> - Вывод, изменение и удаление переменных окружения.<br>
+<b>setver(.exe[5.0])</b> - Объявление версии операционной системы.<br>
+<b>share(.exe)</b> - Проверка разделяемых файлов.<br>
+<b>sort(.exe)</b> - Сортирует входной поток данных.<br>
+<b>subst(.exe)</b> - Подстановка виртуального диска.<br>
+<b>sys(.com)</b> - Копирование файлов DOS.<br>
+<b>time</b> - Изменение текущего системного времени.<br>
+<b>tree(.com)</b> - Наглядно отображает структуру директории или диска.<br>
+<b>type</b> - Вывод содержимого текстового файла.<br>
+<b>undelete(.exe [5.0])</b> - Восстановление удалённых файлов.<br>
+<b>unformat(.com [5.0])</b> - Расформатирование случайно отформатированного диска.<br>
+<b>ver</b> - Вывод версии DOS.<br>
+<b>verify</b> - Проверка правильности записи файлов на диск.<br>
+<b>vol</b> - Выводит метку тома и серийный номер диска.<br>
+<b>xcopy(.exe)</b> - Копирование файлов и дерева каталогов.<br>
+</p>
+<img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left-line.gif" width="3" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/golos.gif" width="95%" height="6" alt=""><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right-line.gif" width="3" height="6" alt="">
+<br><br>
+
+<h3>Справочные команды</h3>
+<p class="text"><br>
+<b>help</b> - Список команд с кратким описанием.<br>
+<b>help имя_команды</b> - Описание и синтаксис команды.<br>
+<b>команда /?</b> - Описание и синтаксис команды.
+</p></td><td></td></tr></tbody></table><br><br>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tbody><tr class="colored">
+<td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left-top.gif" height="9" width="16"></td>
+<td width="100%"></td>
+<td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right-top.gif" width="16" height="9"></td>
+</tr>
+<tr>
+<td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td>
+<td valign="top">
+<table width="100%">
+<tbody><tr>
+<td width="580" rowspan="2">
+<center><a href="http://ossite.ru/index.php?dir=os/dos/&file=comands#top" style="text-decoration: underline;">Вверх</a><br></center>
+</td>
+</tr>
+<tr>
+<td nowrap=""><a href="http://ossite.ru/print.php?dir=os/dos/&file=comands"><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/printer.gif" width="20" height="19" border="0" alt="Версия для печати"></a></td>
+<td nowrap=""><a href="http://ossite.ru/print.php?dir=os/dos/&file=comands">Версия для печати</a></td>
+</tr>
+</tbody></table>
+</td>
+<td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td>
+</tr>
+<tr>
+<td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left-bot.gif" height="9" width="16"></td>
+<td class="colored" width="100%"></td>
+<td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right-bot.gif" height="9" width="16"></td>
+</tr>
+</tbody></table>
+   <center>
+</center></td>
+</tr>
+<!--<tr><td colspan=2><img src='img/left-line.gif' width=2 height=6><img src='img/golos.gif' width='99%' height=6><img src='img/right-line.gif' width=2 height=6><br>1</td></tr>-->
+
+<tr><td colspan="2">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr class="colored">
+	<td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left-top.gif" height="9" width="16"></td>
+	<td width="100%"></td>
+	<td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right-top.gif" width="16" height="9"></td>
+  </tr>
+  <tr align="center">
+	<td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td>
+	<td>
+
+	</td>
+	<td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td>
+  </tr>
+  <tr>
+	<td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left-bot.gif" height="9" width="16"></td>
+	<td class="colored"></td>
+	<td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right-bot.gif" height="9" width="16"></td>
+  </tr>
+</tbody></table>
+
+
+</td></tr>
+
+<tr>
+<td colspan="2">
+
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr class="colored">
+	<td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left-top.gif" height="9" width="16"></td>
+	<td width="100%"></td>
+	<td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right-top.gif" width="16" height="9"></td>
+  </tr>
+  <tr align="center">
+	<td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left.gif"></td>
+	<td>
+<a href="http://ossite.ru/index.php?file=report">Обратная связь</a>.<br>
+При любой перепечатке материалов сайта ссылка обязательна.<br>
+	</td>
+	<td background="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right.gif"></td>
+  </tr>
+  <tr>
+	<td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/left-bot.gif" height="9" width="16"></td>
+	<td class="colored"></td>
+	<td><img src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/right-bot.gif" height="9" width="16"></td>
+  </tr>
+</tbody></table>
+   </td>
+ </tr>
+</tbody></table>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./[_OsSite_] Синтаксис BAT-файлов и командная строка в MS-DOS._files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-1268411-7");
+pageTracker._trackPageview();
+</script>
+
+<div id="wrchoverdiv"><div id="wrccontainer"><div id="wrcheader"><div id="wrctitle"> WebRep</div></div><div class="wrchorizontal"></div><div id="wrccurrentvote">Общий рейтинг</div><div class="wrchorizontal"></div><div id="wrcrating"></div><div id="wrcratingtext">У этого сайта нет рейтинга</div><div id="wrcweighttext">(недостаточно голосов)</div><div id="wrcflags"><div id="wrcicon_shopping" class="wrcicon"></div><div id="wrcicon_social" class="wrcicon"></div><div id="wrcicon_news" class="wrcicon"></div><div id="wrcicon_it" class="wrcicon"></div><div id="wrcicon_corporate" class="wrcicon"></div><div id="wrcicon_pornography" class="wrcicon"></div><div id="wrcicon_violence" class="wrcicon"></div><div id="wrcicon_gambling" class="wrcicon"></div><div id="wrcicon_drugs" class="wrcicon"></div><div id="wrcicon_illegal" class="wrcicon"></div></div><div class="wrchorizontal"></div></div></div></body><span id="skype_highlighting_settings" display="none" autoextractnumbers="1" hightlightingswitched="0"></span><object id="skype_plugin_object" location.href="http://ossite.ru/index.php?dir=os/dos/&amp;file=comands" location.hostname="ossite.ru" style="position: absolute; visibility: hidden; left: -100px; top: -100px;" width="0" height="0" type="application/x-vnd.skype.click2call.chrome.5.7.0"></object></html>

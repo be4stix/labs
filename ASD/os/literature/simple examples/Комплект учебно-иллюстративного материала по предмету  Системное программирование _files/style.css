@@ -1,0 +1,161 @@
+@charset "windows-1251";
+/* CSS Document */
+/*
+<script>
+function act(mlink) {
+	document.getElementById("mlink").background="url(img/menu_act.gif)"
+}
+function deact(mlink) {
+	document.getElementById("mlink").background="url(img/menu.gif)"
+}
+</script>
+*/
+body {
+	background-image: url(img/body_bg.PNG);
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+	background-repeat: repeat-x;
+}
+#page {
+	margin-top: 10px;
+}
+#head {
+	background-image: url(img/header_bg.jpg);
+	height: 118px;
+	max-height: 118px;
+	padding-bottom: 5px;
+}
+#head p {
+	font-family: Tahoma;
+	font-size: 2em;
+	color: black;
+	text-align: left;
+	margin-top: 0.3em;
+	text-indent: 4.5em;
+}
+#main_menu {
+	background-image: url(img/main.gif);
+	background-repeat: no-repeat;
+	width: 210px;
+	height: 243px;
+	padding-left: 30px;
+	padding-top: 80px;
+	vertical-align:top;
+	line-height: 18px;
+}
+#main_menu a {
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 14px;
+	color: #09F;
+	display: block;
+	margin: -0.4em;
+	padding: 2px;
+}
+#main_menu a:hover {
+	color: #00F;
+}
+#link td:hover{
+	background-image:url(img/menu_act.GIF);
+}
+#main_content {
+	background-image: url(img/paper.gif);
+	background-repeat: repeat-y;
+	padding-left: 60px;
+	padding-top: 20px;
+	vertical-align: top;
+	text-align: left;
+	color: #F00;
+}
+#main_content p {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 14px;
+	color: #03F;
+	margin: 0px;
+	text-indent: 40px;
+	text-align:justify;
+}
+.main_content_table {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 14px;
+	color: #03F;
+}
+#main_content h2 {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 18px;
+	text-indent: 30px;
+	color: #009;
+}
+#main_content h3 {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12px;
+	text-align: left;
+	color: #039;
+	font-weight: bold;
+}
+#main_content ol, a, ul {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12px;
+	text-decoration: none;
+	color: #00C;
+}
+#main_content a:hover, a:hover {
+	color: #F00;
+}
+#main_footer p{
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+	color: #00C;
+	text-align: right;
+	padding: 10px;
+}
+#menu td{
+	height: 39px;
+	background-image: url(img/menu.GIF);
+	background-repeat:repeat-x;
+	padding-bottom: 5px;
+	line-height: 14px;
+}
+#menu td a {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 14px;
+	color: #FFF;
+	text-align: center;
+	padding-top: 10px;
+	display:block;
+}
+#menu td a:hover {
+	color: #0FF;
+}
+#modul {
+	background-image: url(img/modul.png);
+	background-repeat: repeat-x;
+	text-align: center;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	color: #0ff;
+}
+#page_menu td {
+	height: 33px;
+	background-image:url(img/pas_p.gif);
+	background-position:bottom;
+	background-repeat:no-repeat;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 12px;
+	color: #006;
+	text-decoration:none;
+	vertical-align:super
+}
+
+.rule {
+	font-family:Courier New;
+	font-size:16px;
+	color:#F00;
+}
+.exemple {
+	font-family:Courier New;
+	font-size:16px;
+	color:#000;
+}

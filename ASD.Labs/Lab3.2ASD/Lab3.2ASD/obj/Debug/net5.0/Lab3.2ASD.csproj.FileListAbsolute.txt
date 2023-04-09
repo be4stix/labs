@@ -1,0 +1,16 @@
+C:\Users\Сергей\Desktop\ASD.Labs\Lab3.2ASD\Lab3.2ASD\bin\Debug\net5.0\Lab3.2ASD.exe
+C:\Users\Сергей\Desktop\ASD.Labs\Lab3.2ASD\Lab3.2ASD\bin\Debug\net5.0\Lab3.2ASD.deps.json
+C:\Users\Сергей\Desktop\ASD.Labs\Lab3.2ASD\Lab3.2ASD\bin\Debug\net5.0\Lab3.2ASD.runtimeconfig.json
+C:\Users\Сергей\Desktop\ASD.Labs\Lab3.2ASD\Lab3.2ASD\bin\Debug\net5.0\Lab3.2ASD.runtimeconfig.dev.json
+C:\Users\Сергей\Desktop\ASD.Labs\Lab3.2ASD\Lab3.2ASD\bin\Debug\net5.0\Lab3.2ASD.dll
+C:\Users\Сергей\Desktop\ASD.Labs\Lab3.2ASD\Lab3.2ASD\bin\Debug\net5.0\ref\Lab3.2ASD.dll
+C:\Users\Сергей\Desktop\ASD.Labs\Lab3.2ASD\Lab3.2ASD\bin\Debug\net5.0\Lab3.2ASD.pdb
+C:\Users\Сергей\Desktop\ASD.Labs\Lab3.2ASD\Lab3.2ASD\obj\Debug\net5.0\Lab3.2ASD.csproj.AssemblyReference.cache
+C:\Users\Сергей\Desktop\ASD.Labs\Lab3.2ASD\Lab3.2ASD\obj\Debug\net5.0\Lab3.2ASD.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Сергей\Desktop\ASD.Labs\Lab3.2ASD\Lab3.2ASD\obj\Debug\net5.0\Lab3.2ASD.AssemblyInfoInputs.cache
+C:\Users\Сергей\Desktop\ASD.Labs\Lab3.2ASD\Lab3.2ASD\obj\Debug\net5.0\Lab3.2ASD.AssemblyInfo.cs
+C:\Users\Сергей\Desktop\ASD.Labs\Lab3.2ASD\Lab3.2ASD\obj\Debug\net5.0\Lab3.2ASD.csproj.CoreCompileInputs.cache
+C:\Users\Сергей\Desktop\ASD.Labs\Lab3.2ASD\Lab3.2ASD\obj\Debug\net5.0\Lab3.2ASD.dll
+C:\Users\Сергей\Desktop\ASD.Labs\Lab3.2ASD\Lab3.2ASD\obj\Debug\net5.0\ref\Lab3.2ASD.dll
+C:\Users\Сергей\Desktop\ASD.Labs\Lab3.2ASD\Lab3.2ASD\obj\Debug\net5.0\Lab3.2ASD.pdb
+C:\Users\Сергей\Desktop\ASD.Labs\Lab3.2ASD\Lab3.2ASD\obj\Debug\net5.0\Lab3.2ASD.genruntimeconfig.cache

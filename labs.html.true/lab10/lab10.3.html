@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title></title>
+	<meta charset="utf-8">
+ 	
+</head>
+<body>	
+			<style type="text/css">
+				.a2 {
+					display: inline;
+				}
+			</style>
+	 
+		
+			<div class="question">
+				Какой язык вы предпочитаете?
+				<ol>
+					<li><input name="opros" type="radio" class="a1">JavaScript<div class="a2"></div></li>
+					<li><input name="opros"type="radio" class="a1">HTML/CSS<div class="a2"></div></li>
+					<li><input name="opros"type="radio" class="a1">PHP<div class="a2"></div></li>
+					<li><input name="opros"type="radio" class="a1">C++<div class="a2"></div></li>
+					<li><input name="opros"type="radio" class="a1">Java<div class="a2"></div></li>
+					<li>Свой ответ: <input id="inp" type="text" class="your_answer"><div class="a2"></div></li>
+					<button id="end" type="button">Завершить</button>
+					<button id="restart" type="button">Заново</button>
+				</ol>
+			</div>
+ <script type="text/javascript">
+ 	let sum = 0;
+ 	let A = [0,0,0,0,0,0];
+ 	let button1 = document.getElementById("end");
+ 	let button2 = document.getElementById("restart");
+
+ 	button1.addEventListener('click',resaults);
+ 		function resaults() {
+ 		let answers = document.querySelectorAll(".a1");
+ 		let input = document.getElementById('inp');
+ 		if(input.value != "")
+ 		{
+ 			A[5]+=1;
+ 		} else{
+ 		for (var i = 0; i < answers.length; i++) {
+ 			if(answers[i].checked == true)
+ 				{
+ 					A[i] +=1;
+ 				}
+ 			}
+ 		}
+
+ 		let sum = 0;
+
+ 		for(let i = 0; i < 6; i++)
+ 		{
+ 			sum+= A[i];
+ 		}
+ 		 
+ 		for(var i = 0 ; i < 6; i++){
+ 			if (A[i] != 0) {
+ 				 let stroki = document.querySelectorAll(".a2")
+ 				 stroki[i].innerHTML = '(' + A[i]/sum*100 + "%)"
+ 				 
+ 			}
+ 		}
+ 		button1.removeEventListener('click',resaults)
+ 	}
+
+button2.addEventListener('click',function(){
+ 		let stroki = document.querySelectorAll(".a2");
+ 		for(let i = 0; i < 6; i ++)
+ 		{
+ 			stroki[i].innerHTML = "";
+ 		}
+ 		let answers = document.querySelectorAll(".a1");
+ 		let input = document.getElementById('inp');
+ 		for(let i = 0; i < 5; i++)
+ 		{
+ 			if (answers[i].checked == true)
+ 			{
+ 				answers[i].checked = false;
+ 			}
+ 		}
+ 		input.value = ""
+ 		button1.addEventListener('click',resaults);
+})
+
+ 
+
+
+ </script>
+</body>
+</html>

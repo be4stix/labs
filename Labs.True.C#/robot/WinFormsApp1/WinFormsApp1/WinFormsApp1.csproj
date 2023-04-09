@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="библиотекаМетодовРоботаНаСтруктуреПоле">
+      <HintPath>..\..\..\Х 02 Исполнитель Робот\библиотекаМетодовРоботаНаСтруктуреПоле.dll</HintPath>
+    </Reference>
+    <Reference Include="библиотекаФормированияСред">
+      <HintPath>..\..\..\Х 02 Исполнитель Робот\библиотекаФормированияСред.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

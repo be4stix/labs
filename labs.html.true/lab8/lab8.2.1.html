@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+<p>1 2 3 4 5</p>
+<p>1 2 3 4 5</p>
+<p>256 3</p>
+<p>1 2 3 4 5</p>
+<p>1 2 3 4 5</p>
+<p>1 2 3 4 5</p>
+<button id = "button">Нажмите</button>
+<script type="text/javascript">
+	let button = document.getElementById("button");
+	let p = document.querySelectorAll('p')
+
+	let max = [];
+	let j=0;
+	button.addEventListener('click', function () {
+		for (let pp of p)
+		{
+			let arr = pp.innerHTML.split(' ');
+			let arr1 = [];
+			for (let i=0;i<arr.length;i++){
+				arr1[i]=parseInt(arr[i]);
+			}
+
+			max[j] = Math.max.apply(null,arr1);
+			j++;
+		}
+		for (let pp of p)
+		{
+			let arp = pp.innerHTML.split(' ');
+			for (let i=0;i<arp.length;i++){
+			if ( arp[i] == Math.max.apply(null,max))
+			{
+				pp.style.color='red';
+			}
+		}
+		}
+	})
+</script>
+</body>
+</html>

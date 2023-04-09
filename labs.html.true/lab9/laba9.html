@@ -1,0 +1,104 @@
+<doctype! html5>
+<html>
+	<head>
+		<title></title>
+		<link rel="stylesheet"href="laba9.css">
+	</head>
+	<body onload="krivaya();">
+		<div class="text">
+			text text text text text text text etxt text text
+			tetx tetxe tex texte etxetx etex tetx tettx etxt tex 
+		</div>
+		
+		<p class="block"></p>
+		<div class="list">
+		<ul>
+			<a href =""><li>Главная</li></a>  
+			<a href =""><li>Контакты</li></a> 
+			<a href =""><li>Новости</li></a>
+			<a href =""><li>Администрация</li></a>
+		</ul>
+		</div>
+		<p class="grad"></p>
+		<canvas  width="240" height="240" id="canvas"></canvas>
+		
+		<script type="text/javascript">
+		function krivaya() {
+		var canvas = document.getElementById('canvas');
+		
+			if (canvas.getContext) {
+		
+				var a = canvas.getContext('2d');
+			
+				a.beginPath();
+				a.moveTo(0,0);
+				a.lineTo(240,20);
+				a.lineTo(0,40);
+				a.lineTo(240,60);
+				a.lineTo(0,80);
+				a.lineTo(240,100);
+				a.lineTo(0,120);
+				a.lineTo(240,140);
+				a.lineTo(0,160);
+				a.lineTo(240,180);
+				a.lineTo(0,200);
+				a.lineTo(240,220);
+				a.lineTo(0,240);
+				a.stroke();
+			}
+		}
+		</script>
+
+		<style type="text/css">
+			.text {
+				color: navy;
+				text-shadow: 15px -10px  navy;
+				}
+.block{
+	background: yellow;
+	text-align: center;
+	height:200px;
+	width:200px;
+	box-shadow: inset 0px 0px 5px black;
+}
+a{
+    text-decoration: none;
+    color: black;
+	transform: skewX(-30deg);
+    }
+a:hover{
+    color:orange;
+	transform: skewX(-30deg) scale(1.2);
+		
+    }
+.list li{
+    list-style-type: none;
+    border-style: solid;
+    width: 100px; 
+    margin: 5px;
+    height: 20px; 
+    padding: 8px;
+    display: inline-block; 
+    border-color: orange; 
+    text-align: center;
+	background-color: orange;
+	transform: skewX(-30deg);
+    }
+.list li:hover{
+    background-color: white;
+    border-color: orange;
+	transform: skewX(-30deg) scale(1.3);
+    }
+.grad {
+	height:200px;
+	width:200px;
+	background:linear-gradient(to right, red, blue);
+}
+canvas {
+	border:0px;
+}
+
+		</style>
+
+		</body>
+</html>

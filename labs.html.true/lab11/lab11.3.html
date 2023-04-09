@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style>
+		html, body {
+			margin: 0;
+			height: 100%;
+		}
+		#okno {
+			position: fixed;
+			background-color: #fff;
+			border: 1px solid rgba(0,0,0,.2);
+			padding: 25px;
+			display: none;
+			border-radius: 6px;
+			box-shadow: 0 5px 15px rgba(0,0,0,.5);
+		}
+		#exit {
+			margin-top: -4px;
+			text-shadow: 0 1px 0 #fff;
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			opacity: .2;
+	 
+		}
+		#exit:hover {
+			opacity: .5;
+		}
+		#exit:after {
+			content: '×';
+		}
+	</style>
+</head>
+<body>	
+	<p>
+		Test Text
+	</p><p>Test Text</p><p>Test Text</p><p>Test Text</p><p>Test Text</p>
+	<p>
+		Test Text
+	</p><p>Test Text</p><p>Test Text</p><p>Test Text</p><p>Test Text</p>
+	<p>
+		Test Text
+	</p><p>Test Text</p><p>Test Text</p><p>Test Text</p><p>Test Text</p>
+	<p>
+		Test Text
+	</p><p>Test Text</p><p>Test Text</p><p>Test Text</p><p>Test Text</p>
+	<p>
+		Test Text
+	</p><p>Test Text</p><p>Test Text</p><p>Test Text</p><p>Test Text</p>
+	<p>
+		Test Text
+	</p><p>Test Text</p><p>Test Text</p><p>Test Text</p><p>Test Text</p>
+	<p>
+		Test Text
+	</p><p>Test Text</p><p>Test Text</p><p>Test Text</p><p>Test Text</p>
+	<p>
+		Test Text
+	</p><p>Test Text</p><p>Test Text</p><p>Test Text</p><p>Test Text</p>
+	<p>
+		Test Text
+	</p><p>Test Text</p><p>Test Text</p><p>Test Text</p><p>Test Text</p>
+	<p>
+		Test Text
+	</p><p>Test Text</p><p>Test Text</p><p>Test Text</p><p>Test Text</p>
+	<p>
+		Test Text
+	</p><p>Test Text</p><p>Test Text</p><p>Test Text</p><p>Test Text</p>
+	<p>
+		Test Text
+	</p><p>Test Text</p><p>Test Text</p><p>Test Text</p><p>Test Text</p>
+	<p>
+		Test Text
+	</p><p>Test Text</p><p>Test Text</p><p>Test Text</p><p>Test Text</p>
+ 
+	<div id="okno">
+		<div id="exit"></div>
+		text text text text
+	</div>
+	<script>
+		var okno = document.getElementById('okno');
+		var exit = document.getElementById('exit');
+		var N = 150
+		window.addEventListener('scroll', show);
+		exit.addEventListener('click', hide);
+		function show() {
+			if (pageYOffset > N - 100 && pageYOffset < N + 100) {
+				okno.style.display = 'block';
+				modalPosition();
+				window.removeEventListener('scroll',show);
+			}
+		}
+		function hide() {
+			okno.style.display = 'none';
+		}
+		window.addEventListener('resize', modalPosition);
+		function modalPosition() {
+			if (okno.style.display !== 'none') {
+				var b = document.body;
+				okno.style.left = (b.offsetWidth - okno.offsetWidth) / 2 + 'px';
+				okno.style.top = (b.offsetHeight - okno.offsetHeight) / 2 + 'px';
+			}	
+		}
+	</script>
+</body>
+</html>

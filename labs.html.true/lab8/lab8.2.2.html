@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+<input type="text" id="input" onblur="func()">  
+<p id='p'></p>
+<script type="text/javascript">
+var input = document.getElementById("input");
+var p = document.getElementById('p')
+
+function func() {
+	p.innerHTML = parseInt(input.value);
+	window.funcId = window.setInterval(go, 500);
+ }
+
+function stop() {
+	window.clearInterval(window.funcId);
+ } 
+
+function go() {
+	p.innerHTML = parseInt(p.innerHTML) - 1;
+ 	if(parseInt(p.innerHTML) == 0) {
+		stop();
+ 	}
+ }
+
+
+ </script>
+</body>
+</html>

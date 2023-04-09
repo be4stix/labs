@@ -1,0 +1,108 @@
+body {
+scrollbar-face-color: #69c;
+scrollbar-highlight-color: #fff;
+scrollbar-shadow-color: #069;
+scrollbar-track-color: #fff;
+scrollbar-3dlight-color: #fff;
+scrollbar-arrow-color: #000;
+scrollbar-darkshadow-color: #069;
+font-family: Times New Roman, Helvetica, sans-serif;
+}
+a {
+font-family: Times New Roman, Helvetica, sans-serif;
+text-decoration: underline;
+font-size:13pt;
+}
+a:link {
+color: #069;
+}
+a:visited {
+color: #069;
+text-decoration: underline;
+}
+a:hover {
+color: #000;
+}
+p {
+text-indent: 0;
+color: #069;
+font-family: Times New Roman, Helvetica, sans-serif;
+}
+td {
+border-color: #069;
+}
+th {
+border-color: #069;
+}
+table {
+border-color: #069;
+}
+li {
+text-align: justify;
+list-style-image: url("img/view.gif");
+font-family: Times New Roman, Helvetica, sans-serif;
+}
+.colored {
+background-color: #69c;
+}
+.menu {
+font-size: 13pt;
+}
+.text {
+text-indent: 40pt;
+text-align: justify;
+}
+fieldset {
+border-style: double;
+border-width: 5px;
+border-color:#69c;
+padding:8px;
+}
+.search {
+HEIGHT: 20;
+LINE-HEIGHT: 13px;
+color: #369;
+background: #fff;
+font-size:12;
+font-family: Times New Roman, Helvetica, sans-serif;
+}
+.ossel {
+color: #369;
+background: #fff;
+font-size:14;
+font-family: Times New Roman, Helvetica, sans-serif;
+width:175;
+height:20;
+font-size:12;
+}
+.h10 {
+MARGIN-TOP: -20px;
+FONT-SIZE: 15px;
+MARGIN-LEFT: 110px;
+COLOR: #69c;
+LINE-HEIGHT: 30px;
+MARGIN-RIGHT: 10px;
+TEXT-ALIGN: left;
+font-weight: bold;
+}
+.tuner {
+MARGIN-TOP: 10px;
+FONT-SIZE: 40px;
+MARGIN-LEFT: 0px;
+COLOR: #069;
+LINE-HEIGHT: 30px;
+TEXT-ALIGN: left;
+font-weight: bold;
+}
+.vote {
+FONT-SIZE: 15px;
+text-align: justify;
+}
+.allabout {
+MARGIN-TOP: 0px;
+FONT-SIZE: 25px;
+MARGIN-LEFT: 40px;
+COLOR: #069;
+TEXT-ALIGN: left;
+font-weight: bold;
+}

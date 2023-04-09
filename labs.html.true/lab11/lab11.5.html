@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style>
+		#calendar {
+			margin-top: 10px;
+			text-align: center;
+		}
+		.controls {
+			text-align: center;
+		}
+		.day {
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			line-height: 20px;
+			margin-left: 2px;
+			border: 1px solid #000;
+			text-align: center;
+		}
+		.day:first-child {
+			margin-left: 0px;
+		}
+		.day.today {
+			background: #000;
+			color: #fff;
+		}
+		#date {
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>	
+	<div class="controls">
+		<input type="button" id="prev" value="Предыдущий месяй">
+		<input type="button" id="next" value="Следующий месяц">
+		<div id="date"></div>
+	</div>
+	<div id="calendar"></div>
+	<script>
+		var calendar = document.getElementById('calendar');
+		var dateEl = document.getElementById('date');
+		var prevEl = document.getElementById('prev');
+		var nextEl = document.getElementById('next');
+		var deferentMonth = 0;
+		var oneHour = 1000 * 60 * 60;
+		var oneDay = oneHour * 24;
+		var MONTHS = [
+			'Январь','Февраль','Март','Апрель', 
+			'Май','Июнь','Июль','Август',
+			'Сентябрь','Октябрь','Ноябрь','Декабрь'
+		];
+		create();
+		prevEl.addEventListener('click', prev);
+		nextEl.addEventListener('click', next);
+		function prev() {
+			deferentMonth--;
+			create();
+		}
+		function next() {
+			deferentMonth++;
+			create();
+		}
+		function create() {
+			var d = new Date();	
+			d.setMonth(d.getMonth() + deferentMonth);
+			var year = d.getFullYear();
+			var month = d.getMonth();
+			var dayCount = (new Date(year, month + 1, 0)).getDate();
+			var today = null;
+			if (deferentMonth === 0) {
+				var today = d.getDate();
+			}
+			printDate(d);
+			generate(dayCount, today);
+		}
+		function generate(count, today) {
+			var html = '';
+			for (var i = 1; i <= count; i++) {
+				var cl = 'day';
+				if (i === today) {
+					cl += ' today';
+				}
+				html += '<div class="' + cl + '">' + i + '</div>';
+			}
+			calendar.innerHTML = html;
+		}
+		function printDate(d) {
+			dateEl.innerHTML = d.getFullYear() + ' ' + MONTHS[d.getMonth()];
+		}
+		
+	</script>
+</body>
+</html>

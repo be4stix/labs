@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>lab6.9.3</title>
+</head>
+<body onload="start()">
+    <div id="wrapper">
+    <p id="clock">
+        00:00:00
+    </p>
+</div>
+<script>
+		function start(){
+			window.timerId=window.setInterval(timer,1000);
+		}
+		function timer(){
+			let clock = document.getElementById('clock');
+			let date = new Date();
+			clock.innerHTML = addZero(date.getHours())+':'+addZero(date.getMinutes())+':'+addZero(date.getSeconds());
+		}
+		function addZero(num){
+			if(num <=9) return '0'+num;
+				else return num;
+		}
+	</script>
+</body>
+</html>

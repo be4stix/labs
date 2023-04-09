@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+<input type="number" id="input">
+<script type="text/javascript">
+	let input = document.getElementById("input");
+	let numbers = {}
+	input.addEventListener('blur',function () {
+		numbers = this.value.split('');
+		let summ = 0;
+		for (let i = 0 ; i < numbers.length ; i++ )
+		{
+			summ += parseInt(numbers[i]);
+		}
+		document.write(summ);
+	})
+</script>
+</body>
+</html>

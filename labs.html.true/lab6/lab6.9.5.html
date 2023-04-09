@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>lab6.9.5</title>
+</head>
+<style>
+	li {
+		display: inline-block;
+	}
+</style>
+<body onload="go()">
+	<div id="wrapper">
+		<ul>
+			<li id="hours"></li>
+			<li id="minutes"></li>
+			<li id="seconds"></li>
+		</ul>
+	</div>
+		<script>
+        function go(){
+			window.timerId = window.setInterval(timer, 1000);
+		}
+		function timer(){
+			let seconds = document.getElementById('seconds');
+			let minutes = document.getElementById('minutes');
+			let hours = document.getElementById('hours');
+			let now = new Date();
+			let night = new Date(now.getFullYear(), now.getMonth(), now.getDate()+1, 0, 0, 0);
+			let sec =  Math.floor((night - now)/1000);
+			let hoursRemain   = Math.floor(sec/(60*60));
+			let minutesRemain = Math.floor((sec-hoursRemain*60*60)/60);
+			let secondsRemain = Math.floor(sec%60);
+			hours.innerHTML   = hoursRemain;
+			minutes.innerHTML = addZero(minutesRemain);
+			seconds.innerHTML = addZero(secondsRemain); 
+		}
+		function addZero(num){
+			if(num <=9) return '0'+num;
+				else return num;
+		}
+        </script>	
+</body>
+</html>

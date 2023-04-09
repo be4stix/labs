@@ -1,0 +1,7 @@
+﻿  lab12.cpp
+C:\Users\Сергей\Desktop\Labs.true.C++\lab12\lab12\lab12.cpp(28,12): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Users\Сергей\Desktop\Labs.true.C++\lab12\lab12\lab12.cpp(30,23): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Сергей\Desktop\Labs.true.C++\lab12\lab12\lab12.cpp(32,19): warning C4244: =: преобразование "float" в "int", возможна потеря данных
+C:\Users\Сергей\Desktop\Labs.true.C++\lab12\lab12\lab12.cpp(33,17): warning C4244: =: преобразование "float" в "int", возможна потеря данных
+C:\Users\Сергей\Desktop\Labs.true.C++\lab12\lab12\lab12.cpp(40,16): warning C4018: <: несоответствие типов со знаком и без знака
+  lab12.vcxproj -> C:\Users\Сергей\Desktop\Labs.true.C++\lab12\Debug\lab12.exe

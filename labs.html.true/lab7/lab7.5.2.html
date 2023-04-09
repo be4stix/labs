@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+<ol id ='ol'>
+	<li>text text text</li>
+	<li>text text text</li>
+	<li>text text text</li>
+	<li>text text text</li>
+	<li>text text text</li>
+</ol>
+<button id = 'button'>Удалить</button>
+<script type="text/javascript">
+	let button = document.getElementById('button')
+	let ol = document.getElementById('ol')
+	let last = ol.lastElementChild;
+	button.addEventListener('click',function () {
+		ol.removeChild(last);
+	})
+</script>
+</body>
+</html>

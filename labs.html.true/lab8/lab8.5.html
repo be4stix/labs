@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<p>Исходная</p>
+	<select id = "first">
+			<option value="rub">Рубль</option>
+			<option value="usd">Доллар</option>
+			<option value="eur">Евро</option>
+			<option value="ua">Юань</option>
+	</select>
+	<p>Переводим в</p>
+	<select id = "second"  > 
+			<option value="usd">Доллар</option>
+			<option value="rub">Рубль</option>
+			<option value="eur">Евро</option>
+			<option value="ua">Юань</option>
+	</select>
+
+	<label>сумма:</label><input type="text" id="num">
+	<p>Стоимость: <b id="result"></b></p> 
+
+	<script type="text/javascript">
+var Kurs = {'rub':1.00, 'usd':2.672, 'eur':2.9, 'ua':2.65};
+var first  = document.getElementById('first');
+var second = document.getElementById('second');
+var num = document.getElementById('num');
+var result = document.getElementById('result');
+var answer = 0;
+
+	first.addEventListener('change', func);
+	second.addEventListener('change', func);
+	num.addEventListener('blur', func);
+
+	function func() {
+		if (first.value != second.value) {
+			result.innerHTML = '';
+			answer = Kurs[first.value] / Kurs[second.value] * num.value;
+			result.innerHTML = answer;
+		} else{
+			alert('Выберите другую валюту!');
+		}
+}
+	</script>
+
+</body>
+</html>

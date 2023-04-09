@@ -1,0 +1,17 @@
+function y5_getBannerCode(){
+    var sR = 'y5' + y5_iR + '-';
+    var aDirect = new Array('<div class="ad"><div class="ad-link"><a href="http://bs.yandex.ru/count/Hy2SINtj7QS40000ZhCrin85XPZM4fK2cm5kGxS29OYlMJD0YPhDPfYZYBo-dQdS70MMgdIRnBhvrI0hDZ8J-m-IeJzXAwO3YgRADW-g0QMOMTcHkRoE00cFjOvog0oVl0yATWEJYGcPEKACaDiQe92z7w-GsngKauW3fuiEgA2IM12ai30202ci2Qx-htg7yM-9rWIn0NiH" target="_blank">Квартира в Перми - 1000р. в сутки</a></div><div>Бесплатное такси. Бесплатный интернет. Душ. Микроволновка. Центр города.</div> <span class="url"><script type="text/javascript">yandex_direct_phonePrint();</script><a href="http://bs.yandex.ru/count/Hy2SIMZjvwC40000ZhCrin85XPZM4fK2cm5kGxS29OYlMJD0YPhDPfYZYBo-dQdS70MMgdIRnBhvrI0hDZ8J-m-IeJzXAwO3YgRADW-g1wMOMTcHkRoE00cFjOvog0oVl0yATWEJYGcPEKACaDiQe92z7w-GsngKauW3fuiEgA2IM12ai30202ci2Qx-htg7yM-9rWIn0NiH" target="_blank">Адрес и телефон</a>&nbsp;&nbsp;&middot;&nbsp; komnata59.ru</span></div>','<div class="ad"><div class="ad-link"><a href="http://bs.yandex.ru/count/Hy2SIJ_5YwS40000ZhCrin85XPZM4fK2cm5kGxS29JA8i71Um0E9gDb_oPX9dQdRAGkSkyTHQGMMgdIRnBhvrI0hDZ8J-m-QfdLyoPAZBWotfZkAh-8BNwe1fQHWrW6HkRoE00cFimQO7mUVlLQTGWIJYGcPLqACaE84e9342Q-GuWIdZ22ef8XrKAIm0000AQx-htg7yM-9rWIn0NaI" target="_blank">Заработай 30000 р. в день!</a></div><div>Простая система, гарантированный результат!</div> <span class="url">piratemarketing.ru</span></div>','<div class="ad"><div class="ad-link"><a href="http://bs.yandex.ru/count/Hy2SINnPZn040000ZhCrin85XPZM4fK2cm5kGxS29JE8lUvSq069eoG2BfYkpRo-dQSbE0MMgdIRnBhvrI0hDZ8J-m-IgXqvHwOSYgT7AY2g0QMdh2y1aRcyZW09ZxWU00G2dxCzFXCDaua9cJb2Z93Y1A2GDGolaE84fu4RgASMhGIai30202ci2Qx-htg7yM-9rWIn0NiH" target="_blank">Сайт огромных скидок 50-90%</a></div><div>Развлечения, рестораны, салоны красоты, фитнес, спорт, кино, театры, товары</div> <span class="url">kuponator.ru</span></div>');
+    var sLinkHow = '<div class="go-ad-how"><a target="_blank" href="http://partner.yandex.ru/?from=rsy">Стать партнёром</a></div>';
+    var sLinkAll = '<div class="go-ad-all"><a href="http://direct.yandex.ru/search?from=http://white55.narod.ru/cmd.html&ref-page=77160" target=_blank>Все объявления</a></div>';
+    var sLinkDirect = '<div class="direct"><a href="http://direct.yandex.ru/">Яндекс.Директ</a></div>';
+    var sLinkClose = '<div class="close" onclick="y5_closeBanner(' + y5_iR + ',this);"><span class="text">Закрыть</span><span>&nbsp;[&times;]</span></div>';
+
+    var sTableHeader = '<table class="header"><tr><td>' + sLinkDirect + '<wbr>' + sLinkHow + '</td><td class="right">' + sLinkAll + '<wbr>' + sLinkClose + '</td></tr></table>';
+
+    var sTableData = '<table class="data"><tr>' + y5_createTableData(aDirect) + '</tr></table>';
+    var sBannerCode = sTableHeader + sTableData;
+
+    y5_showBanner(sBannerCode);
+}
+
+y5_getBannerCode();

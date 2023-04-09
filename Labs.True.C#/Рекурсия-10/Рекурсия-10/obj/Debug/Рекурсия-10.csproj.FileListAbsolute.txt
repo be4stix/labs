@@ -1,0 +1,7 @@
+C:\Users\Сергей\Desktop\Labs.True.C#\Рекурсия-10\Рекурсия-10\bin\Debug\Рекурсия-10.exe.config
+C:\Users\Сергей\Desktop\Labs.True.C#\Рекурсия-10\Рекурсия-10\bin\Debug\Рекурсия-10.exe
+C:\Users\Сергей\Desktop\Labs.True.C#\Рекурсия-10\Рекурсия-10\bin\Debug\Рекурсия-10.pdb
+C:\Users\Сергей\Desktop\Labs.True.C#\Рекурсия-10\Рекурсия-10\obj\Debug\Рекурсия-10.csproj.AssemblyReference.cache
+C:\Users\Сергей\Desktop\Labs.True.C#\Рекурсия-10\Рекурсия-10\obj\Debug\Рекурсия-10.csproj.CoreCompileInputs.cache
+C:\Users\Сергей\Desktop\Labs.True.C#\Рекурсия-10\Рекурсия-10\obj\Debug\Рекурсия-10.exe
+C:\Users\Сергей\Desktop\Labs.True.C#\Рекурсия-10\Рекурсия-10\obj\Debug\Рекурсия-10.pdb

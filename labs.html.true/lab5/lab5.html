@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>lab5</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	/*Задание 1*//*
+ let color = prompt("Введите цвет: ");
+ let forma = prompt("Введите форму: ");
+ let size = prompt ("Введите размер: ");
+
+ if (color != "синий" && forma == "круглая" && size == "маленький") 
+ {
+ 	alert("Наверное вы подумали про яблоко");
+ } 
+ else if (forma= "квадратная")
+ 	{
+ 		alert("Наверное вы подумали про нечто квадратное");
+ 	}
+ else {
+ 	alert("Понятия не имею о чём вы подумали");
+ }
+
+/*Задание 2*//*
+let stroka = '';
+function str(a){
+	stroka = prompt("Введите текст длиной не меньше "+ dlina);
+	if (stroka.length<dlina){
+		str(a);
+	}
+}
+let dlina = Math.floor(Math.random()*50);
+str();
+var word = stroka.split(" ");
+let a = word[word.length-1];
+word[word.length-1]= word[0];
+word[0] = a;
+for (var i = 0; i < word.length; i++) {
+	document.write(word[i]+ ' ')}
+
+ 
+/*Задание 3*//*
+let number = 0;
+while (number < 100){
+	number = prompt("Введите число");
+	number *= Math.floor(Math.random()*50);
+	alert (number);
+}
+
+ /*Задание 4*//*
+ var array = [];
+ for (var i = 2; i <= 100; i++) {
+ 	 if (i%5==2 || i%11==2) {
+ 	 	array.push(i);
+ 	 }
+ }
+ alert (array);
+ 
+ /*Задание 5 *//*
+ aa = prompt("Какая погода?")
+ switch (aa){
+ 	case "дождливо": {
+alert("захватите зонт и оденьте калоши");
+break;
+};
+ 	case "ветренно":{ alert("укутайтесь потеплее");
+ 	break;
+};
+ 	case "солнечно": {alert("возьмите солнечные очки-берегите глаза");
+ 	break;
+};
+ 	case "снежно": {alert("пора лепить снеговиков");
+ 	break;
+};
+ 	default: {alert("одевайтесь, как хотите, но погода непредсказуема")
+ 	break};
+};
+
+/*Задание 6*//*
+let a = -1;
+a<0?alert("Верно"):alert("Неверно");
+
+/*Задание 7.1*//*
+let test = "true";
+if (test == "true") {
+	alert("Верно");
+}
+else {
+	alert("Неверно");
+}
+/*Задание 7.2*//*
+let test = "true";
+(test=="true")?alert("Верно"):alert("Неверно");
+
+/*Задание 8.1*//*
+let a = 1;
+if (a >0 && a < 3)
+{
+	alert("Верно");
+} else {
+	alert("Неверно");
+}
+
+/*Задание 8.2*//*
+let a = 2;
+if (a == 0 || a== 2){
+	alert(a+3);
+} else {
+	alert(a/10);
+}
+
+/*Задание 8.3*//*
+let a = 4;
+let b = 7;
+if (a<= 1 && b>= 3){
+	alert (a+b);
+}else{
+	alert(a-b);
+}
+/*Задание 8.4*//*
+let a = 1;
+let b = 7
+if (a >2 && a<11 || b >=6 &&  b<14)
+{
+	alert("Верно");
+} else {
+	alert("Неверно");
+}
+
+
+/*Задание 9*/
+let num = 1;
+let result;
+switch (num){
+	case 1: {
+		result = "зима";
+		break;
+	}
+	case 2: {
+		result = "весна";
+		break;
+	}
+	case 3: {
+		result = "лето";
+		break;
+	}
+	case 4: {
+		result = "осень";
+		break;
+	}
+}
+alert(result);
+
+/*Задание 10*//*
+let str = "abcde";
+str[0]=="a"?alert("да"):alert("нет");
+*/
+</script>
+</html>

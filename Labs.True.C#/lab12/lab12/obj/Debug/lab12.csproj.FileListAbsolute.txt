@@ -1,0 +1,7 @@
+C:\Users\Сергей\Desktop\Labs.True.C#\lab12\lab12\obj\Debug\lab12.csproj.AssemblyReference.cache
+C:\Users\Сергей\Desktop\Labs.True.C#\lab12\lab12\obj\Debug\lab12.csproj.CoreCompileInputs.cache
+C:\Users\Сергей\Desktop\Labs.True.C#\lab12\lab12\bin\Debug\lab12.exe.config
+C:\Users\Сергей\Desktop\Labs.True.C#\lab12\lab12\bin\Debug\lab12.exe
+C:\Users\Сергей\Desktop\Labs.True.C#\lab12\lab12\bin\Debug\lab12.pdb
+C:\Users\Сергей\Desktop\Labs.True.C#\lab12\lab12\obj\Debug\lab12.exe
+C:\Users\Сергей\Desktop\Labs.True.C#\lab12\lab12\obj\Debug\lab12.pdb

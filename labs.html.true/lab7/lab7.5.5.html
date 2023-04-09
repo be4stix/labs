@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<button id = 'button'>Клонировать</button>
+
+	<input type="viewport" id = 'input'>
+	<script type="text/javascript">
+		let button = document.getElementById('button');
+		let input = document.getElementById('input');
+		button.addEventListener('click',function () {
+			let clone = input.cloneNode();
+			let newelem = document.createElement('input')
+			document.body.appendChild(newelem);
+		})
+	</script>
+</body>
+</html>

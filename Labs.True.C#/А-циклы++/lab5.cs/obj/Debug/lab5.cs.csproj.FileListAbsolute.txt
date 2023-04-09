@@ -1,0 +1,7 @@
+C:\Users\Сергей\Desktop\Labs.True.C#\lab5.cs\lab5.cs\bin\Debug\lab5.cs.exe.config
+C:\Users\Сергей\Desktop\Labs.True.C#\lab5.cs\lab5.cs\bin\Debug\lab5.cs.exe
+C:\Users\Сергей\Desktop\Labs.True.C#\lab5.cs\lab5.cs\bin\Debug\lab5.cs.pdb
+C:\Users\Сергей\Desktop\Labs.True.C#\lab5.cs\lab5.cs\obj\Debug\lab5.cs.csproj.AssemblyReference.cache
+C:\Users\Сергей\Desktop\Labs.True.C#\lab5.cs\lab5.cs\obj\Debug\lab5.cs.csproj.CoreCompileInputs.cache
+C:\Users\Сергей\Desktop\Labs.True.C#\lab5.cs\lab5.cs\obj\Debug\lab5.cs.exe
+C:\Users\Сергей\Desktop\Labs.True.C#\lab5.cs\lab5.cs\obj\Debug\lab5.cs.pdb

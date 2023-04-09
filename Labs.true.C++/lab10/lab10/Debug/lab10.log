@@ -1,0 +1,25 @@
+﻿  lab10.cpp
+C:\Users\Сергей\Desktop\Labs.true.C++\lab10\lab10\lab10.cpp(9,44): error C2374: pp: переопределение; множественная инициализация
+C:\Users\Сергей\Desktop\Labs.true.C++\lab10\lab10\lab10.cpp(9): message : см. объявление "pp"
+C:\Users\Сергей\Desktop\Labs.true.C++\lab10\lab10\lab10.cpp(18,25): error C3867: "std::basic_istream<char,std::char_traits<char>>::getline": нестандартный синтаксис; используйте "&", чтобы создать указатель на член
+C:\Users\Сергей\Desktop\Labs.true.C++\lab10\lab10\lab10.cpp(18,25): error C2678: бинарный ">>": не найден оператор, принимающий левый операнд типа "overloaded-function" (или приемлемое преобразование отсутствует)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xstring(4975,32): message : может быть "std::basic_istream<char,std::char_traits<char>> &std::operator >><char,std::char_traits<char>,std::allocator<char>>(std::basic_istream<char,std::char_traits<char>> &,std::basic_string<char,std::char_traits<char>,std::allocator<char>> &)"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xstring(4926,32): message : или       "std::basic_istream<char,std::char_traits<char>> &std::operator >><char,std::char_traits<char>,std::allocator<char>>(std::basic_istream<char,std::char_traits<char>> &&,std::basic_string<char,std::char_traits<char>,std::allocator<char>> &)"
+C:\Users\Сергей\Desktop\Labs.true.C++\lab10\lab10\lab10.cpp(18,25): message : при попытке сопоставить список аргументов "(overloaded-function, std::string)"
+C:\Users\Сергей\Desktop\Labs.true.C++\lab10\lab10\lab10.cpp(20,9): warning C4551: в вызове функции отсутствует список аргументов
+C:\Users\Сергей\Desktop\Labs.true.C++\lab10\lab10\lab10.cpp(34,24): error C3867: "std::basic_istream<char,std::char_traits<char>>::getline": нестандартный синтаксис; используйте "&", чтобы создать указатель на член
+C:\Users\Сергей\Desktop\Labs.true.C++\lab10\lab10\lab10.cpp(35,13): warning C4551: в вызове функции отсутствует список аргументов
+C:\Users\Сергей\Desktop\Labs.true.C++\lab10\lab10\lab10.cpp(42,10): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Сергей\Desktop\Labs.true.C++\lab10\lab10\lab10.cpp(51,9): warning C4551: в вызове функции отсутствует список аргументов
+C:\Users\Сергей\Desktop\Labs.true.C++\lab10\lab10\lab10.cpp(57,10): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Сергей\Desktop\Labs.true.C++\lab10\lab10\lab10.cpp(63,13): warning C4551: в вызове функции отсутствует список аргументов
+C:\Users\Сергей\Desktop\Labs.true.C++\lab10\lab10\lab10.cpp(74,9): warning C4551: в вызове функции отсутствует список аргументов
+C:\Users\Сергей\Desktop\Labs.true.C++\lab10\lab10\lab10.cpp(78,9): warning C4551: в вызове функции отсутствует список аргументов
+C:\Users\Сергей\Desktop\Labs.true.C++\lab10\lab10\lab10.cpp(89,9): warning C4551: в вызове функции отсутствует список аргументов
+C:\Users\Сергей\Desktop\Labs.true.C++\lab10\lab10\lab10.cpp(95,5): warning C4551: в вызове функции отсутствует список аргументов
+C:\Users\Сергей\Desktop\Labs.true.C++\lab10\lab10\lab10.cpp(96,9): error C2039: "reset": не является членом "std::basic_ifstream<char,std::char_traits<char>>".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\iosfwd(232): message : см. объявление "std::basic_ifstream<char,std::char_traits<char>>"
+C:\Users\Сергей\Desktop\Labs.true.C++\lab10\lab10\lab10.cpp(98,5): warning C4551: в вызове функции отсутствует список аргументов
+C:\Users\Сергей\Desktop\Labs.true.C++\lab10\lab10\lab10.cpp(99,9): error C2039: "reset": не является членом "std::basic_ifstream<char,std::char_traits<char>>".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\iosfwd(232): message : см. объявление "std::basic_ifstream<char,std::char_traits<char>>"
+C:\Users\Сергей\Desktop\Labs.true.C++\lab10\lab10\lab10.cpp(101,5): warning C4551: в вызове функции отсутствует список аргументов

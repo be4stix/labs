@@ -1,0 +1,1241 @@
+
+<!-- saved from url=(0050)http://www.rsdn.ru/article/dotnet/CSThreading1.xml -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Работа с потоками в C#</title><meta name="description" content="Подробно рассматривается работа с потоками - запуск, завершение, прерывание, блокировки, синхронизация, контексты синхронизации, особенности взаимодействия с апартаментами, а также потоковые возможности .NET - потоковые таймеры, пулы потоков, BackgroundWorker, асинхронные методы и делегаты. 
+В статье использован материал из книги Joseph Albahari, Ben Albahari &quot;C# 3.0 in a Nutshell&quot; - http://www.oreilly.com/catalog/9780596527570/"><meta name="keywords" content="C#,thread,wait handle, mutex, apartament"><meta name="robots" content="index,follow"><link rel="stylesheet" href="./Работа с потоками в C#_files/article.css" type="text/css"><script type="text/javascript" async="" src="./Работа с потоками в C#_files/watch.js"></script><script type="text/javascript" src="./Работа с потоками в C#_files/jquery.min.js"></script><script type="text/javascript" src="./Работа с потоками в C#_files/rsdn.v1.js"></script><script type="text/javascript" src="./Работа с потоками в C#_files/Forum.v3.js" charset="utf-8"></script></head><body marginwidth="20" marginheight="20"><table width="100%" border="0" cellspacing="0" celpadding="2" style="font-family:verdana;font-weight:bold;padding: 0px 5px; BORDER: #9daabd 1px 	solid; 	COLOR: #646464; BACKGROUND-COLOR: #e6e6e6;"><tbody><tr><td nowrap="nowrap"><font size="1" style="font-weight:normal"><script src="./Работа с потоками в C#_files/shMenu.v1.js" type="text/javascript" charset="utf-8"></script>&lt;&lt;<a href="http://www.rsdn.ru/?article/dotnet/CSThreading1.xml" target="_top">Показать&nbsp;меню</a>&nbsp;</font></td><td nowrap="nowrap" align="right" width="100%"><font size="2">&nbsp;<a href="http://www.rsdn.ru/article/dotnet/CSThreading1.xml?print" target="_blank" title="Версия для печати"><img align="absmiddle" width="16" height="14" src="./Работа с потоками в C#_files/printer2.gif" border="0"></a>&nbsp;&nbsp;<a href="http://www.rsdn.ru/forum/dotnet/2460803" target="_self" title="Перейти к обсуждению статьи"><font size="1" color="#646464"> Сообщений </font><font color="black">54</font></a>&nbsp;&nbsp;<a href="http://www.rsdn.ru/forum/dotnet/2460803" target="_self" title="Перейти к обсуждению статьи"><img src="./Работа с потоками в C#_files/showfr.gif" align="absmiddle" border="0" width="18px" height="14px"></a>&nbsp;<a href="http://www.rsdn.ru/Forum/RateList.aspx?mid=2460803"><font color="#646464"><font size="1"> Оценка </font><font color="black">1051</font>
+									[<font style="font-weight: normal;"><span style="color:green;">+3</span>/<span style="color:blue;">-0</span></font>]
+								</font></a>&nbsp;&nbsp; <a target="_blank" rel="nofollow" href="http://www.rsdn.ru/Users/Private/AddFav.aspx?mid=2460803" onclick="return AddFav(this.href);" title="Добавить в избранное"><img align="absmiddle" src="./Работа с потоками в C#_files/fav.gif" border="0" height="14px"></a>&nbsp;&nbsp;<a href="http://www.rsdn.ru/Forum/Private/Subscr.aspx?tid=2460803" onclick="return SubMsg(this.href)" title="Подписка на сообщения" rel="nofollow"><img class="i" align="absmiddle" src="./Работа с потоками в C#_files/sub.gif" border="0" width="18px" height="14px"></a>&nbsp;&nbsp;&nbsp;<font size="1">Оценить </font><a target="_blank" rel="nofollow" href="http://www.rsdn.ru/forum/Private/Rate.aspx?mid=2460803&rate=-3" onclick="return RateMsg(this.href);" title="+1"><img align="absmiddle" src="./Работа с потоками в C#_files/n11.gif" border="0" width="18px" height="14px"></a><a target="_blank" rel="nofollow" href="http://www.rsdn.ru/forum/Private/Rate.aspx?mid=2460803&rate=1" onclick="return RateMsg(this.href);" title="Интересно"><img align="absmiddle" src="./Работа с потоками в C#_files/n1.gif" border="0" width="18px" height="14px"></a><a target="_blank" rel="nofollow" href="http://www.rsdn.ru/forum/Private/Rate.aspx?mid=2460803&rate=2" onclick="return RateMsg(this.href);" title="Спасибо"><img align="absmiddle" src="./Работа с потоками в C#_files/n2.gif" border="0" width="18px" height="14px"></a><a target="_blank" rel="nofollow" href="http://www.rsdn.ru/forum/Private/Rate.aspx?mid=2460803&rate=3" onclick="return RateMsg(this.href);" title="Супер"><img align="absmiddle" src="./Работа с потоками в C#_files/n3.gif" border="0" width="18px" height="14px"></a><a target="_blank" rel="nofollow" href="http://www.rsdn.ru/forum/Private/Rate.aspx?mid=2460803&rate=-1" onclick="return RateMsg(this.href);" title="Удалить оценку"><img align="absmiddle" src="./Работа с потоками в C#_files/nx.gif" border="0" width="18px" height="14px"></a><a target="_blank" rel="nofollow" href="http://www.rsdn.ru/forum/Private/Rate.aspx?mid=2460803&rate=-4" onclick="return RateMsg(this.href);" title="Согласен"><img align="absmiddle" src="./Работа с потоками в C#_files/np.gif" border="0" width="18px" height="14px"></a><a target="_blank" rel="nofollow" href="http://www.rsdn.ru/forum/Private/Rate.aspx?mid=2460803&rate=0" onclick="return RateMsg(this.href);" title="Не согласен"><img align="absmiddle" src="./Работа с потоками в C#_files/nm.gif" border="0" width="18px" eight="14px"></a>&nbsp;
+					</font></td></tr></tbody></table><script type="text/javascript" src="./Работа с потоками в C#_files/orphus.js"></script><a href="http://orphus.ru/" id="orphus" title="Система Orphus"><img alt="Система Orphus" src="./Работа с потоками в C#_files/orphus.gif" border="0" width="100" height="25"></a><h1>Работа с потоками в C#</h1><h2 style="text-align: center">Часть 1</h2><h5><span class="title">Автор: </span><span class="value"><a target="_blank" href="http://albahari.com/threading/">Joseph Albahari</a></span><br><span class="title">Перевод: </span><span class="value"><a target="_blank" href="http://rsdn.ru/Users/Profile.aspx?uid=82">Алексей Кирюшкин</a></span><br><span class="title">Источники: </span><span class="value"><a target="_blank" href="http://www.albahari.com/threading/">Threading in C#</a><br> базируется на книге<br><a target="_blank" href="http://www.oreilly.com/catalog/9780596527570/">Joseph Albahari Ben Albahari "C# 3.0 in a Nutshell"</a></span><br><span class="title">Материал предоставил: </span><span class="value"><a target="_blank" href="http://rsdn.ru/mag/main.htm">RSDN Magazine #1-2007</a></span></h5><h6><span class="title">Опубликовано: </span><span class="value">24.03.2007</span><br><span class="title">Исправлено: </span><span class="value">20.06.2010</span><br><span class="title">Версия текста: </span><span class="value">1.0</span></h6><table width="98%"><tbody><tr><td valign="top" class="contents"><a href="http://www.rsdn.ru/article/dotnet/CSThreading1.xml#ENB"><b>Благодарности</b></a><br><a href="http://www.rsdn.ru/article/dotnet/CSThreading1.xml#E3B"><b>1. Начало работы</b></a><br><div style="margin-left:2em"><a href="http://www.rsdn.ru/article/dotnet/CSThreading1.xml#E6B">Обзор и ключевые понятия</a><br><a href="http://www.rsdn.ru/article/dotnet/CSThreading1.xml#E3GAC">Создание и запуск потоков</a><br></div><a href="http://www.rsdn.ru/article/dotnet/CSThreading1.xml#EBKAE"><b>2. Базовые сведения о синхронизации</b></a><br><div style="margin-left:2em"><a href="http://www.rsdn.ru/article/dotnet/CSThreading1.xml#EEKAE">Важнейшие средства синхронизации</a><br><a href="http://www.rsdn.ru/article/dotnet/CSThreading1.xml#EZTAE">Блокирование и потоковая безопасность</a><br><a href="http://www.rsdn.ru/article/dotnet/CSThreading1.xml#E3CAG">Interrupt и Abort</a><br><a href="http://www.rsdn.ru/article/dotnet/CSThreading1.xml#EGHAG">Состояния потока</a><br><a href="http://www.rsdn.ru/article/dotnet/CSThreading1.xml#EQKAG">Wait Handles</a><br><a href="http://www.rsdn.ru/article/dotnet/CSThreading1.xml#ESCBG">Контексты синхронизации</a><br></div></td><td valign="top" align="center" class="contents"><img src="./Работа с потоками в C#_files/Albahari_book.jpg"><img src="./Работа с потоками в C#_files/mag0107.jpg"></td></tr></tbody></table><script language="javascript">
+			function ToggleCode(id)
+			{
+				el=document.getElementById(id);
+				img=document.getElementById("img"+id);
+				if(el.style.display=="none")
+				{
+					img.src="/images/ls2.gif";
+					el.style.display="";
+				}
+				else
+				{
+					img.src="/images/ls1.gif";
+					el.style.display="none";
+				}
+				return false;
+			}
+		</script><h2>Благодарности<a name="ENB"></a></h2>
+<p>Хотел бы поблагодарить Бена Албахари (Ben Albahari) из Microsoft Corporation и Джона Осборна (John Osborn) из <a href="http://www.oreilly.com/" class="link-ext" target="_blank">O'Reilly Media, Inc</a>. за их ценный вклад, а также Эрика Беднарца (Eric Bednarz) за его (до сих пор безотказный!) обход <a href="http://tagsoup.com/-dev/null-/css/fixed/" class="link-ext" target="_blank">position:fixed-бага Internet Explorer</a>.</p>
+<h2>1. Начало работы<a name="E3B"></a></h2>
+<h3>Обзор и ключевые понятия<a name="E6B"></a></h3>
+<p>C# поддерживает параллельное выполнение кода через многопоточность. Поток – это независимый путь исполнения, способный выполняться одновременно с другими потоками.</p>
+<p>Программа на C# запускается как единственный поток, автоматически создаваемый CLR и операционной системой (“главный” поток), и становится многопоточной при помощи создания дополнительных потоков. Вот простой пример и его вывод:</p>
+<table class="note" width="98%"><tbody><tr><td><strong>ПРИМЕЧАНИЕ</strong><br><p>Все примеры предполагают, что импортируются следующие пространства имен (если этот момент специально не оговаривается):</p>
+<p>using System;</p>
+<p>using System.Threading;</p>
+</td></tr></tbody></table>
+<div id="EOC"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">class</span> ThreadTest 
+{
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Main()
+<span class="KEYWORD"> </span> {
+    <span class="ACCENT">Thread</span> t = <span class="KEYWORD">new</span> <span class="ACCENT">Thread</span>(<span class="ACCENT">WriteY</span>);
+    t.Start();            <span class="COMMENT">// Выполнить WriteY в новом потоке</span>
+    <span class="KEYWORD">while</span> (<span class="KEYWORD">true</span>) 
+<span class="KEYWORD">      </span>Console.Write(<span class="STRING">"x"</span>); <span class="COMMENT">// Все время печатать 'x'</span>
+  }
+ 
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> <span class="ACCENT">WriteY</span>() 
+<span class="KEYWORD">  </span>{
+    <span class="KEYWORD">while</span> (<span class="KEYWORD">true</span>) 
+<span class="KEYWORD">      </span>Console.Write(<span class="STRING">"y"</span>); <span class="COMMENT">// Все время печатать 'y'</span>
+  }
+}
+</pre></td></tr></tbody></table></div>
+<p>Вывод:</p>
+<div id="EFE"><table class="code" width="98%"><tbody><tr><td><pre>xxxxxxxxxxxxxxxxxxxxxxxxxxxyyyyyyyyyyyyyyyyyyyyyyyyyyxxxxxxxxxxxxxxxxxxxxxxyyy
+yyyyyyyyyyyyyxxxxyyyyyyyyyyyyyyyyyyxxxxxxxxxxxxyyyyyyyyyyyyyyyxxxxxxxxxxxxxxxx
+xxxxxxxxxyyyyyyyyyyyyyyyyyyyyyxxxxxxxxxxxxxxxxxxxyyyyyyyyyyyyyyyyyyxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxyyyyyyyyyyyyyyyyyyyyyyxxxxxxxxxxxxxxxxxxxxyyyyyyyyyyyyyyyyx
+xxxxxxxxxxxxxxxxxxxxxxxxxxyyyyyyyyyyyyyyyyyyyyyyyyyyxxxxxxxxxxxxxxxxxxxxxxyyyy
+yyyyyyyyyyyyxxxxy...
+</pre></td></tr></tbody></table></div>
+<p>В главном потоке создается новый поток <b>t</b>, исполняющий метод, который непрерывно печатает символ ‘<b>y</b>’. Одновременно главный поток непрерывно печатает символ ‘<b>x</b>’.</p>
+<p>CLR назначает каждому потоку свой стек, так что локальные переменные хранятся раздельно. В следующем примере мы определяем метод с локальной переменной, а затем выполняем его одновременно в главном и во вновь созданном потоках:</p>
+<div id="ESE"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Main() 
+{
+  <span class="KEYWORD">new</span> Thread(<span class="ACCENT">Go</span>).Start();      <span class="COMMENT">// Выполнить Go</span>()<span class="COMMENT"> в новом потоке</span>
+  <span class="ACCENT">Go</span>();                         <span class="COMMENT">// Выполнить Go</span>()<span class="COMMENT"> в главном потоке</span>
+}
+ 
+<span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Go() 
+{
+  <span class="COMMENT">// Определяем и используем локальную переменную 'cycles'</span>
+  <span class="KEYWORD">for</span> (<span class="KEYWORD">int</span> cycles = 0; cycles &lt; 5; cycles++)
+<span class="KEYWORD">   </span> Console.Write('?');
+}
+</pre></td></tr></tbody></table></div>
+<p>Консольный вывод:</p>
+<div id="EWF"><table class="code" width="98%"><tbody><tr><td><pre>??????????
+</pre></td></tr></tbody></table></div>
+<p>Отдельный экземпляр переменной <b>cycles</b> создается в стеке каждого потока, так что выводится, как и ожидалось, десять знаков ‘<b>?</b>’.</p>
+<p>Вместе с тем потоки разделяют данные, относящиеся к тому же экземпляру объекта, что и сами потоки: </p>
+<div id="EBG"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">class</span> ThreadTest 
+{
+  <span class="KEYWORD">bool</span> <span class="ACCENT">done</span>;
+  
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Main()
+<span class="KEYWORD"> </span> {
+    ThreadTest tt = <span class="KEYWORD">new</span> ThreadTest(); <span class="COMMENT">// Создаем общий объект</span>
+    <span class="KEYWORD">new</span> Thread(tt.Go).Start();
+    tt.Go();
+  }
+  
+  <span class="COMMENT">// Go сейчас – экземплярный метод</span>
+  <span class="KEYWORD">void</span> Go() 
+<span class="KEYWORD">  </span>{
+    <span class="KEYWORD">if</span> (!<span class="ACCENT">done</span>) { <span class="ACCENT">done</span> = <span class="KEYWORD">true</span>; Console.WriteLine(<span class="STRING">"Done"</span>); }
+  }
+}
+</pre></td></tr></tbody></table></div>
+<p>Так как оба потока вызывают метод <b>Go()</b> одного и того же экземпляра <b>ThreadTest</b>, они разделяют поле <b>done.</b> Результат – “<b>Done</b>”, напечатанное один раз вместо двух:</p>
+<div id="ETH"><table class="code" width="98%"><tbody><tr><td><pre>Done
+</pre></td></tr></tbody></table></div>
+<p>Для статических полей работает другой способ разделения данных между потоками. Вот тот же самый пример, но со статическим полем <b>done</b>:</p>
+<div id="E1H"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">class</span> ThreadTest 
+{
+  <span class="KEYWORD">static</span> <span class="KEYWORD">bool</span> <span class="ACCENT">done</span>;    <span class="COMMENT">// Статическое поле, разделяемое потоками</span>
+  
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Main() 
+  {
+    <span class="KEYWORD">new</span> Thread(Go).Start();
+    Go();
+  }
+  
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Go() 
+  {
+    <span class="KEYWORD">if</span> (!<span class="ACCENT">done</span>) { <span class="ACCENT">done</span> = <span class="KEYWORD">true</span>; Console.WriteLine(<span class="STRING">"Done"</span>); }
+  }
+}
+</pre></td></tr></tbody></table></div>
+<p>Оба примера демонстрируют также другое ключевое понятие – <i><b>потоковую безопасность</b></i> (или скорее её отсутствие). Фактически результат исполнения программы не определен: возможно (хотя и маловероятно), "Done" будет напечатано дважды. Однако если мы поменяем порядок вызовов в методе <b>Go()</b>, шансы увидеть “Done” напечатанным два раза повышаются радикально:</p>
+<div id="EEBAC"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Go() 
+{
+  <span class="KEYWORD">if</span> (!done)
+<span class="KEYWORD"> </span> {
+    Console.WriteLine(<span class="STRING">"Done"</span>);
+    done = <span class="KEYWORD">true</span>;
+  }
+}
+</pre></td></tr></tbody></table></div>
+<p>Консольный вывод:</p>
+<div id="EWBAC"><table class="code" width="98%"><tbody><tr><td><pre>Done
+Done (<span class="ACCENT">появляется в большинстве случаев!</span>)
+</pre></td></tr></tbody></table></div>
+<p>Проблема состоит в том, что один поток может выполнить оператор <b>if</b>, пока другой поток выполняет <b>WriteLine</b>, т.е. до того как <b>done</b> будет установлено в true.</p>
+<p>Лекарство состоит в получении <i><b>эксклюзивной блокировки</b></i> на время чтения и записи разделяемых полей. C# обеспечивает это при помощи оператора <b>lock</b>:</p>
+<div id="EMCAC"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">class</span> ThreadSafe 
+{
+  <span class="KEYWORD">static</span> <span class="KEYWORD">bool</span> done;
+  <span class="KEYWORD">static</span> <span class="KEYWORD">object</span> locker = <span class="KEYWORD">new</span> <span class="KEYWORD">object</span>();
+ 
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Main() 
+  {
+    <span class="KEYWORD">new</span> Thread(Go).Start();
+    Go();
+  }
+ 
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Go() 
+  {
+    <span class="ACCENT">lock </span>(locker) 
+    {
+      <span class="KEYWORD">if</span> (!done)
+<span class="KEYWORD">     </span> {
+        Console.WriteLine(<span class="STRING">"Done"</span>);
+        done = <span class="KEYWORD">true</span>;
+      }
+    }
+  }
+}
+</pre></td></tr></tbody></table></div>
+<p>Когда два потока одновременно борются за блокировку (в нашем случае объекта <b>locker)</b>, один поток переходит к ожиданию (блокируется), пока блокировка не освобождается. В данном случае это гарантирует, что только один поток может одновременно исполнять критическую секцию кода, и "Done" будет напечатано только один раз. Код, защищенный таким образом от неопределённости в плане многопоточного исполнения, называется <i><b>потокобезопасным</b></i>.</p>
+<p>Временная приостановка (блокирование) – основной способ координации, или <i><b>синхронизации</b></i> действий потоков. Ожидание эксклюзивной блокировки – это одна из причин, по которым поток может блокироваться. Другая причина – если поток приостанавливается (<b>Sleep)</b> на заданный промежуток времени:</p>
+<div id="ECEAC"><table class="code" width="98%"><tbody><tr><td><pre>Thread.<span class="ACCENT">Sleep</span>(TimeSpan.FromSeconds(30)); <span class="COMMENT">// Блокировка на 30 секунд</span>
+</pre></td></tr></tbody></table></div>
+<p>Также поток может ожидать завершения другого потока, вызывая его метод <b>Join</b>:</p>
+<div id="EOEAC"><table class="code" width="98%"><tbody><tr><td><pre>Thread t = <span class="KEYWORD">new</span> Thread(Go);     <span class="COMMENT">// Go – статический метод</span>
+t.Start();
+t.<span class="ACCENT">Join</span>();                       <span class="COMMENT">// Ожидаем завершения потока</span>
+</pre></td></tr></tbody></table></div>
+<p>Будучи блокированным, поток не потребляет ресурсов CPU.</p>
+<h4>Как работает многопоточность</h4>
+<p>Управление многопоточностью осуществляет планировщик потоков, эту функцию CLR обычно делегирует операционной системе. Планировщик потоков гарантирует, что активным потокам выделяется соответствующее время на выполнение, а потоки, ожидающие или блокированные, к примеру, на ожидании эксклюзивной блокировки, или пользовательского ввода – не потребляют времени CPU.</p>
+<p>На однопроцессорных компьютерах планировщик потоков использует квантование времени – быстрое переключение между выполнением каждого из активных потоков. Это приводит к непредсказуемому поведению, как в самом первом примере, где каждая последовательность символов ‘<b>X</b>’ и ‘<b>Y</b>’ соответствует кванту времени, выделенному потоку. В Windows XP типичное значение кванта времени – десятки миллисекунд – выбрано как намного большее, чем затраты CPU на переключение контекста между потоками (несколько микросекунд).</p>
+<p>На многопроцессорных компьютерах многопоточность реализована как смесь квантования времени и подлинного параллелизма, когда разные потоки выполняют код на разных CPU. Необходимость квантования времени все равно остается, так как операционная система должна обслуживать как свои собственные потоки, так и потоки других приложений.</p>
+<p>Говорят, что поток <i><b>вытесняется,</b></i> когда его выполнение приостанавливается из-за внешних факторов типа квантования времени. В большинстве случаев поток не может контролировать, когда и где он будет вытеснен.</p>
+
+<h4>Потоки vs. процессы</h4>
+<p>Все потоки одного приложения логически содержатся в пределах процесса – модуля операционной системы, в котором исполняется приложение.</p>
+<p>В некоторых аспектах потоки и процессы схожи – например, время разделяется между процессами, исполняющимися на одном компьютере, так же, как между потоками одного C#-приложения. Ключевое различие состоит в том, что процессы полностью изолированы друг от друга. Потоки разделяют память (кучу) с другими потоками этого же приложения. Благодаря этому один поток может поставлять данные в фоновом режиме, а другой – показывать эти данные по мере их поступления.</p>
+
+<h4>Когда использовать потоки</h4>
+<p>Типовое приложение с многопоточностью выполняет длительные вычисления в фоновом режиме. Главный поток продолжает выполнение, в то время как рабочий поток выполняет фоновую задачу. В приложениях Windows Forms, когда главный поток занят длительными вычислениями, он не может обрабатывать сообщения клавиатуры и мыши, и приложение перестает откликаться. По этой причине следует запускать отнимающие много времени задачи в рабочем потоке, даже если главный поток в это время демонстрирует пользователю модальный диалог с надписью <i>“Работаю... Пожалуйста, ждите”</i>, так как программа не может перейти к следующей операции, пока не закончена текущая. Такое решение гарантирует, что приложение не будет помечено операционной системой как “Не отвечающее”, соблазняя пользователя с горя прикончить процесс. Опять же, в этом случае модальный диалог может предоставить кнопку “Отмена”, так как форма продолжает получать сообщения, пока задача выполняется в фоновом потоке. Класс <b>BackgroundWorker</b> наверняка пригодится вам при реализации такой модели.</p>
+<p>В случае приложений без UI, например, служб Windows, многопоточность имеет смысл, если выполняемая задача может занять много времени, так как требуется ожидание ответа от другого компьютера (сервера приложений, сервера баз данных или клиента). Запуск такой задачи в отдельном рабочем потоке означает, что главный поток немедленно освобождается для других задач.</p>
+<p>Другое применение многопоточность находит в методах, выполняющих интенсивные вычисления. Такие методы могут выполняться быстрее на многопроцессорных компьютерах, если рабочая нагрузка разнесена по нескольким потокам (количество процессоров можно получить через свойство <b>Environment.ProcessorCount</b>).</p>
+<p>C#-приложение можно сделать многопоточным двумя способами: либо явно создавая дополнительные потоки и управляя ими, либо используя возможности неявного создания потоков .NET Framework – <b>BackgroundWorker, </b>пул потоков, потоковый таймер, Remoting-сервер, Web-службы или приложение ASP.NET. В двух последних случаях альтернативы многопоточности не существует. Однопоточный web-сервер не просто плох, он попросту невозможен! К счастью, в случае серверов приложений, не хранящих состояние (stateless), многопоточность реализуется обычно довольно просто, сложности возможны разве что в синхронизации доступа к данным в статических переменных.</p>
+
+<h4>Когда потоки не нужны</h4>
+<p>Многопоточность наряду с достоинствами имеет и свои недостатки. Самое главный из них – значительное увеличение сложности программ. Сложность увеличивают не дополнительные потоки сами по себе, а необходимость организации их взаимодействия. От того, насколько это взаимодействие является преднамеренным, зависит продолжительность цикла разработки, а также количество спорадически проявляющихся и трудноуловимых ошибок в программе. Таким образом, нужно либо поддерживать дизайн взаимодействия потоков простым, либо не использовать многопоточность вообще, если только вы не имеете противоестественной склонности к переписыванию и отладке кода.</p>
+<p>Кроме того, чрезмерное использование многопоточности отнимает ресурсы и время CPU на создание потоков и переключение между потоками. В частности, когда используются операции чтения/записи на диск, более быстрым может оказаться последовательное выполнение задач в одном или двух потоках, чем одновременное их выполнение в нескольких потоках. Далее будет описана реализация <i><b>очереди Поставщик/Потребитель</b></i>, предоставляющей такую функциональность.</p>
+
+
+<h3>Создание и запуск потоков<a name="E3GAC"></a></h3>
+<p>Для создания потоков используется конструктор класса <b>Thread</b>, принимающий в качестве параметра делегат типа <b>ThreadStart</b>, указывающий метод, который нужно выполнить. Делегат <b>ThreadStart </b>определяется так:</p>
+<div id="EIHAC"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">public</span> <span class="KEYWORD">delegate</span> <span class="KEYWORD">void</span> ThreadStart();
+</pre></td></tr></tbody></table></div>
+<p>Вызов метода <b>Start</b> начинает выполнение потока. Поток продолжается до выхода из исполняемого метода. Вот пример, использующий полный синтаксис C# для создания делегата <b>ThreadStart:</b></p>
+<div id="EXHAC"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">class</span> ThreadTest 
+{
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Main() 
+  {
+    Thread t = <span class="KEYWORD">new</span> Thread(<span class="KEYWORD">new</span> <span class="ACCENT">ThreadStart</span>(Go));
+    t.Start();   <span class="COMMENT">// Выполнить Go</span>()<span class="COMMENT"> в новом потоке.</span>
+    Go();        <span class="COMMENT">// Одновременно запустить Go</span>()<span class="COMMENT"> в главном потоке.</span>
+  }
+
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Go() { Console.WriteLine(<span class="STRING">"hello!"</span>); }
+</pre></td></tr></tbody></table></div>
+<p>В этом примере поток выполняет метод <b>Go()</b> одновременно с главным потоком. Результат – два почти одновременных «hello»:</p>
+<div id="EZIAC"><table class="code" width="98%"><tbody><tr><td><pre>hello!
+hello!
+</pre></td></tr></tbody></table></div>
+<p>Поток можно создать, используя для присваивания значений делегатам более удобный сокращенный синтаксис C#:</p>
+<div id="E4IAC"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Main() 
+{
+  Thread t = <span class="KEYWORD">new</span> Thread(<span class="ACCENT">Go</span>); <span class="COMMENT">// Без явного использования ThreadStart</span>
+  t.Start();
+  ...
+}
+<span class="KEYWORD">
+static</span> <span class="KEYWORD">void</span> Go() { ... }
+</pre></td></tr></tbody></table></div>
+<p>В этом случае делегат <b>ThreadStart </b>выводится компилятором автоматически. Другой вариант сокращенного синтаксиса использует анонимный метод для создания потока:</p>
+<div id="ETJAC"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Main() 
+{
+  Thread t = <span class="KEYWORD">new</span> Thread(<span class="ACCENT">delegate</span>() { Console.WriteLine(<span class="STRING">"Hello!"</span>); });
+  t.Start();
+}
+</pre></td></tr></tbody></table></div>
+<p>Поток имеет свойство <b>IsAlive</b>, возвращающее <b>true</b> после вызова <b>Start()</b> и до завершения потока.</p>
+<p>Поток, который закончил исполнение, не может быть начат заново.</p>
+<h4>Передача данных в ThreadStart</h4>
+<p>Допустим, что в рассматриваемом выше примере мы захотим более явно различать вывод каждого из потоков, например, по регистру символов. Можно добиться этого, передавая соответствующий флаг в метод <b>Go()</b>, но в этом случае нельзя использовать делегат <b>ThreadStart</b>, так он не принимает аргументов. К счастью, .NET Framework определяет другую версию делегата – <b>ParameterizedThreadStart</b>, которая может принимать один аргумент:</p>
+<div id="EXKAC"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">public</span> <span class="KEYWORD">delegate</span> <span class="KEYWORD">void</span> ParameterizedThreadStart(<span class="KEYWORD">object</span> obj);
+</pre></td></tr></tbody></table></div>
+<p>Предыдущий пример можно переписать так:</p>
+<div id="EELAC"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">class</span> ThreadTest 
+{
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Main() 
+  {
+    Thread t = <span class="KEYWORD">new</span> Thread(Go);
+    t.Start(<span class="ACCENT">true</span>);             <span class="COMMENT">// </span><span class="ACCENT">== Go</span>(<span class="ACCENT">true</span>)<span class="COMMENT"> </span>
+    Go(<span class="KEYWORD">false</span>);
+  }
+
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Go(<span class="KEYWORD">object</span> upperCase) 
+  {
+    <span class="KEYWORD">bool</span> upper = (<span class="KEYWORD">bool</span>)upperCase;
+    Console.WriteLine(upper ? <span class="STRING">"HELLO!"</span> : <span class="STRING">"hello!"</span>);
+  }
+}
+</pre></td></tr></tbody></table></div>
+<p>Консольный вывод:</p>
+<div id="ELMAC"><table class="code" width="98%"><tbody><tr><td><pre>hello!
+HELLO!
+</pre></td></tr></tbody></table></div>
+<p>В этом примере компилятор автоматически выводит делегат <b>ParameterizedThreadStart</b>, так как метод <b>Go()</b> принимает в качестве параметра один <b>object</b>. С тем же успехом можно было написать:</p>
+<div id="EWMAC"><table class="code" width="98%"><tbody><tr><td><pre>Thread t = <span class="KEYWORD">new</span> Thread(<span class="KEYWORD">new</span> <span class="ACCENT">ParameterizedThreadStart</span>(Go));
+t.Start(<span class="KEYWORD">true</span>);
+</pre></td></tr></tbody></table></div>
+<p>Особенность использования <b>ParameterizedThreadStart </b>состоит в том, что перед использованием нужно привести аргумент из типа <b>object</b> к нужному типу (в данном случае <b>bool</b>). К тому же существует только версия, принимающая единственный аргумент.</p>
+<p>В качестве альтернативы можно использовать анонимный метод:</p>
+<div id="EMNAC"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Main() 
+{
+  Thread t = <span class="KEYWORD">new</span> Thread(<span class="ACCENT">delegate</span>(){ WriteText(<span class="STRING">"Hello"</span>); });
+  t.Start();
+}
+<span class="KEYWORD">
+static</span> <span class="KEYWORD">void</span> WriteText(<span class="KEYWORD">string</span> text) { Console.WriteLine(text); }
+</pre></td></tr></tbody></table></div>
+<p>Удобство состоит в том, что нужный метод (в данном случае <b>WriteText</b>) можно вызвать с любым количеством аргументов и безо всякого приведения типов. Однако нужно принять во внимание особенность семантики анонимных методов, связанную с внешней переменной, которая становится очевидной в следующем примере:</p>
+<div id="EEOAC"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Main() 
+{
+  <span class="KEYWORD">string</span> text = <span class="STRING">"Before"</span>;
+  Thread t = <span class="KEYWORD">new</span> Thread(<span class="KEYWORD">delegate</span>() { WriteText(text); });
+  <span class="ACCENT">text = "After";
+</span>  t.Start();
+}
+<span class="KEYWORD">
+static</span> <span class="KEYWORD">void</span> WriteText(<span class="KEYWORD">string</span> text) { Console.WriteLine(text); }
+</pre></td></tr></tbody></table></div>
+<p>Консольный вывод:</p>
+<div id="E4OAC"><table class="code" width="98%"><tbody><tr><td><pre>After
+</pre></td></tr></tbody></table></div>
+<table class="warning" width="98%"><tbody><tr><td><strong>ПРЕДУПРЕЖДЕНИЕ</strong><br><p>Анонимные методы открывают причудливые возможности непреднамеренного взаимодействия через внешние переменные, если они изменяются кем-либо после старта потока. Планового взаимодействия (обычно через поля класса) как правило более чем достаточно! Лучше всего, как только началось исполнение потока, рассматривать внешние переменные как переменные только для чтения – за исключением разве что реализаций с соответствующими блокировками на обеих сторонах.</p>
+</td></tr></tbody></table>
+<p>Другой способ передачи данных в поток состоит в запуске в потоке метода определенного экземпляра объекта, а не статического метода. Тогда свойства выбранного экземпляра объекта будут определять поведение потока, как в следующем варианте оригинального примера:</p>
+<div id="EFPAC"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">class</span> ThreadTest 
+{
+  <span class="KEYWORD">bool</span> upper;
+ 
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Main() 
+<span class="KEYWORD">  </span>{
+    ThreadTest instance1 = <span class="KEYWORD">new</span> ThreadTest();
+    <span class="ACCENT">instance1</span>.<span class="ACCENT">upper = true</span>;
+    Thread t = <span class="KEYWORD">new</span> Thread(<span class="ACCENT">instance1</span>.Go);
+    t.Start();
+    ThreadTest instance2 = <span class="KEYWORD">new</span> ThreadTest();
+    instance2.Go();  <span class="COMMENT">// Запуск в главном потоке - с upper=false</span>
+  }
+ 
+  <span class="KEYWORD">void</span> Go(){ Console.WriteLine(upper ? <span class="STRING">"HELLO!"</span> : <span class="STRING">"hello!"</span>); }
+</pre></td></tr></tbody></table></div>
+
+<h4>Именование потоков</h4>
+<p>Поток можно поименовать, используя свойство <b>Name</b>. Это предоставляет большое удобство при отладке: имена потоков можно вывести в <b>Console.WriteLine</b> и увидеть в окне <i>Debug – Threads</i> в Microsoft Visual Studio. Имя потоку может быть назначено в любой момент, но только один раз – при попытке изменить его будет сгенерировано исключение.</p>
+<p>Главному потоку приложения также можно назначить имя – в следующем примере доступ к главному потоку осуществляется через статическое свойство <b>CurrentThread</b> класса <b>Thread</b>:</p>
+<div id="E3AAE"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">class</span> ThreadNaming 
+{
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Main() 
+<span class="KEYWORD">  </span>{
+    <span class="ACCENT">Thread.CurrentThread.Name</span> = <span class="STRING">"main"</span>;
+    Thread worker = <span class="KEYWORD">new</span> Thread(Go);
+    <span class="ACCENT">worker.Name</span> = <span class="STRING">"worker"</span>;
+    worker.Start();
+    Go();
+  }
+
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Go() 
+<span class="KEYWORD">  </span>{
+    Console.WriteLine(<span class="STRING">"Hello from "</span> + Thread.CurrentThread.Name);
+  }
+}
+</pre></td></tr></tbody></table></div>
+<p>Консольный вывод:</p>
+<div id="E4BAE"><table class="code" width="98%"><tbody><tr><td><pre>Hello from main
+Hello from worker
+</pre></td></tr></tbody></table></div>
+
+<h4>Основные и фоновые потоки</h4>
+<p>По умолчанию потоки создаются как основные, что означает, что приложение не будет завершено, пока один из таких потоков будет исполняться. C# также поддерживает фоновые потоки, они не продлевают жизнь приложению, а завершаются сразу же, как только все основные потоки будут завершены.</p>
+<table class="note" width="98%"><tbody><tr><td><strong>ПРИМЕЧАНИЕ</strong><br><p>Изменение статуса потока с основного на фоновый не изменяет его приоритет или статус в планировщике потоков.</p>
+</td></tr></tbody></table>
+<p>Статус потока переключается с основного на фоновый при помощи свойства <b>IsBackground</b>, как показано в следующем примере:</p>
+<div id="EOCAE"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">class</span> PriorityTest 
+{
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Main(<span class="KEYWORD">string</span>[] args) 
+<span class="KEYWORD">  </span>{
+    Thread worker = <span class="KEYWORD">new</span> Thread(<span class="KEYWORD">delegate</span>() { Console.ReadLine(); });
+
+    <span class="KEYWORD">if</span> (args.Length &gt; 0)
+      worker.<span class="ACCENT">IsBackground</span> = <span class="KEYWORD">true</span>;
+
+    worker.Start();
+  }
+}
+</pre></td></tr></tbody></table></div>
+<p>Если программа вызывается без аргументов, рабочий поток выполняется по умолчанию как основной поток и ожидает на <b>ReadLine</b>, пока пользователь не нажмет Enter. Тем временем главный поток завершается, но приложение продолжает исполняться, так как рабочий поток еще жив.</p>
+<p>Если же программу запустить с аргументами командной строки, рабочий поток получит статус фонового и программа завершится практически сразу после завершения главного потока, с уничтожением потока, ожидающего ввода пользователя с помощью метода <b>ReadLine</b>.</p>
+<p>Когда фоновый поток завершается таким способом, все блоки <b>finally</b> внутри потока игнорируются. Поскольку невыполнение кода в <b>finally</b> обычно нежелательно, будет правильно ожидать завершения всех фоновых потоков перед выходом из программы, назначив нужный таймаут (при помощи <b>Thread.Join</b>). Если по каким-то причинам рабочий поток не завершается за выделенное время, можно попытаться аварийно завершить его (<b>Thread.Abort</b>), а если и это не получится, позволить умереть ему вместе с процессом (также не помешает записать информацию о проблеме в лог).</p>
+<p>Превращение рабочего потока в фоновый может быть последним шансом завершить приложение, так как не умирающий основной поток не даст приложению завершиться. Зависший основной поток особенно коварен в приложениях Windows Forms, так как приложение завершается, когда завершается его главный поток (по крайней мере, для пользователя), но его процесс продолжает выполняться. В диспетчере задач оно исчезнет из списка приложений, хотя имя его исполняемого файла останется в списке исполняющихся процессов. Пока пользователь не найдет и не прибьет его, процесс продолжит потреблять ресурсы и, возможно, будет препятствовать запуску или нормальному функционированию вновь запущенного экземпляра приложения.</p>
+<table class="warning" width="98%"><tbody><tr><td><strong>ПРЕДУПРЕЖДЕНИЕ</strong><br><p>Обычная причина появления приложений, которые не могут завершиться должным образом – это такие “забытые” основные потоки.</p>
+</td></tr></tbody></table>
+
+<h4>Приоритеты потоков</h4>
+<p>Свойство <b>Priority</b> определяет, сколько времени на исполнение будет выделено потоку относительно других потоков того же процесса. Существует 5 градаций приоритета потока:</p>
+<div id="EKEAE"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">enum</span> ThreadPriority { Lowest, BelowNormal, Normal, AboveNormal, Highest }
+</pre></td></tr></tbody></table></div>
+<p>Значение приоритета становится существенным, когда одновременно исполняются несколько потоков.</p>
+<p>Установка приоритета потока на максимум еще не означает работу в реальном времени (real-time), так как существуют еще приоритет процесса приложения. Чтобы работать в реальном времени, нужно использовать класс <b>Process</b> из пространства имен <b>System.Diagnostics</b> для поднятия приоритета процесса (если что, я вам этого не говорил):</p>
+<div id="EYEAE"><table class="code" width="98%"><tbody><tr><td><pre>Process.GetCurrentProcess().<span class="ACCENT">PriorityClass</span> = <span class="ACCENT">ProcessPriorityClass.High</span>;
+</pre></td></tr></tbody></table></div>
+<p>От <b>ProcessPriorityClass.High </b>один шаг до наивысшего приоритета процесса – <b>Realtime<i>.</i></b> Устанавливая приоритет процесса в <b>Realtime, </b>вы говорите операционной системе, что хотите, чтобы ваш процесс никогда не вытеснялся. Если ваша программа случайно попадет в бесконечный цикл, операционная система может быть полностью заблокирована. Спасти вас в этом случае сможет только кнопка выключения питания. По этой причине <b>ProcessPriorityClass.High</b> считается максимальным приоритетом процесса, пригодным к употреблению.</p>
+<p>Если real-time<i> </i>приложение имеет пользовательский интерфейс, может быть не желательно поднимать приоритет его процесса, так как обновление экрана будет съедать чересчур много времени CPU – тормозя весь компьютер, особенно если UI достаточно сложный. (Хотя, когда я это пишу, программа интернет-телефонии Skype не дает такого эффекта, может быть, потому, что ее интерфейс достаточно прост.) Уменьшение приоритета главного потока в сочетании с повышением приоритета процесса гарантирует, что real-time поток не будет вытесняться перерисовкой экрана, но не спасает от тормозов весь компьютер, так как операционная система все еще будет выделять много времени CPU всему процессу в целом. Идеальное решение состоит в том, чтобы держать работу в реальном времени и пользовательский интерфейс в различных процессах (с разными приоритетами), поддерживающих связь через Remoting или shared memory<i>.</i> Разделяемая память требует обращения к Win32 API (погуглите про <b>CreateFileMapping</b> и <b>MapViewOfFile</b><i>)</i>.</p>
+
+<h4>Обработка исключений</h4>
+<p>Обрамление кода создания и запуска потока блоками try/catch/finally имеет мало смысла. Посмотрите следующий пример:</p>
+<div id="E6FAE"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">public</span> <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Main()
+{
+  <span class="ACCENT">try</span> 
+  {
+    <span class="KEYWORD">new</span> Thread(Go).Start();
+  }
+  <span class="ACCENT">catch</span>(Exception ex) 
+<span class="ACCENT">  </span>{
+    <span class="COMMENT">// Сюда мы никогда не попадем!</span>
+    Console.WriteLine(<span class="STRING">"Исключение!"</span>);
+  }
+ 
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Go() { <span class="KEYWORD">throw</span> <span class="KEYWORD">null</span>; }
+}
+</pre></td></tr></tbody></table></div>
+<p><b>try/catch</b> здесь фактически совершенно бесполезны, и <b>NullReferenceException</b> во вновь созданном потоке обработано не будет. Вы поймете почему, если вспомните, что поток имеет свой независимый путь исполнения. Решение состоит в добавлении обработки исключений непосредственно в метод потока:</p>
+<div id="EDHAE"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">public</span> <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Main() 
+{
+  <span class="KEYWORD">new</span> Thread(Go).Start();
+}
+ 
+<span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Go() 
+{
+  <span class="ACCENT">try</span> 
+  {
+    ...
+    <span class="KEYWORD">throw</span> <span class="KEYWORD">null</span>;      <span class="COMMENT">// это исключение будет поймано ниже</span>
+    ...
+  }
+  <span class="ACCENT">catch</span>(Exception ex) 
+<span class="ACCENT">  </span>{
+    <span class="COMMENT">Логирование исключения и/или сигнал другим потокам
+</span>    ...
+  }
+}
+</pre></td></tr></tbody></table></div>
+<p>Начиная с .NET 2.0, необработанное исключение в любом потоке приводит к закрытию всего приложения, а значит игнорирование исключений – это не наш метод. Следовательно, блок <b>try/catch</b> необходим в каждом методе потока – по крайней мере, в приложениях не для собственного употребления – чтобы избежать закрытия приложения из-за необработанного исключения. Это может быть довольно обременительно, особенно для программистов Windows Forms, которые используют глобальный перехватчик исключений, как показано ниже:</p>
+<div id="EGIAE"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">using</span> System;
+<span class="KEYWORD">using</span> System.Threading;
+<span class="KEYWORD">using</span> System.Windows.Forms;
+ 
+<span class="KEYWORD">static</span> <span class="KEYWORD">class</span> Program 
+{
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Main() 
+<span class="KEYWORD">  </span>{
+    Application.ThreadException += HandleError;
+    Application.Run(<span class="KEYWORD">new</span> MainForm());
+  }
+ 
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> HandleError(<span class="KEYWORD">object</span> sender, ThreadExceptionEventArgs e) 
+<span class="KEYWORD">  </span>{
+    <span class="COMMENT">Логирование исключения, завершение или продолжение работы</span>
+  }
+}
+</pre></td></tr></tbody></table></div>
+<p>Событие <b>Application.ThreadException</b> возникает, когда исключение генерируется в коде, который был вызван (возможно, по цепочке) из обработчика сообщения Windows (например, от клавиатуры, мыши и т.д.) – короче говоря, практически из любого кода приложения Windows Forms. Поскольку это замечательно работает, появляется чувство ложной безопасности, - что все исключения будут обработаны этим центральным обработчиком. Исключения, возникающие в рабочих потоках – хороший пример исключений, которые не ловятся в <b>Application.ThreadException </b>(код в методе <b>Main</b> – другой такой пример, включая конструктор <b>MainForm</b>, отрабатывающий до запуска цикла обработки сообщений).</p>
+<p>.NET Framework предоставляет низкоуровневое событие для глобальной обработки исключений - <b>AppDomain.UnhandledException</b>. Это событие происходит, когда есть необработанное исключение в любом потоке и для любых типов приложений (с пользовательским интерфейсом или без него). Однако, хотя это и хороший способ регистрации необработанных исключений, он не предоставляет никакого способа предотвратить закрытие приложения или подавить сообщение .NET о необработанном исключении.</p>
+<table class="tip" width="98%"><tbody><tr><td><p>Итак, явная обработка исключений требуется во всех потоковых методах. Упростить работу можно, используя классы-обертки, например, <b>BackgroundWorker</b> (рассматриваемый в 3-й части).</p>
+</td></tr></tbody></table>
+
+
+<h2>2. Базовые сведения о синхронизации<a name="EBKAE"></a></h2>
+<h3>Важнейшие средства синхронизации<a name="EEKAE"></a></h3>
+<p>В следующих таблицах приведена информация об инструментах .NET для координации (синхронизации) потоков:</p>
+<table border="0" cellspacing="2" cellpadding="5"><tbody><tr><th>Конструкция</th><th>Назначение</th></tr>
+<tr><td>Sleep</td><td>Блокировка на указанное время</td></tr>
+<tr><td>Join</td><td>Ожидание окончания другого потока</td></tr>
+</tbody></table><font face="verdana" style="font-size:x-small;margin-left:1em"><i>Простейшие методы блокировки</i></font>
+<table border="0" cellspacing="2" cellpadding="5"><tbody><tr><th>Конструкция</th><th>Назначение</th><th>Доступна из других процессов?</th><th>Скорость</th></tr>
+<tr><td>lock</td><td>Гарантирует, что только один поток может получить доступ к ресурсу или секции кода.</td><td>нет</td><td>быстро</td></tr>
+<tr><td>Mutex</td><td>Гарантирует, что только один поток может получить доступ к ресурсу или секции кода. Может использоваться для предотвращения запуска нескольких экземпляров приложения.</td><td>да</td><td>средне</td></tr>
+<tr><td>Semaphore</td><td>Гарантирует, что не более заданного числа потоков может получить доступ к ресурсу или секции кода.</td><td>да</td><td>средне</td></tr>
+</tbody></table><font face="verdana" style="font-size:x-small;margin-left:1em"><i>Блокировочные конструкции</i></font>
+<p><i> </i>(Для автоматической блокировки также могут использоваться контексты синхронизации.)</p>
+<table border="0" cellspacing="2" cellpadding="5"><tbody><tr><th>Конструкция</th><th>Назначение</th><th>Доступна из других процессов?</th><th>Скорость</th></tr>
+<tr><th>EventWaitHandle</th><td>Позволяет потоку ожидать сигнала от другого потока.</td><td>да</td><td>средне</td></tr>
+<tr><th>Wait and Pulse*</th><td>Позволяет потоку ожидать, пока не выполнится заданное условие блокировки.</td><td>нет</td><td>средне</td></tr>
+</tbody></table><font face="verdana" style="font-size:x-small;margin-left:1em"><i>Сигнальные конструкции</i></font>
+<table border="0" cellspacing="2" cellpadding="5"><tbody><tr><th>Конструкция</th><th>Назначение</th><th>Доступна из других процессов?</th><th>Скорость</th></tr>
+<tr><th>Interlocked*</th><td>Выполнение простых не блокирующих атомарных операций.</td><td>Да – через разделяемую память</td><td>очень быстро</td></tr>
+<tr><th>volatile*</th><td>Для безопасного не блокирующего доступа к полям.</td><td>Да – через разделяемую память</td><td>очень быстро</td></tr>
+</tbody></table><font face="verdana" style="font-size:x-small;margin-left:1em"><i>Не блокирующие конструкции синхронизации </i></font>
+<p>* - Рассматриваются в части 4</p>
+<h4>Блокировка</h4>
+<p>Когда поток остановлен в результате использования конструкций, перечисленных в вышеприведенных таблицах, говорят, что он блокирован. Будучи блокированным, поток немедленно перестает получать время CPU, устанавливает свойство <b>ThreadState</b> в <b>WaitSleepJoin </b>и остается в таком состоянии, пока не разблокируется. Разблокировка может произойти в следующих четырех случаях (кнопка выключения питания не считается!):</p>
+<ul style="LIST-STYLE:square"><li>выполнится условие разблокировки;</li>
+<li>истечет таймаут операции (если он был задан);</li>
+<li>по прерыванию через <b>Thread.Interrupt;</b></li>
+<li>по аварийному завершению через <b>Thread.Abort.</b></li>
+</ul>
+<p>Поток не считается блокированным, если его выполнение приостановлено нерекомендуемым методом <i> </i><b>Suspend.</b></p>
+
+<h4>Sleeping и Spinning</h4>
+<p>Вызов <b>Thread.Sleep</b> блокирует текущий поток на указанное время (либо до прерывания):</p>
+<div id="ELOAE"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Main()
+{
+  Thread.Sleep(0);   <span class="COMMENT">// отказаться от одного кванта времени CPU</span>
+  Thread.Sleep(1000);                   <span class="COMMENT">// заснуть на 1000 миллисекунд</span>
+  Thread.Sleep(TimeSpan.FromHours(1));  <span class="COMMENT">// заснуть на 1 час</span>
+  Thread.Sleep(Timeout.Infinite);       <span class="COMMENT">// заснуть до прерывания</span>
+}
+</pre></td></tr></tbody></table></div>
+<p>Если быть более точным, <b>Thread.Sleep<i> </i></b>отпускает CPU и сообщает, что потоку не должно выделяться время в указанный период. <b>Thread.Sleep(0)</b> отпускает CPU для выделения одного кванта времени следующему потоку в очереди на исполнение.</p>
+<table class="note" width="98%"><tbody><tr><td><p>Уникальность <b>Thread.Sleep</b> среди других методов блокировки в том, что он приостанавливает прокачку сообщений Windows в приложениях Windows Forms или COM-окружении потока в однопоточном апартаменте. Из-за этого продолжительная блокировка главного (UI) потока приложения Windows Forms приводит к тому что приложение перестает откликаться – и следовательно, использования <b>Thread.Sleep</b> нужно избегать независимо от того, действительно ли прокачка очереди сообщений технически приостановлена. В старой COM-среде ситуация сложнее, там иногда может быть желательна блокировка при помощи <b>Sleep</b> с одновременной прокачкой очереди сообщений. Крис Брумм (Chris Brumme) из Microsoft подробно обсуждает это <a href="http://blogs.msdn.com/cbrumme" class="link-ext" target="_blank">в своем блоге</a>. </p>
+</td></tr></tbody></table>
+<p>Класс <b>Thread </b>также предоставляет метод <b>SpinWait</b>, который не отказывается от времени CPU, а наоборот, загружает процессор в цикле на заданное количество итераций. 50 итераций эквивалентны паузе примерно в микросекунду, хотя это зависит от скорости и загрузки CPU. Технически <b>SpinWait</b> – не блокирующий метод: <b>ThreadState</b> такого потока не устанавливается в <b>WaitSleepJoin,</b> и поток не может быть прерван из другого потока. <b>SpinWait</b> редко используется – его главное применение это ожидание ресурса, который должен освободится очень скоро (в течении микросекунд) без вызова <b>Sleep</b> и траты процессорного времени на переключение потока. Однако эта методика выгодна только на многопроцессорных компьютерах, на однопроцессорном компьютере у ресурса нет никакого шанса освободиться, пока ожидающий на <b>SpinWait </b>поток не растратит остаток кванта времени, а значит, требуемый результат недостижим изначально. А частые или продолжительные вызовы <b>SpinWait</b> впустую растрачивает время CPU.</p>
+
+<h4>Блокирование против ожидания в цикле</h4>
+<p>Поток может ожидать выполнения некоторого условия, непосредственно прокручивая цикл проверки, например:</p>
+<div id="EOQAE"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">while</span> (!proceed)
+<span class="KEYWORD">  </span>;
+</pre></td></tr></tbody></table></div>
+<p>или:</p>
+<div id="EYQAE"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">while</span> (DateTime.Now &lt; nextStartTime)
+<span class="KEYWORD">  </span>;
+</pre></td></tr></tbody></table></div>
+<p>Однако это очень расточительная трата процессорного времени: поскольку CLR и операционная система убеждены, что поток выполняет важные вычисления, ему выделяются соответствующие ресурсы. Поток, который крутится в таком состоянии, не считается заблокированным, в отличие от потока, ожидающего на <b>EventWaitHandle</b> (конструкции, обычно используемой для таких задач).</p>
+<p>Иногда используется гибрид блокирования и ожидания в цикле:</p>
+<div id="EHRAE"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">while</span> (!proceed)
+<span class="KEYWORD"> </span> Thread.Sleep(x);    <span class="COMMENT">// "Spin-Sleeping!"</span>
+</pre></td></tr></tbody></table></div>
+<p>Чем больше <b>x</b>, тем эффективнее используется CPU. Платой за компромисс становится увеличение латентности. При превышении 20 мс накладные расходы незначительны – если условие в <b>while</b> не особенно сложное.</p>
+<p>За исключением незначительной задержки эта комбинация блокирования и периодических опросов может работать весьма неплохо (вопросы параллельного доступа к флагу <b>proceed </b>рассматриваются в 4-й части). Возможно, самое частое её использование – когда программист уже потерял надежду запустить в работу более продвинутые сигнальные конструкции!</p>
+
+<h4>Ожидание завершения потока</h4>
+<p>Поток можно заблокировать до завершения  другого потока вызовом метода <b>Join</b>:</p>
+<div id="EGSAE"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">class</span> JoinDemo 
+{
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Main() 
+  {
+    Thread t = <span class="KEYWORD">new</span> Thread(<span class="KEYWORD">delegate</span>() { Console.ReadLine(); });
+    t.Start();
+    t.<span class="ACCENT">Join</span>();    <span class="COMMENT">// ожидать, пока поток не завершится</span>
+    Console.WriteLine(<span class="STRING">"Thread t's ReadLine complete!"</span>);
+  }
+}
+</pre></td></tr></tbody></table></div>
+<p>Метод <b>Join</b> может также принимать в качестве аргумента <b>timeout </b> - в миллисекундах или как <b>TimeSpan.</b> Если указанное время истекло, а поток не завершился, <b>Join</b> возвращает false. <b>Join</b> с <i><b>timeout</b> </i>функционирует как <b>Sleep</b> – фактически следующие две строки кода приводят к одинаковому результату:</p>
+<div id="EMTAE"><table class="code" width="98%"><tbody><tr><td><pre>Thread.Sleep(1000);
+Thread.CurrentThread.Join(1000);
+</pre></td></tr></tbody></table></div>
+<p><i> </i>(Отличие заметно только в однопоточных COM-апартаментах, и состоит в отношении к прокачке очереди сообщений Windows: <b>Join </b>не затрагивает прокачку сообщений, а <b>Sleep</b> ее приостанавливает.)</p>
+
+
+<h3>Блокирование и потоковая безопасность<a name="EZTAE"></a></h3>
+<p>Блокировка обеспечивает монопольный доступ и используется, чтобы обеспечить выполнение одной секции кода только одним потоком одновременно. Для примера рассмотрим следующий класс:</p>
+<div id="E5TAE"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">class</span> ThreadUnsafe 
+{
+  <span class="KEYWORD">static</span> <span class="KEYWORD">int</span> val1, val2;
+ 
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Go() 
+  {
+    <span class="KEYWORD">if</span> (val2 != 0)
+      Console.WriteLine(val1 / val2);
+    val2 = 0;
+  }
+}
+</pre></td></tr></tbody></table></div>
+<p>Он не является потокобезопасным: если бы метод <b>Go</b> вызывался двумя потоками одновременно, можно было бы получить ошибку деления на 0, так как переменная <b>val2</b> могла быть установлена в 0 в одном потоке, в то время когда другой поток находился бы между <b>if</b> и <b>Console.WriteLine.</b></p>
+<p>Вот как при помощи блокировки можно решить эту проблему:</p>
+<div id="EZUAE"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">class</span> ThreadSafe 
+{
+  <span class="KEYWORD">static</span> <span class="KEYWORD">object</span> locker = <span class="KEYWORD">new</span> <span class="KEYWORD">object</span>();
+  <span class="KEYWORD">static</span> <span class="KEYWORD">int</span> val1, val2;
+ 
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Go() 
+  {
+    <span class="ACCENT">lock </span>(locker) 
+    {
+      <span class="KEYWORD">if</span> (val2 != 0)
+        Console.WriteLine(val1 / val2);
+
+      val2 = 0;
+    }
+  }
+}
+</pre></td></tr></tbody></table></div>
+<p>Только один поток может единовременно заблокировать объект синхронизации (в данном случае <b>locker</b>), а все другие конкурирующие потоки будут приостановлены, пока блокировка не будет снята. Если за блокировку борются несколько потоков, они ставятся в очередь ожидания – "ready queue" – и обслуживаются, как только это становится возможным, по принципу “первым пришел – первым обслужен”. Эксклюзивная блокировка, как уже говорилось, обеспечивает последовательный доступ к тому, что она защищает, так что выполняемые потоки уже не могут наложиться друг на друга. В данном случае мы защитили логику внутри метода <b>Go</b>, так же, как и поля <b>val1</b> и <b>val2</b>.</p>
+<p>Поток, заблокированный на время ожидания освобождения блокировки, имеет свойство <b>ThreadState,</b> установленное в <b>WaitSleepJoin</b>. Позже мы обсудим, как поток, заблокированный в таком состоянии, может быть принудительно освобожден из другого потока вызовом методов <b>Interrupt</b> или <b>Abort.</b> Это достаточно мощная возможность, используемая обычно для завершения рабочего потока.</p>
+<p>Оператор <b>lock</b> языка C# фактически является синтаксическим сокращением для вызовов методов <b>Monitor.Enter</b> и <b>Monitor.Exit</b> в рамках блоков <b>try-finally</b>. Вот во что фактически разворачивается реализация метода <b>Go</b> из предыдущего примера:</p>
+<div id="EVWAE"><table class="code" width="98%"><tbody><tr><td><pre><span class="ACCENT">Monitor.Enter</span>(locker);
+<span class="KEYWORD">try</span> 
+{
+  <span class="KEYWORD">if</span> (val2 != 0)
+    Console.WriteLine(val1 / val2);
+
+  val2 = 0;
+}
+
+<span class="ACCENT">finally</span> { <span class="ACCENT">Monitor.Exit</span>(locker); }  
+</pre></td></tr></tbody></table></div>
+<p>Вызов <b>Monitor.Exit</b> без предшествующего вызова <b>Monitor.Enter</b> для того же объекта синхронизации вызовет исключение.</p>
+<p><b>Monitor</b> также предоставляет метод <b>TryEnter,</b> позволяющий задать время ожидания в миллисекундах или в виде <b>TimeSpan</b>. Метод возвращает <b>true</b>, если блокировка была получена, и <b>false</b>, если блокировка не была получена за заданное время. <b>TryEnter </b>может также быть вызван без параметров и в этом случае возвращает управление немедленно.</p>
+<h4>Выбор объекта синхронизации</h4>
+<p>Любой объект, видимый взаимодействующим потокам, может быть использован как объект синхронизации, если это объект ссылочного типа. Также строго рекомендуется, чтобы объект синхронизации был private-полем класса, во избежание случайного воздействия внешнего кода, блокирующего этот объект. Согласно этим правилам, объектом синхронизации вполне может стать сам защищаемый объект, как, например, список в следующем примере:</p>
+<div id="E3XAE"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">class</span> ThreadSafe() 
+{
+  List &lt;<span class="KEYWORD">string</span>&gt; list = <span class="KEYWORD">new</span> List &lt;<span class="KEYWORD">string</span>&gt;();
+ 
+  <span class="KEYWORD">void</span> Test() 
+  {
+    <span class="KEYWORD">lock</span> (<span class="ACCENT">list</span>) 
+    {
+      <span class="ACCENT">list</span>.Add(<span class="STRING">"Item 1"</span>);
+      ...
+</pre></td></tr></tbody></table></div>
+<p>Обычно используется выделенное поле (как <b>locker</b> в предыдущих примерах), так как это позволяет точнее контролировать область видимости и степень детализации блокировки. Использование объекта или типа в качестве объекта синхронизации, то есть:</p>
+<div id="EWYAE"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">lock</span> (<span class="KEYWORD">this</span>)
+{
+  ...
+}
+</pre></td></tr></tbody></table></div>
+<p>или:</p>
+<div id="E6YAE"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">lock</span> (<span class="KEYWORD">typeof</span>(Widget)) <span class="COMMENT">// Для защиты статических данных
+</span>{
+  ...
+}
+</pre></td></tr></tbody></table></div>
+<p>не одобряется, так как предполагает public-область видимости объекта синхронизации.</p>
+<table class="note" width="98%"><tbody><tr><td><p>Блокировка не запрещает вообще любой доступ к объекту. Другими словами, вызов <b>x.ToString()</b>  не будет заблокирован из-за того, что другой поток вызвал <b>lock(x)</b> – чтобы произошла блокировка, оба потока должны вызвать <b>lock(x).</b></p>
+</td></tr></tbody></table>
+
+<h4>Вложенные блокировки</h4>
+<p>Поток может неоднократно блокировать один и тот же объект многократными вызовами <b>Monitor.Enter</b> или вложенными <b>lock</b>-ами. Объект будет освобожден, когда будет выполнено соответствующее количество раз <b>Monitor.Exit </b>или произойдет выход из самой внешней конструкции <b>lock</b>. Поэтому допустима естественная семантика, когда один метод вызывает другой следующим образом:</p>
+<div id="ED1AE"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">static</span> <span class="KEYWORD">object</span> x = <span class="KEYWORD">new</span> <span class="KEYWORD">object</span>();
+ 
+<span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Main() 
+{
+  <span class="ACCENT">lock </span>(x) 
+  {
+     Console.WriteLine(<span class="STRING">“I have the lock”</span>);
+     <span class="ACCENT">Nest</span>();
+     Console.WriteLine(<span class="STRING">“I still have the lock”</span>);
+  } <span class="COMMENT">// Здесь блокировка будет снята!
+</span>}
+ 
+<span class="KEYWORD">static</span> <span class="KEYWORD">void</span> <span class="ACCENT">Nest</span>() 
+{
+  <span class="ACCENT">lock </span>(x) 
+  {
+    ... 
+  } 
+
+  <span class="COMMENT">//Блокировка еще не снята!
+</span>}
+</pre></td></tr></tbody></table></div>
+<p>Поток может быть блокирован только на самом первом, внешнем <b>lock</b>-е.</p>
+
+<h4>Когда блокировать</h4>
+<p>Как правило, любое поле, доступное нескольким потокам, должно читаться и записываться с блокировкой. Даже в самом простом случае, операции присваивания одиночному полю, необходима синхронизация. В следующем классе ни приращение, ни присваивание не потокобезопасны:</p>
+<div id="ER2AE"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">class</span> ThreadUnsafe 
+{
+  <span class="KEYWORD">static</span> <span class="KEYWORD">int</span> x;
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Increment() { x++; }
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Assign()    { x = 123; }
+}
+</pre></td></tr></tbody></table></div>
+<p>А вот их потокобезопасные варианты:</p>
+<div id="EE3AE"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">class</span> ThreadUnsafe 
+{
+  <span class="KEYWORD">static</span> <span class="KEYWORD">object</span> locker = <span class="KEYWORD">new</span> <span class="KEYWORD">object</span>();
+  <span class="KEYWORD">static</span> <span class="KEYWORD">int</span> x;
+ 
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Increment()
+<span class="KEYWORD"> </span> {
+    <span class="KEYWORD">lock</span> (locker)
+<span class="KEYWORD">     </span> x++;
+  }
+
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Assign()
+  {
+    <span class="KEYWORD">lock</span> (locker)
+<span class="KEYWORD">     </span> x = 123;
+  }
+}
+</pre></td></tr></tbody></table></div>
+<p>В качестве альтернативы блокировке в таких простых случаях можно использовать неблокирующие конструкции синхронизации. Это рассматривается в части 4 (наряду с причинами, по которым в данном случае требуется синхронизация).</p>
+<p><b>Блокировки и атомарность</b></p>
+<p>Если группа переменных всегда читается и записывается в пределах одной блокировки, можно сказать, что переменные читаются и пишутся атомарно. Предположим, что поля <b>x</b> и <b>y</b> всегда читаются и пишутся с блокировкой на объекте <b>locker</b>:</p>
+<div id="EY4AE"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">lock</span> (locker)
+{
+  <span class="KEYWORD">if</span> (x != 0)
+    y /= x;
+}
+</pre></td></tr></tbody></table></div>
+<p>Можно сказать, что доступ к <b>x</b> и <b>y</b> атомарный, так как данный кусок кода не может быть прерван действиями другого потока, которые бы изменили <b>x,</b> <b>y</b> или результат операции. Невозможно получить ошибку деления на ноль, если обращение к <b>x</b> и <b>y производится </b>в эксклюзивной блокировке.</p>
+
+<h4>Соображения о производительности</h4>
+<p>Блокировка сама по себе очень быстра: она требует десятков наносекунд, если собственно блокирования не происходит. Если требуется блокирование, то последующее переключение задач занимает уже микросекунды или даже миллисекунды на перепланировку потоков. Однако сравните это с часами, которые вы должны будете потратить, не поставив <b>lock</b> там, где надо.</p>
+<p>При неправильном использовании у блокировки могут быть и негативные последствия – уменьшение возможности параллельного исполнения потоков, взаимоблокировки, гонки блокировок. Возможности для параллельного исполнения уменьшаются, когда слишком много кода помещено в конструкцию <b>lock</b>, заставляя другие потоки простаивать все время, пока этот код исполняется. Взаимоблокировка  наступает, когда каждый из двух потоков ожидает на блокировке другого потока и, таким образом, ни тот, ни другой не могут двинуться дальше. Гонкой блокировок называется ситуация, когда любой из двух потоков может первым получить блокировку, однако программа ломается, если первым это сделает “неправильный” поток. </p>
+<p>Взаимоблокировка – общий синдром многих объектов синхронизации. Хорошее правило, помогающее избегать взаимоблокировок, состоит в том, чтобы начинать с блокировки минимального количества объектов, и увеличивать степень детализации блокировок, когда размер кода в блокировке чрезмерно увеличивается.</p>
+
+<h4>Потоковая безопасность</h4>
+<p>Потокобезопасный код – это код, не имеющий никаких неопределенностей при любых сценариях многопоточного исполнения. Потокобезопасность достигается прежде всего блокировками и сокращением возможностей взаимодействия между потоками.</p>
+<p>Метод, который является потокобезопасным при любых сценариях, называется реентерабельным. Типы общего назначения редко являются полностью потокобезопасными по следующим причинам:</p>
+<ul style="LIST-STYLE:square"><li>разработка с учетом полной потоковой безопасности может быть очень трудоемкой, особенно если тип имеет много полей (каждое поле потенциально может участвовать в многопоточном взаимодействии)</li>
+<li>потоковая безопасность может сказаться на производительности (независимо от того, используется ли реально многопоточность)</li>
+<li>потокобезопасный тип не обязательно делает использующую его программу потокобезопасной, а дальнейшая работа по ее обеспечению может сделать потокобезопасность типа избыточной.</li>
+</ul>
+<p>Поэтому потокобезопасность реализуется обычно только там, где она действительно требуется в многопоточном сценарии.</p>
+<p>Есть, однако, несколько обходных путей для получения больших и сложных классов, безопасных в многопоточном окружении. Один из них – пожертвовать деталировкой, блокируя большие секции кода, вплоть до целого объекта, и принуждая к последовательному доступу к нему на высоком уровне. Эта тактика также является ключевой при использовании непотокобезопасных объектов в потокобезопасном коде – точно так же обеспечивается эксклюзивная блокировка при доступе к любому свойству, методу или полю непотокобезопасного объекта.</p>
+<table class="warning" width="98%"><tbody><tr><td><strong>ПРЕДУПРЕЖДЕНИЕ</strong><br><p>Исключая примитивные типы, очень немногие типы .NET Framework безопасны для чего-то большего, чем доступ только для чтения. Потокобезопасноть обеспечивает разработчик – обычно используя эксклюзивные блокировки.</p>
+</td></tr></tbody></table>
+<p>Другой обходной путь состоит в минимизацию взаимодействия потоков через минимизацию общих данных. Это превосходный подход, который используется в не имеющих состояния приложениях среднего звена и web-серверах. Поскольку запросы множества клиентов могут прийти одновременно, каждый запрос обрабатывается в своем собственном потоке (в соответствии с архитектурой ASP.NET, Web-служб и Remoting), и это означает, что вызываемые при этом методы должны быть потокобезопасны. Дизайн без использования состояния (популярный по причине универсальности) действительно ограничивает взаимодействие, так как классы не хранят данные между запросами. Взаимодействие потоков ограничено только статическими полями, созданными, например, для  кэширования часто используемых данных, и предоставляемыми инфраструктурой сервисами типа аутентификации и аудита.</p>
+<p><b>Потокобезопасность и типы .NET Framework</b></p>
+<p>Для преобразования кода в потокобезопасный можно использовать блокировки. Хороший пример  - почти все непримитивные типы .NET Framework непотокобезопасны, и все же они могут использоваться в многопоточном коде, если любой доступ к любому объекту защищен блокировкой. Вот пример, в котором два потока одновременно добавляют элементы в один и тот же список, а затем перечисляют все элементы списка: </p>
+<div id="E46AE"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">class</span> ThreadSafe() 
+{
+  <span class="KEYWORD">static</span> List &lt;<span class="KEYWORD">string</span>&gt; list = <span class="KEYWORD">new</span> List &lt;<span class="KEYWORD">string</span>&gt;();
+ 
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Main() 
+  {
+    <span class="KEYWORD">new</span> Thread(AddItems).Start();
+    <span class="KEYWORD">new</span> Thread(AddItems).Start();
+  }
+ 
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> AddItems() 
+  {
+    <span class="KEYWORD">for</span> (<span class="KEYWORD">int</span> i = 0; i &lt; 100; i++)
+      <span class="ACCENT">lock </span>(<span class="ACCENT">list</span>)
+        Add(<span class="STRING">"Item "</span> + list.Count);
+ 
+    <span class="KEYWORD">string</span>[] items;
+
+    <span class="ACCENT">lock </span>(<span class="ACCENT">list</span>)
+<span class="ACCENT">     </span> items = list.ToArray();
+
+    <span class="KEYWORD">foreach</span> (<span class="KEYWORD">string</span> s <span class="KEYWORD">in</span> items)
+      Console.WriteLine(s);
+  }
+}
+</pre></td></tr></tbody></table></div>
+<p>В данном случае блокировка происходит на самом объекте-списке, что прекрасно работает в этом простом сценарии. В случае двух взаимодействующих списков блокировку пришлось бы делать на одном общем объекте, возможно, выделенном поле, если бы один из списков не проявил себя как явный кандидат.</p>
+<p>Перечисление .NET-коллекций также не является потокобезопасной операцией, так как если другой поток меняет список в процессе перечисления, генерируется исключение. Чтобы не ставить блокировку на весь процесс перечисления, в данном примере элементы копируются в массив. Это позволяет избежать чрезмерной блокировки в том случае, если действия с элементами при перечислении отнимают слишком много времени.</p>
+<p>А вот интересный вопрос: если бы класс <b>List</b> был полностью потокобезопасным, что это изменило бы? Потенциально очень немногое! Для примера рассмотрим добавление элемента к нашему гипотетическому потокобезопасному списку:</p>
+<div id="EZBAG"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">if</span> (!myList.Contains(newItem)) myList.Add(newItem);
+</pre></td></tr></tbody></table></div>
+<p>Независимо от потокобезопасности собственно списка данная конструкция определенно не потокобезопасна! Заблокирован должен быть весь этот код целиком, чтобы предотвратить вытеснение потока между проверкой и добавлением нового элемента. Также блокировка должна быть использована везде, где изменяется список. К примеру, следующая конструкция должна быть обернута в блокировку:</p>
+<div id="EACAG"><table class="code" width="98%"><tbody><tr><td><pre>myList.Clear();
+</pre></td></tr></tbody></table></div>
+<p>для гарантии, что ее исполнение не будет прервано. Другими словами блокировки пришлось бы использовать точно так же, как с существующими непотокобезопасными классами. Встроенная потокобезопасность фактически была бы бесполезной тратой времени!</p>
+<p>Этот момент может быть спорным при написании заказных компонентов – зачем нужна встроенная потокобезопасность, если она, скорее всего, окажется избыточной?</p>
+<p>Есть и контраргумент: внешняя блокировка объекта работает, только если все конкурирующие потоки знают о ее необходимости и используют ее – а это может быть не так при широком использовании объекта. Хуже всего дела обстоят со статическими полями в публичных типах. Для примера представьте, что статическое свойство структуры <b>DateTime</b> – <b>DateTime.Now</b> – непотокобезопасное, и два параллельных запроса могут привести к неправильным результатам или исключению. Единственная возможность исправить положение с использованием внешней блокировки - <b>lock(typeof(DateTime))</b> при каждом обращении к <b>DateTime.Now</b> – сработала бы, если бы все программисты согласились делать так и только так. Но это вряд ли возможно, потому что многие считают блокировку типа Плохой Штукой. </p>
+<p>По этой причине статические поля структуры <b>DateTime</b> гарантированно потокобезопасны. Это обычное поведение типов в .NET Framework – статические члены потокобезопасны, нестатические – нет. Так же следует проектировать и собственные типы – во избежание неразрешимых загадок потокобезопасности.</p>
+<table class="tip" width="98%"><tbody><tr><td><strong>СОВЕТ</strong><br><p>При создании компонентов для широкого использования хорошая политика состоит в том, чтобы программировать, по крайней мере, не препятствуя потокобезопасности. Это означает, что нужно быть особенно осторожным со статическими типами - неважно, используются ли они только приватно или доступны снаружи.</p>
+</td></tr></tbody></table>
+
+
+<h3>Interrupt и Abort<a name="E3CAG"></a></h3>
+<p>Заблокированный поток может быть преждевременно разблокирован двумя путями:</p>
+<ul style="LIST-STYLE:square"><li>С помощью <b>Thread.Interrupt.</b></li>
+<li>С помощью <b>Thread.Abort.</b></li>
+</ul>
+<p>Это должно быть сделано из другого потока; ожидающий поток бессилен что-либо сделать в блокированном состоянии.</p>
+<h4>Interrupt</h4>
+<p>Вызов <b>Interrupt</b> для блокированного потока принудительно освобождает его с генерацией исключения <b>ThreadInterruptedException</b>, как показано в следующем примере:</p>
+<div id="EXDAG"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">class</span> Program 
+{
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Main() 
+<span class="KEYWORD">  </span>{
+    Thread t = <span class="KEYWORD">new</span> Thread(<span class="KEYWORD">delegate</span>() 
+      {
+        <span class="KEYWORD">try</span> 
+        {
+          Thread.Sleep(Timeout.Infinite);
+        }
+        <span class="KEYWORD">catch</span>(ThreadInterruptedException) 
+<span class="KEYWORD">        </span>{
+          Console.Write(<span class="STRING">"Forcibly "</span>);
+        }
+
+        Console.WriteLine(<span class="STRING">"Woken!"</span>);
+      });
+ 
+    t.Start();
+    t.<span class="ACCENT">Interrupt</span>();
+  }
+}
+</pre></td></tr></tbody></table></div>
+<p>Консольный вывод:</p>
+<div id="EWEAG"><table class="code" width="98%"><tbody><tr><td><pre>Forcibly Woken!
+</pre></td></tr></tbody></table></div>
+<p>Прерывание потока освобождает его только от текущего (или следующего) ожидания, но не завершает поток (если, конечно, <b>ThreadInterruptedException</b> не останется необработанным).</p>
+<p>Если <b>Interrupt</b> вызывается для неблокированного потока, поток продолжает исполнение до точки следующей блокировки, в которой и генерируется исключение <b>ThreadInterruptedException.</b> Это поведение освобождает от необходимости вставлять проверки:</p>
+<div id="EEFAG"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">if</span> ((worker.ThreadState &amp; ThreadState.WaitSleepJoin) &gt; 0)
+  worker.Interrupt();
+</pre></td></tr></tbody></table></div>
+<p>которые не являются потокобезопасными, так как могут быть прерваны другим потоком между оператором <b>if</b> и <b>worker.Interrupt</b>.</p>
+<p>Вызов <b>Interrupt</b> без должных на то оснований таит в себе опасность, так как любой метод framework-а, или другой сторонний метод в стеке вызовов может получить его раньше, чем ваш код, которому он предназначался. Все, что для этого требуется – чтобы поток хотя бы кратковременно встал на простой блокировке или синхронизации доступа к ресурсу, и любой ждущий своего часа <b>Interrupt </b>тут же сработает. Если метод изначально не разрабатывался с учетом возможности такого прерывания (с соответствующим кодом очистки в блоках <b>finally</b>), объекты могут остаться в неработоспособном состоянии, или ресурсы будут освобождены не полностью.</p>
+<p>Прерывать исполнение потока безопасно, если вы точно знаете, чем сейчас занят поток. Позже мы рассмотрим сигнальные конструкции, обеспечивающие такую возможность.</p>
+
+<h4>Abort</h4>
+<p>Блокированный поток также может быть принудительно освобожден при помощи метода <b>Abort</b>. Эффект аналогичен <b>Interrupt, </b>только вместо <b>ThreadInterruptedException </b>генерируется <b>ThreadAbortException. </b>Кроме того, это исключение будет повторно сгенерировано в конце блока <b>catch</b> (в попытке успокоить поток навеки), если только в блоке <b>catch</b> не будет вызван <b>Thread.ResetAbort</b>. До вызова <b>Thread.ResetAbort</b> <b>ThreadState</b> будет иметь значение <b>AbortRequested.</b></p>
+<p>Большое отличие между <b>Interrupt</b><i> </i>и<i> </i><b>Abort </b>состоит в том, что происходит, если их вызвать для неблокированного потока. Если <b>Interrupt</b> ничего не делает, пока поток не дойдет до следующей блокировки, то <b>Abort </b>генерирует исключение непосредственно в том месте, где сейчас находится поток – может быть, даже не в вашем коде. Аварийное завершение неблокированного потока может иметь существенные последствия, которые подробнее рассматриваются ниже, в разделе "Аварийное завершение потоков".</p>
+
+
+<h3>Состояния потока<a name="EGHAG"></a></h3>
+<p style="text-align: center;"><img src="./Работа с потоками в C#_files/threadstate.png"><br><i style="font-face: verdana; font-size:x-small;">Рисунок 1: Диаграмма состояний потока</i></p>
+<p>Запросить состояние потока можно с помощью его свойства <b>ThreadState.</b> Рисунок 1 демонстрирует “уровни” перечисления <b>ThreadState. ThreadState </b>спроектирован ужасно, это комбинация трех уровней состояний с использованием битовых флагов, члены перечисления в пределах каждого уровня являются взаимоисключающими. Вот эти три уровня:</p>
+<ul style="LIST-STYLE:square"><li>running/blocking/aborting (как показано на рисунке 1).</li>
+<li>Background/foreground (<b>ThreadState.Background</b>).</li>
+<li>Запрос приостановки/приостановка с использованием не рекомендуемого метода <b>Suspend</b> (<b>ThreadState.SuspendRequested</b> и <b>ThreadState.Suspended</b>).</li>
+</ul>
+<p>В результате <b>ThreadState</b> – битовая комбинация из членов каждого уровня! Вот примеры <b>ThreadState:</b></p>
+<ul style="LIST-STYLE:square"><li>Unstarted.</li>
+<li>Running.</li>
+<li>WaitSleepJoin.</li>
+<li>Background, Unstarted.</li>
+<li>SuspendRequested, Background, WaitSleepJoin.</li>
+</ul>
+<p>Перечисление также имеет два члена, которые никогда не используются в текущей реализации CLR: <b>StopRequested</b> и <b>Aborted.</b></p>
+<p>И это еще не все. <b>ThreadState.Running </b>имеет значение 0, так что следующее выражение работать не будет:</p>
+<div id="EDJAG"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">if</span> ((t.ThreadState &amp; ThreadState.Running) &gt; 0) ...
+</pre></td></tr></tbody></table></div>
+<p>и вместо этого нужно проверять наличие <b>ThreadState.Running</b> путем исключения или в качестве альтернативы, использовать свойство <b>IsAlive</b>. Свойство <b>IsAlive</b>, однако, может вам не подойти, так как возвращает <b>true,</b> если поток блокирован или приостановлен (<b>false</b> возвращается только до того, как поток начался, и после того, как он завершится).</p>
+<p>Если не принимать во внимание нерекомендуемые методы <b>Suspend</b> и <b>Resume</b>, можно написать обертку, скрывающую почти все члены перечисления первого уровня, и делающую возможным простой тест <b>ThreadState</b>:</p>
+<div id="E5JAG"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">public</span> <span class="KEYWORD">static</span> ThreadState SimpleThreadState(ThreadState ts)
+{
+  <span class="KEYWORD">return</span> ts &amp; ThreadState.Aborted &amp; ThreadState.AbortRequested
+            &amp; ThreadState.Stopped &amp; ThreadState.Unstarted
+            &amp; ThreadState.WaitSleepJoin;
+}
+</pre></td></tr></tbody></table></div>
+<p><b>ThreadState</b> неоценим при отладке или поиске узких мест в производительности. Однако он плохо подходит для координации действий нескольких потоков, так как не существует механизма, который бы позволил протестировать <b>ThreadState</b> и затем действовать на основе этой информации без потенциального изменения <b>ThreadState</b> в этот промежуток времени.</p>
+
+<h3>Wait Handles<a name="EQKAG"></a></h3>
+<p>Оператор <b>lock</b> (aka <b>Monitor.Enter</b>/<b>Monitor.Exit</b>) – один из примеров конструкций синхронизации потоков. <b>Lock</b> является самым подходящим средством для организации монопольного доступа к ресурсу или секции кода, но есть задачи синхронизации (типа подачи сигнала начала работы ожидающему потоку), для которых <b>lock </b>будет не самым адекватным и удобным средством.</p>
+<p>В Win32 API имеется богатый набор конструкций синхронизации, и они доступны в .NET Framework в виде классов <b>EventWaitHandle</b>, <b>Mutex</b> и <b>Semaphore.</b> Некоторые из них практичнее других: <b>Mutex</b>, например, по большей части дублирует возможности <b>lock</b>, в то время как <b>EventWaitHandle</b> предоставляет уникальные возможности сигнализации.</p>
+<p>Все три класса основаны на абстрактном классе <b>WaitHandle</b>, но весьма отличаются по поведению. Одна из общих особенностей – это способность именования, делающая возможной работу с потоками не только одного, но и разных процессов.</p>
+<p><b>EventWaitHandle</b> имеет два производных класса – <b>AutoResetEvent</b> и <b>ManualResetEvent</b> (не имеющие никакого отношения к событиям и делегатам C#). Обоим классам доступны все функциональные возможности базового класса, единственное отличие состоит в вызове конструктора базового класса с разными параметрами.</p>
+<p>В части производительности, все <b>WaitHandle</b> обычно исполняются в районе нескольких микросекунд. Это редко имеет значение с учетом контекста, в котором они применяются.</p>
+<table class="note" width="98%"><tbody><tr><td><p><b>AutoResetEvent</b> – наиболее часто используемый <b>WaitHandle</b>-класс и основная конструкция синхронизации, наряду с <b>lock</b>.</p>
+</td></tr></tbody></table>
+<h4>AutoResetEvent</h4>
+<p><b>AutoResetEvent </b>очень похож на турникет – один билет позволяет пройти одному человеку. Приставка “auto” в названии относится к тому факту, что открытый турникет автоматически закрывается или “сбрасывается” после того, как позволяет кому-нибудь пройти. Поток блокируется у турникета вызовом <b>WaitOne</b> (ждать (<i>wait</i>) у данного (<i>one</i>) турникета, пока он не откроется), а билет вставляется вызовом метода <b>Set</b>. Если несколько потоков вызывают <b>WaitOne</b>, за турникетом образуется очередь. Билет может “вставить” любой поток – другими словами, любой (неблокированный) поток, имеющий доступ к объекту <b>AutoResetEvent,</b> может вызвать <b>Set,</b> чтобы пропустить один блокированный поток.</p>
+<p>Если <b>Set</b> вызывается, когда нет ожидающих потоков, хэндл будет находиться в открытом состоянии, пока какой-нибудь поток не вызовет <b>WaitOne.</b> Эта особенность помогает избежать гонок между потоком, подходящим к турникету, и потоком, вставляющим билет (“опа, билет вставлен на микросекунду раньше, очень жаль, но вам придется подождать еще сколько-нибудь!”). Однако многократный вызов <b>Set</b> для свободного турникета не разрешает пропустить за раз целую толпу – сможет пройти только один человек, все остальные билеты будут потрачены впустую.</p>
+<p><b>WaitOne</b> принимает необязательный параметр <b>timeout</b> – метод возвращает <b>false</b>, если ожидание заканчивается по таймауту, а не по получению сигнала. <b>WaitOne </b>также можно обучить выходить из текущего контекста синхронизации для продолжения ожидания (если используется режим с автоматической блокировкой) во избежание чрезмерного блокирования.</p>
+<p>Метод <b>Reset</b> обеспечивает закрытие открытого турникета, безо всяких ожиданий и блокировок.</p>
+<p><b>AutoResetEvent</b> может быть создан двумя путями. Во-первых, с помощью своего конструктора:</p>
+<div id="E3NAG"><table class="code" width="98%"><tbody><tr><td><pre>EventWaitHandle wh = <span class="KEYWORD">new</span> AutoResetEvent(<span class="KEYWORD">false</span>);
+</pre></td></tr></tbody></table></div>
+<p>Если аргумент конструктора <b>true</b>, метод <b>Set</b> будет вызван автоматически сразу после создания объекта. </p>
+<p>Другой метод состоит в создании объекта базового класса, <b>EventWaitHandle:</b></p>
+<div id="EOOAG"><table class="code" width="98%"><tbody><tr><td><pre>EventWaitHandle wh = <span class="KEYWORD">new</span> EventWaitHandle(<span class="KEYWORD">false</span>, EventResetMode.Auto);
+</pre></td></tr></tbody></table></div>
+<p>Конструктор <b>EventWaitHandle</b> также может использоваться для создания объекта <b>ManualResetEvent </b>(если задать в качестве параметра <b>EventResetMode.Manual</b>).</p>
+<p>Метод <b>Close</b> нужно вызывать сразу же, как только <b>WaitHandle</b> станет не нужен – для освобождения ресурсов операционной системы. Однако если <b>WaitHandle</b> используется на протяжении всей жизни приложения (как в большинстве примеров этого раздела), этот шаг можно опустить, так как он будет выполнен автоматически при разрушении домена приложения.</p>
+<p>В следующем примере запускается рабочий поток, который просто ожидает сигнала от другого потока.</p>
+<div id="EJPAG"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">class</span> BasicWaitHandle 
+{
+  <span class="KEYWORD">static</span> EventWaitHandle wh = <span class="KEYWORD">new</span> AutoResetEvent(<span class="KEYWORD">false</span>);
+ 
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Main() 
+<span class="KEYWORD">  </span>{
+    <span class="KEYWORD">new</span> Thread(Waiter).Start();
+    Thread.Sleep(1000);                 <span class="COMMENT">// Подождать некоторое время...</span>
+    wh.Set();                            <span class="COMMENT">// OK – можно разбудить</span>
+  }
+
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Waiter() 
+<span class="KEYWORD">  </span>{
+    Console.WriteLine(<span class="STRING">"Ожидание..."</span>);
+    wh.WaitOne();                        <span class="COMMENT">// Ожидать сигнала</span>
+    Console.WriteLine(<span class="STRING">"Получили сигнал"</span>);
+  }
+}
+</pre></td></tr></tbody></table></div>
+<p>Консольный вывод:</p>
+<div id="EQQAG"><table class="code" width="98%"><tbody><tr><td><pre>Ожидание... (<span class="ACCENT">пауза</span>) Получили сигнал
+</pre></td></tr></tbody></table></div>
+<p><b>Создание межпроцессных EventWaitHandle</b></p>
+<p>Конструктор <b>EventWaitHandle</b> также позволяет создавать именованные <b>EventWaitHandle,</b> способные действовать через границы процессов. Имя задается обыкновенной строкой и может быть любым. Если задаваемое имя уже используется на компьютере, возвращается ссылка на существующий <b>EventWaitHandle</b>, в противном случае операционная система создает новый. Вот пример:</p>
+<div id="EBRAG"><table class="code" width="98%"><tbody><tr><td><pre>EventWaitHandle wh = <span class="KEYWORD">new</span> EventWaitHandle(<span class="KEYWORD">false</span>, EventResetMode.Auto,
+  <span class="STRING">"MyCompany.MyApp.SomeName"</span>);
+</pre></td></tr></tbody></table></div>
+<p>Исполнив этот код, два приложения получили бы возможность сигнализировать друг другу из любого потока обоих процессов. </p>
+<p><b>Получите и распишитесь</b></p>
+<p>Предположим, мы хотим исполнять задачи в фоновом режиме без затрат на создание каждый раз нового потока для новой задачи. Этой цели можно достигнуть, используя единственный рабочий поток с постоянным циклом, ожидающим появление задачи. Получив задачу, он приступает к ее выполнению. После окончания выполнения поток снова переходит в режим ожидания. Это обычный многопоточный сценарий. Наряду с избавлением от накладных расходов на создание потоков мы получаем последовательно исполняющиеся задачи, устраняя потенциальные проблемы взаимодействия между потоками и чрезмерное потребление ресурсов.</p>
+<p>Однако нужно решить что делать, если рабочий поток еще занят исполнением предыдущей задачи, а уже появилась следующая. Можно, например, блокировать исполнение, пока не завершена предыдущая задача. Это можно реализовать, используя два объекта типа AutoResetEvent – ready, который открывается (устанавливается путем вызова метода Set) рабочим потоком, когда он готов к работе, и go, который открывается вызывающим потоком, когда появляется новая задача. В следующем примере для демонстрации задачи используется простое строковое поле (объявленное с ключевым словом volatile для гарантии того, что оба потока будут видеть его в одном и том же состоянии):</p>
+<div id="ETRAG"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">class</span> AcknowledgedWaitHandle 
+{
+  <span class="KEYWORD">static</span> EventWaitHandle ready = <span class="KEYWORD">new</span> AutoResetEvent(<span class="KEYWORD">false</span>);
+  <span class="KEYWORD">static</span> EventWaitHandle go = <span class="KEYWORD">new</span> AutoResetEvent(<span class="KEYWORD">false</span>);
+  <span class="KEYWORD">static</span> <span class="KEYWORD">volatile</span> <span class="KEYWORD">string</span> task;
+ 
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Main() 
+<span class="KEYWORD">  </span>{
+    <span class="KEYWORD">new</span> Thread(Work).Start();
+ 
+    <span class="COMMENT">// Сигнализируем рабочему потоку 5 раз</span>
+    <span class="KEYWORD">for</span> (<span class="KEYWORD">int</span> i = 1; i &lt;= 5; i++) 
+<span class="KEYWORD">    </span>{
+      ready.WaitOne();  <span class="COMMENT">// Сначала ждем, когда рабочий поток будет готов</span>
+      task = <span class="STRING">"a"</span>.PadRight(i, 'h'); <span class="COMMENT">// Назначаем задачу</span>
+      go.Set();         <span class="COMMENT">// Говорим рабочему потоку, что можно начинать</span>
+    }
+ 
+    <span class="COMMENT">// Сообщаем о необходимости завершения рабочего потока,
+    // используя null-строку</span>
+    ready.WaitOne();
+    task = <span class="KEYWORD">null</span>;
+    go.Set();
+  }
+ 
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Work() 
+<span class="KEYWORD">  </span>{
+    <span class="KEYWORD">while</span> (<span class="KEYWORD">true</span>) 
+<span class="KEYWORD">    </span>{
+      ready.Set();                  <span class="COMMENT">// Сообщаем о готовности</span>
+      go.WaitOne();                 <span class="COMMENT">// Ожидаем сигнала начать...
+</span>
+      <span class="KEYWORD">if</span> (task == <span class="KEYWORD">null</span>)
+<span class="KEYWORD">       </span> <span class="KEYWORD">return</span>;                     <span class="COMMENT">// Элегантно завершаемся</span>
+
+      Console.WriteLine(task);
+    }
+  }
+}
+</pre></td></tr></tbody></table></div>
+<p>Консольный вывод:</p>
+<div id="EHUAG"><table class="code" width="98%"><tbody><tr><td><pre>ah
+ahh
+ahhh
+ahhhh
+</pre></td></tr></tbody></table></div>
+<p>Обратите внимание, что для завершения рабочего потока используется задача со значением <i><b>null</b></i>. Для рабочего потока в данном случае успешно можно было бы использовать вызов <b>Interrupt</b> или <b>Abort</b> – но только сразу после <b>ready.WaitOne</b>, так как в этом случае нам известно состояние рабочего потока – непосредственно перед <b>go.WaitOne</b> или на этом вызове – и можно избежать осложнений при прерывании неизвестного кода. Использование <b>Interrupt</b> или <b>Abort</b> также потребовало бы добавить обработку исключений в рабочем потоке.</p>
+<p><b>Очередь Поставщик/Потребитель (Producer/Consumer)</b></p>
+<p>Еще один распространенный сценарий работы с потоками – фоновая обработка задач из очереди. Это называется <i><b>очередью Поставщик/Потребитель</b></i>: Поставщик ставит задачи в очередь, Потребитель извлекает задачи из очереди в рабочем потоке. Очень похоже на предыдущий пример, за исключением того, что вызывающий поток не блокируется, если рабочий все еще занят предыдущей задачей.</p>
+<p>Очередь Поставщик/Потребитель масштабируема – потребителей может быть несколько, каждый обслуживает одну и ту же очередь, но в своем потоке. Это хороший способ использования преимуществ многопроцессорных систем, но оно все же ограничивает количество параллельно работающих потоков, чтобы избежать известных подводных камней (издержек на переключение контекста и борьбы за ресурсы).</p>
+<p>В следующем примере единственный <b>AutoResetEvent</b> используется для сигнализации рабочему потоку, который приостанавливается, только если ему больше нечего исполнять (очередь пуста). Для очереди используется <b>Queue&lt;&gt;</b>, доступ к ней защищен блокировкой для обеспечения потоковой безопасности. Рабочий поток завершается, если встречает null-задачу:</p>
+<div id="ENVAG"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">using</span> System;
+<span class="KEYWORD">using</span> System.Threading;
+<span class="KEYWORD">using</span> System.Collections.Generic;
+ 
+<span class="KEYWORD">class</span> ProducerConsumerQueue : IDisposable 
+{
+  EventWaitHandle <span class="ACCENT">wh</span> = <span class="KEYWORD">new</span> AutoResetEvent(<span class="KEYWORD">false</span>);
+  Thread worker;
+  <span class="KEYWORD">object</span> locker = <span class="KEYWORD">new</span> <span class="KEYWORD">object</span>();
+  Queue&lt;<span class="KEYWORD">string</span>&gt; tasks = <span class="KEYWORD">new</span> Queue&lt;<span class="KEYWORD">string</span>&gt;();
+ 
+  <span class="KEYWORD">public</span> ProducerConsumerQueue() 
+<span class="KEYWORD">  </span>{
+    worker = <span class="KEYWORD">new</span> Thread(Work);
+    worker.Start();
+  }
+ 
+  <span class="KEYWORD">public</span> <span class="KEYWORD">void</span> EnqueueTask(<span class="KEYWORD">string</span> task)
+  {
+    <span class="KEYWORD">lock</span> (locker)
+      tasks.Enqueue(task);
+
+    <span class="ACCENT">wh.Set</span>()<span class="ACCENT">;
+</span>  }
+ 
+  <span class="KEYWORD">public</span> <span class="KEYWORD">void</span> Dispose() 
+<span class="KEYWORD">  </span>{
+    EnqueueTask(<span class="KEYWORD">null</span>);      <span class="COMMENT">// Сигнал Потребителю на завершение</span>
+    worker.Join();          <span class="COMMENT">// Ожидание завершения Потребителя</span>
+    <span class="ACCENT">wh.Close</span>()<span class="ACCENT">;</span>             <span class="COMMENT">// Освобождение ресурсов</span>
+  }
+ 
+  <span class="KEYWORD">void</span> Work() 
+<span class="KEYWORD">  </span>{
+    <span class="KEYWORD">while</span> (<span class="KEYWORD">true</span>) 
+<span class="KEYWORD">    </span>{
+      <span class="KEYWORD">string</span> task = <span class="KEYWORD">null</span>;
+
+      <span class="KEYWORD">lock</span> (locker)
+      {
+        <span class="KEYWORD">if</span> (tasks.Count &gt; 0) 
+<span class="KEYWORD">        </span>{
+          task = tasks.Dequeue();
+          <span class="KEYWORD">if</span> (task == <span class="KEYWORD">null</span>)
+<span class="KEYWORD">           </span> <span class="KEYWORD">return</span>;
+        }
+      }
+
+      <span class="KEYWORD">if</span> (task != <span class="KEYWORD">null</span>) 
+<span class="KEYWORD">      </span>{
+        Console.WriteLine(<span class="STRING">"Выполняется задача: "</span> + task);
+        Thread.Sleep(1000); <span class="COMMENT">// симуляция работы...</span>
+      }
+      <span class="KEYWORD">else</span>
+        <span class="ACCENT">wh.WaitOne</span>();       <span class="COMMENT">// Больше задач нет, ждем сигнала...</span>
+    }
+  }
+}
+</pre></td></tr></tbody></table></div>
+<p>А это код тестирования очереди:</p>
+<div id="EDZAG"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">class</span> Test 
+{
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Main() 
+<span class="KEYWORD">  </span>{
+    <span class="KEYWORD">using</span>(ProducerConsumerQueue q = <span class="KEYWORD">new</span> ProducerConsumerQueue()) 
+<span class="KEYWORD">    </span>{
+      q.EnqueueTask(<span class="STRING">"Привет!"</span>);
+
+      <span class="KEYWORD">for</span> (<span class="KEYWORD">int</span> i = 0; i &lt; 10; i++)
+        q.EnqueueTask(<span class="STRING">"Сообщение "</span> + i);
+
+      q.EnqueueTask(<span class="STRING">"Пока!"</span>);
+    }
+    <span class="COMMENT">// Выход из using приводит к вызову Dispose, который ставит</span>
+    <span class="COMMENT">// в очередь null-задачу и ожидает, пока Потребитель не завершится.</span>
+  }
+}
+</pre></td></tr></tbody></table></div>
+<p>Консольный вывод:</p>
+<div id="EG1AG"><table class="code" width="98%"><tbody><tr><td><pre>Выполняется задача: Привет!
+Выполняется задача: Сообщение 0
+Выполняется задача: Сообщение 1
+Выполняется задача: Сообщение 2
+Выполняется задача: Сообщение 3
+Выполняется задача: Сообщение 4
+Выполняется задача: Сообщение 5
+Выполняется задача: Сообщение 6
+Выполняется задача: Сообщение 7
+Выполняется задача: Сообщение 8
+Выполняется задача: Сообщение 9
+Выполняется задача: Пока!
+</pre></td></tr></tbody></table></div>
+<p>Обратите внимание, что <b>WaitHandle</b> явно закрывается, когда для <b>ProducerConsumerQueue</b> вызывается <b>Dispose()</b>, так как в течении жизни приложения возможно создание и разрушение многих объектов типа <b>ProducerConsumerQueue</b>.</p>
+
+<h4>ManualResetEvent</h4>
+<p><b>ManualResetEvent</b> – это разновидность <b>AutoResetEvent<i>.</i></b> Отличие состоит в том, что он не сбрасывается автоматически, после того как поток проходит через <b>WaitOne,</b> и действует как шлагбаум – <b>Set</b> открывает его, позволяя пройти любому количеству потоков, вызвавших <b>WaitOne</b>. <b>Reset</b> закрывает шлагбаум, потенциально накапливая очередь ожидающих следующего открытия.</p>
+<p>Эту функциональность можно эмулировать при помощи булевой переменной <b>"gateOpen"</b> (объявленной как <b>volatile</b>) в комбинации со <b>"spin-sleeping"</b> – повторением проверок флага и ожидания в течении короткого промежутка времени.</p>
+<p><b>ManualResetEvent</b> может использоваться для сигнализации о завершении какой-либо операции или инициализации потока и готовности к выполнению работы.</p>
+
+<h4>Mutex</h4>
+<p>Мьютекс обеспечивает те же самые функциональные возможности, что и оператор <b>lock</b> в C#, что делает его не очень востребованным. Единственное преимущество состоит в том, что <b>Mutex</b> доступен из разных процессов, обеспечивая блокировку на уровне компьютера, в отличии от оператора <b>lock</b>, который действует только на уровне приложения.</p>
+<table class="note" width="98%"><tbody><tr><td><p><b>Mutex</b> относительно быстр, но <b>lock</b> быстрее в сотни раз. Получение мьютекса занимает несколько микросекунд, вызов <b>lock</b> – десятки наносекунд (если не происходит собственно блокировки).</p>
+</td></tr></tbody></table>
+<p>Метод <b>WaitOne</b> для<b> Mutex</b> получает исключительную блокировку, блокируя поток, если это необходимо. Исключительная блокировка может быть снята вызовом метода <b>ReleaseMutex</b>. Точно также как оператор <b>lock</b> в C#, <b>Mutex</b> может быть освобожден только из того же потока, что его захватил.</p>
+<p>Типовое использование мьютекса для взаимодействия процессов – обеспечение возможности запуска только одного экземпляра программы единовременно. Вот как это делается:</p>
+<div id="E13AG"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">class</span> OneAtATimePlease 
+{
+  <span class="COMMENT">// Используем уникальное имя приложения,
+  // например, с добавлением имени компании</span>
+  <span class="KEYWORD">static</span> Mutex mutex = <span class="KEYWORD">new</span> Mutex(<span class="KEYWORD">false</span>, <span class="STRING">"oreilly.com OneAtATimeDemo"</span>);
+  
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Main() 
+<span class="KEYWORD">  </span>{
+    <span class="COMMENT">// Ожидаем получения мьютекса 5 сек – если уже есть запущенный</span>
+    <span class="COMMENT">// экземпляр приложения - завершаемся.</span>
+    <span class="KEYWORD">if</span> (!mutex.WaitOne(TimeSpan.FromSeconds(5), <span class="KEYWORD">false</span>)) 
+<span class="KEYWORD">    </span>{
+      Console.WriteLine(<span class="STRING">"В системе запущен другой экземпляр программы!"</span>);
+      <span class="KEYWORD">return</span>;
+    }
+
+    <span class="KEYWORD">try</span> 
+    {
+      Console.WriteLine(<span class="STRING">"Работаем - нажмите Enter для выхода..."</span>);
+      Console.ReadLine();
+    }
+    <span class="KEYWORD">finally</span> { mutex.ReleaseMutex(); }
+  }
+}
+</pre></td></tr></tbody></table></div>
+<p>Полезное свойство <b>Mutex</b>-а – если приложение завершается без вызова <b>ReleaseMutex</b>, CLR освобождает мьютекс автоматически.</p>
+
+<h4>Semaphore</h4>
+<p><b>Semaphore</b> похож на ночной клуб – он имеет определенную вместимость, которую обеспечивает вышибала. После заполнения никто уже не может войти в ночной клуб, очередь образуется снаружи. Далее, если один человек покидает клуб, один из начала очереди может пройти внутрь. Конструктор <b>Semaphore</b> принимает минимум два параметра – число еще доступных мест и общую вместимость ночного клуба.</p>
+<p><b>Semaphore</b> с емкостью, равной единице, подобен <b>Mutex</b> или <b>lock</b>, за исключением того, что он не имеет потока-хозяина. Любой поток может вызвать <b>Release</b> для <b>Semaphore</b>, в то время как в случае с <b>Mutex</b> или <b>lock</b> только поток, захвативший ресурс, может его освободить.</p>
+<p>В следующем примере по очереди запускаются десять потоков, выполняющих вызов <b>Sleep</b>. <b>Semaphore </b>гарантирует, что не более трех потоков могут вызвать <b>Sleep</b> одновременно:</p>
+<div id="EP6AG"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">class</span> SemaphoreTest 
+{
+  <span class="KEYWORD">static</span> Semaphore s = <span class="KEYWORD">new</span> Semaphore(3, 3);  <span class="COMMENT">// Available=3; Capacity=3</span>
+ 
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Main() 
+<span class="KEYWORD">  </span>{
+    <span class="KEYWORD">for</span> (<span class="KEYWORD">int</span> i = 0; i &lt; 10; i++)
+      <span class="KEYWORD">new</span> Thread(Go).Start();
+  }
+ 
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Go() 
+<span class="KEYWORD">  </span>{
+    <span class="KEYWORD">while</span> (<span class="KEYWORD">true</span>) 
+<span class="KEYWORD">    </span>{
+      s.WaitOne();
+      <span class="COMMENT">// Только 3 потока могут находиться здесь одновременно
+</span>      Thread.Sleep(100);
+      s.Release();
+    }
+  }
+}
+</pre></td></tr></tbody></table></div>
+
+<h4>WaitAny, WaitAll и SignalAndWait</h4>
+<p>Кроме Set и WaitOne, есть еще несколько статических методов класса WaitHandle для более крепких орешков синхронизации.</p>
+<p>Методы <b>WaitAny</b>, <b>WaitAll</b> и <b>SignalAndWait</b> облегчают взаимодействие нескольких <b>WaitHandle</b>, возможно разных типов.</p>
+<p>SignalAndWait, возможно, самый полезный метод – он в рамках единой атомарной операции вызывает WaitOne для одного WaitHandle, и Set – для другого. </p>
+<p>Классическим вариантом использования этого метода является использование с парой EventWaitHandle для подготовки встречи двух потоков в нужной точке в нужное время. Подойдут и AutoResetEvent и ManualResetEvent. Первый поток делает следующее:</p>
+<div id="EMBBG"><table class="code" width="98%"><tbody><tr><td><pre>WaitHandle.SignalAndWait(wh1, wh2);
+</pre></td></tr></tbody></table></div>
+<p>в то время как второй поток – наоборот:</p>
+<div id="EQBBG"><table class="code" width="98%"><tbody><tr><td><pre>WaitHandle.SignalAndWait(wh2, wh1);
+</pre></td></tr></tbody></table></div>
+<p><b>WaitHandle.WaitAny</b> ожидает освобождения одного (любого) <b>WaitHandle</b> из переданного ему списка, <b>WaitHandle.WaitAll</b> ожидает освобождения сразу всех переданных ему <b>WaitHandle</b>. Используя аналогию с турникетом метро, эти методы организуют общую очередь одновременно для всех турникетов – с прохождением через первый открывшийся турникет (<b>WaitAny</b>) или с ожиданием, пока они не откроются все (<b>WaitAll</b>).</p>
+<p>На самом деле, значение<b> WaitAll</b> сомнительно из-за странной связи с потоковыми апартаментами, унаследованными от COM-архитектуры. <b>WaitAll</b> требует, чтобы вызывающий поток находился  в многопоточном апартаменте, в то время как эта модель может быть наименее подходящей, особенно для приложений Windows Forms, которые должны выполнять столь мирские задачи, как взаимодействие с буфером обмена.</p>
+<p>К счастью, .NET Framework обеспечивает более продвинутый сигнальный механизм для случаев, когда <b>WaitHandle</b> являются неудобными или неподходящими – <b>Monitor.Wait </b>и <b>Monitor.Pulse</b>.</p>
+
+
+<h3>Контексты синхронизации<a name="ESCBG"></a></h3>
+<p>Вместо ручной блокировки можно осуществлять блокировки декларативно. Используя наследование от <b>ContextBoundObject</b> и применяя атрибут <b>Synchronization</b>, можно поручить CLR делать блокировки автоматически. Вот пример:</p>
+<div id="E3CBG"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">using</span> System;
+<span class="KEYWORD">using</span> System.Threading;
+<span class="KEYWORD">using</span> System.Runtime.Remoting.Contexts;
+ 
+[Synchronization]
+<span class="KEYWORD">public</span> <span class="KEYWORD">class</span> AutoLock : ContextBoundObject 
+{
+  <span class="KEYWORD">public</span> <span class="KEYWORD">void</span> Demo() 
+  {
+    Console.Write(<span class="STRING">"Старт..."</span>);
+    Thread.Sleep(1000);        <span class="COMMENT">// Поток не может быть вытеснен здесь</span>
+    Console.WriteLine(<span class="STRING">"стоп"</span>); <span class="COMMENT">// спасибо автоматической блокировке!</span>
+  } 
+}
+ 
+<span class="KEYWORD">public</span> <span class="KEYWORD">class</span> Test 
+{
+  <span class="KEYWORD">public</span> <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Main() 
+  {
+    AutoLock safeInstance = <span class="KEYWORD">new</span> AutoLock ();
+    <span class="KEYWORD">new</span> Thread(safeInstance.Demo).Start(); <span class="COMMENT">// Запустить метод </span>
+    <span class="KEYWORD">new</span> Thread(safeInstance.Demo).Start(); <span class="COMMENT">// Demo 3 раза</span>
+    safeInstance.Demo();                   <span class="COMMENT">// одновременно.</span>
+  }
+}
+</pre></td></tr></tbody></table></div>
+<p>Консольный вывод:</p>
+<div id="ENEBG"><table class="code" width="98%"><tbody><tr><td><pre>Старт...стоп
+Старт...стоп
+Старт...стоп
+</pre></td></tr></tbody></table></div>
+<p>В этом случае CLR гарантирует, что только один поток сможет одновременно исполнять код в <b>safeInstance.</b> CLR делает это, создавая отдельный объект синхронизации и блокируя его при каждом вызове метода или свойства <b>safeInstance.</b> Область блокировки, в данном случае – объект <b>safeInstance,</b> называют <i><b>контекстом синхронизации</b></i>.</p>
+<p>Как это работает? Ответ находится в пространстве имен атрибута <b>Synchronization</b> – <b>System.Runtime.Remoting.Contexts</b>. О <b>ContextBoundObject</b> можно думать как об “удаленном” объекте, перехватывающем все вызовы методов. Чтобы сделать этот перехват возможным, CLR, когда создается AutoLock, фактически возвращает прокси-объект со всеми методами и свойствами AutoLock, который работает как посредник. Именно через это посредничество и работает автоблокировка. В целом перехват <b>добавляет около микросекунды</b> к вызову каждого метода.</p>
+<table class="note" width="98%"><tbody><tr><td><p>Автоматическая синхронизация не может быть использована для защиты членов статических типов и классов, не являющихся наследниками <b>ContextBoundObject </b>(например, Windows Form).</p>
+</td></tr></tbody></table>
+<p>Для внутренних вызовов блокировка работает так же, как и для вызовов извне. Казалось бы, можно ожидать, что следующий пример будет работать точно так же, как и предыдущий:</p>
+<div id="EPFBG"><table class="code" width="98%"><tbody><tr><td><pre>[Synchronization]
+<span class="KEYWORD">public</span> <span class="KEYWORD">class</span> AutoLock : ContextBoundObject 
+{
+  <span class="KEYWORD">public</span> <span class="KEYWORD">void</span> Demo()
+<span class="KEYWORD">  </span>{
+    Console.Write(<span class="STRING">"Start..."</span>);
+    Thread.Sleep(1000);
+    Console.WriteLine(<span class="STRING">"end"</span>);
+  }
+ 
+  <span class="KEYWORD">public</span> <span class="KEYWORD">void</span> Test()
+<span class="KEYWORD">  </span>{
+    <span class="KEYWORD">new</span> Thread(Demo).Start();
+    <span class="KEYWORD">new</span> Thread(Demo).Start();
+    <span class="KEYWORD">new</span> Thread(Demo).Start();
+    <span class="ACCENT">Console.ReadLine</span>()<span class="ACCENT">;
+</span>  }
+ 
+  <span class="KEYWORD">public</span> <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Main() 
+<span class="KEYWORD">  </span>{
+    <span class="KEYWORD">new</span> AutoLock ().Test();
+  }
+}
+</pre></td></tr></tbody></table></div>
+<p><i> </i>(Обратите внимание, куда вкрался вызов <b>Console.ReadLine).</b> Поскольку в некий момент времени только один поток может выполнять код данного объекта, три новых потока блокированы на вызове метода <b>Demo</b>, пока метод <b>Test</b> не будет завершен – а для этого нужно, чтобы завершился вызов <b>Console.ReadLine</b>. Следовательно, результат будет такой же, как в предыдущем примере, но только после нажатия клавиши Enter. Этот потокобезопасный молоток достаточно велик, чтобы воспрепятствовать любой полезной многопоточности внутри класса!</p>
+<p>Кроме того, мы не решили проблему, описанную ранее: если бы <b>AutoLock</b> был классом коллекции, например, все еще требовался бы <b>lock</b> вокруг следующего выражения, вызванного из другого класса:</p>
+<div id="ERHBG"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">if</span> (safeInstance.Count &gt; 0)
+<span class="KEYWORD"> </span> safeInstance.RemoveAt(0);
+</pre></td></tr></tbody></table></div>
+<p>за исключением случая, когда этот класс сам синхронизирован при помощи <b>ContextBoundObject<i>.</i></b></p>
+<p>Контекст синхронизации может распространяться за пределы одиночного объекта. По умолчанию, если синхронизированный объект создается в коде другого объекта, оба разделяют один контекст (другими словами, одну большую блокировку!) Это поведение можно изменить, задавая флаг в конструкторе атрибута <b>Synchronization</b> с использованием констант, определенных в классе <b>SynchronizationAttribute:</b></p>
+<table border="0" cellspacing="2" cellpadding="5"><tbody><tr><th>Константа</th><th>Значение</th></tr>
+<tr><th>NOT_SUPPORTED</th><td>Эквивалентно неиспользованию атрибутов синхронизации.</td></tr>
+<tr><th>SUPPORTED</th><td>Присоединиться к существующему контексту синхронизации, если создание происходит из синхронизированного объекта, иначе не использовать синхронизацию.</td></tr>
+<tr><th>REQUIRED(default)</th><td>Присоединиться к существующему контексту синхронизации, если создание происходит из синхронизированного объекта, иначе создать новый контекст. </td></tr>
+<tr><th>REQUIRES_NEW</th><td>Всегда создавать новый контекст синхронизации.</td></tr>
+</tbody></table>
+<p>Так, если объект класса <b>SynchronizedA</b> создает объект класса <b>SynchronizedB</b>, у них будут разные контексты синхронизации, если <b>SynchronizedB</b> декларирован следующим образом:</p>
+<div id="EEJBG"><table class="code" width="98%"><tbody><tr><td><pre>[Synchronization(SynchronizationAttribute.<span class="ACCENT">REQUIRES_NEW</span>)]
+<span class="KEYWORD">public</span> <span class="KEYWORD">class</span> SynchronizedB : ContextBoundObject
+{
+  ...
+</pre></td></tr></tbody></table></div>
+<p>Чем больше расширяется контекст синхронизации, тем проще управление, но и тем меньше возможностей для полезного параллелизма. С другой стороны, отдельные контексты синхронизации чреваты взаимоблокировками. Вот пример:</p>
+<div id="EPJBG"><table class="code" width="98%"><tbody><tr><td><pre><span class="KEYWORD">using</span> System;
+<span class="KEYWORD">using</span> System.Runtime.Remoting.Contexts;
+<span class="KEYWORD">using</span> System.Threading;
+
+[Synchronization]
+<span class="KEYWORD">public</span> <span class="KEYWORD">class</span> Deadlock : ContextBoundObject
+{
+  <span class="KEYWORD">public</span> Deadlock Other;
+
+  <span class="KEYWORD">public</span> <span class="KEYWORD">void</span> Demo()
+  {
+    Thread.Sleep(1000);
+    Other.Hello();
+  }
+
+  <span class="KEYWORD">void</span> Hello() { Console.WriteLine(<span class="STRING">"hello"</span>); }
+}
+
+<span class="KEYWORD">public</span> <span class="KEYWORD">class</span> Test
+{
+  <span class="KEYWORD">static</span> <span class="KEYWORD">void</span> Main()
+  {
+    Deadlock dead1 = <span class="KEYWORD">new</span> Deadlock();
+    Deadlock dead2 = <span class="KEYWORD">new</span> Deadlock();
+    dead1.Other = dead2;
+    dead2.Other = dead1;
+    <span class="KEYWORD">new</span> Thread(dead1.Demo).Start();
+    dead2.Demo();
+  }
+}
+</pre></td></tr></tbody></table></div>
+<p>Поскольку каждый экземпляр <b>Deadlock</b> создается внутри несинхронизированного класса<b> Test,</b> каждый экземпляр получает свой контекст синхронизации, и, следовательно, свою собственную блокировку. Когда оба объекта вызывают методы друг друга, взаимоблокировки долго ждать не приходится (одну секунду, если быть точным!). Проблема особенно коварна, когда классы <b>Deadlock</b> и <b>Test</b> написаны разными группами программистов. Неразумно ждать, что ответственные за класс <b>Test</b> хотя бы знают о том, что они где-то неправы, не говоря уж о решении проблемы. В этом отличие контекстов от использования явных блокировок, где взаимоблокировки обычно более очевидны.</p>
+<h4>Реентерабельность</h4>
+<p>Потокобезопасные методы иногда называют реентерабельными, так как выполнение их может быть заморожено и начато снова в другом потоке без побочных эффектов. В широком смысле, термины потокобезопасный и реентерабельный можно считать синонимами или очень близкими по значению.</p>
+<p>Реентерабельность, однако, имеет другой, более мрачный смысл в режиме автоматической блокировки. Если атрибут <b>Synchronization</b> применяется с аргументом <b>reEntrant,</b> установленным в true:</p>
+<div id="ENLBG"><table class="code" width="98%"><tbody><tr><td><pre>[Synchronization(<span class="KEYWORD">true</span>)]
+</pre></td></tr></tbody></table></div>
+<p>блокировка контекста синхронизации будет временно освобождена, когда исполнение покидает контекст. В предыдущем примере это помешало бы возникновению взаимоблокировки, что хорошо. Есть, однако, и побочный эффект – в это время любой поток может вызвать любой метод первоначального объекта (повторный вход в контекст синхронизации) и вернуть нам таким образом все “прелести” многопоточности, которых мы пытались избежать. В этом проблема реентерабельности.</p>
+<table class="warning" width="98%"><tbody><tr><td><p>Поскольку <b>[Synchronization(true)]</b> применяется на уровне класса, этот атрибут превращает каждый вызов метода, покидающего созданный классом контекст, в троянского коня реентерабельности.</p>
+</td></tr></tbody></table>
+<p>Реентерабельность может быть опасна, но возможны и другие варианты. Предположим, что необходимо реализовать многопоточность внутри синхронизированного класса, делегируя логику рабочим потокам, исполняемым в отдельных контекстах. Этим рабочим потокам было бы неразумно препятствовать во взаимодействии с другими рабочими потоками или исходным объектом без реентерабельности.</p>
+<p>Здесь выявляется основное слабое место автоматической синхронизации: широта области, к которой применяется блокировка, создает сложности, которые в других случаях, возможно, никогда и не возникли бы. Эти сложности – взаимоблокировки, реентерабельность и кастрированный параллелизм – могут сделать ручную блокировку более приемлемой в случаях, отличных от простейших сценариев.</p>
+<p></p>
+<p><i><b><a href="http://rsdn.ru/article/?916" class="link-ext" target="_blank">Продолжение - в следующем номере.</a></b></i></p>
+<p></p>
+
+
+<div align="right"><font style="font-family:arial;font-size:9pt;color:#8088a0"><i><hr color="#8088a0" width="100%" size="1"><div align="justify"><font size="2">
+                     Эта статья опубликована в журнале 
+                     RSDN Magazine
+                                         
+                        #1-2007. Информацию о журнале можно найти <a href="http://www.rsdn.ru/mag/main.htm">здесь</a></font></div></i></font></div>
+<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./Работа с потоками в C#_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+	var pageTracker = _gat._getTracker("UA-1276305-1");
+	pageTracker._addOrganic("rambler.ru", "words");
+	pageTracker._addOrganic("mail.ru", "q");
+	pageTracker._addOrganic("aport.ru", "r");
+	pageTracker._addOrganic("metabot.ru", "st");
+	pageTracker._addOrganic("meta.ua", "q");
+	pageTracker._addOrganic("bigmir.net", "q");
+	pageTracker._addOrganic("nigma.ru", "s");
+	pageTracker._trackPageview();
+</script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter49003 = new Ya.Metrika({id:49003, enableAll: true, trackHash:true, webvisor:true,type:1});
+        } catch(e) { }
+    });
+    
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript>&lt;div&gt;&lt;img src="//mc.yandex.ru/watch/49003?cnt-class=1" style="position:absolute; left:-9999px;" alt="" /&gt;&lt;/div&gt;</noscript>
+<!-- /Yandex.Metrika counter --><table width="100%" border="0" cellspacing="0" celpadding="2" style="font-family:verdana;font-weight:bold;padding: 0px 5px; BORDER: #9daabd 1px 	solid; 	COLOR: #646464; BACKGROUND-COLOR: #e6e6e6;"><tbody><tr><td nowrap="nowrap"><font size="1" style="font-weight:normal"><script src="./Работа с потоками в C#_files/shMenu.v1.js" type="text/javascript" charset="utf-8"></script>&lt;&lt;<a href="http://www.rsdn.ru/?article/dotnet/CSThreading1.xml" target="_top">Показать&nbsp;меню</a>&nbsp;</font></td><td nowrap="nowrap" align="right" width="100%"><font size="2">&nbsp;<a href="http://www.rsdn.ru/article/dotnet/CSThreading1.xml?print" target="_blank" title="Версия для печати"><img align="absmiddle" width="16" height="14" src="./Работа с потоками в C#_files/printer2.gif" border="0"></a>&nbsp;&nbsp;<a href="http://www.rsdn.ru/forum/dotnet/2460803" target="_self" title="Перейти к обсуждению статьи"><font size="1" color="#646464"> Сообщений </font><font color="black">54</font></a>&nbsp;&nbsp;<a href="http://www.rsdn.ru/forum/dotnet/2460803" target="_self" title="Перейти к обсуждению статьи"><img src="./Работа с потоками в C#_files/showfr.gif" align="absmiddle" border="0" width="18px" height="14px"></a>&nbsp;<a href="http://www.rsdn.ru/Forum/RateList.aspx?mid=2460803"><font color="#646464"><font size="1"> Оценка </font><font color="black">1051</font>
+									[<font style="font-weight: normal;"><span style="color:green;">+3</span>/<span style="color:blue;">-0</span></font>]
+								</font></a>&nbsp;&nbsp; <a target="_blank" rel="nofollow" href="http://www.rsdn.ru/Users/Private/AddFav.aspx?mid=2460803" onclick="return AddFav(this.href);" title="Добавить в избранное"><img align="absmiddle" src="./Работа с потоками в C#_files/fav.gif" border="0" height="14px"></a>&nbsp;&nbsp;<a href="http://www.rsdn.ru/Forum/Private/Subscr.aspx?tid=2460803" onclick="return SubMsg(this.href)" title="Подписка на сообщения" rel="nofollow"><img class="i" align="absmiddle" src="./Работа с потоками в C#_files/sub.gif" border="0" width="18px" height="14px"></a>&nbsp;&nbsp;&nbsp;<font size="1">Оценить </font><a target="_blank" rel="nofollow" href="http://www.rsdn.ru/forum/Private/Rate.aspx?mid=2460803&rate=-3" onclick="return RateMsg(this.href);" title="+1"><img align="absmiddle" src="./Работа с потоками в C#_files/n11.gif" border="0" width="18px" height="14px"></a><a target="_blank" rel="nofollow" href="http://www.rsdn.ru/forum/Private/Rate.aspx?mid=2460803&rate=1" onclick="return RateMsg(this.href);" title="Интересно"><img align="absmiddle" src="./Работа с потоками в C#_files/n1.gif" border="0" width="18px" height="14px"></a><a target="_blank" rel="nofollow" href="http://www.rsdn.ru/forum/Private/Rate.aspx?mid=2460803&rate=2" onclick="return RateMsg(this.href);" title="Спасибо"><img align="absmiddle" src="./Работа с потоками в C#_files/n2.gif" border="0" width="18px" height="14px"></a><a target="_blank" rel="nofollow" href="http://www.rsdn.ru/forum/Private/Rate.aspx?mid=2460803&rate=3" onclick="return RateMsg(this.href);" title="Супер"><img align="absmiddle" src="./Работа с потоками в C#_files/n3.gif" border="0" width="18px" height="14px"></a><a target="_blank" rel="nofollow" href="http://www.rsdn.ru/forum/Private/Rate.aspx?mid=2460803&rate=-1" onclick="return RateMsg(this.href);" title="Удалить оценку"><img align="absmiddle" src="./Работа с потоками в C#_files/nx.gif" border="0" width="18px" height="14px"></a><a target="_blank" rel="nofollow" href="http://www.rsdn.ru/forum/Private/Rate.aspx?mid=2460803&rate=-4" onclick="return RateMsg(this.href);" title="Согласен"><img align="absmiddle" src="./Работа с потоками в C#_files/np.gif" border="0" width="18px" height="14px"></a><a target="_blank" rel="nofollow" href="http://www.rsdn.ru/forum/Private/Rate.aspx?mid=2460803&rate=0" onclick="return RateMsg(this.href);" title="Не согласен"><img align="absmiddle" src="./Работа с потоками в C#_files/nm.gif" border="0" width="18px" eight="14px"></a>&nbsp;
+					</font></td></tr></tbody></table></body></html>

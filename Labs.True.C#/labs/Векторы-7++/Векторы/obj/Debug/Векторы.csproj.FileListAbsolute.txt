@@ -1,0 +1,14 @@
+C:\Users\Сергей\Desktop\Labs.True.C#\Векторы\Векторы\bin\Debug\Векторы.exe.config
+C:\Users\Сергей\Desktop\Labs.True.C#\Векторы\Векторы\bin\Debug\Векторы.exe
+C:\Users\Сергей\Desktop\Labs.True.C#\Векторы\Векторы\bin\Debug\Векторы.pdb
+C:\Users\Сергей\Desktop\Labs.True.C#\Векторы\Векторы\obj\Debug\Векторы.csproj.AssemblyReference.cache
+C:\Users\Сергей\Desktop\Labs.True.C#\Векторы\Векторы\obj\Debug\Векторы.csproj.CoreCompileInputs.cache
+C:\Users\Сергей\Desktop\Labs.True.C#\Векторы\Векторы\obj\Debug\Векторы.exe
+C:\Users\Сергей\Desktop\Labs.True.C#\Векторы\Векторы\obj\Debug\Векторы.pdb
+C:\Users\Сергей\Desktop\Labs.True.C#\Векторы-7+\Векторы\bin\Debug\Векторы.exe.config
+C:\Users\Сергей\Desktop\Labs.True.C#\Векторы-7+\Векторы\bin\Debug\Векторы.exe
+C:\Users\Сергей\Desktop\Labs.True.C#\Векторы-7+\Векторы\bin\Debug\Векторы.pdb
+C:\Users\Сергей\Desktop\Labs.True.C#\Векторы-7+\Векторы\obj\Debug\Векторы.csproj.AssemblyReference.cache
+C:\Users\Сергей\Desktop\Labs.True.C#\Векторы-7+\Векторы\obj\Debug\Векторы.csproj.CoreCompileInputs.cache
+C:\Users\Сергей\Desktop\Labs.True.C#\Векторы-7+\Векторы\obj\Debug\Векторы.exe
+C:\Users\Сергей\Desktop\Labs.True.C#\Векторы-7+\Векторы\obj\Debug\Векторы.pdb

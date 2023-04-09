@@ -1,0 +1,14 @@
+C:\Users\Сергей\Desktop\Labs.True.C#\АТД_Л1\АТД_Л1\bin\Debug\АТД_Л1.exe.config
+C:\Users\Сергей\Desktop\Labs.True.C#\АТД_Л1\АТД_Л1\bin\Debug\АТД_Л1.exe
+C:\Users\Сергей\Desktop\Labs.True.C#\АТД_Л1\АТД_Л1\bin\Debug\АТД_Л1.pdb
+C:\Users\Сергей\Desktop\Labs.True.C#\АТД_Л1\АТД_Л1\obj\Debug\АТД_Л1.csproj.AssemblyReference.cache
+C:\Users\Сергей\Desktop\Labs.True.C#\АТД_Л1\АТД_Л1\obj\Debug\АТД_Л1.csproj.CoreCompileInputs.cache
+C:\Users\Сергей\Desktop\Labs.True.C#\АТД_Л1\АТД_Л1\obj\Debug\АТД_Л1.exe
+C:\Users\Сергей\Desktop\Labs.True.C#\АТД_Л1\АТД_Л1\obj\Debug\АТД_Л1.pdb
+C:\Users\Сергей\Desktop\Labs.True.C#\АТД_Л1+\АТД_Л1\bin\Debug\АТД_Л1.exe.config
+C:\Users\Сергей\Desktop\Labs.True.C#\АТД_Л1+\АТД_Л1\bin\Debug\АТД_Л1.exe
+C:\Users\Сергей\Desktop\Labs.True.C#\АТД_Л1+\АТД_Л1\bin\Debug\АТД_Л1.pdb
+C:\Users\Сергей\Desktop\Labs.True.C#\АТД_Л1+\АТД_Л1\obj\Debug\АТД_Л1.csproj.AssemblyReference.cache
+C:\Users\Сергей\Desktop\Labs.True.C#\АТД_Л1+\АТД_Л1\obj\Debug\АТД_Л1.csproj.CoreCompileInputs.cache
+C:\Users\Сергей\Desktop\Labs.True.C#\АТД_Л1+\АТД_Л1\obj\Debug\АТД_Л1.exe
+C:\Users\Сергей\Desktop\Labs.True.C#\АТД_Л1+\АТД_Л1\obj\Debug\АТД_Л1.pdb

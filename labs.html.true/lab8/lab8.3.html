@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+<p>Какой язык вы знаете?</p>
+<p><input type="radio" name="Leanguage" id='html' placeholder ="html">HTML</p>
+<p><input type="radio" name="Leanguage" id='css' value="css">CSS</p>
+<p><input type="radio" name="Leanguage" id='js' value="js">JS</p>	
+<p><input type="radio" name="Leanguage" id='php' value="php">PHP</p>
+<p id = 'name'></p>
+
+<script type="text/javascript">
+	let input = document.getElementsByTagName('input')
+	let p = document.getElementById('name')
+	for (let i = 0; i < input.length; i++){
+		input[i].addEventListener('change', function () {
+			if (this.checked) {
+				p.innerHTML = this.value;
+			}
+		})
+	}	
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+<div><p>1234567890ext text text text</p>
+<p>text text text text text</p>
+<p>text text text text text</p>
+<p>text text text text text</p>
+<p>text text text text text</p></div>
+<div>
+<p>text text text text text</p>
+<p>text text text text text</p>
+<p>text text text text text</p>
+<p>text text text text text</p>
+<p>text text text text text</p></div>
+<div><p>text text text text text</p></div>
+
+<script type="text/javascript">
+	let divs = document.querySelectorAll('div');
+	for(ff of divs){
+		if (ff.innerHTML.length > 10 ){
+			let str = ff.innerHTML.slice(0,13)+'...';
+			ff.innerHTML = str;
+		}
+	}
+</script>
+
+
+
+
+
+</body>
+</html>

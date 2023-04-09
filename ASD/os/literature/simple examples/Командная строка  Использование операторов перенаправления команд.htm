@@ -1,0 +1,823 @@
+
+<!-- saved from url=(0047)http://www.cmdhelp.ru/index.php?cmd=redirection -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<meta http-equiv="Content-Language" content="ru">
+
+<title>Командная строка: Использование операторов перенаправления команд</title>
+<style>
+
+a:link, a:visited 	{ color: #0000FF; text-decoration:underline;}
+
+a:active, a:hover 	{ color: #FF0000;  cursor:hand; text-decoration:underline;}
+
+/* Puts a little more breathing room above related topics link. - AMS*/
+a.#reltopics 		{ position:relative; top:1em; }
+
+h1
+		{ font-size: 125%; 
+		margin-bottom: .5em; clear:both; width: 85%; }
+
+h2
+		{ font-size: 110%;  
+		margin-top: 1.5em;
+		margin-bottom: .5em; clear:both; }
+
+h3
+		{ font-size: 100%; 
+		margin-top: 1.2em;  
+		margin-bottom: .5em; clear:both; }
+
+h4
+		{ font-size: 100%; 
+		margin-top: 1.2em;  
+		margin-bottom: .5em; clear:both; }
+
+h5
+		{ font-size: 100%; 
+		margin-top: 1.2em;  
+		margin-bottom: .5em; clear:both; }
+	
+p
+		{ margin-top: .6em; 
+		margin-bottom: .6em; }
+			
+ol
+		{ margin-top: .5em; 
+		margin-bottom: 0em; 
+		margin-left: 2.1em; 
+		padding-left: 0em;
+		margin-right:2.1em; }
+	
+ul
+		{ margin-top: .6em; 	
+		margin-bottom: 0em;
+		list-style-type: disc;
+		margin-left: 1.5em;
+		padding-left: 0em;
+		margin-right: 1.5em; }
+		
+li
+		{ margin-bottom: .7em; clear:both; }
+
+dd
+		{ margin-bottom: 0em; 
+		margin-left: 1.5em; } 
+
+/* for defined terms, follow the Document Conventions listing in the Microsoft Manual of Style: */
+/* Keywords, functions, and anything else the user must enter exactly as shown are bold--add font-weight: bold; to the dt tag */
+/* Variables, book titles, and placeholders the user must provide are italic--add font-style: italic; to the dt tag */
+/* pre-defined arguments are bold and italic--add font-weight: bold; and font-style: italic; to the dt tag */
+
+
+dt
+		{ margin-top: 1em; }
+
+pre
+		{ margin-top: .5em;
+		margin-bottom: .5em; }
+
+code
+		{ font-family: Courier New; 
+		font-size: 1.1em; }
+
+
+
+
+p.indent	{ margin-left: 1.3em; }       /* used to indent text for notes and warnings; use this instead of the blockquote tag */
+
+p.indent2	{ margin-left: 3.5em; }   /* used to indent text a second level under the first  indent */
+
+P.indentGray	{ color: #666666; } /*  used in quad-method procedures     */
+		
+p.procLabel	{ font-size: 100%; 	
+		font-weight: bold; clear: both; width: 85%; margin-top: 2em; }
+		
+p.uatshoot	{ font-weight: bold; margin-bottom: -.5em; margin-top: 1em; }
+
+p.menutitle {color: #ffffff; font-size: 8pt; background: #6B8EC6; border-width: 1px; border-color: #6B8EC6; border-style: solid; font-weight: bold;}
+
+p.menubody {background-color:#EFF3F7; padding-bottom: 4px; padding-left: 4px; padding-right: 4px; padding-top: 4px; color: #026AB3; font-family: Verdana, Geneva, Arial, Helvetica; font-size: 11px;}
+
+/***********************************************/
+/* these class styles are used for the expanding and collapsing text files (expand function in shared.js)  */
+
+#expand 	{margin-bottom: 0.6em; margin-left: 0em; margin-right: 0em;}
+
+a:link.expandToggle, a:visited.expandToggle 	{color:#000000; font-weight: bold; text-decoration:none;}
+
+a:hover.expandToggle, a:active.expandToggle 	{color:#0000FF;}
+ 
+img.expand 	{ border: none; margin-right: 0.5em; width:.8em;}
+		
+div.expand	{ margin-left: 1.5em; margin-right: 1.5em;margin-bottom: 1em; display:none;}
+
+
+
+/***********************************************/
+/* this class for expand collapse appearing in a table  */
+
+table.uatshoot		{background-color: #FFFFFF; width: 90%; }
+
+table.uatshoot td	{ padding: 0px 0px 0px 5px; }
+
+a:link.uatshoot, a:visited.uatshoot 	{color:#000000; font-weight: normal;  text-decoration:none;}
+
+a:hover.uatshoot, a:active.uatshoot 	{color:#0000FF; text-decoration: none; }
+
+
+/*******************************************/
+/*  these classes are for thumbnail art      */
+
+a:link img.thumbnail	{border-color: #0000FF;}
+
+a:active img.thumbnail	{ border-color: #FF0000;}
+
+a:hover img.thumbnail	{border-color: #FF0000;}
+
+img.thumbnail		{vertical-align: top; margin-left: 0;
+			 width:90; border-width:1;}
+		 
+div.thumbnail		{float:left; width: 105; margin-top: 1em; margin-bottom: -0.3em; 
+			 clear: both;  }
+
+/*********************************************/				
+/* this class style is used for the navigation tree in MMC */
+		
+p.navTree	{ margin-top: .2em; }
+
+ul.navTree 	{  list-style-type: none; }
+
+li.branch	{ margin-top: -.5em; margin-bottom: .6em;}
+
+a.where		{}	/* use for the expand <a> tag */
+
+/***************************************************************/
+/* these class styles are used for <span> tags  simulating buttons & their div */
+
+#buttonMenu	{ padding:  0.5em 0.3em 0.1em 0.3em;
+			  padding-left:6px;
+			  border-bottom: thin solid #999999;
+			  background: #BBBBBB;
+			  vertical-align:top;
+			  z-index:2;
+			  visibility:visible;
+			  left:0; top:0; 
+			  text-align:left;
+			  margin:0 1em 0 0; 
+			  position:absolute;
+			  width: 100%;
+			  }
+						  
+a:link.button, a:visited.button, span.button {
+			  border-left:1px solid #EEEEEE; border-right:1px solid #666666; border-top:1px solid #EEEEEE; border-bottom:1px solid #666666; background-color: #DDDDDD ;
+			  color:#0000FF;
+			  text-decoration: none;
+			  text-align: center;
+			  font-weight: bold ;
+			  height:1.5em; width:17px; cursor:hand;
+			  
+			}
+			
+a:active.button, a:hover.button	{
+			  border-left:1px solid #666666; border-right:1px solid #EEEEEE; border-top:1px solid #666666; border-bottom:1px solid #EEEEEE; background-color: #FFFFFF;
+			  text-decoration: none;
+			  text-align: center;
+			  font-weight: bold ;
+			  height:1.5em; width:17px; cursor:hand;
+			  
+			  }
+
+/* The following span is used to display
+items that have no entries  - AMS */
+			  
+span.buttoninactive {background: #C0C0C0;
+					border: 1px solid #eeeeee;
+					height: 1.4em;
+					width: 1.4em;
+					text-align: center;
+					font-weight: bold;
+					color: #808080;
+					vertical-align:top;
+					cursor: default
+					}
+
+#list		{ padding:.4em 0.3em 100% 0.3em;
+			  overflow:auto;
+			  line-height:0.4em;
+			  height:100%; width: 100%;
+			  z-index:1;
+			  left:0; top:0; 
+			  text-align:left;
+			  margin:0; 
+			  position:absolute;
+			  margin-left:1em; line-height:100%;
+			  }
+			  
+p.marker	{ font-weight:bold;
+				margin-top: 2em;
+				color:#000000;
+				font-size:110%;
+				}			  
+/************************************************/
+/* class styles reserved for mouseover/mouseout DHTML   */
+
+.cold		{}
+.hot		{}
+
+/**********************************************************************/
+/* ID styles reserved for <a> tags  calling OCX's within HTML Help by creating  OBJECTS */
+
+
+#wPopup		{}
+
+a:link#wPopup, a:visited#wPopup	{color: #006600;}
+a:hover#wPopup, a:active#wPopup	{color: #FF0000;}
+
+
+img.popup 	{border: none; margin-right: 0.5em; vertical-align:middle;}
+
+#shortcut		{}
+
+img.shortcut 	{border: none; margin-right: 0.5em; vertical-align:middle;}
+
+#specLoc		{}
+
+#altLoc		{}
+
+p.note, p.tip, p.important, p.caution, p.warning 
+		{ font-weight:bold; clear:both;
+		 margin-top:1em; 
+		 margin-bottom:-.25em; }    
+
+img.alert		{border:none;} 		 /* for icon images - note, tip, important, caution, warning*/
+
+/************************************************/
+/* styles used to modify the appearance of XML popups   */
+
+SPAN.XMLPopup 	{margin-bottom:.75em;height: 100%; width: 100%; border: solid; border-width:1px; background-color: #FFFFCC; }
+
+
+DIV.PopTerm 	{ font-weight: bold; margin-left: 1em; margin-top: .75em; margin-right: 1em; }		
+DIV.PopDef 		{ line-height: 1.25em; margin-left: 1em; margin-top: .25em; margin-right: 1em;}		
+DIV.PopSeeAlso	{ margin-left: 1em; margin-top: .5em;  margin-right: 1em;}
+DIV.PopDef UL 	{ margin-left: 1.45em; line-height: 1.25em; }
+
+/************************************************/
+/* Styles for listed-out/hard-coded links for Related Topics with page GIF */
+
+p.#relTopics	{ font-weight:bold; margin-top: 2em;}
+img.relTopics 	{ border: none; }
+p.relTopics	{ margin-left: 1.5em; margin-top: -1.7em; margin-bottom: .5em;}
+
+/***********************************/
+/*   Style for print only functionality used with external URL link   coUA_print.css*/
+
+span.printonly	{display:none }
+
+/***********************************/
+/*   Styles for checklists   */
+
+.userData 	{behavior:url(#default#userdata); }  /*sets persistance*/
+
+#checklist	{width:100%;  text-align:left; margin:0.3em 0em;}
+
+#checklist li 	{text-indent:0.2em;}
+
+/*********************************/				
+/*  these classes are for previous next navigation     */
+
+a:hover.navbar, a:active.navbar		{} /* text in nav */
+a:link.navbar, a:visited.navbar		{}
+			  
+#nav	{ left:0; top:0px;
+	  text-align:left; 
+	  margin:0; 
+	  position:absolute;
+	  padding-bottom: 1px; padding-top: 3px;
+	  padding-right:6px; padding-left:5px;
+	  align:top;
+	  visibility:hidden;
+	  z-index:1;  }
+
+#text	{ left:0; top:0px;
+	   /*text-align:left;*/ /*Commented out because it was causing a problem with BI-DI. Remove style if no ill effects are found from commenting it out. - 5/28/99 AMS */
+	   margin:0; 
+	   position:absolute;
+	   padding:10px;
+	   overflow:auto;
+	   height:100%;
+	   z-index:1; 
+         	   background-repeat:no-repeat;
+	   background-position: bottom right;
+	   background-attachment:fixed; }
+
+/***************************************************/
+/* STYLES USED IN THE WEB DELIVERABLE ONLY  */
+
+
+/***********************************/
+/*   links   */
+
+#wPopupWeb	{}
+
+a:link#wPopupWeb			{color: #006600;}
+a:hover#wPopupWeb		{color: #FF0000;}
+a:active#wPopupWeb		{color: #FF0000;}
+a:visited#wPopupWeb		{color: #006600;}
+
+#shortcutWeb	{}
+
+#specLocWeb	{}
+
+#relTopicsWeb	{}
+
+#altLocWeb	{}
+
+
+/***********************************/
+/*   popups   */
+
+div.popup		{ border:1px solid #666666; visibility:hidden; z-index:3;
+				 position:absolute; 
+                 top:200; left:200; 
+                 width:250; padding:6px; 
+                 background-color:#FFFFCC;
+                 
+                                      }
+/***********************************/
+/* Added the following DIV 12/20/00 to incorporate branding GIF (currently Windows Flag) to designate material in HSS as Microsoft (as opposed to OEM material. This style also required WIDTH tags on H1 and WIDTH and Margin-Top tags on P.Proclabel. - AMS*/
+
+
+TABLE.nested
+{
+    BACKGROUND-COLOR: #ffffff;
+}
+
+TABLE.nested TH
+{
+    BACKGROUND-COLOR: #bbbbbb;
+}
+
+TABLE.nested TD
+{
+    BACKGROUND-COLOR: #dddddd;
+}
+
+
+
+
+.table
+		{ font-size: 100%;
+		margin-top: 1em; 
+		margin-bottom: 1em; }
+		
+.th
+		{ text-align: left;
+		background: #DDDDDD;
+		vertical-align: bottom;
+		padding: .2em;
+		padding-left: .45em;
+		padding-right: .5em;}
+		
+.tr
+		{ vertical-align: top; }
+
+.td
+		{ background: #EEEEEE;
+		vertical-align: top;
+		padding: .2em;
+		padding-left: .45em;
+		padding-right: .5em;}
+
+
+
+</style>
+<script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/document_iterator.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/find_proxy.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/get_html_text.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/global_constants.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/name_injection_builder.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/number_injection_builder.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/menu_injection_builder.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/string_finder.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/change_sink.js"></script><meta name="document_iterator.js"><meta name="find_proxy.js"><meta name="get_html_text.js"><meta name="global_constants.js"><meta name="name_injection_builder.js"><meta name="number_injection_builder.js"><meta name="menu_injection_builder.js"><meta name="string_finder.js"><meta name="change_sink.js"><style id="wrc-middle-css" type="text/css">.wrc_whole_window{	display: none;	position: fixed; 	z-index: 2147483647;	background-color: rgba(40, 40, 40, 0.9);	word-spacing: normal !important;	margin: 0px !important;	padding: 0px !important;	border: 0px !important;	left: 0px;	top: 0px;	width: 100%;	height: 100%;	line-height: normal !important;	letter-spacing: normal !important;	overflow: hidden;}.wrc_bar_window{	display: none;	position: fixed; 	z-index: 2147483647;	background-color: rgba(60, 60, 60, 1.0);	word-spacing: normal !important;	font-family: Segoe UI, Arial Unicode MS, Arial, Sans-Serif;	margin: 0px !important;	padding: 0px !important;	border: 0px !important;	left: 0px;	top: 0px;	width: 100%;	height: 40px;	line-height: normal !important;	letter-spacing: normal !important;	color: white !important;	font-size: 13px !important;}.wrc_middle {	display: table-cell;	vertical-align: middle;	width: 100%;}.wrc_middle_main {	font-family: Segoe UI, Arial Unicode MS, Arial, Sans-Serif;	font-size: 14px;	width: 600px;	height: auto;    background: url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/background-body.jpg) repeat-x left top;	background-color: rgb(39, 53, 62);	position: relative;	margin-left: auto;	margin-right: auto;	text-align: left;}.wrc_middle_tq_main {	font-family: Segoe UI, Arial Unicode MS, Arial, Sans-Serif;	font-size: 16px;	width: 615px;	height: 460px;    background: url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/background-sitecorrect.png) no-repeat;	background-color: white;	color: black !important;	position: relative;	margin-left: auto;	margin-right: auto;	text-align: center;}.wrc_middle_logo {    background: url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/logo.jpg) no-repeat left bottom;    width: 140px;    height: 42px;    color: orange;    display: table-cell;    text-align: right;    vertical-align: middle;}.wrc_icon_warning {	margin: 20px 10px 20px 15px;	float: left;	background-color: transparent;}.wrc_middle_title {    color: #b6bec7;	height: auto;    margin: 0px auto;	font-size: 2.2em;	white-space: nowrap;	text-align: center;}.wrc_middle_hline {    height: 2px;	width: 100%;    display: block;}.wrc_middle_description {	text-align: center;	margin: 15px;	font-size: 1.4em;	padding: 20px;	height: auto;	color: white;	min-height: 3.5em;}.wrc_middle_actions_main_div {	margin-bottom: 15px;	text-align: center;}.wrc_middle_actions_blue_button div {	display: inline-block;	width: auto;	cursor: Pointer;	margin: 3px 10px 3px 10px;	color: white;	font-size: 1.2em;	font-weight: bold;}.wrc_middle_actions_blue_button {	-moz-appearance: none;	border-radius: 7px;	-moz-border-radius: 7px/7px;	border-radius: 7px/7px;	background-color: rgb(0, 173, 223) !important;	display: inline-block;	width: auto;	cursor: Pointer;	border: 2px solid #00dddd;	padding: 0px 20px 0px 20px;}.wrc_middle_actions_blue_button:hover {	background-color: rgb(0, 159, 212) !important;}.wrc_middle_actions_blue_button:active {	background-color: rgb(0, 146, 200) !important;	border: 2px solid #00aaaa;}.wrc_middle_actions_grey_button div {	display: inline-block;	width: auto;	cursor: Pointer;	margin: 3px 10px 3px 10px;	color: white !important;	font-size: 15px;	font-weight: bold;}.wrc_middle_actions_grey_button {	-moz-appearance: none;	border-radius: 7px;	-moz-border-radius: 7px/7px;	border-radius: 7px/7px;	background-color: rgb(100, 100, 100) !important;	display: inline-block;	width: auto;	cursor: Pointer;	border: 2px solid #aaaaaa;	text-decoration: none;	padding: 0px 20px 0px 20px;}.wrc_middle_actions_grey_button:hover {	background-color: rgb(120, 120, 120) !important;}.wrc_middle_actions_grey_button:active {	background-color: rgb(130, 130, 130) !important;	border: 2px solid #00aaaa;}.wrc_middle_action_low {	font-size: 0.9em;	white-space: nowrap;	cursor: Pointer;	color: grey !important;	margin: 10px 10px 0px 10px;	text-decoration: none;}.wrc_middle_action_low:hover {	color: #aa4400 !important;}.wrc_middle_actions_rest_div {	padding-top: 5px;	white-space: nowrap;	text-align: center;}.wrc_middle_action {	white-space: nowrap;	cursor: Pointer;	color: red !important;	font-size: 1.2em;	margin: 10px 10px 0px 10px;	text-decoration: none;}.wrc_middle_action:hover {	color: #aa4400 !important;}</style><script id="wrc-script-middle_window" type="text/javascript" language="JavaScript">var g_inputsCnt = 0;var g_InputThis = new Array(null, null, null, null);var g_alerted = false;/* we test the input if it includes 4 digits   (input is a part of 4 inputs for filling the credit-card number)*/function is4DigitsCardNumber(val){	var regExp = new RegExp('[0-9]{4}');	return (val.length == 4 && val.search(regExp) == 0);}/* testing the whole credit-card number 19 digits devided by three '-' symbols or   exactly 16 digits without any dividers*/function isCreditCardNumber(val){	if(val.length == 19)	{		var regExp = new RegExp('[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}');		return (val.search(regExp) == 0);	}	else if(val.length == 16)	{		var regExp = new RegExp('[0-9]{4}[0-9]{4}[0-9]{4}[0-9]{4}');		return (val.search(regExp) == 0);	}	return false;}function CheckInputOnCreditNumber(self){	if(g_alerted)		return false;	var value = self.value;	if(self.type == 'text')	{		if(is4DigitsCardNumber(value))		{			var cont = true;			for(i = 0; i < g_inputsCnt; i++)				if(g_InputThis[i] == self)					cont = false;			if(cont && g_inputsCnt < 4)			{				g_InputThis[g_inputsCnt] = self;				g_inputsCnt++;			}		}		g_alerted = (g_inputsCnt == 4);		if(g_alerted)			g_inputsCnt = 0;		else			g_alerted = isCreditCardNumber(value);	}	return g_alerted;}function CheckInputOnPassword(self){	if(g_alerted)		return false;	var value = self.value;	if(self.type == 'password')	{		g_alerted = (value.length > 0);	}	return g_alerted;}function onInputBlur(self, bRatingOk, bFishingSite){	var bCreditNumber = CheckInputOnCreditNumber(self);	var bPassword = CheckInputOnPassword(self);	if((!bRatingOk || bFishingSite == 1) && (bCreditNumber || bPassword) )	{		var warnDiv = document.getElementById("wrcinputdiv");		if(warnDiv)		{			/* show the warning div in the middle of the screen */			warnDiv.style.left = "0px";			warnDiv.style.top = "0px";			warnDiv.style.width = "100%";			warnDiv.style.height = "100%";			document.getElementById("wrc_warn_fs").style.display = 'none';			document.getElementById("wrc_warn_cn").style.display = 'none';			if(bFishingSite)				document.getElementById("wrc_warn_fs").style.display = 'block';			else				document.getElementById("wrc_warn_cn").style.display = 'block';			warnDiv.style.display = 'table';		}	}}</script><style id="wrc-css" type="text/css">.wrcx {display:none} .r .wrcx, .osl .wrcx, .bc .wrcx, .fc .wrcx, #rhsline ol .wrcx {display:inline; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/grey0-16.png") right no-repeat}
+.wrc0 {display:none} .r .wrc0, .osl .wrc0, .bc .wrc0, .fc .wrc0, #rhsline ol .wrc0 {display:inline; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/grey0-16.png") right no-repeat}
+.wrc11 {display:none} .r .wrc11, .osl .wrc11, .bc .wrc11, .fc .wrc11, #rhsline ol .wrc11 {display:inline; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/green1-16.png") right no-repeat}
+.wrc12 {display:none} .r .wrc12, .osl .wrc12, .bc .wrc12, .fc .wrc12, #rhsline ol .wrc12 {display:inline; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/green2-16.png") right no-repeat}
+.wrc13 {display:none} .r .wrc13, .osl .wrc13, .bc .wrc13, .fc .wrc13, #rhsline ol .wrc13 {display:inline; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/green3-16.png") right no-repeat}
+.wrc21 {display:none} .r .wrc21, .osl .wrc21, .bc .wrc21, .fc .wrc21, #rhsline ol .wrc21 {display:inline; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/yellow1-16.png") right no-repeat}
+.wrc22 {display:none} .r .wrc22, .osl .wrc22, .bc .wrc22, .fc .wrc22, #rhsline ol .wrc22 {display:inline; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/yellow2-16.png") right no-repeat}
+.wrc23 {display:none} .r .wrc23, .osl .wrc23, .bc .wrc23, .fc .wrc23, #rhsline ol .wrc23 {display:inline; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/yellow3-16.png") right no-repeat}
+.wrc31 {display:none} .r .wrc31, .osl .wrc31, .bc .wrc31, .fc .wrc31, #rhsline ol .wrc31 {display:inline; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/red1-16.png") right no-repeat}
+.wrc32 {display:none} .r .wrc32, .osl .wrc32, .bc .wrc32, .fc .wrc32, #rhsline ol .wrc32 {display:inline; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/red2-16.png") right no-repeat}
+.wrc33 {display:none} .r .wrc33, .osl .wrc33, .bc .wrc33, .fc .wrc33, #rhsline ol .wrc33 {display:inline; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/red3-16.png") right no-repeat}
+.wrc_icon{margin:0;padding:0;padding-left:15px !important; margin-left: 5px; width:16px !important; height:16px !important;line-height:16px !important;}
+#wrchoverdiv{padding-bottom:20px;-webkit-border-radius: 4px; -webkit-box-shadow: 2px 2px 1px rgba(0,0,0,0.2); position:absolute; width:180px; background:transparent url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/background-body.jpg) top left repeat-x; display:none; font-family: Segoe UI, Arial Unicode MS, Arial, Sans-Serif; font-size: 14px; z-index:9999999;}
+#wrchoverdiv{cursor:default;}
+#wrchoverdiv #wrccontainer{width:180px;}
+#wrchoverdiv #wrcheader{width:140px; height:42px; background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/logo.jpg) bottom left no-repeat; text-align:right; line-height:42px; color:orange; margin:0 auto;}
+#wrchoverdiv .wrchorizontal{width:180px; height:2px; background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/horizontal-line.jpg) bottom left no-repeat;}
+#wrchoverdiv #wrccurrentvote{height:25px; line-height:25px; color:#FFF; text-align:center; text-transform:uppercase;}
+#wrchoverdiv #wrcrating{margin:5px auto; width:69px; height:55px; background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/grey-0.png) bottom left no-repeat;}
+#wrchoverdiv #wrcrating.wrcbx{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/grey-0.png);}
+#wrchoverdiv #wrcrating.wrcb0{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/grey-0.png);}
+#wrchoverdiv #wrcrating.wrcb11{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/green-1.png);}
+#wrchoverdiv #wrcrating.wrcb12{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/green-2.png);}
+#wrchoverdiv #wrcrating.wrcb13{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/green-3.png);}
+#wrchoverdiv #wrcrating.wrcb21{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/yellow-1.png);}
+#wrchoverdiv #wrcrating.wrcb22{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/yellow-2.png);}
+#wrchoverdiv #wrcrating.wrcb23{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/yellow-3.png);}
+#wrchoverdiv #wrcrating.wrcb31{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/red-1.png);}
+#wrchoverdiv #wrcrating.wrcb32{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/red-2.png);}
+#wrchoverdiv #wrcrating.wrcb33{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/red-3.png);}
+#wrchoverdiv #wrcratingtext{margin:3px 5px; color:#FFF; text-align:center; padding:0; font-size:12px;}
+#wrchoverdiv #wrcweighttext{margin:3px 5px; color:#FFF; text-align:center; padding:0; font-size:12px;}
+#wrchoverdiv #wrcflags{width:150px; height:70px; margin:0 auto;}
+#wrchoverdiv .wrcicon{width:30px; height:30px; float:left;}
+#wrchoverdiv #wrcicon_shopping{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/shopping-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_shopping.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/shopping-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_social{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/social-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_social.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/social-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_news{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/news-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_news.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/news-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_it{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/it-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_it.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/it-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_corporate{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/corporate-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_corporate.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/corporate-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_pornography{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/pornography-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_pornography.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/pornography-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_violence{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/violence-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_violence.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/violence-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_gambling{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/gambling-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_gambling.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/gambling-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_drugs{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/drugs-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_drugs.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/drugs-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_illegal{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/illegal-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_illegal.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/illegal-small-selected.png) top left no-repeat;}
+</style></head>
+
+<body bgcolor="#00B5F8">
+
+
+
+
+
+
+
+<table border="0" width="100%" background="./Командная строка  Использование операторов перенаправления команд_files/Untitled-12_05.png" cellspacing="0" cellpadding="0">
+	<tbody><tr>
+	
+		<td>
+	
+		<img border="0" src="./Командная строка  Использование операторов перенаправления команд_files/logo.png" width="341" height="89" alt="cmdhelp.ru - информация о командной строке Windows">
+
+		</td>
+		<td>
+		
+		<table border="0" cellspacing="0" cellpadding="0">
+	<tbody><tr>
+		<td background="./Командная строка  Использование операторов перенаправления команд_files/Untitled-12_03.png" width="134" height="89">
+		<table border="0" width="100%" id="table4" cellspacing="0" cellpadding="0" class="cmd1">
+			<tbody><tr>
+				<td align="center"> 
+				<a href="http://www.cmdhelp.ru/index.php?pages">
+				<img border="0" src="./Командная строка  Использование операторов перенаправления команд_files/cmd.png" width="48" height="48" title="настройки и параметры командной строки Windows (cmd) ">
+				</a>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+				
+				<span lang="en-us">
+					<a href="http://www.cmdhelp.ru/index.php?pages"><font face="Lucida Console" size="4" color="#FFFFFF">Статьи</font></a></span></td>
+			</tr>
+		</tbody></table>
+		</td>
+		<td width="20px"></td>
+		<td background="./Командная строка  Использование операторов перенаправления команд_files/Untitled-12_03.png" width="134" height="89">
+		<table border="0" width="100%" id="table5" cellspacing="0" cellpadding="0">
+			<tbody><tr>
+				<td align="center">
+			<a href="http://www.cmdhelp.ru/index.php?commands"><font face="Lucida Console" size="4" color="#FFFFFF">	<img border="0" src="./Командная строка  Использование операторов перенаправления команд_files/174.png" width="48" height="48" title="справочник и список команд cmd">
+			</font></a><font face="Lucida Console" size="4" color="#FFFFFF">
+			</font></td>
+			</tr>
+			<tr>
+				<td align="center">
+				
+				
+				<a href="http://www.cmdhelp.ru/index.php?commands"><font face="Lucida Console" size="4" color="#FFFFFF">Команды</font></a></td>
+			</tr>
+		</tbody></table>
+		</td>
+		<td width="20px"></td>
+		<td background="./Командная строка  Использование операторов перенаправления команд_files/Untitled-12_03.png" width="134" height="89">
+		<table border="0" width="100%" id="table6" cellspacing="0" cellpadding="0">
+			<tbody><tr>
+				<td align="center">
+				<a href="http://www.cmdhelp.ru/index.php?rab">
+				<img border="0" src="./Командная строка  Использование операторов перенаправления команд_files/3.png" width="48" height="48" title="утитлиты работающие в режиме командной строки">
+				</a>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+						<a href="http://www.cmdhelp.ru/index.php?rab"><font face="Lucida Console" size="4" color="#FFFFFF">Утилиты</font></a></td>
+			</tr>
+		</tbody></table>
+		</td>
+	</tr>
+</tbody></table>
+		
+		</td>
+	</tr>
+</tbody></table>
+
+
+
+
+
+
+
+<table border="0" width="100%" id="table2" cellspacing="0" cellpadding="0">
+	<tbody><tr>
+		<td>
+		<table border="0" width="100%" cellspacing="0" cellpadding="0">
+			<tbody><tr>
+				<td width="2px" background="./Командная строка  Использование операторов перенаправления команд_files/Untitled-12_06.png"></td>
+				<td background="./Командная строка  Использование операторов перенаправления команд_files/Untitled-12_07.png" height="23">
+				</td>
+				<td background="./Командная строка  Использование операторов перенаправления команд_files/Untitled-12_11.png" height="23" width="3">
+				
+				
+				
+				</td>
+			</tr>
+			<tr>
+				<td width="2px" background="./Командная строка  Использование операторов перенаправления команд_files/left.png"></td>
+				<td background="./Командная строка  Использование операторов перенаправления команд_files/bg.png">
+				
+							<table border="0" width="100%" id="table8" cellspacing="9" cellpadding="0">
+					<tbody><tr>
+						<td>
+						
+						
+	<div style="clear:both; position:relative; display:table">
+	<div style="float:left"><img src="./Командная строка  Использование операторов перенаправления команд_files/x_445a5c2a.jpg"></div>
+	<div style="float:left">
+	<span style="color:red"><strong>Warning! Warning!</strong></span> Нашему чудному сайту требуются волонтеры! Если вы дизайнер, сисадмин или веб-разработчик - большая просьба обратится в ICQ: 688863. 
+		Любую безвозмездную помощь очень ценим!</div>
+		</div>
+		<hr>
+
+	
+						<center>
+<script type="text/javascript"><!--
+google_ad_client = "pub-0388613283378886";
+/* 728x90, создано 02.03.09 */
+google_ad_slot = "5751402600";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="./Командная строка  Использование операторов перенаправления команд_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px"><ins id="aswift_0_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px"><iframe width="728" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;"></iframe></ins></ins>
+</center>						
+
+	
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+<div class="Uabrand"><span class="WebOnly"></span></div>
+
+
+<h1>Использование операторов перенаправления команд</h1>
+
+Операторы перенаправления команд используются для изменения местоположений потоков ввода и вывода команд, заданных по умолчанию, на какие-либо другие. Местоположение потоков ввода и вывода называется дескриптор.  
+В следующей таблице описаны операторы перенаправления потоков ввода и вывода команд.
+<table width="100%">
+<tbody><tr>
+<th>Оператор перенаправления</th>
+<th>Описание</th>
+</tr>
+<tr>
+<td><b>&gt;</b></td>
+<td>Записывает данные на выходе команды вместо командной строки в файл или на устройство, например, на принтер.</td>
+</tr>
+<tr>
+<td><b>&lt;</b></td>
+<td>Читает поток входных данных команды из файла, а не с клавиатуры.</td>
+</tr>
+<tr>
+<td><b>&gt;&gt;</b></td>
+<td>Добавляет выходные данные команды в конец файла, не удаляя при этом существующей информации из файла.</td>
+</tr>
+<tr>
+<td><b>&gt;&amp;</b></td>
+<td>Считывает данные на выходе одного дескриптора как входные данные для другого дескриптора. </td>
+</tr>
+<tr><td><b>&lt;&amp;</b></td>
+<td>Считывает входные данные одного дескриптора как выходные данные другого дескриптора. </td>
+</tr>
+<tr><td><b>|</b></td>
+<td>Считывает выходные данные одной команды и записывает их на вход другой команды.   Эта процедура известна под названием «канал».  </td>
+</tr>
+</tbody></table>
+
+По умолчанию, входные данные команды (дескриптор STDIN) отсылаются с клавиатуры интерпретатору команд Cmd.exe, далее Cmd.exe отправляет выходные данные команды (дескриптор STDOUT) в окно командной строки.
+
+В следующей таблице представлены доступные дескрипторы.
+	<table width="100%">
+<tbody><tr>
+<th>дескриптор</th>
+<th>Числовой эквивалент дескриптора</th><th>Описание</th>
+</tr>
+<tr>
+<td>STDIN</td>
+<td>0</td>
+<td>Ввод с клавиатуры</td>
+</tr>
+<tr>
+<td>STDOUT</td>
+<td>1</td>
+<td>Вывод в окно командной строки</td>
+</tr>
+<tr>
+<td>STDERR</td>
+<td>2</td><td>Ошибка вывода в окно командной строки</td>
+</tr>
+<tr>
+<td>UNDEFINED</td>
+<td>3-9</td><td>Эти дескрипторы определяются индивидуально для каждой прикладной программы.</td>
+</tr>
+</tbody></table>
+
+Номера от 0 до 9 представляют первые 10 дескрипторов. Для запуска программы и перенаправления любого из 10 дескрипторов используется интерпретатор команд Cmd.exe. Для задания требуемого дескриптора перед оператором перенаправления введите его номер.   Если дескриптор не определен, то по умолчанию оператором перенаправления ввода «&lt;» будет ноль (0), а оператором перенаправления вывода «&gt;» будет единица (1).  После ввода оператора «&lt;» или «&gt;» необходимо указать, откуда читать и куда записывать данные.  Можно задать имя файла или любой из существующих дескрипторов.  
+
+Для задания перенаправления в существующие дескрипторы используется амперсанд (&amp;), затем номер требуемого дескриптора (например, <b>&amp;</b><i>номер_дескриптора</i>).  Например, для перенаправления дескриптора 2 (STDERR) в дескриптор 1 (STDOUT) введите:
+
+<b>1&lt;&amp;2</b>
+
+<h2>Дублирование дескрипторов</h2>
+	
+Оператор перенаправления «&amp;» дублирует выходные или входные данные с одного заданного дескриптора на другой заданный дескриптор.  Например, для отправки выводных данных команды <b>dir</b> в файл File.txt и отправки ошибки вывода в файл File.txt введите:
+
+<b>dir&gt;c:\file.txt 2&gt;&amp;1</b>
+
+При дублировании дескриптора происходит копирование всех его исходных характеристик.  Например, если дескриптор доступен только для записи, то все его дубликаты будут доступны только для записи.   Нельзя продублировать дескриптор с доступом только для чтения в дескриптор с доступом только для записи.   
+
+<h2>Перенаправление ввода команд (&lt;)</h2>
+
+Для перенаправления ввода команд с цифровой клавиатуры на файл или на устройство используйте оператор «&lt;». Например, для ввода команды <b>sort</b> из файла List.txt введите: 
+
+<b>sort&lt;file.txt </b>
+
+Содержимое файла File.txt появится в командной строке в виде списка в алфавитном порядке.
+
+Оператор «&lt;» открывает заданное имя файла с доступом только для чтения. Поэтому с его помощью нельзя записывать в файл. Например, при запуске программы с оператором &lt;&amp;2 все попытки прочитать дескриптор 0 ни к чему не приведут, так как изначально он был открыт с доступом только для записи.
+
+Примечание
+<ul>
+    <li>
+     Дескриптор 0 задан по умолчанию для оператора перенаправления ввода «&lt;».
+    </li>
+</ul>
+
+	<h2>Перенаправление вывода команд (&gt;)</h2>
+	
+Выходные данные практически всех команд высвечиваются в окне командной строки. Даже команды, выводящие данные на диск или принтер, выдают сообщения и запросы в окне командной строки. 
+
+Для перенаправления вывода команд из окна командной строки в файл или на устройство применяется оператор «&gt;». Этот оператор используется с большинством команд. Например, для перенаправления вывода команды <b>dir</b> в файл Dirlist.txt введите: 
+
+<b>dir&gt;dirlist.txt </b>
+
+Если файл Dirlist.txt не существует, интерпретатор команд Cmd.exe создаст его. Если файл существует, Cmd.exe заменит информацию в файле на данные, полученные от команды <b>dir</b>. 
+
+Для запуска команды <b>netsh routing dump</b> и последующей отправки результатов ее работы в Route.cfg введите:
+<b>netsh routing dump</b>&gt;<b>c:\route.cfg</b>
+
+Оператор «&gt;» открывает заданный файл с доступом только для записи. Поэтому с помощью данного оператора файл прочитать нельзя.  Например, при запуске программы с оператором перенаправления &lt;&amp;0 все попытки записать дескриптор 1 ни к чему не приведут, так как изначально дескриптор 0 был открыт с доступом только для чтения.
+Примечание.
+<ul>
+    <li>
+     Дескриптор 1 задан по умолчанию для оператора перенаправления вывода «&gt;».
+    </li>
+</ul>
+	
+	
+	<h2>Использование оператора «&lt;&amp;» для перенаправления ввода и дублирования</h2>
+	
+	Для использования оператора перенаправления ввода необходимо, чтобы задаваемый файл уже существовал.  Если файл для ввода существует, то интерпретатор команд Cmd.exe открывает его с доступом только для чтения и его содержимое отправляет в команду так, как если бы это был ввод с цифровой клавиатуры.  При задании дескриптора интерпретатор команд Cmd.exe дублирует его в дескриптор, существующий в системе.
+
+Например, для считывания файла File.txt на вход в дескриптор 0 (STDIN) введите:
+<b>&lt;</b><b>file.txt</b>
+
+Для открытия файла File.txt, сортировки его содержимого и последующей отправки в окно командной строки (STDOUT) введите:
+<b>sort&lt;</b><b>file.txt</b> 
+
+Для того чтобы найти файл File.txt и перенаправить дескриптор 1 (STDOUT) и дескриптор 2 (STDERR) в Search.txt введите:
+<b>findfile file.txt&gt;search.txt 2&lt;&amp;1</b>
+
+Для дублирования определенного пользователем дескриптора 3 в качестве входной информации для дескриптора 0 (STDIN) введите:
+<b>&lt;&amp;3</b>
+
+	
+	<h2>Использование оператора «&gt;&amp;» для перенаправления ввода и дублирования</h2>
+	
+	При перенаправлении вывода в файл и задании существующего имени файла интерпретатор команд Cmd.exe открывает файл с доступом только для записи и переписывает его содержимое.  Если дескриптор задан, интерпретатор команд Cmd.exe дублирует файл в существующий дескриптор.
+
+
+Для дублирования определенного пользователем дескриптора 3 в дескриптор 1 введите:
+<b>&gt;&amp;3</b>
+
+Для перенаправления всех выходных данных, включая выходные данные дескриптора 2 (STDERR), команды <b>ipconfig</b> в дескриптор 1 (STDOUT) и последующего перенаправления выходных данных в Output.log введите:
+<b>ipconfig.exe&gt;&gt;output.log 2&gt;&amp;1</b>
+	
+	
+	<h2>Использование оператора «&gt;&gt;» для добавления вывода </h2>
+
+Для добавления выходных данных команды в конец файла без потери хранящейся в нем информации используется двойной символ «больше» (&gt;&gt;). Например, следующая команда добавляет список каталогов, созданный командой <b>dir</b>, в файл Dirlist.txt: 
+
+<b>dir&gt;&gt;dirlist.txt </b>
+
+Для добавления выходных данных команды <b>netstat</b> в конец файла Tcpinfo.txt введите:
+<b>netstat&gt;&gt;tcpinfo.txt</b>
+
+
+	<h2>Использование оператора канала (|)</h2>
+	
+	Оператор канала «вертикальная линия» (|) забирает выходные данные одной команды (по умолчанию STDOUT) и направляет их на вход другой команды (по умолчанию STDIN).  Например, следующая команда сортирует каталог:
+<b>dir | sort</b>
+В данном примере обе команды запускаются одновременно, но команда <b>sort</b> приостанавливает работу до получения выходных данных команды <b>dir</b>. Команда <b>sort</b> использует выходные данные команды <b>dir</b> в качестве своих входных данных, а затем свои выходные данные отправляет в дескриптор 1 (STDOUT).
+
+<h2>Комбинирование команд с операторами перенаправления</h2>
+
+Комбинируя команды-фильтры с другими командами и именами файлов, можно создавать команды на заказ. Например, для сохранения имен файлов, содержащих строку «LOG», используется следующая команда:
+
+<noloc><b>dir /b | find "LOG" &gt; loglist.txt </b></noloc>
+
+
+Выход команды <b>dir</b> отсылается в команду-фильтр <b>find</b>.  Имена файлов, содержащие строку «LOG», хранятся в файле Loglist.txt в виде списка (например, NetshConfig.log, Logdat.svd и Mylog.bat).
+ 
+
+При использовании более одного фильтра в одной команде их необходимо отделять с помощью канала (|). Например, следующая команда ищет в каждом каталоге диска C файлы, в названии которых присутствует строка «Log», и выводит их постранично на экран:
+
+<noloc><b>dir c:\ /s /b | find "LOG" | more </b></noloc>
+
+Наличие канала (|) указывает Cmd.exe, что выход команды <b>dir</b> нужно отправить команде-фильтру <b>find</b>. Команда <b>find</b> выбирает только те имена файлов, в которых содержится строка «LOG». Команда <b>more</b> выводит на экран имена файлов, полученные командой <b>find</b> с паузой после заполнения каждого экрана.  Дополнительные сведения о командах-фильтрах см. в разделе <a href="http://www.cmdhelp.ru/index.php?cmd=filters">Использование фильтров</a>.
+
+
+
+ <center>[ <a href="javascript:history.go(-1)">Назад</a>]</center>						</td>
+					</tr>
+				</tbody></table>
+				</td>
+				<td background="./Командная строка  Использование операторов перенаправления команд_files/right.png" height="23" width="3"></td>
+			</tr>
+			<tr>
+				<td width="2px" height="3px" background="./Командная строка  Использование операторов перенаправления команд_files/Untitled-12_21.png"></td>
+				<td background="./Командная строка  Использование операторов перенаправления команд_files/Untitled-12_22.png" height="3">
+				</td>
+				<td background="./Командная строка  Использование операторов перенаправления команд_files/Untitled-12_23.png" height="3" width="3"></td>
+			</tr>
+		</tbody></table>
+		</td>
+	</tr>
+</tbody></table>
+
+
+
+<center>
+<!--LiveInternet counter--><script type="text/javascript"><!--
+document.write("<a href='http://www.liveinternet.ru/click' "+
+"target=_blank><img src='http://counter.yadro.ru/hit?t26.6;r"+
+escape(document.referrer)+((typeof(screen)=="undefined")?"":
+";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+";"+Math.random()+
+"' alt='' title='LiveInternet: показано число посетителей за"+
+" сегодня' "+
+"border=0 width=88 height=15><\/a>")//--></script><a href="http://www.liveinternet.ru/click" target="_blank"><img src="./Командная строка  Использование операторов перенаправления команд_files/hit" alt="" title="LiveInternet: показано число посетителей за сегодня" border="0" width="88" height="15"></a><!--/LiveInternet--></center>
+
+
+
+
+
+<div id="wrchoverdiv"><div id="wrccontainer"><div id="wrcheader"><div id="wrctitle"> WebRep</div></div><div class="wrchorizontal"></div><div id="wrccurrentvote">Общий рейтинг</div><div class="wrchorizontal"></div><div id="wrcrating"></div><div id="wrcratingtext">У этого сайта нет рейтинга</div><div id="wrcweighttext">(недостаточно голосов)</div><div id="wrcflags"><div id="wrcicon_shopping" class="wrcicon"></div><div id="wrcicon_social" class="wrcicon"></div><div id="wrcicon_news" class="wrcicon"></div><div id="wrcicon_it" class="wrcicon"></div><div id="wrcicon_corporate" class="wrcicon"></div><div id="wrcicon_pornography" class="wrcicon"></div><div id="wrcicon_violence" class="wrcicon"></div><div id="wrcicon_gambling" class="wrcicon"></div><div id="wrcicon_drugs" class="wrcicon"></div><div id="wrcicon_illegal" class="wrcicon"></div></div><div class="wrchorizontal"></div></div></div></body><span id="skype_highlighting_settings" display="none" autoextractnumbers="1" hightlightingswitched="0"></span><object id="skype_plugin_object" location.href="http://www.cmdhelp.ru/index.php?cmd=redirection" location.hostname="www.cmdhelp.ru" style="position: absolute; visibility: hidden; left: -100px; top: -100px;" width="0" height="0" type="application/x-vnd.skype.click2call.chrome.5.7.0"></object></html>

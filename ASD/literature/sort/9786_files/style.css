@@ -1,0 +1,60 @@
+div.main {margin-left: 20pt; margin-right: 20pt;}
+A:link {FONT: 12px;TEXT-DECORATION: none; color: #8000FF;}
+A:visited {FONT: 12px; TEXT-DECORATION: none; color: #B700B7;}
+A:hover {FONT: 12px;TEXT-DECORATION: underline; color: red;}
+A.menu:link {FONT: 14px verdana,tahoma; FONT-WEIGHT: bold; TEXT-DECORATION: none; color: black;}
+A.menu:visited {FONT: 14px verdana,tahoma; FONT-WEIGHT: bold; TEXT-DECORATION: none; color: black;}
+A.menu:hover {FONT: 14px verdana,tahoma; FONT-WEIGHT: bold; TEXT-DECORATION: underline; color: black;}
+A.top:link {FONT: 10px verdana,tahoma,arial; FONT-WEIGHT: bold; TEXT-DECORATION: none; color: #eff7fb;}
+A.top:visited {FONT: 10px verdana,tahoma,arial; FONT-WEIGHT: bold; TEXT-DECORATION: none; color: #eff7fb;}
+A.top:hover {FONT: 10px verdana,tahoma,arial; FONT-WEIGHT: bold; TEXT-DECORATION: none; background-color:#EFF7FB ; color: black;}
+.cldate {FONT: 11px tahoma,verdana,arial;}
+.fine {FONT: 11px tahoma,verdana,arial;}
+.fine1 {FONT: 12px tahoma,verdana,arial;}
+.boldfine {FONT: 11px tahoma,verdana,arial; FONT-WEIGHT: bold;}
+.uber {FONT: 12px arial,tahoma,verdana; FONT-WEIGHT: bold;}
+.emanual {FONT: 12px tahoma,verdana,arial;}
+.uber_t {FONT: 12px tahoma,verdana,arial;}
+A.ind:link {FONT: 12px arial,verdana,tahoma; FONT-WEIGHT: bold; TEXT-DECORATION: underline; color: #8000FF;}
+A.ind:visited {FONT: 12px arial,verdana,tahoma; FONT-WEIGHT: bold; TEXT-DECORATION:underline; color: #B700B7;}
+A.ind:hover {FONT: 12px arial,verdana,tahoma; FONT-WEIGHT: bold; TEXT-DECORATION: underline; color: gold;}
+A.inds:link {FONT: 11px arial,verdana,tahoma; TEXT-DECORATION: underline; color: #8000FF;}
+A.inds:visited {FONT: 11px arial,verdana,tahoma; TEXT-DECORATION:underline; color: #B700B7;}
+A.inds:hover {FONT: 11px arial,verdana,tahoma; TEXT-DECORATION: underline; color: #0080FF;}
+A.inds1:link {FONT: 12px arial,verdana,tahoma; TEXT-DECORATION: underline; color: #8000FF;}
+A.inds1:visited {FONT: 12px arial,verdana,tahoma; TEXT-DECORATION:underline; color: #B700B7;}
+A.inds1:hover {FONT: 12px arial,verdana,tahoma; TEXT-DECORATION: underline; color: #0080FF;}
+A.y1:link {FONT: 25px arial,verdana,tahoma; FONT-WEIGHT: bold; TEXT-DECORATION: underline; color:  #8000FF;}
+A.y1:visited {FONT: 25px arial,verdana,tahoma; FONT-WEIGHT: bold; TEXT-DECORATION:underline; color: #8000FF ;}
+A.y1:hover {FONT: 25px arial,verdana,tahoma; FONT-WEIGHT: bold; TEXT-DECORATION: underline; color: gold;}
+A.y:link {TEXT-DECORATION: none; color: #8000FF;}
+A.y:visited {TEXT-DECORATION: none; color: #B700B7;}
+A.y:hover {TEXT-DECORATION: underline; color: black;}
+HR {color: #D3EDF6;}
+.uber2 {FONT: 18px verdana,tahoma,arial; FONT-WEIGHT: bold;}
+.dima {FONT: 18px verdana,tahoma,arial; FONT-WEIGHT: bold;}
+
+A.lfine:link {FONT: 11px tahoma,verdana,arial; TEXT-DECORATION: none; color: blue;}
+A.lfine:visited {FONT: 11px tahoma,verdana,arial; TEXT-DECORATION: none; color: #0000CC;}
+A.lfine:hover {FONT: 11px tahoma,verdana,arial; TEXT-DECORATION: underline; color: black;}
+A.smallu:link {TEXT-DECORATION: underline; color: blue;}
+A.smallu:visited {TEXT-DECORATION: underline; color: #0000CC;}
+A.smallu:hover {TEXT-DECORATION: underline; color: black;}
+A.boldsmall:link {FONT: 10px verdana,tahoma,arial; FONT-WEIGHT: bold; TEXT-DECORATION: none; color: blue;}
+A.boldsmall:visited {FONT: 10px verdana,tahoma,arial; FONT-WEIGHT: bold; TEXT-DECORATION: none; color: #0000CC;}
+A.boldsmall:hover {FONT: 10px verdana,tahoma,arial; FONT-WEIGHT: bold; TEXT-DECORATION: underline; color: black;}
+.norm {FONT: 15px 'lucia console',verdana,tahoma;}
+.uber3 {FONT: 12px tahoma,verdana,arial;}
+.klein {FONT: 10px verdana,tahoma,arial;}
+.krat {FONT: 11px tahoma,verdana,arial;  FONT-WEIGHT: bold; color: #0000CC}
+.an{FONT: 12px tahoma,verdana,arial;  color: #000000}
+
+span.navigation-fixed { background: #D3EDF6; padding: 3px 6px; margin: 0px; vertical-align: middle; border: 1px solid #CCCCCC; }
+span.navigation-active { padding: 3px 6px; margin: 0px; vertical-align: middle; border: 1px solid #CCCCCC; cursor: pointer;}
+span.navigation-active:hover { padding: 3px 6px; margin: 0px; vertical-align: middle; border: 1px solid #CCCCCC; cursor: pointer; background: #CCCCCC; }
+span.navigation-arrows { font-size: 30px; vertical-align: middle }
+span.navigation-arrows:hover { color: #0000FF; }
+a.navigation-active-link:hover { text-decoration: none;}
+div.navigation-central-div { text-align: center; vertical-align: middle; padding: 10px; }
+div.navigation-left-div { float: left; height: 30px; }
+div.navigation-right-div { float: right; height: 30px; }

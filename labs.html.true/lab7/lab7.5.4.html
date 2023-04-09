@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+<ol>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ol>
+    <script>
+    let ol = document.querySelector('ol');
+    let li = ol.querySelectorAll('li');
+    for(let i = 0; i < li.length; i++)
+    {
+    li[i].addEventListener('click', function () {
+        ol.removeChild(this);
+    });
+    }
+    </script>	
+</body>
+</html>

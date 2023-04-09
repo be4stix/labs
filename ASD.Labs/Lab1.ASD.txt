@@ -1,0 +1,35 @@
+const
+max=100;
+Var C : array[1..max] of char;
+S : string;
+M : set of 1..max;
+i,n,j,b1 : word;
+vyh : boolean;
+Begin
+writeln('Введите n');												 //O(1)
+readln(n); .														 //O(1)
+Writeln('Задайте символьную таблицу из ',n,' элементов: {не в строку}'); //O(1)
+for i:=1 to n do readln(C[i]);                                       //O(n) .
+Writeln('Введите слово');											 //O(1)
+Readln(S);															 //O(1)
+if length(S)>n then begin writeln('No'); readln; exit end;           //O(1)
+b1:=0;
+M:=[];
+for i:=1 to length(s) do											//O(n)
+	begin
+		vyh:=true;													  //O(1)
+		j:=1;														  //O(1)
+		While vyh and (j<=n) do                                       //O(n)
+			begin
+				if (S[i]=C[j]) and not(j in M) then 				  //O(1)
+				begin            
+				vyh:=false;											  //O(1)
+				M:=M+[j];											  //O(1)
+				end;
+			j:=j+1;														  //O(1)
+			end;
+		if vyh then begin writeln('No'); readln; exit end;                //O(1)		
+	end;
+Writeln('Слово составить можно');									 //O(1)
+readln;																 //O(1)			
+End.		//O(8 + n + n*(3*n + 3)) == O(3n^2 + 4n + 8)

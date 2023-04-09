@@ -1,0 +1,4 @@
+﻿  lab4.cpp
+C:\Users\Сергей\Desktop\Labs.true.C++\lab4\lab4\lab4.cpp(7,1): warning C4326: возвращаемый тип "main" должен быть "int", а не "float"
+C:\Users\Сергей\Desktop\Labs.true.C++\lab4\lab4\lab4.cpp(19,17): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+  lab4.vcxproj -> C:\Users\Сергей\Desktop\Labs.true.C++\lab4\Debug\lab4.exe

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<input type="text" id="input"  >
+ 
+<script type="text/javascript">
+	let input = document.getElementById("input");
+
+	input.addEventListener('blur',function () {
+
+	let newelem = document.createElement('div');
+	newelem.innerHTML = input.value;
+
+	let newcheck = document.createElement('input');
+	newcheck.type = 'checkbox';
+	newcheck.class = 'checks';
+	newcheck.addEventListener('change',function(){
+		
+		if(this.checked == true){
+ 			this.parentElement.style.textDecoration = "line-through";
+ 			this.parentElement.style.color = 'grey';
+ 			this.remove();
+ 		}
+		
+	});
+
+
+	let newbutton = document.createElement('button')
+	newbutton.innerHTML = "x"
+	newbutton.addEventListener('click',function(){
+		 
+		this.parentElement.remove();
+		 
+	})
+
+	  function func() {
+		if(this.checked == true)
+		{
+ 			this.parentElement.style.textDecoration = "line-throuth";
+ 			this.parentElement.style.background = 'grey';
+		}
+	};
+
+	newelem.prepend(newcheck)
+	newelem.append(newbutton)
+	document.body.appendChild(newelem)
+});
+ 
+
+ 
+
+</script>
+</body>
+</html>

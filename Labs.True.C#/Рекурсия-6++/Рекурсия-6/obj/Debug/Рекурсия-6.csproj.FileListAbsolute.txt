@@ -1,0 +1,14 @@
+C:\Users\Сергей\Desktop\Labs.True.C#\Рекурсия-6\Рекурсия-6\bin\Debug\Рекурсия-6.exe.config
+C:\Users\Сергей\Desktop\Labs.True.C#\Рекурсия-6\Рекурсия-6\bin\Debug\Рекурсия-6.exe
+C:\Users\Сергей\Desktop\Labs.True.C#\Рекурсия-6\Рекурсия-6\bin\Debug\Рекурсия-6.pdb
+C:\Users\Сергей\Desktop\Labs.True.C#\Рекурсия-6\Рекурсия-6\obj\Debug\Рекурсия-6.csproj.AssemblyReference.cache
+C:\Users\Сергей\Desktop\Labs.True.C#\Рекурсия-6\Рекурсия-6\obj\Debug\Рекурсия-6.csproj.CoreCompileInputs.cache
+C:\Users\Сергей\Desktop\Labs.True.C#\Рекурсия-6\Рекурсия-6\obj\Debug\Рекурсия-6.exe
+C:\Users\Сергей\Desktop\Labs.True.C#\Рекурсия-6\Рекурсия-6\obj\Debug\Рекурсия-6.pdb
+C:\Users\Сергей\Desktop\Labs.True.C#\Рекурсия-6+\Рекурсия-6\bin\Debug\Рекурсия-6.exe.config
+C:\Users\Сергей\Desktop\Labs.True.C#\Рекурсия-6+\Рекурсия-6\bin\Debug\Рекурсия-6.exe
+C:\Users\Сергей\Desktop\Labs.True.C#\Рекурсия-6+\Рекурсия-6\bin\Debug\Рекурсия-6.pdb
+C:\Users\Сергей\Desktop\Labs.True.C#\Рекурсия-6+\Рекурсия-6\obj\Debug\Рекурсия-6.csproj.AssemblyReference.cache
+C:\Users\Сергей\Desktop\Labs.True.C#\Рекурсия-6+\Рекурсия-6\obj\Debug\Рекурсия-6.csproj.CoreCompileInputs.cache
+C:\Users\Сергей\Desktop\Labs.True.C#\Рекурсия-6+\Рекурсия-6\obj\Debug\Рекурсия-6.exe
+C:\Users\Сергей\Desktop\Labs.True.C#\Рекурсия-6+\Рекурсия-6\obj\Debug\Рекурсия-6.pdb

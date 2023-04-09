@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+
+<input type="number" id = 'input'>
+
+<script type="text/javascript">
+	let input = document.getElementById('input')
+	let numbers = {}
+	input.addEventListener('blur',function () {
+		numbers = this.value.split('');
+		for (let i = 0 ; i < numbers.length ; i++ )
+		{
+			let newelem = document.createElement('input')
+			newelem.value=numbers[i];	 
+			document.body.appendChild(newelem);
+		}
+	})
+	 
+	
+</script>
+</body>
+</html>

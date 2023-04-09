@@ -1,0 +1,18 @@
+; Field Size: x, y
+20 15
+; Robot position: x, y
+16 7
+; A set of special Fields: x, y, Wall, Color, Radiation, Temperature, Symbol, Symbol1, Point
+4 7 12 1 0 0 Z $  
+5 7 12 0 25,180640921546445 0 $ $  
+6 7 12 1 0 0 Z $  
+7 7 12 0 0 0 $ $  
+8 7 12 0 0 0 $ $  
+9 7 12 1 0 0 Z $  
+10 7 12 0 31,266202512786816 0 $ $  
+11 7 12 1 0 0 Z $  
+12 7 12 0 2,8088897945400744 0 $ $  
+13 7 12 1 0 0 Z $  
+14 7 12 0 45,10522007248608 0 $ $  
+15 7 12 1 0 0 Z $  
+; End Of File

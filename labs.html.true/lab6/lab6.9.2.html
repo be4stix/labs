@@ -1,0 +1,26 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>lab6.9.2</title>
+</head>
+<body><p id="button">0</p>
+	<input type="submit" value="Запуск"  onclick="zapusk()">
+	<input type="submit" value="Стоп"  onclick="stop()">
+<script>
+	function zapusk(){
+		window.timerid=window.setInterval(timer, 1000);
+	}
+	function stop()
+	{
+		window.clearInterval(window.timerid)
+	}
+	function timer(){
+		let str = document.getElementById('button');
+		str.innerHTML = parseInt(str.innerHTML)+1;
+	}
+	</script>
+</body>
+</html>
