@@ -1,0 +1,304 @@
+body{
+    margin: 0px;   
+}
+.main{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.header{
+    background-image: url(road-g9875459d1_1920\ 1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+.container{
+    display: flex;
+    padding-top: 30px;
+    justify-content: space-around;
+}
+.logo{
+    padding-left:180px ;
+}
+.menu-item{
+    text-decoration: none;
+    color: #fff;
+    padding-left:50px ;
+    transition: color 0.25s linear;
+}
+.menu-item:hover{
+    color: orangered;
+}
+.lenguage{
+    display: flex;
+    color:#fff;
+}
+.leng{
+    padding: 5px;
+}
+.slogan{
+    color: #fff;
+    font-weight: 700;
+    font-size: 48px;
+    padding-top: 180px ;
+}
+.slogan-button{
+    padding: 12px 48px;
+    color: #fff;
+    background-color: orangered;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 18px;
+    transition: color 0.25s linear;
+}
+.slogan-button-container{
+    padding-top: 50px;
+}
+.slogan-button:hover{
+    color: grey;
+}
+.info{
+    display: flex;
+    padding-top: 100px;
+    justify-content: center;
+}
+.info-item{
+    position: relative;
+    padding-right: 22px;   
+}
+.rec{
+    width: 386px;
+    height: 196px;
+    background-color: white;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
+}
+.info-item-text{
+    padding-top: 20px ;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 27px;
+    letter-spacing: 0.15em;
+}
+.info-item-link{
+    padding-top: 20px ;
+    font-weight: 400;
+    font-size: 18px;
+    text-decoration: none;
+    color: #b7b7b7;
+    transition: color 0.25s linear
+}
+.info-item-link:hover{
+    color:orange;
+}
+.info-item-link2{
+    padding-top: 20px;
+}
+.info-item-body{
+    padding-top: 20px ;
+    position: absolute;
+    top: 30px;
+    left: 60px;
+}
+.services{
+    padding-top: 200px;
+}
+.services-title{
+    font-weight: 700;
+    font-size: 30px;
+    letter-spacing: 0.15em;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+.services-link{
+    text-decoration: none;
+    color: black;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    letter-spacing: 0.15em;
+    text-decoration-line: underline;
+}
+.services-views{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 60px;
+}
+.services-views-item{
+    position: relative;
+}
+.overlay{
+    display: none;
+    left: 0;
+    top:0;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    width: 100%;
+    height: 95%;   
+}
+.overlay-text{
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: 0.23em;
+    text-transform: uppercase;
+    color: #fff;
+}
+.services-views-item:hover .overlay{
+    display: block;
+}
+.services-views-item:hover::before 
+{
+    content: url("plus.png");
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+.services-views-item:hover::after 
+{
+content: "ANNUAL CHECKUPS FROM YOUR PHYSICIAN KEEP YOU IN GOOD HEALTH";
+width: 70%;
+height: auto;
+position: absolute;
+top: 75%;
+left: 10%;
+z-index: 2;
+color: white;
+}
+.services-views-item-text{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 0.23em;
+    text-transform: uppercase;
+}
+
+.about{
+    display: flex;
+    width:100%;
+    height: 665px;
+    background-color: #171616;
+    align-items: center ;
+    margin-top: 200px;
+}
+.container2{
+    padding-left: 125px;
+}
+.about-text-1{
+    width: 60%;
+    text-align: left;
+    font-weight: 700;
+    font-size: 30px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #fff;
+    padding-bottom: 40px;
+}
+.about-text-2{
+    width: 60%;
+    text-align: left;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.23em;
+    color: #fff;
+}
+.about-img{
+    padding-right: 125px;
+}
+.about-link{
+    text-decoration:   underline;
+    color: #fff;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 18px;
+    transition: color 0.3s linear;
+}
+.about-link:hover{
+    color:orange;
+}
+.about-link-container{
+    padding-top: 50px;
+}
+.work-process{
+    text-align: center;
+}
+.work-process-header{
+    font-weight: 900;
+    font-size: 148px;
+    text-transform: uppercase;
+}
+.work-process-underheader{
+    font-weight: 600;
+    font-size: 40px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+.process{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 100px;
+}
+.process-item{
+    background-color: #fff;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
+    width: 386px;
+    height: 150px;
+}
+.process-item-container{
+    padding-right: 22px;
+}
+
+.process-item-text1{
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 15px 30px;
+}
+.process-item-text2{
+    font-weight: 400;
+    font-size: 18px;
+    color: #b7b7b7;
+    text-align: left;
+    padding: 30px 15px;
+    width: 70%;
+    padding: 15px 30px;
+}
+.contacts{
+    width: 100%;
+    height: 665px;
+    background-color: #171616;
+    margin-top: 200px;
+}
+.contacts-header{
+    color: #fff;
+    font-weight: 700;
+    font-size: 30px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding-top: 90px;
+}
+input,textarea{
+    background-color: #171616;
+    border-width: 0px 0px 1px 0px;
+    color: #fff;
+}
+textarea{
+    resize: none;
+}
+.inputs-item{
+    padding: 20px;
+}
+.message{
+    width: 440px;
+    height: 130px;
+}
+.inputs{
+    display: flex;
+    width: 32%;
+}

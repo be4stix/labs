@@ -1,0 +1,99 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat{\fonttbl{\f0\fnil\fcharset0 Consolas;}{\f1\fnil Consolas;}{\f2\fnil\fcharset204 Consolas;}{\f3\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red0\green0\blue255;\red0\green0\blue0;\red128\green128\blue128;\red255\green0\blue0;}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\cf1\f0\fs19\lang1033 1.\f1\lang9 create\cf2  \cf1 table\cf2  \f2\lang1049\'cf\'ee\'ea\'f3\'ef\'e0\'f2\'e5\'eb\'fc\cf3 (\cf2\par
+[\'cd\'ee\'ec\'e5\'f0 \'ef\'ee\'ea\'f3\'ef\'e0\'f2\'e5\'eb\'ff] \cf1\f0\lang1033 int \f2\lang1049 Primary\cf2  \cf1 key\cf3 ,\cf2\par
+\'d4\'e0\'ec\'e8\'eb\'e8\'ff \cf1 nchar\cf3 (\cf2 40\cf3 ),\cf2\par
+\'c8\'ec\'ff \cf1 nchar\cf3 (\cf2 40\cf3 ),\cf2\par
+\'ce\'f2\'f7\'e5\'f1\'f2\'e2\'ee \cf1 nchar\cf3 (\cf2 40\cf3 ),\cf2\par
+\'c3\'ee\'f0\'ee\'e4 \cf1 nchar\cf3 (\cf2 40\cf3 ),\cf2\par
+\'d3\'eb\'e8\'f6\'e0 \cf1 nchar\cf3 (\cf2 40\cf3 ),\cf2\par
+\'c4\'ee\'ec \cf1 nchar\cf3 (\cf2 40\cf3 ),\cf2\par
+\'ca\'e2\'e0\'f0\'f2\'e8\'f0\'e0 \cf1 nchar\cf3 (\cf2 40\cf3 )\cf2\par
+\cf3 )\par
+\f0\lang1033 2.\cf1\f1 create\cf2  \cf1 table\cf2  \f2\lang1049\'cc\'e0\'e3\'e0\'e7\'e8\'ed\cf3 (\cf2\par
+[ID \'ec\'e0\'e3\'e0\'e7\'e8\'ed\'e0] \cf1 int\cf2  \cf1 primary\cf2  \cf1 key\cf3 ,\cf2\par
+\'c3\'ee\'f0\'ee\'e4 \cf1 nchar\cf3 (\cf2 40\cf3 ),\cf2\par
+\'d3\'eb\'e8\'f6\'e0 \cf1 nchar\cf3 (\cf2 40\cf3 ),\cf2\par
+\'c4\'ee\'ec \cf1 nchar\cf3 (\cf2 40\cf3 ),\cf2\par
+[\'d4\'e0\'ec\'e8\'eb\'e8\'ff \'f5\'ee\'e7\'ff\'e8\'ed\'e0]  \cf1 nchar\cf3 (\cf2 40\cf3 ),\cf2\par
+[\'c8\'ec\'ff \'f5\'ee\'e7\'ff\'e8\'ed\'e0] \cf1 nchar\cf3 (\cf2 40\cf3 ),\cf2\par
+[\'ce\'f2\'f7\'e5\'f1\'f2\'e2\'ee \'f5\'ee\'e7\'ff\'e8\'ed\'e0] \cf1 nchar\cf3 (\cf2 40\cf3 ),\cf2\par
+[\'cd\'ee\'ec\'e5\'f0 \'ef\'ee\'ea\'f3\'ef\'e0\'f2\'e5\'eb\'ff] \cf1 int\cf2  \par
+\cf3 )\par
+3.\cf1\f1 create\cf2  \cf1 table\cf2  \f2\'cf\'ee\'f1\'f2\'e0\'e2\'f9\'e8\'ea\cf3 (\cf2\par
+[\'cd\'ee\'ec\'e5\'f0 \'ef\'ee\'f1\'f2\'e0\'e2\'f9\'e8\'ea\'e0] \cf1 int\cf2  \cf1 primary\cf2  \cf1 key\cf3 ,\cf2\par
+[\'cd\'ee\'ec\'e5\'f0 \'ef\'ee\'f1\'f2\'e0\'e2\'ea\'e8] \cf1 int\cf2  \cf3 ,\cf2\par
+\'c3\'ee\'f0\'ee\'e4 \cf1 nchar\cf3 (\cf2 40\cf3 )\cf2\par
+\cf3 )\par
+4.\cf1\f1 create\cf2  \cf1 table\cf2  \f2\'d2\'ee\'e2\'e0\'f0\'fb\cf3 (\cf2\par
+[\'cd\'ee\'ec\'e5\'f0 \'f2\'ee\'e2\'e0\'f0\'e0] \cf1 int\cf2  \cf1 primary\cf2  \cf1 key\cf3 ,\cf2\par
+\'d2\'ee\'e2\'e0\'f0 \cf1 nchar\cf3 (\cf2 40\cf3 )\cf2\par
+\cf3 )\par
+5.\cf1\f1 create\cf2  \cf1 table\cf2  \f2\'cf\'ee\'f1\'f2\'e0\'e2\'ea\'e0\cf3 (\cf2\par
+[\'cd\'ee\'ec\'e5\'f0 \'ef\'ee\'f1\'f2\'e0\'e2\'ea\'e8] \cf1 int\cf2  \cf1 primary\cf2  \cf1 key\cf3 ,\cf2\par
+[ID \'ec\'e0\'e3\'e0\'e7\'e8\'ed\'e0] \cf1 int\cf2  \cf3 ,\cf2\par
+[\'cd\'ee\'ec\'e5\'f0 \'f2\'ee\'e2\'e0\'f0\'e0] \cf1 int\cf2  \cf3 ,\cf2\par
+[\'ca\'ee\'eb\'e8\'f7\'e5\'f1\'f2\'e2\'ee \'f2\'ee\'e2\'e0\'f0\'e0] \cf1 int\cf2  \cf3 ,\cf2\par
+[\'c4\'e0\'f2\'e0 \'ef\'ee\'f1\'f2\'e0\'e2\'ea\'e8] \cf1 date\cf2\par
+\cf3 )\par
+\f0\lang1033 6.\cf1\f1 alter\cf2  \cf1 table\cf2  \f2\lang1049\'cc\'e0\'e3\'e0\'e7\'e8\'ed \cf1 add\cf2  \cf1 Constraint\cf2  fk_\'cc\'e0\'e3\'e0\'e7\'e8\'ed_To_\'cf\'ee\'ea\'f3\'ef\'e0\'f2\'e5\'eb\'fc \cf1 Foreign\cf2  \cf1 key \cf3 (\cf2 [\'cd\'ee\'ec\'e5\'f0 \'ef\'ee\'ea\'f3\'ef\'e0\'f2\'e5\'eb\'ff]\cf3 )\cf2  \cf1 References\cf2  \'cf\'ee\'ea\'f3\'ef\'e0\'f2\'e5\'eb\'fc\cf3 (\cf2 [\'cd\'ee\'ec\'e5\'f0 \'ef\'ee\'ea\'f3\'ef\'e0\'f2\'e5\'eb\'ff]\cf3 )\par
+7.\cf1\f1 alter\cf2  \cf1 table\cf2  \f2\'cf\'ee\'f1\'f2\'e0\'e2\'ea\'e0 \cf1 add\cf2  \cf1 Constraint\cf2  fk_\'cf\'ee\'f1\'f2\'e0\'e2\'ea\'e0_To_\'cc\'e0\'e3\'e0\'e7\'e8\'ed \cf1 Foreign\cf2  \cf1 key \cf3 (\cf2 [ID \'ec\'e0\'e3\'e0\'e7\'e8\'ed\'e0]\cf3 )\cf2  \cf1 References\cf2  \'cc\'e0\'e3\'e0\'e7\'e8\'ed\cf3 (\cf2 [ID \'ec\'e0\'e3\'e0\'e7\'e8\'ed\'e0]\cf3 )\par
+8.\cf1\f1 alter\cf2  \cf1 table\cf2  \f2\'cf\'ee\'f1\'f2\'e0\'e2\'f9\'e8\'ea \cf1 add\cf2  \cf1 Constraint\cf2  fk_\'cf\'ee\'f1\'f2\'e0\'e2\'f9\'e8\'ea_To_\'cf\'ee\'f1\'f2\'e0\'e2\'ea\'e0 \cf1 Foreign\cf2  \cf1 key \cf3 (\cf2 [\'cd\'ee\'ec\'e5\'f0 \'ef\'ee\'f1\'f2\'e0\'e2\'ea\'e8]\cf3 )\cf2  \cf1 References\cf2  \'cf\'ee\'f1\'f2\'e0\'e2\'ea\'e0\cf3 (\cf2 [\'cd\'ee\'ec\'e5\'f0 \'ef\'ee\'f1\'f2\'e0\'e2\'ea\'e8]\cf3 )\par
+9.\cf1\f1 alter\cf2  \cf1 table\cf2  \f2\'cf\'ee\'f1\'f2\'e0\'e2\'ea\'e0 \cf1 add\cf2  \cf1 Constraint\cf2  fk_\'cf\'ee\'f1\'f2\'e0\'e2\'ea\'e0_To_\'d2\'ee\'e2\'e0\'f0\'fb \cf1 Foreign\cf2  \cf1 key \cf3 (\cf2 [\'cd\'ee\'ec\'e5\'f0 \'d2\'ee\'e2\'e0\'f0\'e0]\cf3 )\cf2  \cf1 References\cf2  \'d2\'ee\'e2\'e0\'f0\'fb\cf3 (\cf2 [\'cd\'ee\'ec\'e5\'f0 \'f2\'ee\'e2\'e0\'f0\'e0]\cf3 )\par
+10.\cf1\f1 insert\cf2  \cf1 into\cf2  \f2\'cf\'ee\'f1\'f2\'e0\'e2\'f9\'e8\'ea\par
+\cf1 values\cf2\par
+\cf3 (\cf2 1001\cf3 ,\cf2 2001\cf3 ,\cf4 '\'cc\'e8\'ed\'f1\'ea'\cf3 ),\cf2\par
+\cf3 (\cf2 1002\cf3 ,\cf2 2002\cf3 ,\cf4 '\'c1\'f0\'e5\'f1\'f2'\cf3 ),\cf2\par
+\cf3 (\cf2 1003\cf3 ,\cf2 2002\cf3 ,\cf4 '\'c3\'ee\'ec\'e5\'eb\'fc'\cf3 ),\cf2\par
+\cf3 (\cf2 1004\cf3 ,\cf2 2003\cf3 ,\cf4 '\'cc\'ee\'e3\'e8\'eb\'b8\'e2'\cf3 ),\cf2\par
+\cf3 (\cf2 1005\cf3 ,\cf2 2004\cf3 ,\cf4 '\'cf\'e8\'ed\'f1\'ea'\cf3 ),\cf2\par
+\cf3 (\cf2 1006\cf3 ,\cf2 2005\cf3 ,\cf4 '\'c1\'f0\'e5\'f1\'f2'\cf3 ),\cf2\par
+\cf3 (\cf2 1007\cf3 ,\cf2 2005\cf3 ,\cf4 '\'cc\'e8\'ed\'f1\'ea'\cf3 ),\cf2\par
+\cf3 (\cf2 1008\cf3 ,\cf2 2006\cf3 ,\cf4 '\'c3\'f0\'ee\'e4\'ed\'ee'\cf3 ),\cf2\par
+\cf3 (\cf2 1009\cf3 ,\cf2 2007\cf3 ,\cf4 '\'cf\'ee\'eb\'ee\'f6\'ea'\cf3 ),\cf2\par
+\cf3 (\cf2 1010\cf3 ,\cf2 2008\cf3 ,\cf4 '\'cc\'e8\'f0'\cf3 )\par
+11.\cf1\f1 insert\cf2  \cf1 into\cf2  \f2\'d2\'ee\'e2\'e0\'f0\'fb\par
+\cf1 values\cf2\par
+\cf3 (\cf2 3001\cf3 ,\cf4 '\'d0\'f3\'f7\'ea\'e0'\cf3 ),\cf2\par
+\cf3 (\cf2 3002\cf3 ,\cf4 '\'ca\'e0\'f0\'e0\'ed\'e4\'e0\'f8'\cf3 ),\cf2\par
+\cf3 (\cf2 3003\cf3 ,\cf4 '\'cb\'e8\'f1\'f2 \'e1\'f3\'ec\'e0\'e3\'e8'\cf3 ),\cf2\par
+\cf3 (\cf2 3004\cf3 ,\cf4 '\'d2\'e5\'f2\'f0\'e0\'e4\'fc'\cf3 ),\cf2\par
+\cf3 (\cf2 3005\cf3 ,\cf4 '\'c4\'ed\'e5\'e2\'ed\'e8\'ea\'e8'\cf3 ),\cf2\par
+\cf3 (\cf2 3006\cf3 ,\cf4 '\'d1\'f2\'f3\'eb'\cf3 ),\cf2\par
+\cf3 (\cf2 3007\cf3 ,\cf4 '\'cd\'ee\'f3\'f2\'e1\'f3\'ea'\cf3 ),\cf2\par
+\cf3 (\cf2 3008\cf3 ,\cf4 '\'d6\'e8\'f0\'ea\'f3\'eb\'fc'\cf3 ),\cf2\par
+\cf3 (\cf2 3009\cf3 ,\cf4 '\'d2\'e5\'eb\'e5\'f4\'ee\'ed'\cf3 ),\cf2\par
+\cf3 (\cf2 3010\cf3 ,\cf4 '\'ca\'ed\'e8\'e3\'e0'\cf3 )\par
+\f0\lang1033 12.\cf1\f1 insert\cf2  \cf1 into\cf2  \f2\lang1049\'cf\'ee\'f1\'f2\'e0\'e2\'ea\'e0\par
+\cf1 values\cf2\par
+\cf3 (\cf2\f0\lang1033 2\f2\lang1049 001\cf3 ,\cf2 5001\cf3 ,\cf2 3002\cf3 ,\cf2 200\cf3 ,\cf4 '11/4/2019'\cf3 ),\cf2\par
+\cf3 (\cf2\f0\lang1033 2\f2\lang1049 002\cf3 ,\cf2 5002\cf3 ,\cf2 3007\cf3 ,\cf2 50\cf3 ,\cf4 '11/4/2019'\cf3 ),\cf2\par
+\cf3 (\cf2\f0\lang1033 2\f2\lang1049 003\cf3 ,\cf2 5002\cf3 ,\cf2 3003\cf3 ,\cf2 4000\cf3 ,\cf4 '17/8/2018'\cf3 ),\cf2\par
+\cf3 (\cf2\f0\lang1033 2\f2\lang1049 004\cf3 ,\cf2 5003\cf3 ,\cf2 3008\cf3 ,\cf2 100\cf3 ,\cf4 '15/5/2020'\cf3 ),\cf2\par
+\cf3 (\cf2\f0\lang1033 2\f2\lang1049 005\cf3 ,\cf2 5003\cf3 ,\cf2 3009\cf3 ,\cf2 20\cf3 ,\cf4 '5/4/2019'\cf3 ),\cf2\par
+\cf3 (\cf2\f0\lang1033 2\f2\lang1049 006\cf3 ,\cf2 5004\cf3 ,\cf2 3010\cf3 ,\cf2 50\cf3 ,\cf4 '6/6/2022'\cf3 ),\cf2\par
+\cf3 (\cf2\f0\lang1033 2\f2\lang1049 007\cf3 ,\cf2 5005\cf3 ,\cf2 3004\cf3 ,\cf2 400\cf3 ,\cf4 '3/4/2017'\cf3 ),\cf2\par
+\cf3 (\cf2\f0\lang1033 2\f2\lang1049 008\cf3 ,\cf2 5006\cf3 ,\cf2 3006\cf3 ,\cf2 30\cf3 ,\cf4 '11/4/2019'\cf3 ),\cf2\par
+\cf3 (\cf2\f0\lang1033 2\f2\lang1049 009\cf3 ,\cf2 5001\cf3 ,\cf2 3005\cf3 ,\cf2 100\cf3 ,\cf4 '11/4/2019'\cf3 ),\cf2\par
+\cf3 (\cf2\f0\lang1033 2\f2\lang1049 010\cf3 ,\cf2 5006\cf3 ,\cf2 3007\cf3 ,\cf2 50\cf3 ,\cf4 '11/4/2019'\cf3 )\cf2\par
+13.\cf1\f1 insert\cf2  \cf1 into\cf2   \f2\'cc\'e0\'e3\'e0\'e7\'e8\'ed\par
+\cf1 values\cf2\par
+\cf3 (\cf2 5001\cf3 ,\cf4 '\'c1\'f0\'e5\'f1\'f2'\cf3 ,\cf4 '\'cf\'f3\'f8\'ea\'e8\'ed\'e0'\cf3 ,\cf4 '88'\cf3 ,\cf4 '\'ca\'ee\'ed\'e4\'e5\'f0\'e5\'f8\'ea\'ee'\cf3 ,\cf4 '\'d1\'e5\'f0\'e3\'e5\'e9'\cf3 ,\cf4 '\'cc\'e8\'f5\'e0\'e9\'eb\'ee\'e2\'e8\'f7'\cf3 ,\cf2 6001\cf3 ),\cf2\par
+\cf3 (\cf2 5002\cf3 ,\cf4 '\'c3\'f0\'ee\'e4\'ed\'ee'\cf3 ,\cf4 '\'ca\'e0\'f0\'e1\'fb\'f8\'e5\'e2\'e0'\cf3 ,\cf4 '88'\cf3 ,\cf4 '\'c3\'eb\'ee\'e2\'ea\'ee'\cf3 ,\cf4 '\'c0\'ed\'ed\'e0'\cf3 ,\cf4 '\'cc\'e8\'f5\'e0\'e9\'eb\'ee\'e2\'ed\'e0'\cf3 ,\cf2 6002\cf3 ),\cf2\par
+\cf3 (\cf2 5003\cf3 ,\cf4 '\'c1\'f0\'e5\'f1\'f2'\cf3 ,\cf4 '\'cf\'f3\'f8\'ea\'e8\'ed\'e0'\cf3 ,\cf4 '32'\cf3 ,\cf4 '\'ca\'ee\'ed\'e4\'e5\'f0\'e5\'f8\'ea\'ee'\cf3 ,\cf4 '\'d1\'e5\'f0\'e3\'e5\'e9'\cf3 ,\cf4 '\'cc\'e8\'f5\'e0\'e9\'eb\'ee\'e2\'e8\'f7'\cf3 ,\cf2 6003\cf3 ),\cf2\par
+\cf3 (\cf2 5004\cf3 ,\cf4 '\'c1\'f0\'e5\'f1\'f2'\cf3 ,\cf4 '\'cf\'f3\'f8\'ea\'e8\'ed\'e0'\cf3 ,\cf4 '88'\cf3 ,\cf4 '\'ca\'ee\'ed\'e4\'e5\'f0\'e5\'f8\'ea\'ee'\cf3 ,\cf4 '\'d1\'e5\'f0\'e3\'e5\'e9'\cf3 ,\cf4 '\'cc\'e8\'f5\'e0\'e9\'eb\'ee\'e2\'e8\'f7'\cf3 ,\cf2 6004\cf3 ),\cf2\par
+\cf3 (\cf2 5005\cf3 ,\cf4 '\'cc\'e8\'ed\'f1\'ea'\cf3 ,\cf4 '\'d1\'ee\'e2\'e5\'f2\'f1\'ea\'e0\'ff'\cf3 ,\cf4 '22'\cf3 ,\cf4 '\'c1\'e0\'e7\'e5\'e2\'e8\'f7'\cf3 ,\cf4 '\'c4\'e0\'e2\'e8\'e4'\cf3 ,\cf4 '\'cc\'e8\'f5\'e0\'e9\'eb\'ee\'e2\'e8\'f7'\cf3 ,\cf2 6004\cf3 ),\cf2\par
+\cf3 (\cf2 5006\cf3 ,\cf4 '\'cc\'e8\'ed\'f1\'ea'\cf3 ,\cf4 '\'d1\'ee\'e2\'e5\'f2\'f1\'ea\'e0\'ff'\cf3 ,\cf4 '22'\cf3 ,\cf4 '\'c1\'e0\'e7\'e5\'e2\'e8\'f7'\cf3 ,\cf4 '\'c4\'e0\'e2\'e8\'e4'\cf3 ,\cf4 '\'cc\'e8\'f5\'e0\'e9\'eb\'ee\'e2\'e8\'f7'\cf3 ,\cf2 6005\cf3 )\cf2\par
+\par
+ \f0\lang1033 14.\cf1\f1 insert\cf2  \cf1 into\cf2   \f2\lang1049\'cf\'ee\'ea\'f3\'ef\'e0\'f2\'e5\'eb\'fc\par
+\cf1 values\cf2\par
+\cf3 (\cf2 6001\cf3 ,\cf4 '\'d1\'e5\'eb\'fe\'e6\'e8\'f6\'ea\'e8\'e9'\cf3 ,\cf4 '\'d1\'f2\'e0\'ed\'e8\'f1\'eb\'e0\'e2'\cf3 ,\cf4 '\'c3\'f0\'e8\'e3\'ee\'f0\'fc\'e5\'e2\'e8\'f7'\cf3 ,\cf4 '\'cf\'e8\'ed\'f1\'ea'\cf3 ,\cf4 '\'cf\'e0\'f0\'f2\'e8\'e7\'e0\'ed'\cf3 ,\cf4 '43'\cf3 ,\cf4 '2'\cf3 ),\cf2\par
+\cf3 (\cf2 6002\cf3 ,\cf4 '\'df\'e4\'eb\'ee\'e2\'f1\'ea\'e0\'ff'\cf3 ,\cf4 '\'de\'eb\'e8\'ff'\cf3 ,\cf4 '\'c0\'ed\'e4\'f0\'e5\'e5\'e2\'ed\'e0'\cf3 ,\cf4 '\'c3\'f0\'ee\'e4\'ed\'ee'\cf3 ,\cf4 '\'d1\'ee\'e2\'e5\'f2\'f1\'ea\'e0\'ff'\cf3 ,\cf4 '75'\cf3 ,\cf4 '--'\cf3 ),\cf2\par
+\cf3 (\cf2 6003\cf3 ,\cf4 '\'c1\'ee\'f0\'e5\'e9\'ea\'ee'\cf3 ,\cf4 '\'c8\'eb\'fc\'ff'\cf3 ,\cf4 '\'c2\'e0\'eb\'e5\'f0\'fc\'e5\'e2\'e8\'f7'\cf3 ,\cf4 '\'ca\'e0\'ec\'e5\'ed\'e5\'f6'\cf3 ,\cf4 '\'de\'e1\'e8\'eb\'e5\'e9\'ed\'e0\'ff'\cf3 ,\cf4 '35'\cf3 ,\cf4 '23'\cf3 ),\cf2\par
+\cf3 (\cf2 6004\cf3 ,\cf4 '\'cb\'f3\'ea\'e0\'f8\'e5\'e2\'e8\'f7'\cf3 ,\cf4 '\'cd\'e8\'ea\'e8\'f2\'e0'\cf3 ,\cf4 '\'c0\'ed\'e4\'f0\'e5\'e5\'e2\'e8\'f7'\cf3 ,\cf4 '\'c1\'f0\'e5\'f1\'f2'\cf3 ,\cf4 '\'d1\'ee\'e2\'e5\'f2\'f1\'ea\'e0\'ff'\cf3 ,\cf4 '33'\cf3 ,\cf4 '--'\cf3 ),\cf2\par
+\cf3 (\cf2 6005\cf3 ,\cf4 '\'cc\'e0\'f0\'ea\'ee\'e2\'e5\'f6'\cf3 ,\cf4 '\'cc\'e0\'f2\'e2\'e5\'e9'\cf3 ,\cf4 '\'c0\'eb\'e5\'ea\'f1\'e0\'e4\'f0\'ee\'e2\'e8\'f7'\cf3 ,\cf4 '\'c1\'f0\'e5\'f1\'f2'\cf3 ,\cf4 '\'c4\'e7\'e5\'f0\'e6\'e8\'ed\'f1\'ea\'ee\'e3\'ee'\cf3 ,\cf4 '3'\cf3 ,\cf4 '44'\cf3 )\cf2\par
+\par
+\cf0\f3\fs22\lang9\par
+}
+ 

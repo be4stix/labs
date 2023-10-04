@@ -1,0 +1,124 @@
+body{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment:fixed ;
+    
+}
+.container{
+    margin: 50px 100px;
+}
+.header{
+    display: flex;
+}
+.log_name{
+    display: block;
+    justify-content: center ;
+}
+.main_menu{
+    display: flex;
+    margin-left: 500px;
+}
+.menu_item{
+    color: white;
+    padding: 10px 40px;
+    margin: 20px;
+    text-decoration: none;
+    background-color: burlywood;
+    transition: all 0.25s ease-in-out;
+    
+    border-radius: 20px;
+}
+.menu_item:hover{
+    color: orangered;
+    transform:  scale(1.2);
+
+}
+.first_about{
+    display: flex;
+    margin-top: 300px;
+    background-color: antiquewhite;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: left;
+}
+.first_about_head{
+    font-size: 40px;
+}
+.first_about_text{
+    font-size: 20px;
+   
+}
+.first_about_text_list{
+    font-size: 19px;
+}
+.first_about_photo{
+    width: 450px;
+    margin: 30px;
+    border: 6px bisque solid;
+}
+.second_about_photo{
+    width: 450px;
+    margin: 30px;
+    border: 6px bisque solid;
+}
+.second_about{
+    display: flex;
+    margin-top: 100px;
+    background-color: antiquewhite;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: left;
+}
+.second_about_head{
+    font-size: 40px;
+}
+.second_about_text{
+    font-size: 20px;
+   
+}
+.second_about_text_list{
+    font-size: 19px;
+}
+.subscribe{
+    margin-top: 100px;
+    background-color: antiquewhite;
+    padding: 20px;
+    border-radius: 20px;
+    align-items: center;
+    text-align: center;
+}
+.subscribe_link{
+    text-decoration: none;
+    color: black    ;
+    font-size: 40px;
+    transition: all 0.25s linear;
+
+}
+.subscribe_link:hover{
+    color: orangered;
+    transform:  scale(1.2);
+    
+}
+.socials{
+    margin-top: 40px;
+    background-color: bisque;
+    padding: 20px;
+    border-radius: 20px;
+    display:flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+.socials_text{
+    font-size: 40px;
+}
+.insta_link{
+    text-decoration: none;
+    color:burlywood;
+    transition: all 0.25s linear;
+
+}
+.insta_link:hover{
+    color: orangered;
+    
+}
